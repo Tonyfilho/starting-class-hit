@@ -11,3 +11,4 @@ style.css adcionamos os style globais
 component.css
 dentro da tag style={...}
 no arquivo index adcionamos as fonts do projeto
+feita  conf. do css global no arquivo app.component.css
