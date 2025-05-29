@@ -17,4 +17,11 @@ OBS: Inicio a ao conhecimento sobre API de rotas
 2º falaremos sobre routelink="...." que fica dentro do componente header.html
 temos que importar seu "Module".
 Estudar JS Objetos e JS Array ou List
+# Aula 03 
+configurar o app Main e Footer. E no Footer
+instalação do LUXON  npm install luxon, npm install --save-dev @types/luxon, falaremos sobre inicio de encapsulamento.
+Criação construtor do ANGULAR e não JS.
+Inicio a injeção de depedencia. e tipo de injeção().
+Falaremos sobre injeção de depedencia usando o ROUTER como exemplo. this.router.navigate(['/hit-class/project']); this.router.navigateByUrl('/hit-class/project');
+
 
