@@ -26,4 +26,10 @@ Falaremos sobre injeção de depedencia usando o ROUTER como exemplo. this.route
 Inicio sobre interpolação {{....}} Obs: Interpolação somente para .HTML
 inicio sobre  Template Literals  `${....}` Obs: Template Literals somente para .TS
 
+# Aula 04
+1º Copiar o template para outro projeto do git.
+2º continuação da aula sobre rotas, no arquivo app.routes.ts
+
+
+
 
