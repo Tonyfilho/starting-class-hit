@@ -16,6 +16,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --text-color-light: aliceblue;
     --secondary-color: rgba(204, 33, 33, 0.959);
     --text-color: rgba(0, 0, 0, 0.726);
+    --text-color-h3: #4caf50;
     --text-hover: rgba(13, 102, 236, 0.726);
     --text-hover2: #007bff;
     --text-color-focus:rgba(0, 123, 255, 0.3);

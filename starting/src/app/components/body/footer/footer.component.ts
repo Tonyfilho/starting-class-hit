@@ -25,6 +25,7 @@ export class FooterComponent implements OnInit {
 
   // Construtor do Angular
   ngOnInit(): void {
+    console.log(`Eu sou Template Literal:  ${this.dateTime.day}`);
   }
 
   /**Uso quando tenho um botão no html que precisa mudar de rota assim que for clicado */
@@ -37,6 +38,7 @@ export class FooterComponent implements OnInit {
   changeRouterN = () => {
     this.router.navigate(['/hit-class/project']);
     this.routerinject.navigate(['/hit-class/project']);
+    
   }
 
 
