@@ -23,5 +23,6 @@ instalação do LUXON  npm install luxon, npm install --save-dev @types/luxon, f
 Criação construtor do ANGULAR e não JS.
 Inicio a injeção de depedencia. e tipo de injeção().
 Falaremos sobre injeção de depedencia usando o ROUTER como exemplo. this.router.navigate(['/hit-class/project']); this.router.navigateByUrl('/hit-class/project');
+Inicio sobre interpolação {{....}}
 
 
