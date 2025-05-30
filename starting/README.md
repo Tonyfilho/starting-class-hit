@@ -30,8 +30,16 @@ inicio sobre  Template Literals  `${....}` Obs: Template Literals somente para .
 1º criação do components home, projects
 2º continuação da aula sobre rotas, no arquivo app.routes.ts
 3º Explicação sobre rotas comuns e loadlazy
-4º Evento de (click)="....."
+4º Evento de (click)="....." e outros
+
+# Aula 05
+configuração do do firebase hosting : https://console.firebase.google.com/
+
+
+
 º Copiar o template para outro projeto do git.
+
+
 
 
 

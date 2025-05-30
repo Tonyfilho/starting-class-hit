@@ -1,11 +1,11 @@
 .not-found-card {
   position: relative;
-  width: 100%;
+  width: 96vw;
   min-height: 80vh;
   background-image: url('./../../../assets/img/background/not-found.png'); /* substitua com o caminho real */
   background-size: cover;
   background-position: center;
-  border-radius: var(--border-radius);
+  /* border-radius: var(--border-radius); */
   box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
@@ -42,8 +42,8 @@
 
 .go-back {
   position: absolute;
-  top: 1rem;
-  right: 1rem;
+  top: 4rem;
+  right: 4rem;
   z-index: 2;
   background-color: var(--primary-color);
   color: var(--text-color-light);

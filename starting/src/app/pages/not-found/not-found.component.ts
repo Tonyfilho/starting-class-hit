@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -7,8 +8,10 @@ import { Component } from '@angular/core';
   styleUrl: './not-found.component.css'
 })
 export class NotFoundComponent {
+  private router = inject(Router);
+ 
 goBack() {
-throw new Error('Method not implemented.');
+    this.router.navigateByUrl('/home');
 }
 
 }
