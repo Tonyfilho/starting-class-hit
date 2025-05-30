@@ -29,6 +29,8 @@ inicio sobre  Template Literals  `${....}` Obs: Template Literals somente para .
 # Aula 04
 1º criação do components home, projects
 2º continuação da aula sobre rotas, no arquivo app.routes.ts
+3º Explicação sobre rotas comuns e loadlazy
+4º Evento de (click)="....."
 º Copiar o template para outro projeto do git.
 
 

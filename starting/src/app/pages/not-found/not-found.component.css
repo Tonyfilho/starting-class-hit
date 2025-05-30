@@ -1,0 +1,78 @@
+.not-found-card {
+  position: relative;
+  width: 100%;
+  min-height: 80vh;
+  background-image: url('./../../../assets/img/background/not-found.png'); /* substitua com o caminho real */
+  background-size: cover;
+  background-position: center;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-color-light);
+  font-family: var(--main-font-family);
+}
+
+.not-found-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4); /* overlay para contraste */
+  border-radius: var(--border-radius);
+  z-index: 1;
+}
+
+.not-found-content {
+  position: relative;
+  z-index: 2;
+}
+
+.not-found-content h1 {
+  font-size: var(--main-font-size);
+  margin-bottom: 1rem;
+}
+
+.not-found-content p {
+  font-size: var(--main-font-size2);
+}
+
+.go-back {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+}
+
+.go-back:hover {
+  background-color: var(--text-hover2);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .not-found-content h1 {
+    font-size: 2rem;
+  }
+
+  .not-found-content p {
+    font-size: 1.2rem;
+  }
+
+  .go-back {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
