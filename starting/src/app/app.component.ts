@@ -1,8 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FooterComponent } from './components/body/footer/footer.component';
-import { HeaderComponent } from './components/body/header/header.component';
-import { MainComponent } from './components/body/main/main.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from './components/main/main.component';
+import { FooterComponent } from './components/footer/footer.component';
+
 
 
 
