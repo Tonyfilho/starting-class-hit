@@ -36,9 +36,16 @@ inicio sobre  Template Literals  `${....}` Obs: Template Literals somente para .
 configuração do do firebase hosting : https://console.firebase.google.com/
 
 # Aula 06
-Crianção dos componentes de nivelamento e suas tags
+Crianção dos componentes de nivelamento e suas tags.
+Estrutura de controle
+1. inicio sobre Diretiva [ngClass].
+2. Ternario.
+3. If e Else.
+4. For of
+Operadores
 
-º Copiar o template para outro projeto do git.
+
+
 
 
 

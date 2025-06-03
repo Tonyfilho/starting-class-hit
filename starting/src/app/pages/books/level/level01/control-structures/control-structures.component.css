@@ -1,0 +1,55 @@
+.age-checker-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  font-family: var(--main-font-family);
+}
+
+.age-checker-card {
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: var(--transition);
+  width: 300px;
+  background: var(--background-color-sections);
+}
+
+.age-checker-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.age-checker-card.adult {
+  border-top: 4px solid var(--primary-color);
+}
+
+.age-checker-card.minor {
+  border-top: 4px solid var(--secondary-color);
+}
+
+.age-title {
+  color: var(--text-color);
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+}
+
+.age-result {
+  color: var(--text-color);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+.age-icon {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.age-checker-card.adult .age-icon {
+  color: var(--primary-color);
+}
+
+.age-checker-card.minor .age-icon {
+  color: var(--secondary-color);
+}
