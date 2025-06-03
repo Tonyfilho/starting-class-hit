@@ -35,7 +35,8 @@ inicio sobre  Template Literals  `${....}` Obs: Template Literals somente para .
 # Aula 05
 configuração do do firebase hosting : https://console.firebase.google.com/
 
-
+# Aula 06
+Crianção dos componentes de nivelamento e suas tags
 
 º Copiar o template para outro projeto do git.
 
