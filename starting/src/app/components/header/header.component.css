@@ -26,9 +26,9 @@
 }
 
 .local-header-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    font-weight: 700;
+   font-size: 2.5rem;
+   margin-bottom: 1rem;
+   font-weight: 700;
 }
 
 .local-header-content p {
@@ -37,6 +37,21 @@
     max-width: 800px;
     margin: 0 auto;
 }
+
+.nav-content {
+    min-height: 80px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 25px;
+     background-color: var(--background-color-sections2);
+    background-size: var(--animation-background-size);
+    animation: var(--animation-background-size);
+    height: max-content;
 
 .nav-content {
   display: flex;
