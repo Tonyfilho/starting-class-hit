@@ -26,7 +26,7 @@
 }
 
 .local-header-content h1 {
-   font-size: 2.5rem;   
+   font-size: 2.5rem;
    margin-bottom: 1rem;
    font-weight: 700;
 }
@@ -39,7 +39,7 @@
 }
 
 
-.nav-content {   
+.nav-content {
     min-height: 80px;
     margin: 0 auto;
     padding: 0 16px;
@@ -58,7 +58,7 @@
 
 .logo-link {
     margin: 1%;
-    font-size: 1.5rem;
+    font-size: 0.9rem;
     font-weight: bold;
     text-decoration: none;
     letter-spacing: 0.5px;
