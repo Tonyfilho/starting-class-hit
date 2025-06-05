@@ -55,16 +55,16 @@ Operadores
 1. atualização do <app-header>, passando a reenderizar os components filhos.
 O header assim que passar o mouse vai mostrar as rotas filhas.
 
-
 # Aula 08
+1. criar os componentes Angular, Git, Nivelamento, Solid e seu components filhos
+2. instrodução as rotas Filhas. 
+
+# Aula 09
 1.  Inicio ao conceito de Services, e criação do services, weather e reqres.in
 2.  Resquest em uma API, fazer o cadastro na API https://www.weatherapi.com/my/ e https://reqres.in/
 3. criação do Metodo Get que retorna uma Promise e o Get que retorna um Observable.
 4. cadastro no no site da APIs
 
-# Aula 09
-1. criar os componentes Angular, Git, Nivelamento, Solid e seu components filhos
-2. instrodução as rotas Filhas. 
 
 # Aula 11
 1. criar o componente  de rota da API , bem sua rota e subscriber na api weather

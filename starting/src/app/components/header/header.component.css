@@ -52,7 +52,7 @@
     background-size: var(--animation-background-size);
     animation: var(--animation-background-size);
     height: max-content;
-
+}
 .nav-content {
   display: flex;
   justify-content: center;
