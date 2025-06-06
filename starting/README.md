@@ -67,9 +67,12 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 
 
 # Aula 11
-1. criar o componente  de rota da API , bem sua rota e subscriber na api weather
+1. criar o componente  de rota da API , bem sua rota e subscriber na api weather.
+
 # Aula 12
-1. introdução ao Observables, criação component Observable. Update Header link Asynchronous.
+1. introdução ao Observables, criação component Observable. Update Header links para Asynchronous. Observable e Promise.
+
+
 
 
 
