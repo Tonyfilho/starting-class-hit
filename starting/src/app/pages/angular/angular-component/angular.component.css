@@ -1,0 +1,29 @@
+.container{
+    padding: 2rem;
+    font-size: 15px;
+}
+
+
+.topic {
+      background: var(--background-color-sections);
+      margin-bottom: 1rem;
+      padding: 1rem;
+      border-radius: var(--border-radius);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
+}
+
+.topic:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.code {
+    display: block;
+    background-color: var(--background-color-code);
+    color: var(--text-color-light);
+    padding: .75rem;
+    border-radius: 4px;
+    margin: .4rem 0;
+    overflow-x: auto;
+    font-size: 0.7rem;
+}
