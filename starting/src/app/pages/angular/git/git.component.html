@@ -1,1 +1,105 @@
-<p>git works!</p>
+<div class="container">
+    <h2>Getting Started with Angular</h2>
+    <p>Congratulations on starting your Angular journey! Angular is a powerful platform for building web applications. This application demonstrates the core features of Angular with a responsive design.</p>
+    <br>
+    <h3>Git & SSH Configuration Guide for Angular Projects</h3>
+
+    <section class="topic">
+        <h4>1. Install Git</h4>
+        <p>Before version controlling your Angular project, you need to install Git:</p>
+
+        <h5>For Windows 11:</h5>
+        <li>Download from <b>https://git-scm.com/download/win</b></li>
+        <li>Run the installer with default options</li>
+
+        <h5>For Linux (Ubuntu/Debian):</h5>
+        <div class="code">
+            <p>sudo apt update<br>sudo apt install git</p>
+        </div>
+
+        <p>Verify installation in terminal:</p>
+        <div class="code">
+            <p>git --version</p>
+        </div>
+    </section>
+
+    <section class="topic">
+        <h4>2. Configure Git</h4>
+        <p>Set up your global Git configuration:</p>
+        <div class="code">
+            <p>git config --global user.name "Your Name"<br>
+            git config --global user.email {{"your@email.com"}}</p>
+        </div>
+    </section>
+
+    <section class="topic">
+        <h4>3. Generate SSH Keys</h4>
+        <div class="image-container">
+            <img src="./../../../../assets/img/background/Imagem_windows_SSH.png" alt="SSH key generation in terminal">
+        </div>
+        <p>Create secure authentication keys for GitHub:</p>
+
+        <h5>For both Windows and Linux:</h5>
+        <div class="code">
+            <p>ssh-keygen -t ed25519 -C {{"your@email.com"}}<br>
+            eval "$(ssh-agent -s)"<br>
+            ssh-add ~/.ssh/id_ed25519</p>
+        </div>
+
+        <p>For RSA (alternative):</p>
+        <div class="code">
+            <p>ssh-keygen -t rsa -b 4096 -C {{"your@email.com"}}</p>
+        </div>
+    </section>
+
+    <section class="topic">
+        <h4>4. Configure SSH in GitHub</h4>
+        <div class="image-container">
+            <img src="./../../../../assets/img/background/Imagem_git_SSH.png" alt="GitHub SSH settings page">
+        </div>
+        <p>Add your SSH key to GitHub:</p>
+
+        <h5>Copy your public key:</h5>
+        <div class="code">
+            <p># Windows<br>cat ~/.ssh/id_ed25519.pub | clip<br><br>
+            # Linux<br>xclip -sel clip {{'< ~/.ssh/id_ed25519.pub'}}</p>
+        </div>
+
+        <li>Go to GitHub > Settings > SSH and GPG keys</li>
+        <li>Click "New SSH key"</li>
+        <li>Paste your key and save</li>
+
+        <p>Test your connection:</p>
+        <div class="code">
+            <p>ssh -T {{'git@github.com'}}</p>
+        </div>
+    </section>
+
+    <section class="topic">
+        <h4>5. Connect Your Angular Project to GitHub</h4>
+        <p>Initialize Git in your Angular project:</p>
+        <div class="code">
+            <p>cd my-angular-app<br>
+            git init<br>
+            git add .<br>
+            git commit -m "Initial commit"</p>
+        </div>
+
+        <p>Create a new repository on GitHub and connect:</p>
+        <div class="code">
+            <p>git remote add origin {{'git@github.com'}}:username/repository.git<br>
+            git push -u origin main</p>
+        </div>
+    </section>
+
+    <section class="topic">
+        <h4>6. Angular Project Setup (Reference)</h4>
+        <p>For completeness, here's the Angular setup process:</p>
+        <div class="code">
+            <p>npm install -g&#64;angular/cli<br>
+            ng new my-angular-app<br>
+            cd my-angular-app<br>
+            ng serve --open</p>
+        </div>
+    </section>
+</div>
