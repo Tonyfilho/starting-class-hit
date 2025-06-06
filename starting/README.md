@@ -80,7 +80,8 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 1. introdução ao Observables, criação component Observable. Update Header links para Asynchronous. Observable e Promise.
 
 
-
+# Aula 13
+1. Atualização da versão do Angular
 
 
 
