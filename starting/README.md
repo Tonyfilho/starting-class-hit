@@ -58,6 +58,7 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 # Aula 08
 1. criar os componentes Angular, Git, Nivelamento, Solid e seu components filhos
 2. instrodução as rotas Filhas. 
+3. criação das rotas filhas, hit, leves, api, solid
 
 # Aula 09
 1.  Inicio ao conceito de Services, e criação do services, weather e reqres.in
