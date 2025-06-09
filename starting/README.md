@@ -73,14 +73,20 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 
 # Aula 11
 1. criar o componente  de rota da API , bem sua rota e subscriber na api weather e regres.
-2. inicio dos Forms
+2. inicio dos Forms para componente signIn
 3. inicio dos Validators
 
 # Aula 12
+1. inicio dos Forms para componente signIn
+
+# Aula 14
+1. inicio dos Forms para componente signUp
+
+# Aula 15
 1. introdução ao Observables, criação component Observable. Update Header links para Asynchronous. Observable e Promise.
 
 
-# Aula 13
+# Aula 16
 1. Atualização da versão do Angular
 
 
