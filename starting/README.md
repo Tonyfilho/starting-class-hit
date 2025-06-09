@@ -59,10 +59,10 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 1. criar os componentes  e stiliza-los, Angular, Git, Nivelamento, Solid e seu components filhos
 2. instrodução as rotas Filhas. 
 3. criação das rotas filhas, hit, leves, api, solid.
-4. fazer novamente a instalação do firebase, fazer a configuração do projeto no Firebase Web e fazer o deploy
 
 # Aula 09
 1. Iniciar o Nivelamento 2
+4. fazer novamente a instalação do firebase, fazer a configuração do projeto no Firebase Web e fazer o deploy
 
 
 # Aula 10
