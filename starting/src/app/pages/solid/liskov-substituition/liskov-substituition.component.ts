@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-liskov-substituition',
   imports: [],
   templateUrl: './liskov-substituition.component.html',
-  styleUrl: './liskov-substituition.component.css'
+  styleUrl: './../single-responsibility/single-responsibility.component.css'
 })
 export class LiskovSubstituitionComponent {
 

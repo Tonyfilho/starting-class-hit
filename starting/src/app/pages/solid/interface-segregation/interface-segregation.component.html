@@ -1,1 +1,71 @@
-<p>interface-segregation works!</p>
+<div class="banner">
+    <p>Interface Segregation Principle (ISP)</p>
+</div>
+<div class="container">
+    <div class="topic">
+        <h3>O que é o Interface Segregation Principle?</h3>
+        <hr>
+        <div class="texto">
+            <p>O ISP afirma que <b> classe deve ser forçada a depender de métodos que não utiliza.</b><br>
+                Interfaces devem ser específicas para seus clientes.
+            </p>
+        </div>
+    </div>
+
+    <div class="topic">
+        <h3>Exemplo violando o ISP</h3>
+        <hr>
+        <div class="texto">
+            <div class="caixa-azul">
+                <h4>Interface genérica demais</h4>
+            </div>
+            <div class="code">
+                <pre><code>
+     interface Funcionario &#123;
+        trabalhar(): void;
+        gerenciar(): void;
+    &#125;
+
+    class Desenvolvedor implements Funcionario &#123;
+        trabalhar() &#123; ... &#125;
+        gerenciar() &#123; throw "Não gerencio"; &#125;
+    &#125;
+                </code></pre>
+            </div>
+            <p>O desenvolvedor é forçado a implementar métodos que não fazem sentido para ele.</p>
+        </div>
+    </div>
+    <div class="topic">
+        <h3>Aplicando o ISP</h3>
+        <hr>
+        <div class="texto">
+            <div class="caixa-azul">
+                <h4>Interfaces separadas por função</h4>
+            </div>
+            <div class="code">
+                <pre><code>
+    interface Trabalhador &#123; trabalhar(): void; &#125;
+    interface Gerente &#123; gerenciar(): void; &#125;
+
+    class Desenvolvedor implements Trabalhador &#123;
+        trabalhar() &#123; ... &#125;
+    &#125;
+
+    class Coordenador implements Trabalhador, Gerente &#123;
+        trabalhar() &#123; ... &#125;
+        gerenciar() &#123; ... &#125;
+    &#125;
+                </code></pre>
+            </div>
+        </div>
+    </div>
+    <div class="topic">
+        <h3>Resumo Técnico</h3>
+        <hr>
+        <div class="texto">
+            <li>✅ Interfaces específicas evitam implementações inúteis.</li>
+            <li>✅ Cada classe implementa apenas o que de fato usa.</li>
+            <li>✅ Favorece código limpo e coeso.</li>
+        </div>
+    </div>
+</div>

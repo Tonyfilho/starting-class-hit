@@ -1,1 +1,70 @@
-<p>liskov-substituition works!</p>
+<div class="banner">
+    <p>Liskov Substitution Principle (LSP)</p>
+</div>
+<div class="container">
+    <div class="topic">
+        <h3>O que é o Liskov Substitution Principle?</h3>
+        <hr>
+        <div class="texto">
+            <p>O LSP afirma que <b>as subclasses devem poder ser usadas no lugar das superclasses sem alterar o comportamento esperado.</b><br>
+            Isso mantém a consistência e a previsibilidade do sistema.
+            </p>
+        </div>
+    </div>
+    <div class="topic">
+        <h3>Exemplo violando o LSP</h3>
+        <hr>
+        <div class="texto">
+            <div class="caixa-azul">
+                <h4>Subclasse quebra o contrato</h4>
+            </div>
+            <div class="code">
+                <pre><code>
+    class Ave &#123;
+        voar() &#123; console.log("Voando"); &#125;
+    &#125;
+
+    class Pinguim extends Ave &#123;
+        voar() &#123; throw new Error("Pinguins não voam"); &#125;
+    &#125;
+                </code></pre>
+            </div>
+            <p>A substituição falha: o pinguim quebra o comportamento esperado da classe Ave.</p>
+        </div>
+    </div>
+    <div class="topic">
+        <h3>Aplicando o LSP</h3>
+        <hr>
+        <div class="texto">
+            <div class="caixa-azul">
+                <h4>Separando comportamentos</h4>
+            </div>
+            <div class="code">
+                <pre><code>
+    interface Ave &#123; andar(): void; &#125;
+    interface AveQueVoa extends Ave &#123; voar(): void; &#125;
+
+    class Andorinha implements AveQueVoa &#123;
+        andar() &#123; ... &#125;
+        voar() &#123; ... &#125;
+    &#125;
+
+    class Pinguim implements Ave &#123;
+        andar() &#123; ... &#125;
+    &#125;
+                </code></pre>
+            </div>
+            <p>Agora cada ave implementa apenas o que realmente faz.</p>
+        </div>
+    </div>
+    <div class="topic">
+        <h3>Resumo Técnico</h3>
+        <hr>
+        <div class="texto">
+            <li>✅ Substituições devem ser seguras e previsíveis.</li>
+            <li>✅ Evita comportamentos inesperados ou erros em tempo de execução.</li>
+            <li>✅ Promove o design baseado em contratos claros.</li>
+        </div>
+    </div>
+</div>
+ 
