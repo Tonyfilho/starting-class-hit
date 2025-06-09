@@ -62,7 +62,9 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 
 # Aula 09
 1. Iniciar o Nivelamento 2
-4. fazer novamente a instalação do firebase, fazer a configuração do projeto no Firebase Web e fazer o deploy
+2. fazer novamente a instalação do firebase, fazer a configuração do projeto no Firebase Web e fazer o deploy
+3. https://favicon.io/favicon-generator/
+
 
 
 # Aula 10
