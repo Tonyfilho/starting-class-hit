@@ -1,1 +1,62 @@
-<p>promises works!</p>
+<div class="container">
+  <h2>Exemplo de Promise no Angular</h2>
+  <p>Este exemplo demonstra como trabalhar com Promises no Angular, incluindo tratamento de erros com a sintaxe
+    async/await.</p>
+  <br>
+
+  <section class="topic">
+    <h4>Demonstração de Promise Usando Then e Catch</h4>
+    <p>Clique no botão para simular uma requisição assíncrona:</p>
+
+    <div class="demo-area">
+      <button class="demo-button" (click)="loadData()">Carregar Dados Then e Catch</button>
+
+      @if (this.localLoad) {
+      <div class="loading-indicator">
+        <div class="spinner"></div>
+        <span>Processando...</span>
+      </div>
+      }
+      @if (mensagem) {
+      <div class="success-message">
+        <i class="icon">✓</i>
+        {{ mensagem }}
+      </div>
+      }
+      @if (erro) {
+      <div class="error-message">
+        <i class="icon">✗</i>
+        {{ erro }}
+      </div>
+      }
+    </div>
+
+  </section>
+
+  <section class="topic">
+    <h4>Demonstração de Promise Usando Async & Await</h4>
+    <p>Clique no botão para simular uma requisição assíncrona com Async & Await:</p>
+      <div class="demo-area">
+      <button class="demo-button" (click)="loadData2()">Carregar Dados Async and Await</button>
+
+      @if (this.localLoad) {
+      <div class="loading-indicator">
+        <div class="spinner"></div>
+        <span>Processando...</span>
+      </div>
+      }
+      @if (mensagem) {
+      <div class="success-message">
+        <i class="icon">✓</i>
+        {{ mensagem }}
+      </div>
+      }
+      @if (erro) {
+      <div class="error-message">
+        <i class="icon">✗</i>
+        {{ erro }}
+      </div>
+      }
+    </div>
+  </section>
+</div>
