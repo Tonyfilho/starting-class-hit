@@ -14,8 +14,8 @@ export class PromisesComponent implements OnInit {
   protected promisesService = inject(PromisesService);
   protected localPromise: any;
   protected localLoad = false;
-  protected mensagem: string = '';
-  protected erro: string = '';
+  protected localMessage: string = '';
+  protected localError: string = '';
 
 
 
@@ -29,14 +29,13 @@ export class PromisesComponent implements OnInit {
   loadData() {
     this.localLoad = true;
     this.promisesService.seekRandomicData().then((res) => {
-      this.mensagem = res;
+      this.localMessage = res;
       this.localLoad = false;
     }).catch((err) => {
-      this.erro = err;
+      this.localError = err;
+      console.error(err);
       this.localLoad = false;
     });
-
-
   }
 
 
@@ -76,10 +75,9 @@ export class PromisesComponent implements OnInit {
 
     this.localLoad = true;
     try {
-      this.mensagem = await this.promisesService.seekRandomicData();
-
+      this.localMessage = await this.promisesService.seekRandomicData();
     } catch (error) {
-      this.erro = error as string;
+      this.localError = error as string;
     } finally {
       this.localLoad = false;
 

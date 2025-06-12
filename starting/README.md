@@ -69,6 +69,8 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 6. Falar de Signal. Criar c component signal
 7. iniciar Tipagem 
 8. falar sobre Type e Interface
+9. Tabela de Errors dentro Api
+10. falar sobre CORS
 
 
 
