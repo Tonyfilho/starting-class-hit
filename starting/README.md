@@ -65,7 +65,7 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 2. fazer novamente a instalação do firebase, fazer a configuração do projeto no Firebase Web e fazer o deploy
 3. https://favicon.io/favicon-generator/
 4. Falar de promise. Criar o component Promise
-5. Falar de Observable. Criar o comonent observarble
+5. Falar de Observable. Criar o component observarble e operador Diamante<any>, Operadores do RxJs Of(), Pipe(), Delay() e Map(), Subscrition(), UnSubscription()
 6. Falar de Signal. Criar c component signal
 7. iniciar Tipagem 
 8. falar sobre Type e Interface
