@@ -26,7 +26,7 @@ export class PromisesComponent implements OnInit {
 
   }
   /*********************2º Exemplo */
-  loadData() {
+  loadDataThen() {
     this.localLoad = true;
     this.promisesService.seekRandomicData().then((res) => {
       this.localMessage = res;
@@ -71,7 +71,7 @@ export class PromisesComponent implements OnInit {
  Tratamento de erros mais intuitivo
    */
 
-  async loadData2() {
+  async loadDataAsync() {
 
     this.localLoad = true;
     try {
