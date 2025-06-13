@@ -4,7 +4,7 @@ import { delay, map, Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class ObservableService {
+export class DummyObservableService {
 
   constructor() { }
 

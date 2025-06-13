@@ -66,12 +66,13 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 3. https://favicon.io/favicon-generator/
 4. Falar de promise. Criar o component Promise
 5. Falar de Observable. Criar o component observarble e operador Diamante<any>, Operadores do RxJs Of(), Pipe(), Delay() e Map(), Subscrition(), UnSubscription()
-6. Falar de Signal. Criar c component signal
-7. iniciar Tipagem 
-8. falar sobre Type e Interface
-9. Tabela de Errors dentro Api
-10. falar sobre CORS
-
+6. Falar sobre Pipe Async
+7. Falar de Signal. Criar c component signal
+8. iniciar Tipagem 
+9. falar sobre Type e Interface
+10. Tabela de Errors dentro Api
+11. falar sobre CORS
+12. Update header adicionar o link de Forms
 
 
 # Aula 10
