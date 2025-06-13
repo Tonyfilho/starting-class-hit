@@ -25,13 +25,11 @@ export class ObservablesComponent  {
     this.localLoad = true;
     // this.unSub = this.observableService$.seekData$().subscribe(d => console.log("Assíncrono Exemplo ", d));
     console.log("Sincrono() ");
-    this.observableService$.seekData$().subscribe({
+    this.observableService$.dummySeekData$().subscribe({
       next: (res) => { console.log("Success "), this.localMessage = res, this.router.navigateByUrl("/angular") },
       error: (err) => { console.error("Error "), this.localError = err, this.router.navigateByUrl("/not-found") },
       complete: () => { console.log("complete: "), this.localLoad = false }
     });
-
-
   }
 
   loadDataRxJs = () => {

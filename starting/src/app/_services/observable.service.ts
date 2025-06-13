@@ -6,11 +6,12 @@ import { delay, map, Observable, of } from 'rxjs';
 })
 export class DummyObservableService {
 
+  private localObservable$!: Observable<string | undefined>;
   constructor() { }
 
 
     /**Vesão básica com New Observable */
-  seekData$ = (): Observable<string> => {
+  dummySeekData$ = (): Observable<string> => {
     return new Observable(observer => {
       setTimeout(() => {
         const success = Math.random() > 0.3;
@@ -33,4 +34,16 @@ export class DummyObservableService {
       throw new Error('Error: Falha ao carregar Dados!')
     }));
   }
+
+
+  asyncObservable(): Observable<string> {
+  return this.localObservable$ = of(`Data by Async Workings: `).pipe(delay(1000));
+  }
+
+
+
+
+
+
+
 }

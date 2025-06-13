@@ -15,6 +15,7 @@
     cursor: pointer;
     transition: var(--transition);
     box-shadow: var(--shadow);
+    margin: 1%;
 }
 
 .demo-button:hover {
@@ -72,4 +73,3 @@
     font-size: 1.2rem;
 }
 
- 
