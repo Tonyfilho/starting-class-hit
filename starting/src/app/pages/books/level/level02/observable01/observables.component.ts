@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   templateUrl: './observables.component.html',
   styleUrl: './../promises/promises.component.css'
 })
-export class ObservablesComponent  {
+export class ObservablesComponent {
 
   protected observableService$ = inject(DummyObservableService);
   private router = inject(Router);
@@ -21,12 +21,13 @@ export class ObservablesComponent  {
   private unSubRxJs!: Subscription;
 
 
+
   loadData() {
     this.localLoad = true;
     // this.unSub = this.observableService$.seekData$().subscribe(d => console.log("Assíncrono Exemplo ", d));
     console.log("Sincrono() ");
-    this.observableService$.dummySeekData$().subscribe({
-      next: (res) => { console.log("Success "), this.localMessage = res, this.router.navigateByUrl("/angular") },
+    this.unSub = this.observableService$.dummySeekData$().subscribe({
+      next: (res) => { console.log("Success "), this.localMessage = res,  this.router.navigateByUrl("/angular") },
       error: (err) => { console.error("Error "), this.localError = err, this.router.navigateByUrl("/not-found") },
       complete: () => { console.log("complete: "), this.localLoad = false }
     });
@@ -41,10 +42,10 @@ export class ObservablesComponent  {
     });
   };
 
-  // ngOnDestroy(): void {
-  //   this.unSub.unsubscribe();
-  //   this.unSubRxJs.unsubscribe();
-  // }
+  ngOnDestroy(): void {
+    this.unSub?.unsubscribe();
+    this.unSubRxJs?.unsubscribe();
+  }
 }
 
 

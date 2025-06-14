@@ -1,7 +1,8 @@
-import { Component, inject, OnInit } from '@angular/core';
-import { DummyObservableService } from '../../../../../_services/observable.service';
 import { CommonModule } from '@angular/common';
-import { delay, map, Observable, of, switchAll, switchMap } from 'rxjs';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { map, Observable, of } from 'rxjs';
+import { DummyObservableService } from '../../../../../_services/observable.service';
 
 @Component({
   selector: 'app-observable02',
@@ -10,11 +11,13 @@ import { delay, map, Observable, of, switchAll, switchMap } from 'rxjs';
   styleUrl: './../promises/promises.component.css'
 })
 export class Observable02Component implements OnInit {
-  dummyObservableService = inject(DummyObservableService);
-  localObservable$!: Observable<string | undefined>;
+  protected dummyObservableService = inject(DummyObservableService);
+  protected localObservable$!: Observable<string | undefined>;
+  private router = inject(Router);
   protected localLoad = false;
   protected localError: string = '';
   protected counter = 0;
+
 
 
 
@@ -24,22 +27,18 @@ export class Observable02Component implements OnInit {
 
   updateObs() {
     this.counter = this.counter + 1;
-    // this.localObservable$ = of(this.localObservable$).pipe(switchAll(), map(d => {
-    //   if (!d) {return undefined;}
-    //   console.log("counter ", this.counter);
-
-    //   return `${d}, ${this.counter}`;
-    // }
-    // ));
-    // this.localObservable$ = of(this.localObservable$).pipe(switchMap((d) => {
-    //  d.subscribe(s =>  console.log("o que temos em s", s ));
-    //   return (`${d}: ${this.counter}`);
-
-    // }));
-    this.localObservable$ = of(this.localObservable$).pipe(switchMap(a => a.pipe(map(() => a + this.counter.toString()))))
+    this.localObservable$ = this.localObservable$.pipe(map((d) => { console.log(d + ' ' + this.counter); return d + ' ' + this.counter; }));
+    /**É uma Brincadeira para vermos os operadores */
+    // this.localObservable$ = this.localObservable$.pipe(exhaustMap((d) =>  {console.log(d + ' ' + this.counter); return d + ': ' + this.counter;}));
+    // this.localObservable$ = this.localObservable$.pipe(concatMap((d) =>  {console.log(d + ' ' + this.counter); return d + ' ' + this.counter;}));
+    //  this.localObservable$ = this.localObservable$.pipe(switchMap((d) =>  {console.log(d + ' ' + this.counter);  return d + ' ' + this.counter;}));
   }
   resetObs() {
     this.counter = 0;
+    this.localObservable$ = of(undefined);
+    setTimeout(() => {
+      this.router.lastSuccessfulNavigation;
+    },2000)
   }
 
 

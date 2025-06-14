@@ -37,7 +37,7 @@ export class DummyObservableService {
 
 
   asyncObservable(): Observable<string> {
-  return this.localObservable$ = of(`Data by Async Workings: `).pipe(delay(1000));
+  return this.localObservable$ = of(`Data by PipeAsync Já disponivel e Subscrito sem que vc pedisse: `).pipe(delay(1000));
   }
 
 
