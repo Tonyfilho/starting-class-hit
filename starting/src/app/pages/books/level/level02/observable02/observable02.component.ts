@@ -12,8 +12,8 @@ import { DummyObservableService } from '../../../../../_services/observable.serv
 })
 export class Observable02Component implements OnInit {
   protected dummyObservableService = inject(DummyObservableService);
-  protected localObservable$!: Observable<string | undefined>;
   private router = inject(Router);
+  protected localObservable$!: Observable<string | undefined>;
   protected localLoad = false;
   protected localError: string = '';
   protected counter = 0;
@@ -22,7 +22,8 @@ export class Observable02Component implements OnInit {
 
 
   ngOnInit(): void {
-    this.localObservable$ = this.dummyObservableService.asyncObservable();
+  this.localObservable$ = this.dummyObservableService.dummyAsyncObservable();
+ // this.localError = "Error Pipe Async";
   }
 
   updateObs() {
@@ -38,7 +39,7 @@ export class Observable02Component implements OnInit {
     this.localObservable$ = of(undefined);
     setTimeout(() => {
       this.router.lastSuccessfulNavigation;
-    },2000)
+    }, 2000)
   }
 
 

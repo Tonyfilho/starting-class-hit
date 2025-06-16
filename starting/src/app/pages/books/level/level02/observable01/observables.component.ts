@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnDestroy } from '@angular/core';
-import { delay, map, Observable, of, Subscription, take } from 'rxjs';
-import { DummyObservableService } from '../../../../../_services/observable.service';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subscription, take } from 'rxjs';
+import { DummyObservableService } from '../../../../../_services/observable.service';
 
 @Component({
   selector: 'app-observables',

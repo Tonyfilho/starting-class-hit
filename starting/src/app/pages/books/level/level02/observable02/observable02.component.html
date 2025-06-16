@@ -1,10 +1,11 @@
 <div class="container">
   <h2>Exemplo de Observable no Angular Pipe Async</h2>
-  <p>Este exemplo demonstra como trabalhar com Observable no Angular Usando Pipe Async como Auto UnSubscription
+  <p>Este exemplo demonstra como trabalhar com Observable no Angular Usando Pipe Async como Auto Subscription
+    UnSubscription
   </p>
   <br>
 
-  @if (this.localObservable$| async; as data) {
+  @if (this.localObservable$ | async; as data) {
   <section class="topic">
     <h4>Demonstração | Async</h4>
     <p>Clique no botão para simular uma requisição assíncrona:</p>
@@ -17,6 +18,7 @@
         <span>Loading...</span>
       </div>
       }
+      {{ data }}
       @if (data) {
       <div class="success-message">
         <div class="icon">
@@ -32,6 +34,17 @@
       }
     </div>
   </section>
+  } @else {
+      <section class="topic">
+    <h4>Demonstração | Async Error</h4>
+    <div class="demo-area">
+      <div class="error-message">
+        <i class="icon">✓</i>
+      </div>
+      {{ localError }}
+    </div>
+  </section>
+  }
 
   <section class="topic">
     <h4>Demonstração Pipe Async</h4>
@@ -43,5 +56,4 @@
     </div>
 
   </section>
-  }
 </div>
