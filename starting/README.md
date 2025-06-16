@@ -70,6 +70,7 @@ O header assim que passar o mouse vai mostrar as rotas filhas.
 7. Falar de Signal. Criar c component signal
 8. iniciar Tipagem 
 9. Update header adicionar o link de Forms
+10. Criação do Signal Service e seu componente
 
 
 # Aula 10
