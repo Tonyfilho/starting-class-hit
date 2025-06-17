@@ -1,45 +1,61 @@
 <div class="container">
-  <h2>Exemplo de Observable no Angular Pipe Async</h2>
-  <p>Este exemplo demonstra como trabalhar com Observable no Angular Usando Pipe Async como Auto Subscription
+  <h2>Exemplo de Signal</h2>
+  <p>Este exemplo demonstra transformar um Observable em Signal Usando toSignal()
     UnSubscription
   </p>
   <br>
 
+  <div class="demo-area">
+    <div class="success-message">
 
-  <section class="topic">
-    <h4>Demonstração ToSignal</h4>
-    <p>
-      My toSignal change Observable to Signal(): {{this.localToSignalWithoutGet()}}
-    </p>
+      <section class="topic">
+        <h4>Demonstração ToSignal</h4>
+        <p>
+          My toSignal change Observable to Signal(): {{this.localToSignalWithoutGet()}}
+        </p>
 
-  </section>
-
-  <section class="topic">
-    <h4>Demonstração Writetable Signal() 01</h4>
-    <p>
-      My Signal: {{ this.signalService.dummySignal() }}
-    </p>
-  </section>
-
-
-
-  @if (this.localName()) {
-  <section class="topic">
-    <h4>Demonstração Writetable Signal() 01</h4>
-    <p>My Name: {{this.localName()}}</p>
-
-  </section>
-  }
-
-
-  <section class="topic">
-    <h4>Demonstração Pipe Async</h4>
-    <p>Clique no botão para simular adição a requisição assíncrona:</p>
-    <div class="demo-area">
-      <button class="demo-button" (click)="updateObs()">AddCounter</button>
-      <button class="demo-button" (click)="resetObs()">ResetCounter</button>
+      </section>
 
     </div>
 
-  </section>
+    <div class="success-message">
+      <section class="topic">
+        <h4>Demonstração Writetable Signal() 01</h4>
+        <p>
+          My Signal: {{ this.signalService.dummySignal() }}
+        </p>
+      </section>
+
+    </div>
+
+    <div class="success-message">
+
+      @if (this.localName()) {
+      <section class="topic">
+        <h4>Demonstração Writetable Signal() 02</h4>
+        <p>My Name: {{this.localName()}}</p>
+
+      </section>
+      }
+    </div>
+
+
+
+  </div>
+
+
+  <div class="demo-area">
+
+    <section class="topic">
+      <h4>Demonstração Pipe Async</h4>
+      <p>Clique no botão para simular adição a requisição assíncrona:</p>
+      <div class="demo-area">
+        <button class="demo-button" (click)="updateObs()">AddCounter</button>
+        <button class="demo-button" (click)="resetObs()">ResetCounter</button>
+
+      </div>
+
+    </section>
+  </div>
+
 </div>

@@ -96,7 +96,7 @@ Estrutura de controle
 5. Tabela de Errors dentro Api
 6. falar sobre CORS
 7. falar sobre Type e Interface
-8. Nivelamento 03
+8. Nivelamento 02, 03
 
 # Aula 11
 
