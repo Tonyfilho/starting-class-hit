@@ -13,7 +13,9 @@ export const environment  = {
     storageBucket: "ebook-angular-dev-hit.firebasestorage.app",
     messagingSenderId: "576636567121",
     appId: "1:576636567121:web:559d4455700fc9bdc74270"
-  }
+  },
+
+  weatherKey: keys.weatherKey,
 
 
 }

@@ -97,6 +97,7 @@ Estrutura de controle
 6. falar sobre CORS
 7. falar sobre Type e Interface
 8. Nivelamento 02, 03
+10. no app.config importar o provider do HTTPRequest , providerHttpClient();
 
 # Aula 11
 
