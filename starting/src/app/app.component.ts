@@ -14,17 +14,19 @@ import { ReqresService } from './_services/reqres.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
 
 
   reqresService = inject(ReqresService);
 
 
   ngOnInit(): void {
-    this.reqresService.getDataReqresByGet().subscribe({
-      next: (res) => {console.log("Lembre-se Belchior: ",res)},
-      error: (e) => { console.error("Error: ", e)},
-      complete: () => {}
-    });
+    this.reqresService.getDataReqresByGet().subscribe(
+      {
+        next: (res: any) => { console.log("Lembre-se Belchior: ", res) },
+        error: (e) => { console.error("Error: ", e) },
+        complete: () => { }
+      }
+    );
   }
 }
