@@ -99,6 +99,7 @@ Estrutura de controle
 8. Nivelamento 02, 03
 10. no app.config importar o provider do HTTPRequest , providerHttpClient();
 11. gerar error http para exemplos
+12. falar sobre o request, sobre devtools NETWORK / Fetch/XHR e sobre error
 
 # Aula 11
 
