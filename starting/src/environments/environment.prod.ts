@@ -13,5 +13,6 @@ export const environment = {
     appId: "1:576636567121:web:559d4455700fc9bdc74270"
   },
   weatherKey: keys.weatherKey,
+  reqresKey: keys.reqresKey
 
 }

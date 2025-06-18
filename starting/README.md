@@ -98,6 +98,7 @@ Estrutura de controle
 7. falar sobre Type e Interface
 8. Nivelamento 02, 03
 10. no app.config importar o provider do HTTPRequest , providerHttpClient();
+11. gerar error http para exemplos
 
 # Aula 11
 

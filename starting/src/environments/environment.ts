@@ -16,6 +16,7 @@ export const environment  = {
   },
 
   weatherKey: keys.weatherKey,
+  reqresKey: keys.reqresKey
 
 
 }
