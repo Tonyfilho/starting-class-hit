@@ -14,11 +14,9 @@ export class ReqresComponent implements OnInit {
   reqresService = inject(ReqresService);
   localReqRes$!: Observable<IReqRes>;
 
-
-
-
-
   ngOnInit(): void {
    this.localReqRes$ = this.reqresService.getDataReqresByGet();
   }
+
+
 }

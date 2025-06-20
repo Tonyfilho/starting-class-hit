@@ -15,7 +15,7 @@ export class ReqresService {
    }
 
   getDataReqresByGetString = () => {
-    return this.http.get<any>(`https://reqres.in/api/users?page=2&api_key=${this.reqresKEY}`);
+    return this.http.get<IReqRes>(`https://reqres.in/api/users?page=2&api_key=${this.reqresKEY}`);
   };
   getDataReqresByGet = () => {
     return this.http.get<IReqRes>(this.reqresURL+'=2&'+'api_key='+this.reqresKEY);
@@ -25,7 +25,7 @@ export class ReqresService {
   getDataReqresByPost = (page: number) => {
     const headers = new HttpHeaders().set("x-api-key", this.reqresKEY);
     const localUrlPage = this.reqresURL + `=${page}`;
-    return this.http.get<any>(localUrlPage, {headers});
+    return this.http.get<IReqRes>(localUrlPage, {headers});
   };
 
 
