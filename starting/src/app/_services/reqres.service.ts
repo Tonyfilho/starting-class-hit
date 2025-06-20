@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { IReqRes } from '../_shared/interfaces/reqres';
 //import { IReqres } from '../_share/interfaces/reqres';
 
 @Injectable({
@@ -17,7 +18,7 @@ export class ReqresService {
     return this.http.get<any>(`https://reqres.in/api/users?page=2&api_key=${this.reqresKEY}`);
   };
   getDataReqresByGet = () => {
-    return this.http.get<any>(this.reqresURL+'=2&'+'api_key='+this.reqresKEY);
+    return this.http.get<IReqRes>(this.reqresURL+'=2&'+'api_key='+this.reqresKEY);
   };
 
 

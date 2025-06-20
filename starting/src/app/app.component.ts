@@ -21,12 +21,12 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.reqresService.getDataReqresByGet().subscribe(
-      {
-        next: (res: any) => { console.log("Lembre-se Belchior: ", res) },
-        error: (e) => { console.error("Error: ", e) },
-        complete: () => { }
-      }
-    );
+    // this.reqresService.getDataReqresByGet().subscribe(
+    //   {
+    //     next: (res) => { console.log("Lembre-se Belchior: ", res.data[3].first_name ) },
+    //     error: (e) => { console.error("Error: ", e) },
+    //     complete: () => { }
+    //   }
+    // );
   }
 }
