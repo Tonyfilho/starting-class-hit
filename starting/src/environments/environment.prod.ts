@@ -3,7 +3,9 @@ import { keys } from "./environment.keys";
 
 
 export const environment = {
+export const environment = {
   production: true,
+  firebaseConfig: {
   firebaseConfig: {
     apiKey: keys.firebaseApiKey,
     authDomain: "ebook-angular-dev-hit.firebaseapp.com",

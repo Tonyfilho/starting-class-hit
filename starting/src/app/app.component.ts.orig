@@ -1,0 +1,70 @@
+import { CommonModule } from '@angular/common';
+<<<<<<< HEAD
+import { Component } from '@angular/core';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from './components/main/main.component';
+import { WeatherService } from './_services/weather.service';
+=======
+import { Component, inject, OnInit } from '@angular/core';
+import { HeaderComponent } from './components/header/header.component';
+import { MainComponent } from './components/main/main.component';
+import { FooterComponent } from './components/footer/footer.component';
+>>>>>>> aula10B
+import { ReqresService } from './_services/reqres.service';
+
+
+
+
+@Component({
+  selector: 'app-root',
+  imports: [CommonModule, HeaderComponent, MainComponent, FooterComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
+})
+export class AppComponent implements OnInit {
+
+<<<<<<< HEAD
+  constructor(private weather: WeatherService, private reqresService: ReqresService) {
+    //  this.weather.getWeather("Lisbon").subscribe({
+    //   next: (res) => {console.log("RES: ", res)},
+    //   error: (e) => {console.error("Error: ", e)},
+    //   complete: () => console.log("fim da Subscrição")
+    //  });
+
+
+    // this.reqresService.getDataReqresByGet().subscribe(
+    //   {
+    //     next: (res) => { console.log("Belchior ",  res)},
+    //     error: (e) => { console.error("Error: ", e) },
+    //     complete: () => console.log("fim da Subscrição")
+    //   }
+    // );
+
+    // this.reqresService.getDataReqresByPost(2).subscribe(      {
+    //     next: (res) => { console.log("Belchior ",  res)},
+    //     error: (e) => { console.error("Error: ", e) },
+    //     complete: () => console.log("fim da Subscrição")
+    //   }
+    // );
+
+
+
+  }
+
+=======
+>>>>>>> aula10B
+
+  reqresService = inject(ReqresService);
+
+
+  ngOnInit(): void {
+    // this.reqresService.getDataReqresByGet().subscribe(
+    //   {
+    //     next: (res) => { console.log("Lembre-se Belchior: ", res.data[3].first_name ) },
+    //     error: (e) => { console.error("Error: ", e) },
+    //     complete: () => { }
+    //   }
+    // );
+  }
+}

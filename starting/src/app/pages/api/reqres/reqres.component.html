@@ -1,1 +1,34 @@
-<p>reqres works!</p>
+@if ((this.localReqRes$| async); as response) {
+
+  <div class="container" >
+    <h2>Lista de Usuários</h2>
+    <p>Total de usuários: {{ response.total }}</p>
+    <p>Página atual: {{ response.page }} de {{ response.total_pages }}</p>
+
+    <div class="user-list">
+      @for (user of response.data; track $index) {
+        <div class="user-card">
+          <img [src]="user.avatar" [alt]="user.first_name + ' ' + user.last_name" />
+          <div class="user-info">
+            <h4>{{ user.first_name }} {{ user.last_name }}</h4>
+            <p>Email: {{ user.email }}</p>
+            <p>ID: {{ user.id }}</p>
+          </div>
+        </div>      }
+    </div>
+
+    <div class="support">
+      <h4>Suporte</h4>
+      <p>{{ response?.support?.text }}</p>
+      <a [href]="response.support.url" target="_blank">{{ response.support.url }}</a>
+      </div>
+  </div>
+
+} @else {
+  <div class="container" >
+    <h2>Opss I got Error !</h2>
+
+  </div>
+
+}
+
