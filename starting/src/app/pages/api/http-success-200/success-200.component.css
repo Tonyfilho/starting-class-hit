@@ -1,0 +1,91 @@
+.success-header {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  background: var(--success-color, var(--text-color-h3));
+  color: var(--text-color-light, var(--text-color-light));
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: var(--main-font-size2);
+  font-weight: bold;
+  box-shadow: var(--shadow);
+  border-radius: 0;
+}
+
+.container {
+  background: var(--background-color);
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: var(--main-font-family);
+  line-height: var(--main-line-height);
+  color: var(--text-color);
+}
+
+.card {
+  background-color: var(--background-color-sections);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow);
+  margin-bottom: 1.5rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.right-align {
+  text-align: right;
+}
+
+.home-button {
+  background: var(--success-color, var(--text-color-h3));
+  color: var(--text-color-light, var(--text-color-light));
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: var(--text-color-h4);
+}
+
+.two-column {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.two-column .title {
+  font-weight: bold;
+  text-align: right;
+  flex: 1;
+  min-width: 200px;
+  color: var(--text-color-h3);
+}
+
+.two-column .text,
+.two-column > div:first-child {
+  flex: 2;
+  min-width: 300px;
+}
+
+ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+}

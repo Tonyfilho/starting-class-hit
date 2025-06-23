@@ -1,0 +1,45 @@
+<div class="error-header">
+  <h1>Erro 400 – Requisição Inválida</h1>
+</div>
+
+<div class="container">
+  <div class="card right-align">
+    <button class="home-button" routerLink="/">Voltar à Home</button>
+  </div>
+
+  <div class="card two-column">
+    <div class="text">
+      <p>A requisição enviada pelo cliente tem algum problema. Normalmente é causado por erros de sintaxe, parâmetros inválidos ou falta de autenticação.</p>
+    </div>
+    <div class="title">
+      <h3>O que significa esse erro?</h3>
+    </div>
+  </div>
+
+  <div class="card two-column">
+    <div>
+      <ul>
+        <li><strong>400 Bad Request:</strong> Requisição malformada (ex: JSON inválido, parâmetros errados).</li>
+        <li><strong>401 Unauthorized:</strong> Requisição sem autenticação ou com token inválido.</li>
+        <li><strong>403 Forbidden:</strong> Autenticado, mas sem permissão de acesso.</li>
+        <li><strong>404 Not Found:</strong> Recurso não encontrado (URL errada, por exemplo).</li>
+        <li><strong>405 Method Not Allowed:</strong> Método HTTP inválido para esse endpoint.</li>
+        <li><strong>409 Conflict:</strong> Conflito de estado, como dados duplicados.</li>
+        <li><strong>422 Unprocessable Entity:</strong> Dados válidos na sintaxe, mas inválidos na lógica.</li>
+        <li><strong>429 Too Many Requests:</strong> Limite de requisições excedido.</li>
+      </ul>
+    </div>
+    <div class="title">
+      <h3>Principais Códigos da Classe 400</h3>
+    </div>
+  </div>
+
+  <div class="card two-column">
+    <div>
+      <p>Revise a requisição no cliente (formulários, JSON, headers, etc.). Certifique-se de que os dados estejam corretos e completos</p>
+    </div>
+    <div class="title">
+      <h3>Como corrigir?</h3>
+    </div>
+  </div>
+</div>

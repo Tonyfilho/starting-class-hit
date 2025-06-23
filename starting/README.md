@@ -95,11 +95,14 @@ Estrutura de controle
 4. cadastro no no site da APIs
 5. Tabela de Errors dentro Api
 6. falar sobre CORS
-7. falar sobre Type e Interface
+7. falar sobre Type e Interface, IReqres, IWeather
 8. Nivelamento 02, 03
 10. no app.config importar o provider do HTTPRequest , providerHttpClient();
 11. gerar error http para exemplos
-12. falar sobre o request, sobre devtools NETWORK / Fetch/XHR e sobre error
+12. falar sobre o request, sobre devtools NETWORK / Fetch/XHR e sobre error.
+13. criar components success, error 400 and error 500, update header
+14. criar component reqres e fazer o seu style
+15. inicio aos formularios.
 
 # Aula 11
 
