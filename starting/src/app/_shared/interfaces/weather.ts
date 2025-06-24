@@ -1,3 +1,9 @@
+interface condition {
+  text: string,
+  icon: string,
+  code: number,
+
+}
 interface current {
   temp_c: number,
   condition: condition,
@@ -5,12 +11,6 @@ interface current {
   humidity: number,
   wind_kph: number,
   pressure_mb: number,
-}
-interface condition {
-  text: string,
-  icon: string,
-  code: number,
-
 }
 interface location {
   name: string,

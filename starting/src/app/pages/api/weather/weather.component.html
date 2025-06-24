@@ -1,3 +1,4 @@
+@if (this.localWeatherSig()) {
 <div class="weather-wrapper">
   <h2 class="section-title">Weather API</h2>
 
@@ -7,36 +8,41 @@
   </form>
 
   <div class="weather-card">
-    <h3>Berlin, Germany</h3>
-    <p class="datetime">Jun 11, 2025, 9:58:00 AM</p>
+    <h3>{{this.localWeatherSig()?.location?.name}}, {{this.localWeatherSig()?.location?.country}}</h3>
+    <p class="datetime">{{this.localWeatherSig()?.location?.localtime}}</p>
 
     <div class="main-info">
-      <div class="temperature">14.3°C</div>
+      <div class="temperature">{{this.localWeatherSig()?.current?.temp_c}} Cº</div>
       <div class="icon">
-        <img src="https://cdn-icons-png.flaticon.com/512/1163/1163624.png" alt="Cloudy" />
-        <p>Overcast</p>
-      </div>
+        <img src={{this.localWeatherSig()?.current?.condition?.icon}}
+          alt={{this.localWeatherSig()?.current?.condition?.text}} />
+        </div>
+        <p>{{this.localWeatherSig()?.current?.condition?.text}}</p>
     </div>
 
     <div class="details">
       <div class="detail-box">
         <p>Sensação térmica</p>
-        <strong>12.7°C</strong>
+        <strong>{{this.localWeatherSig()?.current?.feelslike_c}} Cº</strong>
       </div>
       <div class="detail-box">
         <p>Umidade</p>
-        <strong>67%</strong>
+        <strong>{{this.localWeatherSig()?.current?.humidity}}%</strong>
       </div>
       <div class="detail-box">
         <p>Vento</p>
-        <strong>20.9 km/h</strong>
+        <strong>{{this.localWeatherSig()?.current?.wind_kph}} Kph</strong>
       </div>
       <div class="detail-box">
         <p>Pressão</p>
-        <strong>1019 mb</strong>
+        <strong>{{this.localWeatherSig()?.current?.pressure_mb}} mb</strong>
       </div>
     </div>
   </div>
 </div>
-
- 
+}@else {
+<div class="weather-wrapper">
+  <h2 class="section-title">Weather API</h2>
+  <h3 class="section-title">Opss something wrong try more later</h3>
+</div>
+}
