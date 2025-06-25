@@ -1,6 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { PromisesService } from '../../../../../_services/promises.service';
+
 import { CommonModule } from '@angular/common';
+import { PromisesService } from '../../../../_services/promises.service';
 
 @Component({
   selector: 'app-promises',

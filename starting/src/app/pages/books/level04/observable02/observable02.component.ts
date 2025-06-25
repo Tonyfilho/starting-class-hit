@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { map, Observable, of } from 'rxjs';
-import { DummyObservableService } from '../../../../../_services/observable.service';
+import { DummyObservableService } from '../../../../_services/observable.service';
+
 
 @Component({
   selector: 'app-observable02',

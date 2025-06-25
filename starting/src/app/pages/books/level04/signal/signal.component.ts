@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { SignalService } from '../../../../../_services/signal.service';
+import { SignalService } from '../../../../_services/signal.service';
+
 
 @Component({
   selector: 'app-signal',
