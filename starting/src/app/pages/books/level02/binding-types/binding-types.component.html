@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Binding & Tipes</h2>
+  <p>Este exemplo demonstra como usar Binding, Types no lugar da Interface, Two-Way DataBinding e o Binding</p>
+  <br>
+
+
+
+
+  <div class="user-list">
+    <div class="user-card">
+      <!-- Este é Property Binding, vem de algum TS para Template -->
+      <img [src]="user.avatar" [alt]="user.name" />
+
+      <!-- Este é o Binding, reenderiza variaveis do TS no  Template -->
+      <div class="user-info">
+        <h4>{{ user.name }} </h4>
+        <p>Email: {{ user.email }}</p>
+        <p>ID: {{ user.isAdmin}}</p>
+      </div>
+    </div>
+    <section class="topic">
+      <p>Este exemplo demonstra como usar Two-Way DataBinding PropertyBinding e Binding</p>
+      <h4>Digite seu nome</h4>
+      <!-- Este é Two-Way DataBinding Tanto Manda para TS como Recebe do Ts-->
+      <input type="text" [(ngModel)]="this.user.name" placeholder="Seu Nome" />
+
+    </section>
+  </div>
+
+
+
+</div>
