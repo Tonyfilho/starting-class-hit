@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   selector: 'app-level01',
   imports: [ControlStructuresComponent, OperatorsComponent, DependencyInjectionComponent, CommonModule],
   templateUrl: './level01.component.html',
-  styleUrl: './level01.component.css'
+  styleUrl: './../level04/level04.component.css'
 })
 export class Level01Component {
 

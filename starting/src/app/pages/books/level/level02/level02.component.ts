@@ -1,10 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-level02',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './level02.component.html',
-  styleUrl: './level02.component.css'
+  styleUrl: './../level04/level04.component.css'
 })
 export class Level02Component {
 

@@ -8,7 +8,7 @@ import { Observable02Component } from "./observable02/observable02.component";
   selector: 'app-level04',
   imports: [PromisesComponent, ObservablesComponent, Observable02Component, SignalComponent],
   templateUrl: './level04.component.html',
-  styleUrl: './../level01/level01.component.css'
+  styleUrl: './level04.component.css'
 })
 export class Level04Component {
 
