@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-spread',
   imports: [],
   templateUrl: './spread.component.html',
-  styleUrl: './spread.component.css'
+  styleUrl: './../../level04/promises/promises.component.css'
 })
 export class SpreadComponent {
 

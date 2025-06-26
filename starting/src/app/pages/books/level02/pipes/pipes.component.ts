@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-pipes',
   imports: [],
   templateUrl: './pipes.component.html',
-  styleUrl: './pipes.component.css'
+  styleUrl: './../../level04/promises/promises.component.css'
 })
 export class PipesComponent {
 

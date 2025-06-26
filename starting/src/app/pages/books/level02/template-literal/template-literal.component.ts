@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-template-literal',
   imports: [],
   templateUrl: './template-literal.component.html',
-  styleUrl: './template-literal.component.css'
+  styleUrl: './../../level04/promises/promises.component.css'
 })
 export class TemplateLiteralComponent {
 
