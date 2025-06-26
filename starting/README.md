@@ -1,8 +1,6 @@
 # Starting
-
-# starting
-
 inicio do projeto
+Obs: Na aula 10, foi feito update do css do Header, foi feito a responsividade
 
 # aula01
 
