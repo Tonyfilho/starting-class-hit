@@ -138,6 +138,15 @@ input[type="number"] {
   border-radius: var(--border-radius);
 }
 
+/**Usando no Pipe component e outros */
+a {
+  color: var(--text-color-focus);
+
+  &:hover {
+    color: var(--text-hover);
+  }
+}
+
 @media (max-width: 1024px) {
   .user-card {
     width: 48%;
