@@ -15,6 +15,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --primary-color: rgba(93, 170, 241, 0.925);
     --text-color-light: aliceblue;
     --secondary-color: rgba(204, 33, 33, 0.959);
+    --third-color: rgb(244, 67, 54);
     --text-color: rgba(0, 0, 0, 0.726);
     --text-color-h3: #4caf50;
     --text-color-h4: #218838;

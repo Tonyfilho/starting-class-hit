@@ -1,0 +1,137 @@
+<section class="firebase-guide">
+  <div class="content-wrap">
+    <div class="header">
+      <h1>Complete Guide: Firebase with Angular</h1>
+      <p>Firebase Integration in Angular</p>
+      <p class="subtitle">
+        Full tutorial to set up Firebase Hosting, Authentication, and Firestore in Angular without AngularFire.
+      </p>
+    </div>
+
+    <article>
+      <h2>Step-by-Step Setup</h2>
+
+      <section>
+        <h3>1. Install Firebase</h3>
+        <pre><code>
+npm install -g firebase-tools
+firebase login
+npm install firebase
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>2. Hosting Configuration</h3>
+        <pre><code>
+firebase init hosting
+        </code></pre>
+        <p><strong>Use the following settings:</strong></p>
+        <ul>
+          <li>Public directory: <code>dist/your-angular-project/browser</code></li>
+          <li>SPA: <code>Yes</code></li>
+          <li>Overwrite index.html: <code>Yes</code></li>
+        </ul>
+        <p class="note success">✅ For Angular Router, all routes are redirected to index.html.</p>
+        <p class="note warning">❌ For static sites, routes like /about will show a 404 error.</p>
+      </section>
+
+      <section>
+        <h3>3. Enable Authentication</h3>
+        <ol>
+          <li>Go to Firebase Console</li>
+          <li>Select <strong>Email/Password</strong> and enable it</li>
+        </ol>
+        <pre><code>
+import &#123; getAuth &#125; from 'firebase/auth';
+export const auth = getAuth(app);
+        </code></pre>
+        <p><strong>Usage example:</strong></p>
+        <pre><code>
+import &#123; auth &#125; from './firebase';
+import &#123; signInWithEmailAndPassword &#125; from 'firebase/auth';
+
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => &#123;
+    // User is signed in
+  &#125;);
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>4. Firestore Setup</h3>
+        <pre><code>
+firebase init firestore
+        </code></pre>
+        <p><strong>Basic rules:</strong></p>
+        <pre><code>
+rules_version = '2';
+service cloud.firestore &#123;
+  match /databases/&#123;database&#125;/documents &#123;
+    match /&#123;document=**&#125; &#123;
+      allow read, write: if request.auth != null;
+    &#125;
+  &#125;
+&#125;
+        </code></pre>
+        <pre><code>
+import &#123; getFirestore &#125; from 'firebase/firestore';
+export const db = getFirestore(app);
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>5. Full firebase.ts Setup</h3>
+        <pre><code>
+import &#123; initializeApp &#125; from 'firebase/app';
+import &#123; getAuth &#125; from 'firebase/auth';
+import &#123; getFirestore &#125; from 'firebase/firestore';
+
+const firebaseConfig = &#123;
+  apiKey: 'YOUR_API_KEY',
+  authDomain: 'YOUR_AUTH_DOMAIN',
+  projectId: 'YOUR_PROJECT_ID',
+  storageBucket: 'YOUR_STORAGE_BUCKET',
+  messagingSenderId: 'YOUR_SENDER_ID',
+  appId: 'YOUR_APP_ID',
+&#125;;
+
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const db = getFirestore(app);
+        </code></pre>
+        <p><strong>⚠️ Use <code>environment.ts</code> and <code>environment.prod.ts</code>:</strong></p>
+        <pre><code>
+"fileReplacements": [
+  &#123;
+    "replace": "src/environments/environment.ts",
+    "with": "src/environments/environment.prod.ts"
+  &#125;
+]
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>6. Build and Deploy</h3>
+        <pre><code>
+ng build --configuration production
+firebase deploy
+        </code></pre>
+        <p><strong><code>firebase.json</code> config:</strong></p>
+        <pre><code>
+"rewrites": [
+  &#123; "source": "**", "destination": "/index.html" &#125;
+]
+        </code></pre>
+      </section>
+
+      <section class="footer">
+        <h3>Full System Setup</h3>
+        <ul>
+          <li>✅ Firebase hosting deployed</li>
+          <li>✅ Auth system ready</li>
+          <li>✅ Firestore configured</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</section>

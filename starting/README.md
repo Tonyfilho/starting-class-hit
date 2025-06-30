@@ -107,8 +107,10 @@ Estrutura de controle
 # Aula 11
 
 1. criar o componente de rota da API , bem sua rota e subscriber na api weather e regres.
-2. inicio dos Forms para componente signIn
-3. inicio dos Validators
+2. Criação dos components firebaseInitHosting, authentication da rota filha angular/firebase e conf. do header 
+Obs: Criação das paginas Pais, Angular, Firebase e What is Api, update do css e html deste components 
+3. inicio dos Forms para componente weather
+4. inicio dos Validators
 
 # Aula 12
 

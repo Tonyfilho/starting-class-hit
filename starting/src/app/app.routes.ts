@@ -4,8 +4,10 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular', pathMatch: 'full' }, //rora Padrão
-  { path: 'angular', loadComponent: () => import('./pages/angular/angular-component/angular.component').then(c => c.AngularComponent) },
+  { path: 'angular', loadComponent: () => import('./pages/angular/angular.component').then(c => c.AngularComponent) },
+  { path: 'angular/get-starting', loadComponent: () => import('./pages/angular/get-srtaing-angular/get-starting-with-angular.component').then(c => c.GetStartingWithAngularComponent) },
   { path: 'angular/git', loadComponent: () => import('./pages/angular/git/git.component').then(c => c.GitComponent) },
+  { path: 'angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },
   { path: 'angular/hit', loadChildren: () => import('./pages/hit/hit.routes').then(c => c.hitRoutes) },
   { path: 'angular/levels', loadChildren: () => import('./pages/books/level.router').then(c => c.levelRoutes) },
   { path: 'angular/solid', loadChildren: () => import('./pages/solid/solid.router').then(c => c.solidRoutes) },

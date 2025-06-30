@@ -1,0 +1,81 @@
+
+<div class="container">
+  <div class="content-wrap">
+
+    <div class="background-container">
+      <div class="header-text">
+        <h1>What is API?</h1>
+        <p>
+          An API (Application Programming Interface) is a set of rules and protocols that allows different software
+          applications to communicate with each other. It defines the methods and data formats that applications can use to
+          request and exchange information.
+        </p>
+      </div>
+    </div>
+
+    <section class="topic">
+      <h2>Making API Requests Outside Angular</h2>
+      <p>There are several ways to make API requests in JavaScript outside of Angular. Here's a comparison of popular
+        methods:</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Method">fetch</td>
+            <td data-label="Pros">Native, modern, supports Promises</td>
+            <td data-label="Cons">No built-in interceptor support</td>
+          </tr>
+          <tr>
+            <td data-label="Method">Axios</td>
+            <td data-label="Pros">Easy to use, interceptors, cancellation</td>
+            <td data-label="Cons">External dependency</td>
+          </tr>
+          <tr>
+            <td data-label="Method">XHR (XMLHttpRequest)</td>
+            <td data-label="Pros">Universal support</td>
+            <td data-label="Cons">Verbose and outdated</td>
+          </tr>
+          <tr>
+            <td data-label="Method">jQuery AJAX</td>
+            <td data-label="Pros">Simple in jQuery projects</td>
+            <td data-label="Cons">Obsolete for new projects</td>
+          </tr>
+          <tr>
+            <td data-label="Method">React Query</td>
+            <td data-label="Pros">Advanced cache management</td>
+            <td data-label="Cons">Learning curve</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="topic">
+      <h2>Angular HTTP API</h2>
+      <p>Angular provides a powerful HTTP client module for making HTTP requests and handling responses. It offers:</p>
+      <ul>
+        <li><strong>HttpClient</strong>: Service to perform HTTP requests.</li>
+        <li><strong>provideHttpClient()</strong>: Used to configure and provide the HTTP client globally.</li>
+        <li><strong>Interceptors</strong>: To modify requests or responses globally.</li>
+      </ul>
+
+      <p>Angular supports the four main HTTP verbs commonly used in REST APIs:</p>
+      <ul>
+        <li><strong>GET</strong> - Retrieve data.</li>
+        <li><strong>POST</strong> - Create new data.</li>
+        <li><strong>PUT</strong> - Update existing data.</li>
+        <li><strong>DELETE</strong> - Remove data.</li>
+      </ul>
+
+      <p>Each of these verbs can be used with HttpClient methods such as <code>http.get()</code>,
+        <code>http.post()</code>, <code>http.put()</code>, and <code>http.delete()</code>.</p>
+    </section>
+
+  </div>
+</div>
