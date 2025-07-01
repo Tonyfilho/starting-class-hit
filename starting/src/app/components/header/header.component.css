@@ -41,27 +41,19 @@
 .nav-content {
     min-height: 80px;
     margin: 0 auto;
-    padding: 0 16px;
+     padding: 1rem 0;
     display: flex;
     align-items: center;
     align-content: center;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 25px;
+    gap: 40px;
      background-color: var(--background-color-sections2);
     background-size: var(--animation-background-size);
     animation: var(--animation-background-size);
     height: max-content;
 }
-.nav-content {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 40px;
-  flex-wrap: wrap;
-  padding: 1rem 0;
-  background-color: var(--background-color-sections2);
-}
+
 .logo-link {
   font-size: 1.3rem;
   font-weight: bold;
@@ -126,7 +118,7 @@
 }
 
 .has-expandable:hover .submenu {
-  max-height: 300px;
+  max-height: max-content;
 }
 
 .submenu-link {
