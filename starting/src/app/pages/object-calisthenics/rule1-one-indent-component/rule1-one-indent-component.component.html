@@ -1,0 +1,32 @@
+<div class="header">
+  <h1>Rule 1: Only One Level of Indentation per Method</h1>
+  <p class="subtitle">Encourage simpler and flatter control structures</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Em Angular, métodos muito aninhados nos componentes dificultam a leitura e manutenção. Esta regra sugere evitar mais de um nível de indentação por função.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          if (this.isLoggedIn) {{"{"}}<br>
+          &nbsp;&nbsp;{{"if (this.userRole === 'admin')"}} {{"{"}}<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;{{"this.navigateToDashboard();"}}<br>
+          &nbsp;&nbsp;{{"}"}}<br>
+          {{"}"}}
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          {{"if (!this.isLoggedIn) return;"}}<br>
+          {{"if (this.userRole === 'admin') this.navigateToDashboard();"}}
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

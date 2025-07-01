@@ -1,6 +1,6 @@
 import { Routes } from '@angular/router';
 
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'angular', pathMatch: 'full' }, //rora Padrão
@@ -16,7 +16,7 @@ export const routes: Routes = [
   { path: 'angular/solid', loadChildren: () => import('./pages/solid/solid.router').then(c => c.solidRoutes) },
   { path: 'angular/api', loadChildren: () => import('./pages/api/api.routes').then(c => c.apiRoutes) },
 
-  { path: '**', loadComponent: () => import('./pages/not-found/not-found.component').then(c => c.NotFoundComponent) }
+  { path: '**', loadComponent: () => import('./components/not-found/not-found.component').then(c => c.NotFoundComponent) }
   // {path: '**', redirectTo: () => {return 'not-found'}},
 
 ];
