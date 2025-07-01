@@ -1,99 +1,96 @@
-<section class="firebase-guide">
+<div class="header">
+  <h1>Git & SSH Configuration Guide for Angular Projects</h1>
+  <p class="subtitle">
+    A quick guide to help you set up Git & SSH.
+  </p>
+</div>
+<section class="container-guide">
   <div class="content-wrap">
-    <div class="header">
-      <h1>Git & SSH Configuration Guide for Angular Projects</h1>
-      <p class="subtitle">
-        A quick guide to help you set up Git & SSH.</p>
-    </div>
 
     <article>
       <section class="topic">
         <h2>Getting Started with Angular</h2>
-        <p>Congratulations on starting your Angular journey! Angular is a powerful platform for building web
-          applications.
-          This application demonstrates the core features of Angular with a responsive design.</p>
+        <p>
+          Congratulations on starting your Angular journey! Angular is a powerful platform for building web applications.
+          This application demonstrates the core features of Angular with a responsive design.
+        </p>
       </section>
 
       <section class="topic">
-        <h4>1. Install Git</h4>
+        <h3>1. Install Git</h3>
         <p>Before version controlling your Angular project, you need to install Git:</p>
 
-        <h5>For Windows 11:</h5>
+        <h4>For Windows 11:</h4>
         <ul>
-          <li>Download from <b>https://git-scm.com/download/win</b></li>
+          <li>Download from <a href="https://git-scm.com/download/win" target="_blank" rel="noopener">git-scm.com</a></li>
           <li>Run the installer with default options</li>
         </ul>
 
-        <h5>For Linux (Ubuntu/Debian):</h5>
+        <h4>For Linux (Ubuntu/Debian):</h4>
         <div class="code">
-          sudo apt update<br>
-          sudo apt install git
+          <code>sudo apt update<br>sudo apt install git</code>
         </div>
 
         <p>Verify installation in terminal:</p>
         <div class="code">
-          git --version
+          <code>git --version</code>
         </div>
       </section>
 
       <section class="topic">
-        <h4>2. Configure Git</h4>
+        <h3>2. Configure Git</h3>
         <p>Set up your global Git configuration:</p>
         <div class="code">
-          git config --global user.name "Your Name"<br>
-          {{"git config --global user.email your@email.com"}}
+          <code>git config --global user.name "Your Name"<br>{{"git config --global user.email your@email.com"}}</code>
         </div>
       </section>
 
       <section class="topic">
-        <h4>3. Generate SSH Keys</h4>
+        <h3>3. Generate SSH Keys</h3>
         <div class="image-container">
-          <img src="./../../../../assets/img/background/Imagem_windows_SSH.png" alt="SSH key generation in terminal">
+          <img src="../../../../assets/img/background/Imagem_windows_SSH.png" alt="SSH key generation in terminal">
         </div>
         <p>Create secure authentication keys for GitHub:</p>
 
-        <h5>For both Windows and Linux:</h5>
+        <h4>For both Windows and Linux:</h4>
         <div class="code">
-          {{" ssh-keygen -t ed25519 -C your@email.com " }} <br>
-          eval "$(ssh-agent -s)"<br>
-          ssh-add ~/.ssh/id_ed25519
+          <code>{{'ssh-keygen -t ed25519 -C "your@email.com"'}}<br>eval "$(ssh-agent -s)"<br>ssh-add ~/.ssh/id_ed25519</code>
         </div>
 
         <p>For RSA (alternative):</p>
         <div class="code">
-          {{"ssh-keygen -t rsa -b 4096 -C your@email.com"}}
+          <code>{{"ssh-keygen -t rsa -b 4096 -C your@email.com"}}</code>
         </div>
       </section>
 
       <section class="topic">
-        <h4>4. Configure SSH in GitHub</h4>
+        <h3>4. Configure SSH in GitHub</h3>
         <div class="image-container">
-          <img src="./../../../../assets/img/background/Imagem_git_SSH.png" alt="GitHub SSH settings page">
+          <img src="../../../../assets/img/background/Imagem_git_SSH.png" alt="GitHub SSH settings page">
         </div>
         <p>Add your SSH key to GitHub:</p>
 
-        <h5>Copy your public key:</h5>
+        <h4>Copy your public key:</h4>
         <div class="code">
-          # Windows<br>
-          cat ~/.ssh/id_ed25519.pub | clip<br><br>
-          # Linux<br>
-          xclip -sel clip {{"<"}} ~/.ssh/id_ed25519.pub </div>
+          <code>
+            # Windows<br>
+            cat ~/.ssh/id_ed25519.pub | clip<br><br>
+            # Linux<br>
+            xclip -sel clip &lt; ~/.ssh/id_ed25519.pub
+          </code>
+        </div>
 
-            <ul>
-              <li>Go to GitHub &gt; Settings &gt; SSH and GPG keys</li>
-              <li>Click "New SSH key"</li>
-              <li>Paste your key and save</li>
-            </ul>
+        <ul>
+          <li>Go to GitHub &gt; Settings &gt; SSH and GPG keys</li>
+          <li>Click "New SSH key"</li>
+          <li>Paste your key and save</li>
+        </ul>
 
-            <p>Test your connection:</p>
-            <div class="code">
-              {{ " ssh -T git@github.com"}}
-            </div>
+        <p>Test your connection:</p>
+        <div class="code">
+          <code>{{"ssh -T git@github.com"}}</code>
+        </div>
       </section>
-
-
-
     </article>
-
   </div>
 </section>
