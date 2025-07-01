@@ -5,6 +5,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 export const routes: Routes = [
   { path: '', redirectTo: 'angular', pathMatch: 'full' }, //rora Padrão
   { path: 'angular', loadComponent: () => import('./pages/angular/angular.component').then(c => c.AngularComponent) },
+  { path: 'angular/dry', loadComponent: () => import('./pages/dry/dry.component').then(c => c.DryComponent) },
   { path: 'angular/get-starting', loadComponent: () => import('./pages/angular/get-srtaing-angular/get-starting-with-angular.component').then(c => c.GetStartingWithAngularComponent) },
   { path: 'angular/git', loadComponent: () => import('./pages/angular/git/git.component').then(c => c.GitComponent) },
   { path: 'angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },

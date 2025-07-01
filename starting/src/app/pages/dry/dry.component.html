@@ -1,0 +1,70 @@
+<section class="container-guide">
+  <div class="content-wrap">
+    <div class="header">
+      <h1>What is DRY?</h1>
+      <p class="subtitle">The principle of Don’t Repeat Yourself in software development</p>
+    </div>
+
+    <article>
+      <h2>Definition</h2>
+      <p>
+        <strong>DRY</strong> stands for <strong>Don’t Repeat Yourself</strong>, a principle in software engineering aimed at reducing repetition of software patterns.
+        It encourages developers to avoid duplicating code and logic by abstracting reusable pieces into functions, modules, or components.
+      </p>
+
+      <h2>Why Use DRY?</h2>
+      <ul>
+        <li><strong>Maintainability:</strong> Changing one place is easier than changing many.</li>
+        <li><strong>Scalability:</strong> Reusable logic allows for faster growth and less redundancy.</li>
+        <li><strong>Readability:</strong> Cleaner code is easier to read and understand.</li>
+        <li><strong>Fewer Bugs:</strong> Repeating logic can cause inconsistent behavior and more bugs.</li>
+      </ul>
+
+      <h2>Best DRY Practices in Angular (v19)</h2>
+
+      <h3>1. Reusable Components</h3>
+      <p>Create small components that can be reused in multiple places:</p>
+      <pre><code>&lt;app-button [label]="Save" (click)="save()"&gt;&lt;/app-button&gt;</code></pre>
+
+      <h3>2. Shared Services</h3>
+      <p>Use services to share business logic, HTTP requests, or state:</p>
+      <pre><code>// user.service.ts
+{{ "@Injectable({ providedIn: 'root' })" }}
+export class UserService {{"{"}}
+  getUsers() {{"{"}}
+    return this.http.get('/api/users');
+ {{" }"}}
+{{" }"}}</code></pre>
+
+      <h3>3. Custom Directives</h3>
+      <p>Encapsulate common behaviors in custom directives:</p>
+      <pre><code>{{ "@Directive({ selector: '[appHighlight]'})" }}
+export class HighlightDirective {{"{"}}
+  constructor(el: ElementRef) {{"{"}}
+    el.nativeElement.style.backgroundColor = 'yellow';
+  {{" }"}}
+{{" }"}}</code></pre>
+
+      <h3>4. Reusable Pipes</h3>
+      <p>Transform values consistently across the app:</p>
+      <pre><code>{{"@Pipe({ name: 'capitalize' })"}}
+export class CapitalizePipe implements PipeTransform {{"{"}}
+  transform(value: string): string {{"{"}}
+    return value.charAt(0).toUpperCase() + value.slice(1);
+ {{" }"}}
+{{" }"}}</code></pre>
+
+      <h3>5. Reactive Forms Logic</h3>
+      <p>Abstract common form logic into base components or services:</p>
+      <pre><code>this.form = this.fb.group({{"{"}}
+  email: ['', [Validators.required, Validators.email]],
+  password: ['', Validators.required]
+{{" }"}} );</code></pre>
+
+      <div class="note success">
+        ✅ DRY helps create clean, efficient, and scalable codebases by minimizing duplication.
+      </div>
+    </article>
+  </div>
+</section>
+
