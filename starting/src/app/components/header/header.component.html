@@ -7,22 +7,38 @@
 
     <nav class="nav-content">
       <div class="nav-item has-expandable">
-        <a class="logo-link">What is Dry?</a>
+        <a class="logo-link">{{"dry? solid? calisthenics?" | upcaseFirstWord }}</a>
         <div class="submenu">
-          <a routerLink="/angular/dry" class="submenu-link">DRY</a>
 
+          <a class="logo-link">What is Dry?</a>
+          <div class="submenu">
+            <a routerLink="/angular/dry" class="submenu-link">Dry</a>
+          </div>
+          <a routerLink="angular/solid" class="logo-link">What is Solid?</a>
+          <div class="submenu">
+            <a routerLink="angular/solid/srp" class="submenu-link">Single Responsibility Principle</a>
+            <a routerLink="angular/solid/ocp" class="submenu-link">Open and Closed Principle</a>
+            <a routerLink="angular/solid/lsp" class="submenu-link">Liskov Substitution Principle</a>
+            <a routerLink="angular/solid/isp" class="submenu-link">Interface Segregation Principle</a>
+            <a routerLink="angular/solid/dip" class="submenu-link">Dependency Inversion Principle</a>
+          </div>
+          <a routerLink="angular/calisthenics" class="logo-link">What is Object Calisthenics?</a>
+          <div class="submenu">
+            <a routerLink="angular/solid/srp" class="submenu-link">Single Responsibility Principle</a>
+
+          </div>
         </div>
       </div>
 
       <div class="nav-item has-expandable">
-        <a routerLink="angular/solid" class="logo-link">What is Solid?</a>
+        <!-- <a routerLink="angular/solid" class="logo-link">What is Solid?</a>
         <div class="submenu">
           <a routerLink="angular/solid/srp" class="submenu-link">Single Responsibility Principle</a>
           <a routerLink="angular/solid/ocp" class="submenu-link">Open and Closed Principle</a>
           <a routerLink="angular/solid/lsp" class="submenu-link">Liskov Substitution Principle</a>
           <a routerLink="angular/solid/isp" class="submenu-link">Interface Segregation Principle</a>
           <a routerLink="angular/solid/dip" class="submenu-link">Dependency Inversion Principle</a>
-        </div>
+        </div> -->
       </div>
       <div class="nav-item has-expandable">
         <a routerLink="/angular" class="logo-link">Angular</a>
