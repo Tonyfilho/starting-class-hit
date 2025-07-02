@@ -1,0 +1,29 @@
+<div class="header">
+  <h1>Rule 5: One Dot per Line</h1>
+  <p class="subtitle">Avoid chaining too many calls on a single line</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Correntes de chamadas dificultam testes e depuração em Angular. Uma linha = uma chamada.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          this.authService.getUser().getCompany().getName()
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          const user = this.authService.getUser();<br>
+          const company = user.getCompany();<br>
+          const name = company.getName();
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

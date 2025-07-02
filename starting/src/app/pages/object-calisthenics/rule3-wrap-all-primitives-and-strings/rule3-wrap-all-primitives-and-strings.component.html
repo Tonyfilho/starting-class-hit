@@ -1,0 +1,31 @@
+<div class="header">
+  <h1>Rule 3: Wrap All Primitives and Strings</h1>
+  <p class="subtitle">Avoid primitive obsession using strong types</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        No Angular, evite passar strings ou números diretamente entre serviços/componentes. Use interfaces ou classes para encapsular dados.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          {{"login(user: string, pass: string) {...}"}}
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          interface Credentials {{"{"}}<br>
+          &nbsp;&nbsp;username: string;<br>
+          &nbsp;&nbsp;password: string;<br>
+          {{"}"}}<br>
+          login(credentials: Credentials) {{"{"}}...{{"}"}}
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

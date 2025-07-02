@@ -1,0 +1,29 @@
+<div class="header">
+  <h1>Rule 7: Keep All Entities Small</h1>
+  <p class="subtitle">Classes and components should do only one thing</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Componentes e serviços Angular devem ser pequenos e com propósito único. Quebre responsabilidades em partes reutilizáveis.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          UserComponent faz tudo: form, validação, API, lista, etc.
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          - UserFormComponent<br>
+          - UserListComponent<br>
+          - UserService
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

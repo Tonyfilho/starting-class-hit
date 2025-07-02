@@ -1,0 +1,32 @@
+<div class="header">
+  <h1>Rule 2: Don’t Use the ELSE Keyword</h1>
+  <p class="subtitle">Prefer early returns to simplify logic</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Em Angular, componentes limpos evitam `else`. Ao retornar antecipadamente, a lógica fica mais direta e testável.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          if (this.hasPermission) {{"{"}}<br>
+          &nbsp;&nbsp;this.loadData();<br>
+          {{"}"}} else {{"{"}}<br>
+          &nbsp;&nbsp;this.redirect();<br>
+          {{"}"}}
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          if (!this.hasPermission) return this.redirect();<br>
+          this.loadData();
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

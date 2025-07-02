@@ -1,0 +1,70 @@
+<div class="header">
+  <h1>Rule 9 - Don’t Use Getters/Setters</h1>
+  <p class="subtitle">Avoid accessing internal data from outside the object.</p>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <h2>Why Avoid Getters and Setters?</h2>
+      <p>
+        In Object Calisthenics, exposing internal state through <strong>getters</strong> or modifying it with <strong>setters</strong>
+        breaks encapsulation. It treats objects like data containers rather than behavior-driven entities.
+      </p>
+
+      <h2>Angular Context</h2>
+      <p>
+        In Angular components or services, instead of using a getter to expose data (like a user name), prefer exposing a method that expresses
+        an action or behavior.
+      </p>
+
+      <h3>❌ Bad Example:</h3>
+      <div class="code">
+        <code>
+          export class User {{"{"}}<br>
+          &nbsp;&nbsp;private name = 'Ana';<br><br>
+          &nbsp;&nbsp;getName() {{"{"}} return this.name; {{"}"}}<br>
+          {{"}"}}
+        </code>
+      </div>
+
+      <p>And then using it like:</p>
+      <div class="code">
+        <code>
+          const userName = user.getName();<br>
+          console.log('Welcome, ' + userName);
+        </code>
+      </div>
+
+      <h3>✅ Good Example:</h3>
+      <div class="code">
+        <code>
+          export class User {{"{"}}<br>
+          &nbsp;&nbsp;private name = 'Ana';<br><br>
+          &nbsp;&nbsp;greet(): string {{"{"}}<br>
+          &nbsp;&nbsp;&nbsp;&nbsp;return `Welcome, ${{"{"}}this.name{{"}"}}`;<br>
+          &nbsp;&nbsp;{{"}"}}<br>
+          {{"}"}}
+        </code>
+      </div>
+
+      <p>Then use it like:</p>
+      <div class="code">
+        <code>
+          console.log(user.greet());
+        </code>
+      </div>
+
+      <h2>When Using Getters Makes Sense</h2>
+      <p>
+        While Object Calisthenics recommends avoiding them, Angular heavily uses getters for performance or template bindings.
+        The goal here is to **not abuse getters as shortcuts to avoid encapsulating logic**.
+      </p>
+
+      <div class="note warning">
+        ⚠️ Use getters sparingly in Angular, especially in templates with change detection, and never as a replacement for business logic.
+      </div>
+    </article>
+  </div>
+</section>
+

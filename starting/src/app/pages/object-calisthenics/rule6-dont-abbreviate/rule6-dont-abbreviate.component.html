@@ -1,0 +1,27 @@
+<div class="header">
+  <h1>Rule 6: Don’t Abbreviate</h1>
+  <p class="subtitle">Use descriptive and meaningful names</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Em Angular, variáveis e métodos devem ter nomes claros. Abreviações causam confusão, especialmente em projetos maiores.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          const usr = this.auth.getUsr();
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          const user = this.authService.getUser();
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

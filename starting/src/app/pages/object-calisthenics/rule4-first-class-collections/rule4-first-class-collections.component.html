@@ -1,0 +1,31 @@
+<div class="header">
+  <h1>Rule 4: First Class Collections</h1>
+  <p class="subtitle">Collections should be encapsulated in their own classes</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Em Angular, evite expor diretamente arrays. Envolva listas em classes com comportamento próprio.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          this.users: User[] = [];
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          class UserList {{"{"}}<br>
+          &nbsp;&nbsp;private users: User[] = [];<br>
+          &nbsp;&nbsp;{{"add(user: User): void {...}"}}<br>
+          &nbsp;&nbsp;{{"isEmpty(): boolean {...}"}}<br>
+        {{ "}"}}
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+

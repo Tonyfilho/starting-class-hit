@@ -1,0 +1,31 @@
+<div class="header">
+  <h1>Rule 8: No More Than Two Instance Variables</h1>
+  <p class="subtitle">Simplify class design by limiting state</p>
+</div>
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <p>
+        Em Angular, componentes com muitos atributos de instância tornam-se difíceis de testar e manter. Agrupe e encapsule sempre que possível.
+      </p>
+      <h2>Exemplo no Angular</h2>
+      <p>Evite:</p>
+      <div class="code">
+        <code>
+          this.name<br>
+          this.email<br>
+          this.phone<br>
+          this.address<br>
+          this.company
+        </code>
+      </div>
+      <p>Prefira:</p>
+      <div class="code">
+        <code>
+          {{"this.userDetails = { name, email, phone, address, company }"}}
+        </code>
+      </div>
+    </article>
+  </div>
+</section>
+
