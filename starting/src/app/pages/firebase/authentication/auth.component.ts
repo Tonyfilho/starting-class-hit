@@ -5,7 +5,8 @@ import { Component } from '@angular/core';
   selector: 'app-auth',
   imports: [CommonModule],
   templateUrl: './auth.component.html',
-  styleUrl: './../init-with-hosting/init-with-hosting.component.css'
+  // styleUrl: './../init-with-hosting/init-with-hosting.component.css'
+  styleUrl: './../../angular/angular.component.css'
 })
 export class AuthComponent {
 

@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-init-with-hosting',
   imports: [],
   templateUrl: './init-with-hosting.component.html',
-  styleUrl: './init-with-hosting.component.css'
+  styleUrl: './../../angular/angular.component.css'
 })
 export class InitWithHostingComponent {
 
