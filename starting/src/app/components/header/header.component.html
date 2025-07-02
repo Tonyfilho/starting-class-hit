@@ -9,11 +9,11 @@
         <a class="logo-link">{{"dry? solid? calisthenics?" | upcaseFirstWord }}</a>
         <div class="submenu">
           <a class="logo-link">What is Dry?</a>
-          <div class="submenu">
+          <div class="submenu-sub">
             <a routerLink="/angular/dry" class="submenu-link">Dry</a>
           </div>
           <a routerLink="angular/solid" class="logo-link">What is Solid?</a>
-          <div class="submenu">
+          <div class="submenu-sub">
             <a routerLink="angular/solid/srp" class="submenu-link">Single Responsibility Principle</a>
             <a routerLink="angular/solid/ocp" class="submenu-link">Open and Closed Principle</a>
             <a routerLink="angular/solid/lsp" class="submenu-link">Liskov Substitution Principle</a>
@@ -21,22 +21,30 @@
             <a routerLink="angular/solid/dip" class="submenu-link">Dependency Inversion Principle</a>
           </div>
           <a routerLink="angular/calisthenics" class="logo-link">What is Object Calisthenics?</a>
-          <div class="submenu">
-            <a routerLink="angular/calisthenics/rule1-one-indent" class="submenu-link">{{ "rule1-one-indent" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule2-dont-use-the-else-keyword" class="submenu-link">{{ "rule2-dont-use-the-else-keyword" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule3-wrap-all-primitives-and-strings" class="submenu-link">{{ "rule3-wrap-all-primitives-and-strings" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule4-first-class-collections" class="submenu-link">{{ "rule4-first-class-collections" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule5-one-dot-per-line" class="submenu-link">{{ "rule5-one-dot-per-line" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule6-dont-abbreviate" class="submenu-link">{{ "rule6-dont-abbreviate" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule7-keep-all-entities-small" class="submenu-link">{{ "rule7-keep-all-entities-small" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule8-no-more-than-two-instance-variables" class="submenu-link">{{ "rule8-no-more-than-two-instance-variables" | upcaseFirstWord }}</a>
-            <a routerLink="angular/calisthenics/rule9-dont-use-getters-or-setters" class="submenu-link">{{ "rule9-dont-use-getters-or-setters" | upcaseFirstWord }}</a>
+          <div class="submenu-sub">
+            <a routerLink="angular/calisthenics/rule1-one-indent" class="submenu-link">{{ "rule1-one-indent" |
+              upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule2-dont-use-the-else-keyword" class="submenu-link">{{
+              "rule2-dont-use-the-else-keyword" | upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule3-wrap-all-primitives-and-strings" class="submenu-link">{{
+              "rule3-wrap-all-primitives-and-strings" | upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule4-first-class-collections" class="submenu-link">{{
+              "rule4-first-class-collections" | upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule5-one-dot-per-line" class="submenu-link">{{ "rule5-one-dot-per-line"
+              | upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule6-dont-abbreviate" class="submenu-link">{{ "rule6-dont-abbreviate" |
+              upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule7-keep-all-entities-small" class="submenu-link">{{
+              "rule7-keep-all-entities-small" | upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule8-no-more-than-two-instance-variables" class="submenu-link">{{
+              "rule8-no-more-than-two-instance-variables" | upcaseFirstWord }}</a>
+            <a routerLink="angular/calisthenics/rule9-dont-use-getters-or-setters" class="submenu-link">{{
+              "rule9-dont-use-getters-or-setters" | upcaseFirstWord }}</a>
           </div>
         </div>
       </div>
 
-      <div class="nav-item has-expandable">
-      </div>
+     
       <div class="nav-item has-expandable">
         <a routerLink="/angular" class="logo-link">Angular</a>
         <div class="submenu">

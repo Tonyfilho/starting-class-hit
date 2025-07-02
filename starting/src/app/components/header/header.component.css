@@ -1,57 +1,57 @@
 .header {
-    width: 100%;
-    min-height: max-content;
-    background-color: var(--background-color-sections2);
-    box-shadow: var(--shadow);
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    text-align: center;
+  width: 100%;
+  min-height: max-content;
+  background-color: var(--background-color-sections2);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  text-align: center;
 }
 
 .local-header {
-    position: relative;
-    width: 100%;
-    color: var(--text-color-light);
-    box-shadow: var(--shadow);
-    background: var(--background-color-header);
+  position: relative;
+  width: 100%;
+  color: var(--text-color-light);
+  box-shadow: var(--shadow);
+  background: var(--background-color-header);
 }
 
 .local-header-content {
-    max-width: 1800px;
-    margin: 0 auto;
-    padding: 1rem .5rem;
-    text-align: center;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 1rem 0.5rem;
+  text-align: center;
 }
 
 .local-header-content h1 {
-   font-size: 2.5rem;
-   margin-bottom: 1rem;
-   font-weight: 700;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .local-header-content p {
-    font-size: 1.2rem;
-    opacity: 0.9;
-    max-width: 800px;
-    margin: 0 auto;
+  font-size: 1.2rem;
+  opacity: 0.9;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .nav-content {
-    min-height: 80px;
-    margin: 0 auto;
-     padding: 1rem 0;
-    display: flex;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 40px;
-     background-color: var(--background-color-sections2);
-    background-size: var(--animation-background-size);
-    animation: var(--animation-background-size);
-    height: max-content;
+  min-height: 80px;
+  margin: 0 auto;
+  padding: 1rem 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  background-color: var(--background-color-sections2);
+  background-size: var(--animation-background-size);
+  animation: var(--animation-background-size);
+  height: max-content;
 }
 
 .logo-link {
@@ -73,38 +73,6 @@
   flex-direction: column;
   align-items: center;
   position: relative;
-}
-
-.has-dropdown .dropdown {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: var(--background-color-sections);
-  box-shadow: var(--shadow);
-  border-radius: var(--border-radius);
-  padding: 0.5rem 0;
-  z-index: 1000;
-  min-width: 180px;
-}
-
-.has-dropdown:hover .dropdown {
-  display: block;
-}
-
-.dropdown-link {
-  display: block;
-  padding: 0.5rem 1rem;
-  color: var(--text-color);
-  text-decoration: none;
-  font-size: 1rem;
-  transition: var(--transition);
-  white-space: nowrap;
-}
-
-.dropdown-link:hover {
-  background-color: var(--tr-hover);
-  color: var(--text-hover2);
 }
 
 .has-expandable .submenu {
@@ -135,6 +103,20 @@
   color: var(--text-hover2);
 }
 
+.submenu-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  padding-left: 1rem; /* recuo para indicar hierarquia */
+}
+
+/* Exibe o submenu-sub quando o mouse passa por cima do título anterior */
+.submenu a.logo-link:hover + .submenu-sub {
+  max-height: max-content;
+}
 
 @media (max-width: 1024px) {
   .local-header-content h1 {
@@ -192,6 +174,10 @@
     width: 100%;
     box-sizing: border-box;
   }
+  .submenu-sub {
+    width: 100%;
+    padding-left: 0;
+  }
 
   .dropdown-link,
   .submenu-link {
@@ -205,4 +191,3 @@
     text-align: center;
   }
 }
-
