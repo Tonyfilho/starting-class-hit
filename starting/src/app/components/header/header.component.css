@@ -112,6 +112,52 @@
   transition: max-height 0.3s ease;
   padding-left: 1rem; /* recuo para indicar hierarquia */
 }
+/* === NOVO BLOCOS SUBMENU MULTINÍVEL COM TRANSIÇÃO FLUIDA === */
+
+/* container de bloco de submenu (pai + sub) */
+.submenu-block {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Ao passar mouse sobre o bloco todo, abre o submenu-sub */
+.submenu-block:hover .submenu-sub {
+  max-height: 1000px; /* grande o suficiente para todos os links */
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+/* ajuste do submenu-sub com transição suave */
+.submenu-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-5px);
+  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  padding-left: 1rem;
+}
+
+/* mantém a herança do estilo aprovado */
+.submenu-link {
+  font-size: 1rem;
+  text-decoration: none;
+  color: var(--text-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+}
+
+.submenu-link:hover {
+  background-color: var(--tr-hover);
+  color: var(--text-hover2);
+}
 
 /* Exibe o submenu-sub quando o mouse passa por cima do título anterior */
 .submenu a.logo-link:hover + .submenu-sub {
