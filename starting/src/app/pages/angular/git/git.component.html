@@ -27,22 +27,18 @@
         </ul>
 
         <h4>For Linux (Ubuntu/Debian):</h4>
-        <div class="code">
-          <code>sudo apt update<br>sudo apt install git</code>
-        </div>
+        <pre><code>sudo apt update
+sudo apt install git</code></pre>
 
         <p>Verify installation in terminal:</p>
-        <div class="code">
-          <code>git --version</code>
-        </div>
+        <pre><code>git --version</code></pre>
       </section>
 
       <section class="topic">
         <h3>2. Configure Git</h3>
         <p>Set up your global Git configuration:</p>
-        <div class="code">
-          <code>git config --global user.name "Your Name"<br>{{"git config --global user.email your@email.com"}}</code>
-        </div>
+        <pre><code>git config --global user.name "Your Name"
+git config --global user.email {{"your@email.com"}}</code></pre>
       </section>
 
       <section class="topic">
@@ -53,14 +49,12 @@
         <p>Create secure authentication keys for GitHub:</p>
 
         <h4>For both Windows and Linux:</h4>
-        <div class="code">
-          <code>{{'ssh-keygen -t ed25519 -C "your@email.com"'}}<br>eval "$(ssh-agent -s)"<br>ssh-add ~/.ssh/id_ed25519</code>
-        </div>
+        <pre><code>ssh-keygen -t ed25519 -C {{"your@email.com"}}
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519</code></pre>
 
         <p>For RSA (alternative):</p>
-        <div class="code">
-          <code>{{"ssh-keygen -t rsa -b 4096 -C your@email.com"}}</code>
-        </div>
+        <pre><code>ssh-keygen -t rsa -b 4096 -C {{"your@email.com"}}</code></pre>
       </section>
 
       <section class="topic">
@@ -71,14 +65,11 @@
         <p>Add your SSH key to GitHub:</p>
 
         <h4>Copy your public key:</h4>
-        <div class="code">
-          <code>
-            # Windows<br>
-            cat ~/.ssh/id_ed25519.pub | clip<br><br>
-            # Linux<br>
-            xclip -sel clip &lt; ~/.ssh/id_ed25519.pub
-          </code>
-        </div>
+        <pre><code># Windows
+cat ~/.ssh/id_ed25519.pub | clip
+
+# Linux
+xclip -sel clip &lt; ~/.ssh/id_ed25519.pub</code></pre>
 
         <ul>
           <li>Go to GitHub &gt; Settings &gt; SSH and GPG keys</li>
@@ -87,9 +78,7 @@
         </ul>
 
         <p>Test your connection:</p>
-        <div class="code">
-          <code>{{"ssh -T git@github.com"}}</code>
-        </div>
+        <pre><code>ssh -T {{"git@github.com"}}</code></pre>
       </section>
     </article>
   </div>

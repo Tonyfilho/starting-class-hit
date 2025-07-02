@@ -3,6 +3,16 @@
   min-width: 1400px;
   box-sizing: border-box;
 }
+a {
+     color: var(--text-hover);
+     text-decoration: none;
+
+
+     &:hover {
+        color: var(--text-hover2);
+        text-decoration: overline;
+     }
+}
 
 .header {
   background: var(--background-color-header);
