@@ -1,6 +1,6 @@
 <div class="header">
-  <h1>Complete Guide: Angular Reactive Forms</h1>
-  <p class="subtitle">Understanding FormControl, FormGroup, Validators</p>
+  <h1>Complete Guide: Angular Reactive Forms.</h1>
+  <p class="subtitle">Understanding FormControl, FormGroup, Validators.</p>
   <p class="subtitle">
     Learn how Reactive Forms work in Angular: form creation, validation rules, and control access.
   </p>
@@ -10,7 +10,7 @@
   <div class="content-wrap">
 
     <article>
-      <h2>Reactive Forms Overview</h2>
+      <h2>Reactive Forms Overview.</h2>
 
       <section>
         <h3>1. What is a Reactive Form?</h3>
@@ -27,9 +27,9 @@
           A <code>FormControl</code> represents a single input field. It tracks the value, status, and validation state.
         </p>
         <ul>
-          <li><code>value</code>: the current value</li>
-          <li><code>valid</code>: boolean indicating if all validators pass</li>
-          <li><code>touched</code> / <code>dirty</code> / <code>pristine</code>: interaction states</li>
+          <li><code>value</code>: the current value.</li>
+          <li><code>valid</code>: boolean indicating if all validators pass.</li>
+          <li><code>touched</code> / <code>dirty</code> / <code>pristine</code>: interaction states.</li>
           <li><code>errors</code>: object with validation errors (e.g. <code>{{"{"}}required: true {{"}"}}</code>)</li>
         </ul>
         <p><strong>Example:</strong></p>
@@ -43,7 +43,7 @@ const name = new FormControl('', &#123; nonNullable: true &#125;);
       <section>
         <h3>3. Validators</h3>
         <p>
-          Angular provides built-in validators such as <code>Validators.required</code>, <code>Validators.minLength()</code>, and <code>Validators.email</code>.
+          Angular provides built-in validators such as <code>Validators.required</code>, <code>Validators.minLength()</code>, and <code>Validators.email.</code>.
         </p>
         <p><strong>Attach them to a control:</strong></p>
         <pre><code>
@@ -71,7 +71,7 @@ const loginForm = new FormGroup(&#123;
       </section>
 
       <section>
-        <h3>5. Accessing and Displaying Errors</h3>
+        <h3>5. Accessing and Displaying Errors.</h3>
         <p>
           Inside templates, use the control reference to check validation states:
         </p>
@@ -90,10 +90,10 @@ const loginForm = new FormGroup(&#123;
       <section class="footer">
         <h3>Summary</h3>
         <ul>
-          <li>✅ Use <code>FormControl</code> for each field</li>
-          <li>✅ Group them using <code>FormGroup</code></li>
-          <li>✅ Add built-in or custom validators</li>
-          <li>✅ Check <code>errors</code> to display user feedback</li>
+          <li>✅ Use <code>FormControl</code> for each field.</li>
+          <li>✅ Group them using <code>FormGroup.</code></li>
+          <li>✅ Add built-in or custom validators.</li>
+          <li>✅ Check <code>errors</code> to display user feedback.</li>
         </ul>
       </section>
     </article>
