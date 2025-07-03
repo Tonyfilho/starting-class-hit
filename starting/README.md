@@ -109,9 +109,10 @@ Estrutura de controle
 1. criar o componente de rota da API , bem sua rota e subscriber na api weather e regres.
 2. Criação dos components firebaseInitHosting, authentication da rota filha angular/firebase e conf. do header 
 Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update do css e html deste components.
-3. Continuação do nivelamento falar sobre ...SPREAD e Outros
 3. inicio dos Forms para componente weather
-4. inicio dos Validators
+4. inicio dos Validators e seu componets
+5. Criação da Rota forms e seus components
+6. Continuação do nivelamento falar sobre ...SPREAD e Outros
 
 # Aula 12
 

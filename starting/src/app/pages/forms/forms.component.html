@@ -1,0 +1,198 @@
+<div class="header">
+  <h1>Complete Guide: Angular Forms API</h1>
+  <p class="subtitle">Mastering Forms in Angular Applications.</p>
+  <p class="subtitle">
+    Comprehensive guide to Template-driven and Reactive Forms in Angular.
+  </p>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+    <article>
+      <h2>Angular Forms Overview.</h2>
+      <p>
+        Angular provides two distinct approaches for handling user input through forms:
+        <strong>Template-driven Forms</strong> and <strong>Reactive Forms</strong>.
+        Both capture user input events, validate the input, create form models,
+        and provide ways to handle form submission.
+      </p>
+
+      <section>
+        <h3>1. Template-driven Forms.</h3>
+        <p>
+          Template-driven forms are declarative, built directly in HTML using directives
+          like <code>[(ngModel)]</code>, <code>#form="ngForm"</code>, <code>required</code>, etc.
+        </p>
+
+        <p><strong>Key characteristics:</strong></p>
+        <ul>
+          <li>Simpler and faster for basic cases</li>
+          <li>Based on <code>FormsModule</code> (must be imported in your module)</li>
+          <li>Angular handles the behind-the-scenes creation of <code>FormGroup</code> and <code>FormControl</code></li>
+        </ul>
+
+        <p><strong>Basic example:</strong></p>
+        <pre><code>
+&lt;form #form="ngForm" (ngSubmit)="onSubmit(form)"&gt;
+  &lt;input name="email" [(ngModel)]="email" required /&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <p class="note success">
+          ✅ Best for simple forms with basic validation requirements.
+        </p>
+      </section>
+
+      <section>
+        <h3>2. Reactive Forms</h3>
+        <p>
+          Reactive forms are more structured and programmatic, using TypeScript to define
+          the form structure with <code>FormGroup</code>, <code>FormControl</code>, <code>FormArray</code>, etc.
+        </p>
+
+        <p><strong>Key characteristics:</strong></p>
+        <ul>
+          <li>More control and flexibility</li>
+          <li>Based on <code>ReactiveFormsModule</code></li>
+          <li>Ideal for complex, dynamic forms with custom validation</li>
+          <li>Easier to unit test</li>
+        </ul>
+
+        <p><strong>Component setup:</strong></p>
+        <pre><code>
+import &#123; FormGroup, FormControl, Validators &#125; from {{ '@angular/forms' }};
+
+// In your component
+form = new FormGroup(&#123;
+  email: new FormControl('', [Validators.required, Validators.email])
+&#125;);
+        </code></pre>
+
+        <p><strong>Template example:</strong></p>
+        <pre><code>
+&lt;form [formGroup]="form" (ngSubmit)="onSubmit()"&gt;
+  &lt;input formControlName="email" /&gt;
+  &lt;button type="submit" [disabled]="!form.valid"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+        </code></pre>
+
+        <p class="note success">
+          ✅ Best for complex forms with dynamic fields or custom validation logic.
+        </p>
+      </section>
+
+      <section>
+        <h3>3. Comparison Table</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Template-driven</th>
+              <th>Reactive Forms</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td data-label="Feature">Approach</td>
+              <td data-label="Template-driven">Declarative (HTML)</td>
+              <td data-label="Reactive Forms">Programmatic (TypeScript)</td>
+            </tr>
+            <tr>
+              <td data-label="Feature">Required Module</td>
+              <td data-label="Template-driven">FormsModule</td>
+              <td data-label="Reactive Forms">ReactiveFormsModule</td>
+            </tr>
+            <tr>
+              <td data-label="Feature">Form Model</td>
+              <td data-label="Template-driven">Created by Angular</td>
+              <td data-label="Reactive Forms">Created by developer</td>
+            </tr>
+            <tr>
+              <td data-label="Feature">Validation</td>
+              <td data-label="Template-driven">Template directives</td>
+              <td data-label="Reactive Forms">Validator functions</td>
+            </tr>
+            <tr>
+              <td data-label="Feature">Dynamic Fields</td>
+              <td data-label="Template-driven">Limited support</td>
+              <td data-label="Reactive Forms">Excellent support</td>
+            </tr>
+            <tr>
+              <td data-label="Feature">Testing</td>
+              <td data-label="Template-driven">More difficult</td>
+              <td data-label="Reactive Forms">Easier</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>4. Form Validation</h3>
+        <p>Both approaches support validation, but with different syntax:</p>
+
+        <p><strong>Template-driven validation:</strong></p>
+        <pre><code>
+&lt;input name="email" [(ngModel)]="email"
+       required
+       minlength="5"
+       pattern={{"[a-z0-9._%+-] +@ "}}  [a-z0-9.-]+\.[a-z]&#123;2,4&#125;$ /&gt;
+        </code></pre>
+
+        <p><strong>Reactive forms validation:</strong></p>
+        <pre><code>
+this.userForm = new FormGroup(&#123;
+  email: new FormControl('', [
+    Validators.required,
+    Validators.minLength(5),
+    Validators.pattern({{'[a-z0-9._%+-]+@'}} [a-z0-9.-]+\.[a-z]&#123;2,4&#125;$)
+  ])
+&#125;);
+        </code></pre>
+
+        <p class="note warning">
+          ❌ Remember to show validation messages to users when forms are invalid.
+        </p>
+      </section>
+
+      <section>
+        <h3>5. Dynamic Forms with FormArray</h3>
+        <p>Reactive forms excel at dynamic form scenarios:</p>
+        <pre><code>
+// In component
+skills = new FormArray([]);
+
+addSkill() &#123;
+  this.skills.push(new FormControl('', Validators.required));
+&#125;
+
+removeSkill(index: number) &#123;
+  this.skills.removeAt(index);
+&#125;
+        </code></pre>
+
+        <p><strong>Template:</strong></p>
+        <pre><code>
+&lt;div formArrayName="skills"&gt;
+  &lt;div *ngFor="let skill of skills.controls; let i=index"&gt;
+    &lt;input [formControlName]="i" /&gt;
+    &lt;button (click)="removeSkill(i)"&gt;Remove&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;button (click)="addSkill()"&gt;Add Skill&lt;/button&gt;
+&lt;/div&gt;
+        </code></pre>
+      </section>
+
+      <section class="footer">
+        <h3>Form Implementation Checklist</h3>
+        <ul>
+          <li>✅ Choose the right approach (Template-driven or Reactive)</li>
+          <li>✅ Import the correct module (FormsModule or ReactiveFormsModule)</li>
+          <li>✅ Implement proper validation</li>
+          <li>✅ Provide clear user feedback</li>
+          <li>✅ Handle form submission appropriately</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</section>

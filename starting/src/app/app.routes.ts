@@ -12,6 +12,7 @@ export const routes: Routes = [
   { path: 'angular/object-calisthenics', loadChildren: () => import('./pages/object-calisthenics/object-calisthenic.router').then(c => c.ObjectCalisthenicRoutes) },
   { path: 'angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },
   { path: 'angular/hit', loadChildren: () => import('./pages/hit/hit.routes').then(c => c.hitRoutes) },
+  { path: 'angular/forms', loadChildren: () => import('./pages/forms/forms.router').then(c => c.formsRoutes) },
   { path: 'angular/levels', loadChildren: () => import('./pages/books/level.router').then(c => c.levelRoutes) },
   { path: 'angular/solid', loadChildren: () => import('./pages/solid/solid.router').then(c => c.solidRoutes) },
   { path: 'angular/api', loadChildren: () => import('./pages/api/api.routes').then(c => c.apiRoutes) },

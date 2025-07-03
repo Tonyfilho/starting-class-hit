@@ -1,0 +1,102 @@
+<div class="header">
+  <h1>Complete Guide: Angular Reactive Forms</h1>
+  <p class="subtitle">Understanding FormControl, FormGroup, Validators</p>
+  <p class="subtitle">
+    Learn how Reactive Forms work in Angular: form creation, validation rules, and control access.
+  </p>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <article>
+      <h2>Reactive Forms Overview</h2>
+
+      <section>
+        <h3>1. What is a Reactive Form?</h3>
+        <p>
+          Reactive Forms are structured and scalable forms created in the TypeScript code using the
+          <code>FormControl</code>, <code>FormGroup</code>, and <code>FormBuilder</code> APIs. They offer full control over validation, events, and dynamic behavior.
+        </p>
+        <p class="note success">✅ Ideal for complex or dynamic forms with advanced validation logic.</p>
+      </section>
+
+      <section>
+        <h3>2. FormControl: The Core Building Block</h3>
+        <p>
+          A <code>FormControl</code> represents a single input field. It tracks the value, status, and validation state.
+        </p>
+        <ul>
+          <li><code>value</code>: the current value</li>
+          <li><code>valid</code>: boolean indicating if all validators pass</li>
+          <li><code>touched</code> / <code>dirty</code> / <code>pristine</code>: interaction states</li>
+          <li><code>errors</code>: object with validation errors (e.g. <code>{{"{"}}required: true {{"}"}}</code>)</li>
+        </ul>
+        <p><strong>Example:</strong></p>
+        <pre><code>
+import &#123; FormControl &#125; from {{'@angular/forms'}};
+
+const name = new FormControl('', &#123; nonNullable: true &#125;);
+        </code></pre>
+      </section>
+
+      <section>
+        <h3>3. Validators</h3>
+        <p>
+          Angular provides built-in validators such as <code>Validators.required</code>, <code>Validators.minLength()</code>, and <code>Validators.email</code>.
+        </p>
+        <p><strong>Attach them to a control:</strong></p>
+        <pre><code>
+import &#123; Validators &#125; from {{'@angular/forms'}};
+
+const email = new FormControl('', [Validators.required, Validators.email]);
+        </code></pre>
+        <p class="note warning">❌ If a validator fails, <code>email.errors</code> will contain the corresponding error key.</p>
+      </section>
+
+      <section>
+        <h3>4. FormGroup: Combining Controls</h3>
+        <p>
+          A <code>FormGroup</code> groups multiple controls and allows validation and value tracking for the entire form.
+        </p>
+        <pre><code>
+import &#123; FormGroup &#125; from {{'@angular/forms'}};
+
+const loginForm = new FormGroup(&#123;
+  email: new FormControl('', [Validators.required, Validators.email]),
+  password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+&#125;);
+        </code></pre>
+        <p><strong>Usage:</strong> <code>loginForm.value</code>, <code>loginForm.valid</code>, <code>loginForm.get('email')</code></p>
+      </section>
+
+      <section>
+        <h3>5. Accessing and Displaying Errors</h3>
+        <p>
+          Inside templates, use the control reference to check validation states:
+        </p>
+        <pre><code>
+&lt;input [formControl]="loginForm.get('email')" /&gt;
+
+&lt;div *ngIf="loginForm.get('email')?.errors?.['required']"&gt;
+  Email is required.
+&lt;/div&gt;
+&lt;div *ngIf="loginForm.get('email')?.errors?.['email']"&gt;
+  Invalid email format.
+&lt;/div&gt;
+        </code></pre>
+      </section>
+
+      <section class="footer">
+        <h3>Summary</h3>
+        <ul>
+          <li>✅ Use <code>FormControl</code> for each field</li>
+          <li>✅ Group them using <code>FormGroup</code></li>
+          <li>✅ Add built-in or custom validators</li>
+          <li>✅ Check <code>errors</code> to display user feedback</li>
+        </ul>
+      </section>
+    </article>
+  </div>
+</section>
+
