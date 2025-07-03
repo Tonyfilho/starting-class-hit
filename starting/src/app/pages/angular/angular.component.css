@@ -3,6 +3,7 @@
   min-width: 1400px;
   box-sizing: border-box;
 }
+
 a {
   color: var(--text-hover);
   text-decoration: none;
@@ -15,19 +16,22 @@ a {
 
 .header {
   background: var(--background-color-header);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
   padding: 2rem;
   border-radius: var(--border-radius);
   color: var(--text-color-light);
   box-shadow: var(--shadow);
   margin: 0.5rem;
-  animation: var(--animation-move-gradient);
-  background-size: var(--animation-background-size);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+   max-width: 1400px;
+
 }
+
 .container-guide {
   padding: 2rem;
   background: var(--background-color-sections);
@@ -39,8 +43,6 @@ a {
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-
-  /* ajustes para alinhamento e visual igual ao .header */
   margin: 0.5rem;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
@@ -56,6 +58,11 @@ a {
   font-size: 1.2rem;
   color: var(--text-color-light);
   text-align: center;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 100%;
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .content-wrap {
@@ -111,20 +118,12 @@ ol {
   border-top: 2px solid var(--primary-color);
 }
 
-/* img {
-  width: 100%;
-  max-width: 700px;
-  height: auto;
-  display: block;
-  margin: 1rem auto;
-} */
-
 img {
   width: 100%;
   max-width: 600px;
-   height: auto;
+  height: auto;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  border-radius: 6px; /* opcional, pra deixar com cantos arredondados */
+  border-radius: 6px;
   box-shadow: 0 2px 6px var(--shadow);
   display: block;
   max-width: 100%;
@@ -132,27 +131,70 @@ img {
 }
 
 img:hover {
-  transform: scale(1.1); /* cresce 10% */
+  transform: scale(1.1);
   box-shadow: 0 10px 20px var(--shadow);
-  z-index: 10; /* fica acima dos outros elementos */
-  position: relative; /* para o z-index funcionar */
+  z-index: 10;
+  position: relative;
 }
 
-/* Responsividade para telas menores */
+
+.topic {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* Estilos para tabelas */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+table thead {
+  background: var(--background-color-header);
+  color: var(--text-color-light);
+}
+
+table th {
+  padding: 1rem;
+  text-align: left;
+}
+
+table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--background-color-sections2);
+  background-color: var(--background-color-sections);
+}
+
+table tr:last-child td {
+  border-bottom: none;
+}
+
+table tr:hover td {
+  background-color: var(--tr-hover);
+}
+
+/* Responsividade */
 @media (max-width: 1400px) {
   :host {
     min-width: auto;
   }
 
-  .container-guide {
+  .container-guide,
+  .container {
     padding: 1rem;
   }
 
-  .header h1 {
+  .header h1,
+  .header-text h1 {
     font-size: 1.8rem;
   }
 
-  .header .subtitle {
+  .header .subtitle,
+  .header-text p {
     font-size: 1rem;
   }
 
@@ -171,16 +213,19 @@ img:hover {
 }
 
 @media (max-width: 768px) {
-  .header h1 {
+  .header h1,
+  .header-text h1 {
     font-size: 1.5rem;
   }
 
-  .header .subtitle {
+  .header .subtitle,
+  .header-text p {
     font-size: 0.95rem;
   }
 
   h2,
-  h3 {
+  h3,
+  .topic h2 {
     font-size: 1.2rem;
   }
 
@@ -188,11 +233,30 @@ img:hover {
     font-size: 0.95rem;
   }
 
-  .container-guide {
+  .container-guide,
+  .container {
     padding: 1rem 0.5rem;
   }
 
   .content-wrap {
     padding: 0 0.5rem;
+  }
+
+  /* Responsividade para tabelas */
+  table {
+    display: block;
+    overflow-x: auto;
+  }
+
+  table td {
+    min-width: 120px;
+  }
+
+  table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    display: inline-block;
+    width: 120px;
+    color: var(--text-color-h3);
   }
 }

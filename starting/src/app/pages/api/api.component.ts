@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-api',
   imports: [],
   templateUrl: './api.component.html',
-  styleUrl: './api.component.css'
+  styleUrl: './../angular/angular.component.css'
 })
 export class ApiComponent {
 
