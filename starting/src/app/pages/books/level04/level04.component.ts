@@ -4,10 +4,12 @@ import { ObservablesComponent } from "./observable01/observables.component";
 import { SignalComponent } from "./signal/signal.component";
 import { Observable02Component } from "./observable02/observable02.component";
 import { RouterLink, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { UpcaseFirstWordPipe } from '../../../_shared/pipes/upcase-first-word.pipe';
 
 @Component({
   selector: 'app-level04',
-  imports: [PromisesComponent, ObservablesComponent, Observable02Component, SignalComponent, RouterModule],
+  imports: [PromisesComponent, ObservablesComponent, Observable02Component, SignalComponent, RouterModule, CommonModule, UpcaseFirstWordPipe],
   templateUrl: './level04.component.html',
   styleUrl: './level04.component.css'
 })
