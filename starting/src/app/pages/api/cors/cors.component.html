@@ -1,0 +1,116 @@
+<div class="header">
+  <h1>CORS - Cross-Origin Resource Sharing</h1>
+  <p class="subtitle">
+    Entenda o que é CORS, por que acontece e como resolver.
+  </p>
+</div>
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <article>
+      <section class="topic">
+        <h2>🌐 O que é CORS?</h2>
+        <p>
+          O <strong>CORS (Cross-Origin Resource Sharing)</strong> é uma política de segurança implementada pelos
+          navegadores. Ele impede que páginas web façam requisições a um domínio diferente daquele de onde a página foi
+          carregada, a menos que o servidor permita explicitamente esse acesso.
+        </p>
+        <p>
+          Isso protege contra ataques como <em>Cross-Site Scripting (XSS)</em> e <em>Cross-Site Request Forgery
+            (CSRF)</em>.
+        </p>
+      </section>
+
+      <section class="topic">
+        <h3>🔒 Quando o erro CORS ocorre?</h3>
+        <p>
+          Por padrão, se uma aplicação Angular estiver rodando em <code>http://localhost:4200</code> e tentar acessar
+          uma API hospedada em outro domínio (ex: <code>https://api.exemplo.com</code>), o navegador bloqueará a
+          resposta se o servidor da API não estiver configurado para permitir essa origem.
+        </p>
+        <h4>❌ Exemplo de erro no console:</h4>
+        <pre><code>
+Access to fetch at 'https://api.exemplo.com/dados'
+from origin 'http://localhost:4200' has been blocked by CORS policy:
+No 'Access-Control-Allow-Origin' header is present on the requested resource.
+        </code></pre>
+      </section>
+
+      <section class="topic">
+        <h3>✅ Como resolver o erro CORS</h3>
+        <p>O servidor da API precisa incluir o cabeçalho <code>Access-Control-Allow-Origin</code> nas respostas. Abaixo
+          alguns exemplos de como configurar isso em diferentes tecnologias:</p>
+
+        <div class="card">
+          <h4>🔧 Node.js (Express)</h4>
+          <pre><code>
+const express = require('express');
+const cors = require('cors');
+const app = express();
+
+app.use(cors()); // Permite todas as origens
+
+app.get('/dados', (req, res) => {{"{"}}
+  res.json({{"{"}} mensagem: 'CORS liberado!' {{"}"}});
+{{"}"}});
+
+app.listen(3000);
+          </code></pre>
+        </div>
+
+        <div class="card">
+          <h4>☕ Java (Spring Boot)</h4>
+          <pre><code>
+{{"@RestController"}}
+public class ApiController {{"{"}}
+
+  {{'@CrossOrigin(origins = "http://localhost:4200")'}}
+  {{'@GetMapping("/dados")'}}
+  public ResponseEntity&lt;String&gt; getDados() {{"{"}}
+    return ResponseEntity.ok("CORS liberado!");
+  {{"}"}}
+{{"}"}}
+          </code></pre>
+        </div>
+
+        <div class="card">
+          <h4>🔥 Firebase Functions</h4>
+          <pre><code>
+const functions = require('firebase-functions');
+const cors = require('cors')({{"{"}} origin: true {{"}"}});
+
+exports.dados = functions.https.onRequest((req, res) => {{"{"}}
+  cors(req, res, () => {{"{"}}
+    res.json({{"{"}} mensagem: 'CORS liberado no Firebase!' {{"}"}});
+  {{"}"}});
+{{"}"}});
+          </code></pre>
+        </div>
+      </section>
+
+      <section class="topic">
+        <h3>📌 Dicas finais</h3>
+        <ul>
+          <li>Use bibliotecas como <code>cors</code> no Node.js para facilitar a configuração.</li>
+          <li>Evite permitir <code>*</code> em produção. Prefira definir as origens específicas.</li>
+          <li>Em desenvolvimento, use <code>proxy.conf.json</code> no Angular para contornar CORS sem mexer na API.</li>
+        </ul>
+        <pre><code>
+// angular.json
+"architect": {{"{"}}
+  "serve": {{"{"}}
+    "options": {{"{"}}
+      "proxyConfig": "src/proxy.conf.json"
+    {{"}"}}
+  {{"}"}}
+{{"}"}}
+        </code></pre>
+      </section>
+    </article>
+
+  </div>
+</section>

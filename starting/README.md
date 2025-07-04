@@ -113,6 +113,7 @@ Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update d
 4. inicio dos Validators e seu componets
 5. Criação da Rota forms e seus components
 6. Continuação do nivelamento falar sobre ...SPREAD e Outros
+7. estilizar todos o todos componentes, ficando somente error-https com css proprios
 
 # Aula 12
 

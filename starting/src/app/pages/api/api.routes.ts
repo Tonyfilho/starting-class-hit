@@ -4,6 +4,7 @@ export const apiRoutes: Routes = [
 
   { path: '', redirectTo: 'api', pathMatch: 'full' },
   { path: 'api', loadComponent: () => import('./api.component').then(cChild => cChild.ApiComponent) },
+  { path: 'cors', loadComponent: () => import('./cors/cors.component').then(cChild => cChild.CorsComponent) },
   { path: 'weather', loadComponent: () => import('./weather/weather.component').then(cChild => cChild.WeatherComponent) },
   { path: 'reqres', loadComponent: () => import('./reqres/reqres.component').then(cChild => cChild.ReqresComponent) },
   { path: 'http-success-200', loadComponent: () => import('./http-success-200/success-200.component').then(cChild => cChild.Success200Component) },
