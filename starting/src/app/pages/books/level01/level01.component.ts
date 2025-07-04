@@ -9,7 +9,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-level01',
   imports: [ControlStructuresComponent, OperatorsComponent, DependencyInjectionComponent, CommonModule, RouterLink],
   templateUrl: './level01.component.html',
-  styleUrl: './../level04/level04.component.css'
+  styleUrl: './../../angular/angular.component.css'
 })
 export class Level01Component {
 

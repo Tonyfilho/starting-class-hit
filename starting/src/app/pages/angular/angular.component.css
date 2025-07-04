@@ -173,6 +173,38 @@ table tr:hover td {
   background-color: var(--tr-hover);
 }
 
+/* Additional styles for the examples component */
+.card {
+  background: var(--background-color-sections);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin: 1rem 0;
+}
+
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.home-button {
+  background: var(--background-color-header);
+  color: var(--text-color-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: bold;
+}
+
+.home-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+
+
 /* Responsividade */
 @media (max-width: 1400px) {
   :host {
