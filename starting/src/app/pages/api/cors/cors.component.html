@@ -41,6 +41,29 @@ No 'Access-Control-Allow-Origin' header is present on the requested resource.
       </section>
 
       <section class="topic">
+        <h3>1. Utilizando proxy para desenvolvimento local</h3>
+        <p>
+          Você pode usar um arquivo de proxy no Angular para redirecionar chamadas durante o desenvolvimento e evitar
+          CORS sem alterar o backend:
+        </p>
+
+        <pre><code>// proxy.conf.json
+{{"{"}}
+  "/api": {{"{"}}
+    "target": "https://api.exemplo.com",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+        <p>Depois, altere o comando de execução no <code>angular.json</code> ou use:</p>
+
+        <pre><code>ng serve --proxy-config proxy.conf.json</code></pre>
+      </section>
+
+      <section class="topic">
         <h3>✅ Como resolver o erro CORS</h3>
         <p>O servidor da API precisa incluir o cabeçalho <code>Access-Control-Allow-Origin</code> nas respostas. Abaixo
           alguns exemplos de como configurar isso em diferentes tecnologias:</p>
