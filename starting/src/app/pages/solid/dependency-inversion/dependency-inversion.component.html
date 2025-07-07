@@ -1,25 +1,20 @@
-<div class="banner">
-    <p>Dependency Inversion Principle (DIP)</p>
-</div>
-<div class="container">
-    <div class="topic">
-        <h3>O que é o Dependency Inversion Principle?</h3>
-        <hr>
-        <div class="texto">
-            <p>O DIP afirma que <b>módulos de alto nível não devem depender de módulos de baixo nível</b>, mas ambos devem depender de abstrações.<br>
-                Isso desacopla o sistema e melhora a flexibilidade.
-            </p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Exemplo violando o DIP</h3>
-        <hr>
-        <div class="texto">
-            <div class="caixa-azul">
-                <h4>Classe depende diretamente de implementação concreta</h4>
-            </div>
-            <div class="code">
-                <pre><code>
+
+<header class="header">
+  <h1>Dependency Inversion Principle (DIP)</h1>
+</header>
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>O que é o Dependency Inversion Principle?</h2>
+    <hr>
+    <p>O DIP afirma que <b>módulos de alto nível não devem depender de módulos de baixo nível</b>, mas ambos devem depender de abstrações.<br>
+        Isso desacopla o sistema e melhora a flexibilidade.
+    </p>
+
+    <h2>Exemplo violando o DIP</h2>
+    <hr>
+    <h4>Classe depende diretamente de implementação concreta</h4>
+    <pre><code>
     class EmailService &#123; send() &#123; ... &#125; &#125;
 
     class Pedido &#123;
@@ -29,19 +24,15 @@
         &#125;
     &#125;
                 </code></pre>
-            </div>
-            <p>Pedido depende diretamente de um serviço específico.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Aplicando o DIP</h3>
-        <hr>
-        <div class="texto">
-            <div class="caixa-azul">
-                <h4>Dependência de abstração</h4>
-            </div>
-            <div class="code">
-                <pre><code>
+
+    <p>Pedido depende diretamente de um serviço específico.</p>
+
+    <h2>Aplicando o DIP</h2>
+    <hr>
+    <h4>Dependência de abstração</h4>
+
+
+    <pre><code>
     interface IEmailService &#123; send(): void; &#125;
 
     class EmailService implements IEmailService &#123;
@@ -52,20 +43,19 @@
         constructor(private email: IEmailService) &#123;
         finalizar() &#123; this.email.send(); &#125;
     &#125;
-                </code></pre>
-            </div>
-            <p>Agora o Pedido não está acoplado à implementação concreta.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Resumo Técnico</h3>
-        <hr>
-        <div class="texto">
-            <li>✅ Reduz o acoplamento entre classes.</li>
-            <li>✅ Facilita testes e substituição de dependências.</li>
-            <li>✅ Módulos de alto nível se tornam reutilizáveis.</li>
-        </div>
-    </div>
-</div>
+    </code></pre>
 
- 
+    <p>Agora o Pedido não está acoplado à implementação concreta.</p>
+
+
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+        <li>✅ Reduz o acoplamento entre classes.</li>
+        <li>✅ Facilita testes e substituição de dependências.</li>
+        <li>✅ Módulos de alto nível se tornam reutilizáveis.</li>
+    </ul>
+
+    </div>
+</section>

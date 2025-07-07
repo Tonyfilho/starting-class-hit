@@ -4,7 +4,8 @@ import { Component } from '@angular/core';
   selector: 'app-dependency-inversion',
   imports: [],
   templateUrl: './dependency-inversion.component.html',
-  styleUrl: './../single-responsibility/single-responsibility.component.css'
+  // styleUrl: './../single-responsibility/single-responsibility.component.css'
+  styleUrl: './../../angular/angular.component.css'
 })
 export class DependencyInversionComponent {
 

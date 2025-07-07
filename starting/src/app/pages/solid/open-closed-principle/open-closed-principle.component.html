@@ -1,25 +1,21 @@
-<div class="banner">
-    <p>Open/Closed Principle (OCP)</p>
-</div>
-<div class="container">
-    <div class="topic">
-        <h3>O que é o Open/Closed Principle?</h3>
+
+<header class="header">
+  <h1>Open/Closed Principle (OCP)</h1>
+</header>
+
+<section class="container-guide">
+  <div class="content-wrap">
+        <h2>O que é o Open/Closed Principle?</h2>
         <hr>
-        <div class="texto">
-            <p>O OCP afirma que <b>as classes devem estar abertas para extensão, mas fechadas para modificação.</b><br>
+        <p>O OCP afirma que <b>as classes devem estar abertas para extensão, mas fechadas para modificação.</b><br>
                 Isso significa que devemos poder adicionar novos comportamentos ao código sem alterar seu funcionamento interno.
-            </p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Exemplo violando o OCP</h3>
+        </p>
+
+        <h2>Exemplo violando o OCP</h2>
         <hr>
-        <div class="texto">
-            <div class="caixa-azul">
-                <h4>Classe alterada a cada novo tipo</h4>
-            </div>
-            <div class="code">
-                <pre><code>
+        <h4>Classe alterada a cada novo tipo</h4>
+
+        <pre><code>
     class DescontoService &#123;
         calcular(tipo) &#123;
             if (tipo === 'cliente') return 10;
@@ -27,20 +23,14 @@
             if (tipo === 'premium') return 30;
         &#125;
     &#125;
-                </code></pre>
-            </div>
-            <p>Qualquer novo tipo exige modificação direta da classe.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Aplicando o OCP</h3>
+        </code></pre>
+        <p>Qualquer novo tipo exige modificação direta da classe.</p>
+
+        <h2>Aplicando o OCP</h2>
         <hr>
-        <div class="texto">
-            <div class="caixa-azul">
-                <h4>Uso de polimorfismo e extensão</h4>
-            </div>
-            <div class="code">
-                <pre><code>
+        <h4>Uso de polimorfismo e extensão</h4>
+
+        <pre><code>
     interface Desconto &#123;
     getValor(): number;
     &#125;
@@ -52,18 +42,16 @@
     class DescontoPremium implements Desconto &#123;
     getValor() &#123; return 30; &#125;
     &#125;
-                </code></pre>
-            </div>
-            <p>Agora, adicionamos novos tipos sem modificar os anteriores.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Resumo Técnico</h3>
+        </code></pre>
+        <p>Agora, adicionamos novos tipos sem modificar os anteriores.</p>
+
+
+        <h2>Resumo Técnico</h2>
         <hr>
-        <div class="texto">
+        <ul>
             <li>✅ O código é mais estável e flexível.</li>
             <li>✅ Evita alterações em código já testado.</li>
             <li>✅ Favorece a extensão através de herança ou interfaces.</li>
-        </div>
-    </div>
+        </ul>
 </div>
+</section>

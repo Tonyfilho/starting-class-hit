@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-single-responsibility',
   imports: [],
   templateUrl: './single-responsibility.component.html',
-  styleUrl: './single-responsibility.component.css'
+   styleUrl: './../../angular/angular.component.css'
 })
 export class SingleResponsibilityComponent {
 

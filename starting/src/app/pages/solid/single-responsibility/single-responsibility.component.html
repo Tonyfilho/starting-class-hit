@@ -1,45 +1,36 @@
-<div class="banner">
-    <p>Single Responsibility Principle (SRP)</p>
-</div>
-<div class="container">
-    <div class="topic">
-        <h3>O que é o Princípio da Responsabilidade Única?</h3>
+
+<header class="header">
+  <h1>Single Responsibility Principle (SRP)</h1>
+</header>
+
+
+<section class="container-guide">
+  <div class="content-wrap">
+        <h2>O que é o Princípio da Responsabilidade Única?</h2>
         <hr>
-        <div class="texto">
-            <p>O SRP afirma que <b>classe deve ter um, e apenas um, motivo para mudar. Em outras palavras, ela deve ser responsável por apenas uma parte do funcionamento do sistema. </b><br>
-            Isso facilita a manutenção, os testes, e a reutilização do código.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Exemplo com Violação do SRP</h3>
+        <p>O SRP afirma que <b>classe deve ter um, e apenas um, motivo para mudar. Em outras palavras, ela deve ser responsável por apenas uma parte do funcionamento do sistema. </b><br>
+            Isso facilita a manutenção, os testes, e a reutilização do código.
+        </p>
+
+        <h2>Exemplo com Violação do SRP</h2>
         <hr>
-        <div class="texto">
-            <p>Veja esta classe que faz mais de uma coisa:</p>
-            <div class="caixa-azul">
-                <h4>Classe com múltiplas responsabilidades</h4>
-            </div>
-            <div class="code">
-                <pre><code>
+        <p>Veja esta classe que faz mais de uma coisa:</p>
+        <h4>Classe com múltiplas responsabilidades</h4>
+
+        <pre><code>
     class User &#123;
         saveUserToDatabase() &#123; ... &#125;
         validateEmail() &#123; ... &#125;
         sendWelcomeEmail() &#123; ... &#125;
     &#125;
-                </code></pre>
-            </div>
-            <p>Essa classe tem 3 responsabilidades: salvar no banco, validar email, e enviar email.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Aplicando o SRP</h3>
+        </code></pre>
+        <p>Essa classe tem 3 responsabilidades: salvar no banco, validar email, e enviar email.</p>
+
+        <h2>Aplicando o SRP</h2>
         <hr>
-        <div class="texto">
-            <p>Agora veja como podemos separar essas responsabilidades:</p>
-            <div class="caixa-azul">
-                <h4>Separação em classes especializadas</h4>
-            </div>
-            <div class="code">
-                <pre><code>
+        <p>Agora veja como podemos separar essas responsabilidades:</p>
+        <h4>Separação em classes especializadas</h4>
+        <pre><code>
     class UserRepository &#123;
         save(user) &#123;  ... &#125;
     &#125;
@@ -51,18 +42,15 @@
     class EmailService &#123;
         sendWelcomeEmail(user) &#123;  ... &#125;
     &#125;
-                </code></pre>
-            </div>
-            <p>Agora cada classe tem uma responsabilidade única e clara.</p>
-        </div>
-    </div>
-    <div class="topic">
-        <h3>Resumo Técnico</h3>
+        </code></pre>
+        <p>Agora cada classe tem uma responsabilidade única e clara.</p>
+
+        <h2>Resumo Técnico</h2>
         <hr>
-        <div class="texto">
+        <ul>
             <li>✅ SRP melhora a organização e a clareza do código.</li>
             <li>✅ Cada classe deve ter um motivo único para mudar.</li>
             <li>✅ Facilita manutenção, testes e reuso.</li>
-        </div>
+        </ul>
     </div>
-</div>
+</section>
