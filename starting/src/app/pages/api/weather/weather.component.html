@@ -1,48 +1,52 @@
-@if (this.localWeatherSig()) {
-<div class="weather-wrapper">
+<div class="header">
   <h2 class="section-title">Weather API</h2>
+</div>
 
-  <form class="city-form">
-    <input type="text" placeholder="Digite o nome da cidade" name="city" />
-    <button type="submit">Buscar</button>
-  </form>
+@if (this.localWeatherSig()) {
+  <div class="weather-wrapper">
 
-  <div class="weather-card">
-    <h3>{{this.localWeatherSig()?.location?.name}}, {{this.localWeatherSig()?.location?.country}}</h3>
-    <p class="datetime">{{this.localWeatherSig()?.location?.localtime}}</p>
+    <form class="city-form">
+      <input type="text" placeholder="Digite o nome da cidade" name="city" />
+      <button type="submit">Buscar</button>
+    </form>
 
-    <div class="main-info">
-      <div class="temperature">{{this.localWeatherSig()?.current?.temp_c}} Cº</div>
-      <div class="icon">
-        <img src={{this.localWeatherSig()?.current?.condition?.icon}}
-          alt={{this.localWeatherSig()?.current?.condition?.text}} />
+    <div class="weather-card">
+      <h3>{{this.localWeatherSig()?.location?.name}}, {{this.localWeatherSig()?.location?.country}}</h3>
+      <p class="datetime">{{this.localWeatherSig()?.location?.localtime}}</p>
+
+      <div class="main-info">
+        <div class="temperature">{{this.localWeatherSig()?.current?.temp_c}}°C</div>
+        <div class="icon">
+          <img src={{this.localWeatherSig()?.current?.condition?.icon}} alt="Cloudy" />
+          <p>{{this.localWeatherSig()?.current?.condition?.text}}</p>
         </div>
-        <p>{{this.localWeatherSig()?.current?.condition?.text}}</p>
-    </div>
+      </div>
 
-    <div class="details">
-      <div class="detail-box">
-        <p>Sensação térmica</p>
-        <strong>{{this.localWeatherSig()?.current?.feelslike_c}} Cº</strong>
-      </div>
-      <div class="detail-box">
-        <p>Umidade</p>
-        <strong>{{this.localWeatherSig()?.current?.humidity}}%</strong>
-      </div>
-      <div class="detail-box">
-        <p>Vento</p>
-        <strong>{{this.localWeatherSig()?.current?.wind_kph}} Kph</strong>
-      </div>
-      <div class="detail-box">
-        <p>Pressão</p>
-        <strong>{{this.localWeatherSig()?.current?.pressure_mb}} mb</strong>
+      <div class="details">
+        <div class="detail-box">
+          <p>Sensação térmica</p>
+          <strong>{{this.localWeatherSig()?.current?.feelslike_c}}°C</strong>
+        </div>
+        <div class="detail-box">
+          <p>Umidade</p>
+          <strong>{{this.localWeatherSig()?.current?.humidity}}</strong>
+        </div>
+        <div class="detail-box">
+          <p>Vento</p>
+          <strong>{{this.localWeatherSig()?.current?.wind_kph}} km/h</strong>
+        </div>
+        <div class="detail-box">
+          <p>Pressão</p>
+          <strong>{{this.localWeatherSig()?.current?.pressure_mb}} mb</strong>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 }@else {
-<div class="weather-wrapper">
-  <h2 class="section-title">Weather API</h2>
-  <h3 class="section-title">Opss something wrong try more later</h3>
-</div>
+  <div class="weather-wrapper">
+    <h2 class="section-title">Weather API</h2>
+    <h2 class="section-title">Opss something wrong, try more later</h2>
+  </div>
 }
+ 

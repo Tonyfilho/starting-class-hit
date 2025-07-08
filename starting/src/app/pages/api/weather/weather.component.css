@@ -1,5 +1,5 @@
 .weather-wrapper {
-  background-color: var(--background-color);
+  background-color: var(--background-color-sections);
   padding: 2rem;
   border-radius: var(--border-radius);
   max-width: 1200px;
@@ -8,12 +8,33 @@
   text-align: center;
 }
 
-.section-title {
-  color: var(--secondary-color);
-  font-size: 1.8rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+.header {
+  background: var(--background-color-header);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  box-shadow: var(--shadow);
+  margin: 0.5rem;
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
 }
+
+.header h1 {
+  font-size: var(--main-font-size);
+  margin: 0;
+  text-align: center;
+}
+
+.header .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-color-light);
+}
+
 
 .city-form {
   display: flex;
@@ -22,6 +43,7 @@
   gap: 1rem;
   margin-bottom: 2rem;
 }
+
 input {
   padding: 1rem;
   border: 1px solid var(--text-color-focus);
@@ -65,7 +87,7 @@ h3 {
 .datetime {
   font-size: 0.9rem;
   color: var(--placeholder);
-  margin: 1.2rem 0 1rem;
+  margin: 0.5rem 0 1rem;
 }
 
 .left-section {
@@ -124,3 +146,4 @@ strong {
   font-size: 1.2rem;
   color: var(--text-color-light);
 }
+ 
