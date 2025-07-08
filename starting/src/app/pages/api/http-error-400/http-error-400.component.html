@@ -1,23 +1,21 @@
-<div class="error-header">
+<div class="header-error">
   <h1>Erro 400 – Requisição Inválida</h1>
+  <p class="subtitle">A requisição enviada pelo cliente possui erros de sintaxe ou parâmetros inválidos.</p>
 </div>
 
-<div class="container">
-  <div class="card right-align">
-    <button class="home-button" routerLink="/">Voltar à Home</button>
-  </div>
-
-  <div class="card two-column">
-    <div class="text">
-      <p>A requisição enviada pelo cliente tem algum problema. Normalmente é causado por erros de sintaxe, parâmetros inválidos ou falta de autenticação.</p>
+<div class="container-guide">
+  <div class="content-wrap">
+    <div class="note warning">
+      <p>Verifique se os dados enviados estão corretos e se a autenticação está presente.</p>
     </div>
-    <div class="title">
+
+    <div class="topic">
       <h3>O que significa esse erro?</h3>
+      <p>A requisição enviada pelo cliente tem algum problema. Normalmente é causada por erros de sintaxe, parâmetros inválidos ou falta de autenticação.</p>
     </div>
-  </div>
 
-  <div class="card two-column">
-    <div>
+    <div class="topic">
+      <h3>Principais Códigos da Classe 400</h3>
       <ul>
         <li><strong>400 Bad Request:</strong> Requisição malformada (ex: JSON inválido, parâmetros errados).</li>
         <li><strong>401 Unauthorized:</strong> Requisição sem autenticação ou com token inválido.</li>
@@ -29,17 +27,14 @@
         <li><strong>429 Too Many Requests:</strong> Limite de requisições excedido.</li>
       </ul>
     </div>
-    <div class="title">
-      <h3>Principais Códigos da Classe 400</h3>
-    </div>
-  </div>
 
-  <div class="card two-column">
-    <div>
-      <p>Revise a requisição no cliente (formulários, JSON, headers, etc.). Certifique-se de que os dados estejam corretos e completos</p>
-    </div>
-    <div class="title">
+    <div class="topic">
       <h3>Como corrigir?</h3>
+      <p>Revise a requisição no cliente (formulários, JSON, headers, etc.). Certifique-se de que os dados estejam corretos e completos.</p>
+    </div>
+
+    <div class="note">
+      <a routerLink="/angular">← Voltar à Home</a>
     </div>
   </div>
 </div>

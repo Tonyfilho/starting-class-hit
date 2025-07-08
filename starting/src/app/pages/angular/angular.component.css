@@ -62,6 +62,40 @@ a {
   margin-top: 1rem;
   max-width: 100%;
 }
+/**header api/success and error*/
+.header-error {
+  background: var(--third-color);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  box-shadow: var(--shadow);
+  margin: 0.5rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+.header-success {
+  background: var(--text-color-h3);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  box-shadow: var(--shadow);
+  margin: 0.5rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
 
 .content-wrap {
   width: 100%;

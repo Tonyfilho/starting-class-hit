@@ -6,7 +6,7 @@ import { RouterLink } from '@angular/router';
   selector: 'app-http-error-500',
   imports: [CommonModule, RouterLink],
   templateUrl: './http-error-500.component.html',
-  styleUrl: './http-error-500.component.css'
+  styleUrl: './../../angular/angular.component.css'
 })
 export class HttpError500Component {
 
