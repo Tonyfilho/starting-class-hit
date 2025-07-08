@@ -119,14 +119,16 @@ Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update d
 
 1. inicio dos Forms para componente weather
 2. inicio dos Forms para componente signIn
+3. inicio dos Forms para componente signUp
+4. Validators em todos forms
+5. Api Crud (Principais Verbos Http)
 
 # Aula 14
 
-1. inicio dos Forms para componente signUp
 
 # Aula 15
 
-1. introdução ao Observables, criação component Observable. Update Header links para Asynchronous. Observable e Promise.
+
 
 # Aula 16
 

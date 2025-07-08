@@ -6,7 +6,7 @@
   </p>
 </div>
 
-<section class="container-guide">
+<section class="container-guide" [formGroup]="validatorForms">
   <div class="content-wrap">
 
     <article>
@@ -16,7 +16,8 @@
         <h3>1. What is a Reactive Form?</h3>
         <p>
           Reactive Forms are structured and scalable forms created in the TypeScript code using the
-          <code>FormControl</code>, <code>FormGroup</code>, and <code>FormBuilder</code> APIs. They offer full control over validation, events, and dynamic behavior.
+          <code>FormControl</code>, <code>FormGroup</code>, and <code>FormBuilder</code> APIs. They offer full control
+          over validation, events, and dynamic behavior.
         </p>
         <p class="note success">✅ Ideal for complex or dynamic forms with advanced validation logic.</p>
       </section>
@@ -38,12 +39,17 @@ import &#123; FormControl &#125; from {{'@angular/forms'}};
 
 const name = new FormControl('', &#123; nonNullable: true &#125;);
         </code></pre>
+        <p><strong>Example in Html:</strong></p>
+        <pre><code>
+       {{ '[formGroup]="validatorForms"' }}
+        </code></pre>
       </section>
 
       <section>
         <h3>3. Validators</h3>
         <p>
-          Angular provides built-in validators such as <code>Validators.required</code>, <code>Validators.minLength()</code>, and <code>Validators.email.</code>.
+          Angular provides built-in validators such as <code>Validators.required</code>,
+          <code>Validators.minLength()</code>, and <code>Validators.email.</code>.
         </p>
         <p><strong>Attach them to a control:</strong></p>
         <pre><code>
@@ -51,13 +57,15 @@ import &#123; Validators &#125; from {{'@angular/forms'}};
 
 const email = new FormControl('', [Validators.required, Validators.email]);
         </code></pre>
-        <p class="note warning">❌ If a validator fails, <code>email.errors</code> will contain the corresponding error key.</p>
+        <p class="note warning">❌ If a validator fails, <code>email.errors</code> will contain the corresponding error
+          key.</p>
       </section>
 
       <section>
         <h3>4. FormGroup: Combining Controls</h3>
         <p>
-          A <code>FormGroup</code> groups multiple controls and allows validation and value tracking for the entire form.
+          A <code>FormGroup</code> groups multiple controls and allows validation and value tracking for the entire
+          form.
         </p>
         <pre><code>
 import &#123; FormGroup &#125; from {{'@angular/forms'}};
@@ -67,7 +75,8 @@ const loginForm = new FormGroup(&#123;
   password: new FormControl('', [Validators.required, Validators.minLength(6)]),
 &#125;);
         </code></pre>
-        <p><strong>Usage:</strong> <code>loginForm.value</code>, <code>loginForm.valid</code>, <code>loginForm.get('email')</code></p>
+        <p><strong>Usage:</strong> <code>loginForm.value</code>, <code>loginForm.valid</code>,
+          <code>loginForm.get('email')</code></p>
       </section>
 
       <section>
@@ -99,4 +108,3 @@ const loginForm = new FormGroup(&#123;
     </article>
   </div>
 </section>
-
