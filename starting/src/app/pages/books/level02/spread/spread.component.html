@@ -1,1 +1,33 @@
-<p>spread works!</p>
+<div class="container">
+  <h2>...Spread</h2>
+  <p>Sintaxe de Espalhamento (Spread syntax) permite que um objeto iterável, como uma expressão de array ou uma string
+    seja expandido para ser usado onde zero ou mais argumentos (para chamadas de funções) ou elementos (para arrays
+    literais) são esperados, ou que um objeto seja expandido onde zero ou mais pares propriedade:valor (para objetos
+    literais) são esperados.</p>
+
+
+  <div class="user-list">
+    <div class="user-card">
+      <div class="user-info">
+        <section class="topic">
+          <h4>Arrays</h4>
+          <p>Original: {{ this.numerosOriginal }}</p>
+          <p>Clonado Com Spread: {{ this.numerosComSpread }}</p>
+        </section>
+      </div>
+    </div>
+  </div>
+  <div class="user-list">
+    <div class="user-card">
+      <div class="user-info">
+        <section class="topic">
+          <h4>Objetos</h4>
+          <p>Original: {{ this.pessoaOriginal.name }} - {{this.pessoaOriginal.age}}</p>
+          <p>Clonado Com Spread: {{ this.pessoaComSpread.name}} - {{this.pessoaComSpread.age}}</p>
+          <p>Clonado Com Spread 2: {{ this.pessoaComSpreadClone.name}} - {{this.pessoaComSpreadClone.age}} - {{this.pessoaComSpreadClone.address}}</p>
+        </section>
+
+      </div>
+    </div>
+  </div>
+</div>

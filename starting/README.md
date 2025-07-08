@@ -117,7 +117,8 @@ Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update d
 
 # Aula 12
 
-1. inicio dos Forms para componente signIn
+1. inicio dos Forms para componente weather
+2. inicio dos Forms para componente signIn
 
 # Aula 14
 
