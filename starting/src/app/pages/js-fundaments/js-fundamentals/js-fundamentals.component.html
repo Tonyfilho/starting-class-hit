@@ -9,89 +9,77 @@
 <section class="container-guide">
   <div class="content-wrap">
 
-    <h2>1. Data Types</h2>
+    <h2>1. Data Types (Tipos de Dados)</h2>
     <hr>
-    <p>O TypeScript oferece tipos como: <code>string</code>, <code>number</code>, <code>boolean</code>,
-      <code>array</code>, e <code>any</code>:</p>
+    <p>JavaScript e TypeScript suportam vários tipos de dados:</p>
+    <ul>
+      <li><code>string</code>: texto</li>
+      <li><code>number</code>: números inteiros e decimais</li>
+      <li><code>boolean</code>: verdadeiro ou falso</li>
+      <li><code>array</code>: lista de elementos</li>
+      <li><code>object</code>: estrutura com pares chave-valor</li>
+      <li><code>null</code> e <code>undefined</code></li>
+    </ul>
+
+    <h2>2. Variables (Variáveis)</h2>
+    <hr>
+    <p>Use <code>let</code> para variáveis mutáveis e <code>const</code> para constantes:</p>
     <pre><code>
-nome: string = 'Maria';
-idade: number = 30;
-ativo: boolean = true;
-lista: number[] = [1, 2, 3];
-qualquerCoisa: any = 'texto'; // cuidado com `any`!
+x = 10;        mais usado, escopo global
+let y = 20;     // escopo de bloco
+const z = 30;   // valor constante Obs: comportamento diferente para Arrays[] e Objetos{{"{"}}  {{"}"}}
     </code></pre>
 
-    <h2>2. Variables</h2>
+    <h2>3. Operators (Operadores)</h2>
     <hr>
-    <p>Use <code>let</code> para variáveis mutáveis e <code>const</code> para valores fixos:</p>
-    <pre><code>
- x = 10;     //  escopo Glocal
-let y = 20;     // escopo de Bloco
-const z = 30;   // valor constante, escopo de Bloco Obs: arrays [] e objetos {{"{}"}} com comportamento diferente
-    </code></pre>
+    <ul>
+      <li><b>Aritméticos</b>: +, -, *, /, %</li>
+      <li><b>Comparação</b>: ===, !==, >, <,>=, <=< /li>
+      <li><b>Lógicos</b>: &&, ||, !</li>
+      <li><b>De atribuição</b>: =, +=, -=</li>
+      <li><b>Ternário</b>: condição ? valor1 : valor2</li>
+    </ul>
 
-    <h2>3. Operators</h2>
+    <h2>4. Control Structures (Estruturas de Controle)</h2>
     <hr>
-    <h4>Aritméticos, Comparação, Lógicos e Ternário</h4>
+
+    <h4>Condicional <code>if/else</code></h4>
     <pre><code>
-// Aritméticos
-soma = 10 + 5;
-multiplicacao = 4 * 2;
-
-// Comparação
-igual = 5 == '5'; // true
-estritamenteIgual = 5 === '5'; // false
-
-// Lógicos
-e = true && false;
-ou = true || false;
-
-// Ternário
-idade = 18;
-podeEntrar = idade >= 18 ? 'Sim' : 'Não';
-    </code></pre>
-
-    <h2>4. Control Structures</h2>
-    <hr>
-    <h4>Condicionais e Laços</h4>
-    <pre><code>
-// if / else
 if (idade >= 18) {{"{"}}
   console.log('Maior de idade');
 {{"}"}} else {{"{"}}
   console.log('Menor de idade');
 {{"}"}}
+    </code></pre>
 
-// switch
-let cargo = 'admin';
-switch (cargo) {{"{"}}
-  case 'admin': console.log('Acesso total'); break;
-  case 'user': console.log('Acesso limitado'); break;
-  default: console.log('Sem acesso');
+    <h4>Switch</h4>
+    <pre><code>
+let cor = 'vermelho';
+
+switch (cor) {{"{"}}
+  case 'vermelho':
+    console.log('Pare!');
+    break;
+  case 'verde':
+    console.log('Siga!');
+    break;
+  default:
+    console.log('Cor inválida');
 {{"}"}}
+    </code></pre>
 
-// for
-for (let i = 0; i < 5; i++) {{"{"}}
+    <h4>Laços</h4>
+    <pre><code>
+// For tradicional
+for (let i = 0; i < 3; i++) {{"{"}}
   console.log(i);
 {{"}"}}
 
-// while
-let i = 0;
-while (i < 3) {{"{"}}
-  console.log(i);
-  i++;
-{{"}"}}
-
-// for...of
-let frutas = ['maçã', 'banana'];
-for (let fruta of frutas) {{"{"}}
-  console.log(fruta);
-{{"}"}}
-
-// for...in
-let pessoa = {{"{"}} nome: 'João', idade: 25 {{"}"}};
-for (let chave in pessoa) {{"{"}}
-  console.log(`${{"{"}}chave{{"}"}}: ${{"{"}}pessoa[chave as keyof typeof pessoa]{{"}"}}`);
+// While
+let j = 0;
+while (j < 3) {{"{"}}
+  console.log(j);
+  j++;
 {{"}"}}
     </code></pre>
 
@@ -111,8 +99,90 @@ export class AppComponent {{"{"}}
 {{"}"}}
 
 // app.component.html
-&lt;h1&gt;{{"{"}}{{"{"}} saudacao() {{"}"}}{{"}"}}&lt;/h1&gt;
+&lt;h1&gt;{{ "saudacao()" }}&lt;/h1&gt;
     </code></pre>
+
+    <h2>6. Tipos de "for" e uso no Angular</h2>
+    <hr>
+    <p>No JavaScript/TypeScript temos diferentes estruturas de repetição. Veja abaixo os principais tipos:</p>
+
+    <h4><code>for</code> tradicional</h4>
+    <pre><code>
+for (let i = 0; i < 5; i++) {{"{"}}
+  console.log(i);
+{{"}"}}
+    </code></pre>
+
+    <h4><code>for...of</code></h4>
+    <pre><code>
+ frutas = ['maçã', 'banana'];
+for (let fruta of frutas) {{"{"}}
+  console.log(fruta);
+{{"}"}}
+    </code></pre>
+
+    <h4><code>for...in</code></h4>
+    <pre><code>
+ pessoa = {{"{"}} nome: 'João', idade: 25 {{"}"}};
+for (let chave in pessoa) {{"{"}}
+  console.log(`${{"{"}}chave{{"}"}}: ${{"{"}}pessoa[chave as keyof typeof pessoa]{{"}"}}`);
+{{"}"}}
+    </code></pre>
+
+    <h4><code>forEach</code></h4>
+    <pre><code>
+ numeros = [1, 2, 3];
+numeros.forEach((n) => console.log(n));
+    </code></pre>
+
+
+    <h2>7. Comparativo entre os tipos de laço</h2>
+    <hr>
+
+    <div style="overflow-x: auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Tipo</th>
+            <th>Itera sobre</th>
+            <th>Permite <code>break</code>?</th>
+            <th>Ideal para</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>for</code></td>
+            <td>Índices numéricos</td>
+            <td>✅ Sim</td>
+            <td>Controles com índice</td>
+          </tr>
+          <tr>
+            <td><code>for...of</code></td>
+            <td>Valores de arrays</td>
+            <td>✅ Sim</td>
+            <td>Array de itens</td>
+          </tr>
+          <tr>
+            <td><code>for...in</code></td>
+            <td>Chaves de objetos</td>
+            <td>✅ Sim</td>
+            <td>Objetos</td>
+          </tr>
+          <tr>
+            <td><code>forEach</code></td>
+            <td>Valores de arrays</td>
+            <td>❌ Não</td>
+            <td>Loops simples (função)</td>
+          </tr>
+          <tr>
+            <td><code>*ngFor</code></td>
+            <td>Valores de arrays</td>
+            <td>— (Template Angular)</td>
+            <td>Renderização no HTML</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <h2>Resumo Técnico</h2>
     <hr>
@@ -121,7 +191,8 @@ export class AppComponent {{"{"}}
       <li>✅ Variáveis seguras com <code>let</code> e <code>const</code>.</li>
       <li>✅ Operadores lógicos e condicionais essenciais.</li>
       <li>✅ Controle de fluxo com if, for, while, switch.</li>
-      <li>✅ Aplicação real no Angular com HTML + lógica.</li>
+      <li>✅ Laços variados: <code>for</code>, <code>for...of</code>, <code>forEach</code>.</li>
+      <li>✅ Uso prático com <code>*ngFor</code> no Angular.</li>
     </ul>
 
   </div>
