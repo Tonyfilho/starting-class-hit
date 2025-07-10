@@ -1,0 +1,179 @@
+<header class="header">
+  <h1>Functions & Scope: Arrow Functions, Callbacks e Comparações.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que são funções?</h2>
+    <hr>
+    <p>Funções são blocos de código reutilizáveis que executam uma tarefa específica. Podem ser declaradas de várias
+      formas:</p>
+
+    <pre><code>
+// Declaração comum
+function saudacao(nome: string) {{"{"}}
+  return `Olá, ${{"{"}}nome{{"}"}}`;
+{{"}"}}
+
+// Expressão de função
+const saudacao2 = function(nome: string) {{"{"}}
+  return `Olá, ${{"{"}}nome{{"}"}}`;
+{{"}"}}
+
+// Arrow function
+const saudacao3 = (nome: string) => `Olá, ${{"{"}}nome{{"}"}}`;
+    </code></pre>
+
+    <h2>2. Arrow Functions</h2>
+    <hr>
+    <p>Introduzidas no ES6, possuem uma sintaxe mais curta e não possuem seu próprio <code>this</code>.</p>
+
+    <pre><code>
+const somar = (a: number, b: number): number => a + b;
+console.log(somar(2, 3)); // 5
+    </code></pre>
+
+    <p>Arrow functions são ideais para callbacks e funções curtas.</p>
+
+    <h2>3. Callbacks</h2>
+    <hr>
+    <p>Funções que são passadas como argumento para outras funções e executadas posteriormente.</p>
+
+    <pre><code>
+function processar(valor: number, callback: (n: number) => void) {{"{"}}
+  console.log('Processando...');
+  callback(valor);
+{{"}"}}
+
+processar(10, (n) => console.log(`Valor processado: ${{"{"}}n{{"}"}}`));
+    </code></pre>
+
+    <h2>4. Escopo e <code>this</code></h2>
+    <hr>
+    <p>Arrow functions não criam seu próprio escopo de <code>this</code>. Isso é útil em métodos de classe:</p>
+
+    <pre><code>
+class Pessoa {{"{"}}
+  nome = 'João';
+
+  mostrarNomeTradicional() {{"{"}}
+    setTimeout(function () {{"{"}}
+      console.log('Tradicional:', this.nome); // undefined
+    {{"}"}}, 1000);
+  {{"}"}}
+
+  mostrarNomeArrow() {{"{"}}
+    setTimeout(() => {{"{"}}
+      console.log('Arrow:', this.nome); // João
+    {{"}"}}, 1000);
+  {{"}"}}
+{{"}"}}
+    </code></pre>
+
+    <h2>Explicação: Por que Arrow Functions não têm <code>this</code> próprio?</h2>
+    <hr>
+    <p>
+      Em JavaScript, o valor de <code>this</code> é determinado pelo **contexto de chamada da função**.
+      Em funções tradicionais, <code>this</code> muda dependendo de como a função é chamada.
+      Já as <strong>arrow functions</strong>, introduzidas no ES6, <b>não criam um novo escopo de <code>this</code></b>.
+      Em vez disso, elas capturam o valor de <code>this</code> do <b>contexto em que foram definidas</b> — o chamado
+      "lexical this".
+    </p>
+
+    <p>
+      Isso é especialmente útil em métodos de classe, onde muitas vezes usamos funções assíncronas como
+      <code>setTimeout</code> ou <code>map</code>.
+      Nessas situações, funções tradicionais perdem a referência ao objeto original (a instância da classe), resultando
+      em um <code>this</code> <b>undefined</b> ou incorreto.
+    </p>
+
+    <p>
+      Usar uma arrow function dentro desses métodos garante que o <code>this</code> continue se referindo corretamente à
+      instância da classe.
+    </p>
+    <h2>Diagrama Visual: Escopo de <code>this</code></h2>
+    <hr>
+    <p>O diagrama abaixo ilustra como o <code>this</code> se comporta em funções tradicionais e em arrow functions
+      dentro de uma classe:</p>
+
+    <pre><code>
+Classe Pessoa:
+┌─────────────────────────────┐
+│ Pessoa                      │
+│ ├─ nome = 'João'            │
+│ ├─ mostrarNomeTradicional() │
+│ │   └─ setTimeout(function(){{"{"}}
+│ │         this.nome → ❌ undefined (escopo global)
+│ ├─ mostrarNomeArrow()       │
+│     └─ setTimeout(() => {{"{"}}
+│         this.nome → ✅ 'João' (herda da classe Pessoa)
+└─────────────────────────────┘
+</code></pre>
+
+
+
+
+
+    <h2>5. Comparativo: Função Comum vs Arrow</h2>
+    <hr>
+    <div style="overflow-x: auto;">
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Característica</th>
+            <th>Função Comum</th>
+            <th>Arrow Function</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Sintaxe</td>
+            <td><code>function nome() {{"{"}}{{"}"}}</code></td>
+            <td><code>const nome = () => {{"{"}}{{"}"}}</code></td>
+          </tr>
+          <tr>
+            <td>Possui <code>this</code> próprio</td>
+            <td>✅ Sim</td>
+            <td>❌ Não</td>
+          </tr>
+          <tr>
+            <td>Uso em classes</td>
+            <td>Requer bind ou referência</td>
+            <td>Herda o <code>this</code> externo</td>
+          </tr>
+          <tr>
+            <td>Legibilidade</td>
+            <td>Mais verbosa</td>
+            <td>Mais concisa</td>
+          </tr>
+          <tr>
+            <td>Ideal para</td>
+            <td>Métodos complexos</td>
+            <td>Callbacks, funções pequenas</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ Funções podem ser declaradas de várias formas.</li>
+      <li>✅ Callbacks são funções passadas como argumento.</li>
+      <li>✅ Escolha o tipo ideal de função para cada situação.</li>
+      <li>✅ Funções tradicionais possuem seu próprio <code>this</code> — o valor depende de como a função é chamada.
+      </li>
+      <li>✅ Arrow functions não têm seu próprio <code>this</code>.</li>
+      <li>✅ Arrow functions **herdam** o <code>this</code> do contexto onde foram definidas.</li>
+      <li>✅ Prefira arrow functions para preservar o escopo externo do <code>this</code>.</li>
+      <li>✅ Em métodos de classe, arrow functions evitam problemas comuns com <code>this</code> em callbacks assíncronos
+        como <code>setTimeout</code>.</li>
+    </ul>
+
+  </div>
+</section>
