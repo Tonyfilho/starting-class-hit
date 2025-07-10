@@ -84,7 +84,7 @@ button:hover {
 
 }
 .error-message {
-  width: 400px;
+  width: 22rem;
  color: var(--secondary-color);
  background-color: var(--background-color-error);
  padding: 0.8rem;
@@ -189,3 +189,58 @@ strong {
   font-size: 1.2rem;
   color: var(--text-color-light);
 }
+
+
+@media (max-width: 768px) {
+  .header,
+  .validators,
+  .city-form,
+  .weather-card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .city-form {
+    flex-direction: column;
+    align-items: stretch;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+
+  .city-form input,
+  .city-form button {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .validators {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  .validators .error-message {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .weather-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .main-info {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .details {
+    grid-template-columns: 1fr;
+  }
+}
+

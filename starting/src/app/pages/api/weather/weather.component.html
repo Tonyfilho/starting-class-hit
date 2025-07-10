@@ -4,31 +4,31 @@
 
 @if (this.localWeatherSig()) {
 <div class="weather-wrapper">
-  <section>
-    <form class="city-form" [formGroup]="weatherForms" (ngSubmit)="submit()">
-      <input type="text" placeholder="Digite o nome da cidade" name="city" formControlName="city" />
-      <button type="submit" [disabled]="this.weatherForms.invalid"
-      [ngClass]="{'invalid-button': this.weatherForms.invalid && this.weatherForms.touched}"
-      >Buscar</button>
-    </form>
-    <div class="validators">
-      @if (!this.weatherForms.valid && this.weatherForms.touched) {
-      <section [ngClass]="{'error-message': this.weatherForms.controls['city'].invalid && this.weatherForms.get('city')?.touched}">
-       @if (this.weatherForms.hasError('required', 'city')) {
-         <small class="warning">
-           <p>{{ "field is mandatory " | upcaseFirstWord}}</p>
-         </small>
-       }
-       
-       @if (this.weatherForms.get('city')?.getError('pattern')) {
-         <small class="warning">
-           <p>{{ "just letter, not allowed special characters or numbers " | upcaseFirstWord}}</p>
-         </small>
-       }
-      </section>
+
+  <form class="city-form" [formGroup]="weatherForms" (ngSubmit)="submit()">
+    <input type="text" placeholder="Digite o nome da cidade" name="city" formControlName="city" />
+    <button type="submit" [disabled]="this.weatherForms.invalid"
+      [ngClass]="{'invalid-button': this.weatherForms.invalid && this.weatherForms.touched}">Buscar</button>
+  </form>
+  <div class="validators">
+    @if (!this.weatherForms.valid && this.weatherForms.touched) {
+    <section
+      [ngClass]="{'error-message': this.weatherForms.controls['city'].invalid && this.weatherForms.get('city')?.touched}">
+      @if (this.weatherForms.hasError('required', 'city')) {
+      <small class="warning">
+        <p>{{ "field is mandatory " | upcaseFirstWord}}</p>
+      </small>
       }
-    </div>
-  </section>
+
+      @if (this.weatherForms.get('city')?.getError('pattern')) {
+      <small class="warning">
+        <p>{{ "just letter, not allowed special characters or numbers " | upcaseFirstWord}}</p>
+      </small>
+      }
+    </section>
+    }
+  </div>
+
 
 
   <div class="weather-card">
