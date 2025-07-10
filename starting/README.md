@@ -44,8 +44,7 @@ inicio sobre Template Literals `${....}` Obs: Template Literals somente para .TS
 
 configuração do do firebase hosting : https://console.firebase.google.com/
 
-# Aula 06
-
+# Aula 06  diretivas NgFor, NgIf NgClass e outras
 Crianção dos componentes de nivelamento e suas tags.
 Estrutura de controle
 
@@ -124,7 +123,7 @@ Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update d
 4. Validators em todos forms
 5. Api Crud (Principais Verbos Http)
 6. criação do server popup
-7. adicionar as diretivas NgFor, NgIf NgClass e outras
+7. criançao do Js Fundaments e seus components e suas rotas
 
 # Aula 14
 

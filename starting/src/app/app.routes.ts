@@ -11,6 +11,7 @@ export const routes: Routes = [
 
   { path: 'angular/object-calisthenics', loadChildren: () => import('./pages/object-calisthenics/object-calisthenic.router').then(c => c.ObjectCalisthenicRoutes) },
   { path: 'angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },
+  { path: 'angular/js-fundaments', loadChildren: () => import('./pages/js-fundaments/js-fundaments.router').then(c => c.jsFundamentsRoutes) },
   { path: 'angular/hit', loadChildren: () => import('./pages/hit/hit.routes').then(c => c.hitRoutes) },
   { path: 'angular/forms', loadChildren: () => import('./pages/forms/forms.router').then(c => c.formsRoutes) },
   { path: 'angular/levels', loadChildren: () => import('./pages/books/level.router').then(c => c.levelRoutes) },
