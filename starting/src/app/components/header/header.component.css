@@ -55,7 +55,7 @@
 }
 
 .logo-link {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: bold;
   text-decoration: none;
   color: var(--background-color-code);
@@ -90,7 +90,7 @@
 }
 
 .submenu-link {
-  font-size: 1rem;
+  font-size: 0.7rem;
   text-decoration: none;
   color: var(--text-color);
   padding: 0.3rem 0.7rem;

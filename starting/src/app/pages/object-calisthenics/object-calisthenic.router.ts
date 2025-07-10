@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 
 export const ObjectCalisthenicRoutes: Routes = [
     {path: '', redirectTo: 'object-calisthenics', pathMatch: 'full'},
-    {path: 'object-calisthenics', loadComponent:() => import('./object-calisthenic.component').then(cChild => cChild.ObjectCalisthenicComponent)},
+    {path: '', loadComponent:() => import('./object-calisthenic.component').then(cChild => cChild.ObjectCalisthenicComponent)},
     {path: 'rule1', loadComponent:() => import('./rule1-one-indent-component/rule1-one-indent-component.component').then(cChild => cChild.Rule1OneIndentComponentComponent)},
     {path: 'rule2', loadComponent:() => import('./rule2-dont-use-the-else-keyword/rule2-dont-use-the-else-keyword.component').then(cChild => cChild.Rule2DontUseTheElseKeywordComponent)},
     {path: 'rule3', loadComponent:() => import('./rule3-wrap-all-primitives-and-strings/rule3-wrap-all-primitives-and-strings.component').then(cChild => cChild.Rule3WrapAllPrimitivesAndStringsComponent)},

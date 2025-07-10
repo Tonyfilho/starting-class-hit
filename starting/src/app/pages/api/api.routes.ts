@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 export const apiRoutes: Routes = [
 
   { path: '', redirectTo: 'api', pathMatch: 'full' },
-  { path: 'api', loadComponent: () => import('./api.component').then(cChild => cChild.ApiComponent) },
+  { path: '', loadComponent: () => import('./api.component').then(cChild => cChild.ApiComponent) },
   { path: 'cors', loadComponent: () => import('./cors/cors.component').then(cChild => cChild.CorsComponent) },
   { path: 'weather', loadComponent: () => import('./weather/weather.component').then(cChild => cChild.WeatherComponent) },
   { path: 'reqres', loadComponent: () => import('./reqres/reqres.component').then(cChild => cChild.ReqresComponent) },

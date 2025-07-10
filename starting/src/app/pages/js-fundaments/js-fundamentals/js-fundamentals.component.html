@@ -1,0 +1,128 @@
+<header class="header">
+  <h1>JS/TS Fundamentals: Data Types, Variables, Operators, and Control Structures</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. Data Types</h2>
+    <hr>
+    <p>O TypeScript oferece tipos como: <code>string</code>, <code>number</code>, <code>boolean</code>,
+      <code>array</code>, e <code>any</code>:</p>
+    <pre><code>
+nome: string = 'Maria';
+idade: number = 30;
+ativo: boolean = true;
+lista: number[] = [1, 2, 3];
+qualquerCoisa: any = 'texto'; // cuidado com `any`!
+    </code></pre>
+
+    <h2>2. Variables</h2>
+    <hr>
+    <p>Use <code>let</code> para variáveis mutáveis e <code>const</code> para valores fixos:</p>
+    <pre><code>
+ x = 10;     //  escopo Glocal
+let y = 20;     // escopo de Bloco
+const z = 30;   // valor constante, escopo de Bloco Obs: arrays [] e objetos {{"{}"}} com comportamento diferente
+    </code></pre>
+
+    <h2>3. Operators</h2>
+    <hr>
+    <h4>Aritméticos, Comparação, Lógicos e Ternário</h4>
+    <pre><code>
+// Aritméticos
+soma = 10 + 5;
+multiplicacao = 4 * 2;
+
+// Comparação
+igual = 5 == '5'; // true
+estritamenteIgual = 5 === '5'; // false
+
+// Lógicos
+e = true && false;
+ou = true || false;
+
+// Ternário
+idade = 18;
+podeEntrar = idade >= 18 ? 'Sim' : 'Não';
+    </code></pre>
+
+    <h2>4. Control Structures</h2>
+    <hr>
+    <h4>Condicionais e Laços</h4>
+    <pre><code>
+// if / else
+if (idade >= 18) {{"{"}}
+  console.log('Maior de idade');
+{{"}"}} else {{"{"}}
+  console.log('Menor de idade');
+{{"}"}}
+
+// switch
+let cargo = 'admin';
+switch (cargo) {{"{"}}
+  case 'admin': console.log('Acesso total'); break;
+  case 'user': console.log('Acesso limitado'); break;
+  default: console.log('Sem acesso');
+{{"}"}}
+
+// for
+for (let i = 0; i < 5; i++) {{"{"}}
+  console.log(i);
+{{"}"}}
+
+// while
+let i = 0;
+while (i < 3) {{"{"}}
+  console.log(i);
+  i++;
+{{"}"}}
+
+// for...of
+let frutas = ['maçã', 'banana'];
+for (let fruta of frutas) {{"{"}}
+  console.log(fruta);
+{{"}"}}
+
+// for...in
+let pessoa = {{"{"}} nome: 'João', idade: 25 {{"}"}};
+for (let chave in pessoa) {{"{"}}
+  console.log(`${{"{"}}chave{{"}"}}: ${{"{"}}pessoa[chave as keyof typeof pessoa]{{"}"}}`);
+{{"}"}}
+    </code></pre>
+
+    <h2>5. Exemplo prático em Angular</h2>
+    <hr>
+    <pre><code>
+// app.component.ts
+export class AppComponent {{"{"}}
+  nome: string = 'Ana';
+  idade: number = 22;
+
+  saudacao(): string {{"{"}}
+    return this.idade >= 18
+      ? `Olá, ${{"{"}}this.nome{{"}"}}. Você é maior de idade.`
+      : `Olá, ${{"{"}}this.nome{{"}"}}. Você é menor de idade.`;
+  {{"}"}}
+{{"}"}}
+
+// app.component.html
+&lt;h1&gt;{{"{"}}{{"{"}} saudacao() {{"}"}}{{"}"}}&lt;/h1&gt;
+    </code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ Tipagem forte com TypeScript.</li>
+      <li>✅ Variáveis seguras com <code>let</code> e <code>const</code>.</li>
+      <li>✅ Operadores lógicos e condicionais essenciais.</li>
+      <li>✅ Controle de fluxo com if, for, while, switch.</li>
+      <li>✅ Aplicação real no Angular com HTML + lógica.</li>
+    </ul>
+
+  </div>
+</section>
