@@ -65,6 +65,49 @@ button {
 button:hover {
   background-color: var(--text-hover2);
 }
+.invalid-button {
+  cursor: none;
+  background-color: var(--third-color);
+  &:hover {
+    background-color: var(--secondary-color);
+
+  }
+
+}
+
+/* Estilos de error do form**/
+.validators {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: space-evenly;
+
+}
+.error-message {
+  width: 400px;
+ color: var(--secondary-color);
+ background-color: var(--background-color-error);
+ padding: 0.8rem;
+ border-radius: var(--border-radius);
+ margin: 0.5rem;
+ font-size: 0.9rem;
+ border-left: 3px, solid var(--secondary-color);
+ max-width: 25rem;
+
+}
+
+.error-message::before {
+  content: "⚠";
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.warning {
+  color: var(--text-color);
+  padding: 0.1%;
+  font-size: 10px
+
+}
 
 .weather-card {
   background: var(--primary-doc-color);
@@ -146,4 +189,3 @@ strong {
   font-size: 1.2rem;
   color: var(--text-color-light);
 }
- 

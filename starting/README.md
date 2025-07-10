@@ -2,6 +2,7 @@
 
 inicio do projeto
 Obs: Na aula 10, foi feito update do css do Header, foi feito a responsividade
+Obs: Falta fazer o template das diretivas  NgFor, NgIf NgClass e outras Aula 06
 
 # aula01
 
@@ -110,7 +111,7 @@ Estrutura de controle
 2. Criação dos components firebaseInitHosting, authentication da rota filha angular/firebase e conf. do header 
 Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update do css e html deste components.
 3. inicio dos Forms para componente weather
-4. inicio dos Validators e seu componets
+4. inicio dos Validators e seu components
 5. Criação da Rota forms e seus components
 6. Continuação do nivelamento falar sobre ...SPREAD e Outros
 7. estilizar todos o todos componentes, ficando somente error-https com css proprios
@@ -122,6 +123,8 @@ Obs: Criação das paginas Pais, Angular, Firebase e What is Api, Solid update d
 3. inicio dos Forms para componente signUp
 4. Validators em todos forms
 5. Api Crud (Principais Verbos Http)
+6. criação do server popup
+7. adicionar as diretivas NgFor, NgIf NgClass e outras
 
 # Aula 14
 
