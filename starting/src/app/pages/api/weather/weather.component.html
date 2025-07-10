@@ -6,7 +6,7 @@
 <div class="weather-wrapper">
 
   <form class="city-form" [formGroup]="weatherForms" (ngSubmit)="submit()">
-    <input type="text" placeholder="Digite o nome da cidade" name="city" formControlName="city" />
+    <input type="text" placeholder="  Digite o nome da cidade" name="city" formControlName="city" />
     <button type="submit" [disabled]="this.weatherForms.invalid"
       [ngClass]="{'invalid-button': this.weatherForms.invalid && this.weatherForms.touched}">Buscar</button>
   </form>
