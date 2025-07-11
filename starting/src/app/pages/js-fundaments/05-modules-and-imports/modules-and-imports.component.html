@@ -1,0 +1,184 @@
+<header class="header">
+  <h1>Modules & Imports no TypeScript</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que são Módulos?</h2>
+    <hr>
+    <p>
+      Módulos ajudam a organizar o código em arquivos separados. Cada arquivo representa um módulo que pode <strong>exportar</strong> funcionalidades (variáveis, funções, classes) e <strong>importar</strong> de outros módulos.
+    </p>
+
+    <ul>
+      <li>🔹 Permitem melhor organização do projeto.</li>
+      <li>🔹 Evitam conflitos de nomes (escopo isolado).</li>
+      <li>🔹 Facilitam reutilização e manutenção.</li>
+    </ul>
+
+    <h2>2. Desde Quando?</h2>
+    <hr>
+    <p>
+      O conceito de módulos foi padronizado no JavaScript moderno com o <strong>ES6 (ECMAScript 2015)</strong>, e é amplamente utilizado em TypeScript, Node.js e frameworks como Angular.
+    </p>
+
+    <h2>3. Exportando Funcionalidades</h2>
+    <hr>
+    <p>Você pode exportar variáveis, funções, classes ou interfaces de um módulo.</p>
+
+    <pre><code class="language-ts">// math-utils.ts
+export const PI = 3.14;
+
+export function sum(a: number, b: number): number {{"{"}}
+  return a + b;
+{{"}"}}
+
+export class Calculator {{"{"}}
+  multiply(a: number, b: number): number {{"{"}}
+    return a * b;
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+    <h2>4. Importando de um Módulo</h2>
+    <hr>
+    <p>Em outro arquivo, você importa usando a palavra-chave <code>import</code>:</p>
+
+    <pre><code class="language-ts">// app.ts
+import {{"{"}} PI, sum, Calculator {{"}"}} from './math-utils';
+
+console.log(PI); // 3.14
+console.log(sum(2, 3)); // 5
+
+const calc = new Calculator();
+console.log(calc.multiply(2, 4)); // 8
+</code></pre>
+
+    <h2>5. Export Default</h2>
+    <hr>
+    <p>Quando você quer exportar uma única entidade principal do módulo:</p>
+
+    <pre><code class="language-ts">// logger.ts
+export default function log(message: string) {{"{"}}
+  console.log('[LOG]', message);
+{{"}"}}
+</code></pre>
+
+    <pre><code class="language-ts">// app.ts
+import log from './logger';
+
+log('Aplicação iniciada'); // [LOG] Aplicação iniciada
+</code></pre>
+
+    <h2>6. Importações Relativas e Absolutas</h2>
+    <hr>
+    <ul>
+      <li><strong>Relativas</strong>: <code>./utils/math</code> (pasta atual).</li>
+      <li><strong>Absolutas</strong>: configuradas em <code>tsconfig.json</code> com <code>baseUrl</code> e <code>paths</code>.</li>
+    </ul>
+
+    <pre><code class="language-ts">// tsconfig.json
+{{"{"}}
+  "compilerOptions": {{"{"}}
+    "baseUrl": "src",
+    "paths": {{"{"}}
+      {{"@utils/*"}}: ["app/utils/*"]
+    {{"}"}}
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+    <!-- <pre><code class="language-ts">// app.ts
+import {{"{"}} sum {{"}"}} from {{'@utils/math'}}; // equivalente a src/app/utils/math.ts
+</code></pre>
+
+    <h2>7. Organização de Código em Angular</h2>
+    <hr>
+    <p>No Angular, módulos são usados para organizar funcionalidades em arquivos distintos:</p>
+
+    <ul>
+      <li><code>app.module.ts</code>: Módulo principal.</li>
+      <li><code>feature.module.ts</code>: Módulo específico de uma funcionalidade.</li>
+      <li><code>shared.module.ts</code>: Componentes e pipes reutilizáveis.</li>
+    </ul>
+
+    <pre><code class="language-ts">// shared.module.ts
+import {{"{"}} NgModule {{"}"}} from {{'@angular/core'}};
+import {{"{"}} CommonModule {{"}"}} from {{'@angular/common'}};
+import {{"{"}} MyPipe {{"}"}} from './pipes/my.pipe';
+
+{{"@NgModule"}}({{"{"}}
+  {{"declarations: [MyPipe],  exports: [MyPipe],  imports: [CommonModule]"}}
+{{"}"}})
+export class SharedModule {{"{"}}{{"}"}}
+</code></pre>
+
+    <pre><code class="language-ts">// feature.module.ts
+import {{"{"}} SharedModule {{"}"}} from '../shared/shared.module';
+
+{{"@NgModule"}}({{"{"}}
+  imports: [SharedModule]
+{{"}"}})
+export class FeatureModule {{"{"}}{{"}"}}
+</code></pre> -->
+<h2>7. Organização de Código em Angular (Antes e Depois do Angular 16)</h2>
+<hr>
+<p>
+  O Angular usou por muitos anos a arquitetura baseada em <strong>NgModules</strong>. No entanto, a partir do Angular 14 foi introduzido o conceito de <strong>componentes standalone</strong>, e no Angular 16 ele passou a ser amplamente recomendado, permitindo aplicações sem módulos.
+</p>
+
+<h3>🔸 Antes do Angular 16 (com NgModules)</h3>
+<ul>
+  <li><code>app.module.ts</code>: Módulo principal que declara e importa tudo.</li>
+  <li><code>feature.module.ts</code>: Módulos por funcionalidade.</li>
+  <li><code>shared.module.ts</code>: Agrupamento de componentes e pipes reutilizáveis.</li>
+</ul>
+
+<pre><code class="language-ts">// app.module.ts
+{{"@NgModule"}}({{"{"}}
+  declarations: [AppComponent],
+  imports: [BrowserModule, FeatureModule],
+  bootstrap: [AppComponent]
+{{"}"}})
+export class AppModule {{"{}"}}
+</code></pre>
+
+<h3>🔹 Após Angular 16 (com Componentes Standalone)</h3>
+<ul>
+  <li>Componentes importam diretamente outros componentes/pipes/services.</li>
+  <li>Sem necessidade de declarar em <code>{{"@NgModule"}}</code>.</li>
+</ul>
+
+<pre><code class="language-ts">// app.component.ts
+{{"@Component"}}({{"{"}}
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, MyComponent],
+  templateUrl: './app.component.html'
+{{"}"}})
+export class AppComponent {{"{}"}}
+</code></pre>
+
+<p>
+  Essa abordagem melhora o carregamento por demanda, facilita a manutenção e simplifica a estrutura do projeto.
+</p>
+
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>export</code>: Torna uma função, classe ou constante acessível a outros módulos.</li>
+      <li>✅ <code>import</code>: Permite usar recursos exportados de outro arquivo.</li>
+      <li>✅ <code>export default</code>: Facilita a importação de um único item.</li>
+      <li>✅ Módulos promovem organização e reuso de código.</li>
+      <li>✅ Angular usa módulos para estruturar e isolar funcionalidades.</li>
+    </ul>
+
+  </div>
+</section>
+

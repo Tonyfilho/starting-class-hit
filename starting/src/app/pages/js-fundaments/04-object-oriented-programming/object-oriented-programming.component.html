@@ -1,0 +1,176 @@
+<header class="header">
+  <h1>Programação Orientada a Objetos (OOP) em TypeScript</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é OOP?</h2>
+    <hr>
+    <p>
+      A Programação Orientada a Objetos é um paradigma que organiza o código em torno de <strong>classes</strong> e <strong>objetos</strong>, permitindo reutilização, abstração e encapsulamento.
+    </p>
+
+    <ul>
+      <li><strong>Classe</strong>: Molde para criar objetos com propriedades e métodos.</li>
+      <li><strong>Objeto</strong>: Instância de uma classe.</li>
+      <li><strong>Encapsulamento</strong>: Oculta detalhes internos, expondo apenas o necessário.</li>
+      <li><strong>Herança</strong>: Permite que uma classe herde de outra.</li>
+      <li><strong>Polimorfismo</strong>: Métodos com mesmo nome se comportam de forma diferente em classes distintas.</li>
+    </ul>
+
+    <h2>2. Criando Classes</h2>
+    <hr>
+    <pre><code class="language-ts">class Animal {{"{"}}
+  name: string;
+
+  constructor(name: string) {{"{"}}
+    this.name = name;
+  {{"}"}}
+
+  speak() {{"{"}}
+    console.log(`${{"{"}}this.name{{"}"}} faz um som.`);
+  {{"}"}}
+{{"}"}}
+
+const animal = new Animal('Bicho');
+animal.speak(); // Bicho faz um som.
+</code></pre>
+
+    <h2>3. Herança</h2>
+    <hr>
+    <p>
+      Uma classe pode herdar propriedades e métodos de outra usando <code>extends</code>.
+    </p>
+
+    <pre><code class="language-ts">class Dog extends Animal {{"{"}}
+  constructor(name: string) {{"{"}}
+    super(name); // chama o constructor da classe pai
+  {{"}"}}
+
+  speak() {{"{"}}
+    console.log(`${{"{"}}this.name{{"}"}} late.`);
+  {{"}"}}
+{{"}"}}
+
+const dog = new Dog('Rex');
+dog.speak(); // Rex late.
+</code></pre>
+
+    <h2>4. Modificadores de Acesso</h2>
+    <hr>
+    <ul>
+      <li><code>public</code>: Acesso livre (padrão).</li>
+      <li><code>private</code>: Acessível apenas dentro da classe.</li>
+      <li><code>protected</code>: Acessível na classe e em subclasses.</li>
+      <li><code>readonly</code>: Propriedade que só pode ser lida (não modificada após atribuída).</li>
+    </ul>
+
+    <pre><code class="language-ts">class Person {{"{"}}
+  public name: string;
+  private age: number;
+  protected role: string;
+  readonly id: number;
+
+  constructor(name: string, age: number, role: string, id: number) {{"{"}}
+    this.name = name;
+    this.age = age;
+    this.role = role;
+    this.id = id;
+  {{"}"}}
+
+  getAge(): number {{"{"}}
+    return this.age;
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+    <h2>5. Getters e Setters</h2>
+    <hr>
+    <p>Permitem controlar o acesso a propriedades privadas.</p>
+
+    <pre><code class="language-ts">class User {{"{"}}
+  private _email: string;
+
+  constructor(email: string) {{"{"}}
+    this._email = email;
+  {{"}"}}
+
+  get email(): string {{"{"}}
+    return this._email;
+  {{"}"}}
+
+  set email(value: string) {{"{"}}
+    if (value.includes({{'@'}})) {{"{"}}
+      this._email = value;
+    {{"}"}}
+  {{"}"}}
+{{"}"}}
+
+const user = {{"new User('teste@email.com');"}} ;
+console.log(user.email); {{"// teste@email.com"}} ;
+user.email = {{'novo@email.com'}};
+</code></pre>
+
+    <h2>6. Classes Abstratas</h2>
+    <hr>
+    <p>
+      Não podem ser instanciadas diretamente. Servem como base para outras classes.
+    </p>
+
+    <pre><code class="language-ts">abstract class Vehicle {{"{"}}
+  constructor(public brand: string) {{"{"}}{{"}"}}
+
+  abstract move(): void;
+
+  stop() {{"{"}}
+    console.log(`${{"{"}}this.brand{{"}"}} parou.`);
+  {{"}"}}
+{{"}"}}
+
+class Car extends Vehicle {{"{"}}
+  move() {{"{"}}
+    console.log(`${{"{"}}this.brand{{"}"}} está se movendo.`);
+  {{"}"}}
+{{"}"}}
+
+const car = new Car('Toyota');
+car.move(); // Toyota está se movendo.
+car.stop(); // Toyota parou.
+</code></pre>
+
+    <h2>7. Interfaces vs Classes</h2>
+    <hr>
+    <p>Interfaces definem o formato de objetos, mas não contêm lógica.</p>
+
+    <pre><code class="language-ts">interface Shape {{"{"}}
+  area(): number;
+{{"}"}}
+
+class Square implements Shape {{"{"}}
+  constructor(private side: number) {{"{"}}{{"}"}}
+
+  area(): number {{"{"}}
+    return this.side * this.side;
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ Classes definem estruturas e comportamentos de objetos.</li>
+      <li>✅ A herança permite reutilizar código entre classes relacionadas.</li>
+      <li>✅ Modificadores controlam a visibilidade de membros.</li>
+      <li>✅ Getters e setters encapsulam o acesso a propriedades.</li>
+      <li>✅ Classes abstratas definem contratos para subclasses.</li>
+      <li>✅ Interfaces descrevem a forma dos objetos sem implementação.</li>
+    </ul>
+
+  </div>
+</section>
+

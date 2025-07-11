@@ -2,11 +2,11 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 
 @Component({
-  selector: 'app-functions-and-scope',
+  selector: 'app-object-oriented-programming',
   imports: [RouterLink],
-  templateUrl: './functions-and-scope.component.html',
+  templateUrl: './object-oriented-programming.component.html',
   styleUrl: './../../angular/angular.component.css'
 })
-export class FunctionsAndScopeComponent {
+export class ObjectOrientedProgrammingComponent {
 
 }
