@@ -239,88 +239,142 @@ table tr:hover td {
   box-shadow: var(--shadow-hover);
 }
 
-
-
-/* Responsividade */
-@media (max-width: 1400px) {
+/* ========== RESPONSIVIDADE ========== */
+/* Telas médias (769px - 1024px) */
+@media (max-width: 1024px) {
   :host {
-    min-width: auto;
+    min-width: unset;
+    width: 100%;
   }
 
-  .container-guide,
-  .header {
-    padding: 1rem;
-    margin: 0.5rem auto;
-  }
-
-  .header h1,
-  .header-text h1 {
-    font-size: 1.8rem;
-  }
-
-  .header .subtitle,
-  .header-text p {
-    font-size: 1rem;
-  }
-
-  .content-wrap {
-    padding: 0 1rem;
-  }
-
-  ul,
-  ol {
-    margin-left: 1rem;
-  }
-
-  img {
-    max-width: 100%;
-  }
-}
-
-@media (max-width: 768px) {
-  .header h1,
-  .header-text h1 {
-    font-size: 1.5rem;
-  }
-
-  .header .subtitle,
-  .header-text p {
-    font-size: 0.95rem;
-  }
-
-  h2,
-  h3,
-  .topic h2 {
-    font-size: 1.2rem;
-  }
-
-  .note {
-    font-size: 0.95rem;
-  }
-
+  .header,
+  .header-error,
+  .header-success,
   .container-guide {
-    padding: 1rem 0.5rem;
+    max-width: 95%;
+    padding: 1.5rem;
     margin: 0.5rem auto;
   }
 
   .content-wrap {
-    padding: 0 0.5rem;
+    max-width: 95%;
+  }
+
+  pre, table {
+    width: 100%;
+    box-sizing: border-box;
   }
 
   table {
     display: block;
     overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* Telas pequenas (até 768px) */
+@media (max-width: 768px) {
+  :host {
+    min-width: unset;
+    width: 100vw;
+    overflow-x: hidden;
   }
 
+  .header,
+  .header-error,
+  .header-success,
+  .container-guide {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .content-wrap {
+    max-width: 100%;
+    padding: 0 1rem;
+    box-sizing: border-box;
+  }
+
+  .header h1 {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
+  }
+
+  pre {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin: 1rem 0;
+    border-radius: 0;
+  }
+
+  table th,
   table td {
-    min-width: 120px;
+    padding: 0.75rem 0.5rem;
+    font-size: 0.85rem;
+    white-space: normal;
   }
 
-  table td::before {
+  table td pre {
+    white-space: pre-wrap;
+    margin: 0.5rem 0;
+  }
+
+  ul, ol {
+    margin-left: 1.5rem;
+    padding-left: 0;
+  }
+
+  .right-align {
+    justify-content: center;
+  }
+
+  .home-button {
+    width: 100%;
+    padding: 0.75rem;
+  }
+
+  img {
+    border-radius: 0;
+  }
+
+  img:hover {
+    transform: none;
+  }
+}
+
+/* Ajuste fino para tabelas em mobile */
+@media (max-width: 480px) {
+  table th,
+  table td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  table tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--background-color-header);
+  }
+
+  table td[data-label]::before {
     content: attr(data-label);
     font-weight: bold;
-    display: inline-block;
-    width: 120px;
+    display: block;
+    margin-bottom: 0.25rem;
     color: var(--text-color-h3);
   }
 }
+
+
+
+
+

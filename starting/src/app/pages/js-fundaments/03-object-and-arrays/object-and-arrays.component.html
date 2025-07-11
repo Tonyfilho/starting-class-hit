@@ -1,5 +1,5 @@
 <header class="header">
-  <h1>Objetos e Arrays: Estruturas, Métodos e Práticas.</h1>
+  <h1>Objetos e Arrays: Estruturas, Métodos e Práticas</h1>
 </header>
 
 <div class="card right-align">
@@ -35,7 +35,7 @@ console.log(frutas[0]); // maçã
     <hr>
     <p>Os métodos abaixo são amplamente utilizados para manipular arrays. A tabela a seguir resume seus comportamentos:</p>
 
-    <table class="comparison-table">
+    <table>
       <thead>
         <tr>
           <th>Método</th>
@@ -46,73 +46,177 @@ console.log(frutas[0]); // maçã
       </thead>
       <tbody>
         <tr>
-          <td><code>push()</code></td>
-          <td>✅ Sim</td>
-          <td>Número (novo comprimento)</td>
-          <td>Adiciona um ou mais elementos ao final do array.</td>
+          <td data-label="Método">push</td>
+          <td data-label="Modifica o Array Original?">Sim</td>
+          <td data-label="Retorno">Novo tamanho</td>
+          <td data-label="Descrição">Adiciona elementos ao final.
+            <pre><code>const a = [1,2];
+a.push(3); // [1,2,3]</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>pop()</code></td>
-          <td>✅ Sim</td>
-          <td>Elemento removido</td>
-          <td>Remove o último elemento do array.</td>
+          <td data-label="Método">pop</td>
+          <td data-label="Modifica o Array Original?">Sim</td>
+          <td data-label="Retorno">Elemento removido</td>
+          <td data-label="Descrição">Remove o último elemento.
+            <pre><code>const a = [1,2,3];
+a.pop(); // [1,2]</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>shift()</code></td>
-          <td>✅ Sim</td>
-          <td>Elemento removido</td>
-          <td>Remove o primeiro elemento do array.</td>
+          <td data-label="Método">shift</td>
+          <td data-label="Modifica o Array Original?">Sim</td>
+          <td data-label="Retorno">Elemento removido</td>
+          <td data-label="Descrição">Remove o primeiro elemento.
+            <pre><code>const a = [1,2,3];
+a.shift(); // [2,3]</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>unshift()</code></td>
-          <td>✅ Sim</td>
-          <td>Número (novo comprimento)</td>
-          <td>Adiciona um ou mais elementos no início do array.</td>
+          <td data-label="Método">unshift</td>
+          <td data-label="Modifica o Array Original?">Sim</td>
+          <td data-label="Retorno">Novo tamanho</td>
+          <td data-label="Descrição">Adiciona ao início.
+            <pre><code>const a = [2,3];
+a.unshift(1); // [1,2,3]</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>filter()</code></td>
-          <td>❌ Não</td>
-          <td>Novo array</td>
-          <td>Retorna um novo array contendo apenas os elementos que passam em um teste.</td>
+          <td data-label="Método">map</td>
+          <td data-label="Modifica o Array Original?">Não</td>
+          <td data-label="Retorno">Novo array</td>
+          <td data-label="Descrição">Transforma os itens.
+            <pre><code>[1,2,3].map(x => x * 2); // [2,4,6]</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>map()</code></td>
-          <td>❌ Não</td>
-          <td>Novo array</td>
-          <td>Cria um novo array com os resultados da função aplicada a cada item.</td>
+          <td data-label="Método">filter</td>
+          <td data-label="Modifica o Array Original?">Não</td>
+          <td data-label="Retorno">Novo array</td>
+          <td data-label="Descrição">Filtra os itens.
+            <pre><code>[1,2,3].filter(x => x > 1); // [2,3]</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>find()</code></td>
-          <td>❌ Não</td>
-          <td>Elemento encontrado ou <code>undefined</code></td>
-          <td>Retorna o primeiro elemento que satisfaz a condição fornecida.</td>
+          <td data-label="Método">reduce</td>
+          <td data-label="Modifica o Array Original?">Não</td>
+          <td data-label="Retorno">Valor acumulado</td>
+          <td data-label="Descrição">Reduz a um único valor.
+            <pre><code>[1,2,3].reduce((a,b) => a + b, 0); // 6</code></pre>
+          </td>
         </tr>
         <tr>
-          <td><code>every()</code></td>
-          <td>❌ Não</td>
-          <td><code>true</code> ou <code>false</code></td>
-          <td>Verifica se todos os elementos do array satisfazem a condição.</td>
-        </tr>
-        <tr>
-          <td><code>some()</code></td>
-          <td>❌ Não</td>
-          <td><code>true</code> ou <code>false</code></td>
-          <td>Verifica se pelo menos um elemento satisfaz a condição.</td>
-        </tr>
-        <tr>
-          <td><code>reduce()</code></td>
-          <td>❌ Não</td>
-          <td>Qualquer valor</td>
-          <td>Aplica uma função a um acumulador e a cada elemento do array (da esquerda para a direita), reduzindo-o a um único valor.</td>
-        </tr>
-        <tr>
-          <td><code>includes()</code></td>
-          <td>❌ Não</td>
-          <td><code>true</code> ou <code>false</code></td>
-          <td>Verifica se um determinado valor está presente no array.</td>
+          <td data-label="Método">find</td>
+          <td data-label="Modifica o Array Original?">Não</td>
+          <td data-label="Retorno">Primeiro valor encontrado</td>
+          <td data-label="Descrição">Retorna o primeiro que satisfaz a condição.
+            <pre><code>[1,2,3].find(x => x > 1); // 2</code></pre>
+          </td>
         </tr>
       </tbody>
     </table>
+
+    <h2>3. Diferenças Entre Objetos e Arrays</h2>
+    <hr>
+    <p>Objetos e arrays têm finalidades e estruturas diferentes, embora ambos sejam tipos de referência em JavaScript:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Objeto</th>
+          <th>Array</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td data-label="Característica">Organização</td>
+          <td data-label="Objeto">Pares chave-valor</td>
+          <td data-label="Array">Lista ordenada de valores</td>
+        </tr>
+        <tr>
+          <td data-label="Característica">Acesso aos dados</td>
+          <td data-label="Objeto"><code>obj.chave</code> ou <code>obj['chave']</code></td>
+          <td data-label="Array"><code>array[índice]</code></td>
+        </tr>
+        <tr>
+          <td data-label="Característica">Ordem</td>
+          <td data-label="Objeto">Não garantida</td>
+          <td data-label="Array">Ordenada</td>
+        </tr>
+        <tr>
+          <td data-label="Característica">Uso típico</td>
+          <td data-label="Objeto">Representar entidades com propriedades</td>
+          <td data-label="Array">Listas ou coleções de itens</td>
+        </tr>
+        <tr>
+          <td data-label="Característica">Iteração</td>
+          <td data-label="Objeto"><code>for...in</code>, <code>Object.keys()</code></td>
+          <td data-label="Array"><code>for</code>, <code>forEach</code>, <code>map</code>, etc.</td>
+        </tr>
+        <tr>
+          <td data-label="Característica">Boas Práticas</td>
+          <td data-label="Objeto">Evitar iterar diretamente com <code>for...in</code> em objetos complexos, prefira <code>Object.entries()</code></td>
+          <td data-label="Array">Evitar mutar arrays com métodos que modificam o original, prefira versões imutáveis quando possível</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Exemplos práticos:</h3>
+    <pre><code>// Objeto: representando uma pessoa
+const pessoa = {{"{"}}
+  nome: 'Carlos',
+  idade: 40,
+  ativo: true
+{{"}"}};
+console.log(pessoa.nome); // Carlos
+console.log(Object.keys(pessoa)); // ['nome', 'idade', 'ativo']
+
+// Array: lista de idades
+const idades = [21, 35, 40];
+console.log(idades[1]); // 35
+console.log(idades.map(i => i + 1)); // [22, 36, 41]
+</code></pre>
+
+    <h2>4. Desestruturação de Objetos e Arrays</h2>
+    <hr>
+    <p>A desestruturação permite extrair dados de objetos ou arrays de forma concisa.</p>
+
+    <h3>Desestruturação de Objetos</h3>
+    <pre><code>const pessoa = {{"{"}}
+  nome: 'Carlos',
+  idade: 28,
+  cidade: 'Porto'
+{{"}"}};
+
+const {{"{"}} nome, idade {{"}"}} = pessoa;
+console.log(nome); // Carlos
+console.log(idade); // 28</code></pre>
+
+    <h3>Desestruturação de Arrays</h3>
+    <pre><code>const cores = ['vermelho', 'verde', 'azul'];
+
+const [primaria, secundaria] = cores;
+console.log(primaria); // vermelho
+console.log(secundaria); // verde</code></pre>
+
+    <h3>Renomeando variáveis</h3>
+    <pre><code>const produto = {{"{"}}
+  preco: 100,
+  disponivel: true
+{{"}"}};
+
+const {{"{"}} preco: valor, disponivel: emEstoque {{"}"}} = produto;
+console.log(valor); // 100
+console.log(emEstoque); // true</code></pre>
+
+    <h3>Desestruturação em parâmetros de função</h3>
+    <pre><code>function exibir({{"{"}} nome, idade {{"}"}}) {{"{"}}
+  console.log(`${{"{"}}nome{{"}"}} tem ${{"{"}}idade{{"}"}} anos`);
+{{"}"}}
+
+const usuario = {{"{"}} nome: 'Lucia', idade: 35 {{"}"}};
+exibir(usuario); // Lucia tem 35 anos</code></pre>
 
     <h2>Resumo Técnico</h2>
     <hr>
@@ -122,7 +226,9 @@ console.log(frutas[0]); // maçã
       <li>✅ <code>push</code>, <code>pop</code>, <code>shift</code> e <code>unshift</code> modificam o array original.</li>
       <li>✅ Métodos como <code>map</code>, <code>filter</code>, <code>reduce</code> e <code>find</code> retornam novos arrays ou valores sem modificar o original.</li>
       <li>✅ Conhecer os efeitos colaterais dos métodos ajuda a manter o código previsível.</li>
+      <li>✅ A desestruturação facilita o acesso e a clareza no uso de objetos e arrays.</li>
     </ul>
 
   </div>
 </section>
+
