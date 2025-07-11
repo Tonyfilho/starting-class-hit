@@ -47,7 +47,7 @@
   align-content: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 40px;
+  gap: 10px;
   background-color: var(--background-color-sections2);
   background-size: var(--animation-background-size);
   animation: var(--animation-background-size);

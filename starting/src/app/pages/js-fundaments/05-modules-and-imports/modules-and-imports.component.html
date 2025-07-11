@@ -93,39 +93,6 @@ log('Aplicação iniciada'); // [LOG] Aplicação iniciada
 {{"}"}}
 </code></pre>
 
-    <!-- <pre><code class="language-ts">// app.ts
-import {{"{"}} sum {{"}"}} from {{'@utils/math'}}; // equivalente a src/app/utils/math.ts
-</code></pre>
-
-    <h2>7. Organização de Código em Angular</h2>
-    <hr>
-    <p>No Angular, módulos são usados para organizar funcionalidades em arquivos distintos:</p>
-
-    <ul>
-      <li><code>app.module.ts</code>: Módulo principal.</li>
-      <li><code>feature.module.ts</code>: Módulo específico de uma funcionalidade.</li>
-      <li><code>shared.module.ts</code>: Componentes e pipes reutilizáveis.</li>
-    </ul>
-
-    <pre><code class="language-ts">// shared.module.ts
-import {{"{"}} NgModule {{"}"}} from {{'@angular/core'}};
-import {{"{"}} CommonModule {{"}"}} from {{'@angular/common'}};
-import {{"{"}} MyPipe {{"}"}} from './pipes/my.pipe';
-
-{{"@NgModule"}}({{"{"}}
-  {{"declarations: [MyPipe],  exports: [MyPipe],  imports: [CommonModule]"}}
-{{"}"}})
-export class SharedModule {{"{"}}{{"}"}}
-</code></pre>
-
-    <pre><code class="language-ts">// feature.module.ts
-import {{"{"}} SharedModule {{"}"}} from '../shared/shared.module';
-
-{{"@NgModule"}}({{"{"}}
-  imports: [SharedModule]
-{{"}"}})
-export class FeatureModule {{"{"}}{{"}"}}
-</code></pre> -->
 <h2>7. Organização de Código em Angular (Antes e Depois do Angular 16)</h2>
 <hr>
 <p>

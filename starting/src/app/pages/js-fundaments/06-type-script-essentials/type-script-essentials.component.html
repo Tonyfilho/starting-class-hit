@@ -1,0 +1,129 @@
+<header class="header">
+  <h1>TypeScript Essentials: Tipos, Interfaces, Generics e Decorators.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. Tipos e Type Aliases</h2>
+    <hr>
+    <p>
+      O TypeScript adiciona tipagem estática ao JavaScript. Podemos declarar tipos primitivos e criar aliases personalizados com <code>type</code>.
+    </p>
+
+    <pre><code class="language-ts">
+let name: string = 'Ana';
+let age: number = 30;
+let isActive: boolean = true;
+
+type UserID = string | number;
+
+function showUser(id: UserID): string {{"{"}}
+  return `User ID: ${{"{"}}id{{"}"}}`;
+{{"}"}}
+    </code></pre>
+
+    <h2>2. Interfaces</h2>
+    <hr>
+    <p>
+      Interfaces definem a estrutura de objetos e contratos para classes. Permitem reuso e clareza.
+    </p>
+
+    <pre><code class="language-ts">
+interface User {{"{"}}
+  id: number;
+  name: string;
+  email?: string; // opcional
+{{"}"}}
+
+const user: User = {{"{"}}
+  id: 1,
+  name: 'Carlos'
+{{"}"}};
+    </code></pre>
+
+    <p>Interfaces também podem ser implementadas por classes:</p>
+    <pre><code class="language-ts">
+interface Animal {{"{"}}
+  name: string;
+  makeSound(): void;
+{{"}"}}
+
+class Dog implements Animal {{"{"}}
+  constructor(public name: string) {{"{"}}{{"}"}}
+  makeSound() {{"{"}}
+    console.log('Woof!');
+  {{"}"}}
+{{"}"}}
+    </code></pre>
+
+    <h2>3. Generics</h2>
+    <hr>
+    <p>
+      Generics permitem que funções, interfaces e classes sejam reutilizáveis com diferentes tipos:
+    </p>
+
+    <pre><code class="language-ts">
+function identity&lt;T&gt;(value: T): T {{"{"}}
+  return value;
+{{"}"}}
+
+let result1 = identity&lt;number&gt;(123);
+let result2 = identity&lt;string&gt;('Olá');
+
+interface ApiResponse&lt;T&gt; {{"{"}}
+  data: T;
+  success: boolean;
+{{"}"}}
+
+const response: ApiResponse&lt;string&gt; = {{"{"}}
+  data: 'OK',
+  success: true
+{{"}"}};
+    </code></pre>
+
+    <h2>4. Decorators</h2>
+    <hr>
+    <p>
+      Decorators são funções especiais que adicionam comportamento a classes, métodos ou propriedades.
+    </p>
+
+    <pre><code class="language-ts">
+function Log(target: any, key: string) {{"{"}}
+  console.log(`Método decorado: ${{"{"}}key{{"}"}}`);
+{{"}"}}
+
+class Test {{"{"}}
+  {{"@Log"}}
+  sayHello() {{"{"}}
+    console.log('Hello!');
+  {{"}"}}
+{{"}"}}
+    </code></pre>
+
+    <p>Decorators são muito utilizados no Angular:</p>
+
+    <pre><code class="language-ts">
+{{"@Component"}}({{"{"}}
+  selector: 'app-card',
+  standalone: true,
+  templateUrl: './card.component.html'
+{{"}"}})
+export class CardComponent {{"{"}}{{"}"}}
+    </code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <strong>Tipos</strong>: Garantem segurança e clareza.</li>
+      <li>✅ <strong>Interfaces</strong>: Modelam estruturas de objetos e contratos de classe.</li>
+      <li>✅ <strong>Generics</strong>: Reutilização segura com diferentes tipos.</li>
+      <li>✅ <strong>Decorators</strong>: Adicionam metadados e lógica estendida (Angular usa intensivamente).</li>
+    </ul>
+
+  </div>
+</section>

@@ -1,0 +1,143 @@
+<header class="header">
+  <h1>RxJS: Programação Reativa com Observables</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é RxJS?</h2>
+    <hr>
+    <p>
+      RxJS (Reactive Extensions for JavaScript) é uma biblioteca baseada no conceito de <strong>programação reativa</strong> que usa <strong>Observables</strong> para lidar com fluxos de dados assíncronos e eventos de forma declarativa.
+    </p>
+
+    <ul>
+      <li>🔹 Permite compor operações assíncronas e baseadas em eventos com operadores como <code>map</code>, <code>filter</code>, <code>tap</code>, entre outros.</li>
+      <li>🔹 Muito usado no Angular para trabalhar com <strong>HTTP requests</strong>, <strong>formularios reativos</strong>, <strong>eventos do DOM</strong> e <strong>streams de dados</strong>.</li>
+    </ul>
+
+    <h2>2. Para que Serve?</h2>
+    <hr>
+    <p>
+      Serve para tratar:
+    </p>
+    <ul>
+      <li>✅ Requisições HTTP</li>
+      <li>✅ Eventos do usuário (cliques, teclas, inputs)</li>
+      <li>✅ Mudanças de estado (ex: atualizações de formulários)</li>
+      <li>✅ Streams de dados contínuos (ex: WebSockets)</li>
+    </ul>
+
+    <h2>3. Por que Usar RxJS?</h2>
+    <hr>
+    <p>
+      RxJS oferece uma maneira poderosa de reagir a mudanças de dados ou eventos sem depender de callbacks complexos. Ele ajuda a:
+    </p>
+
+    <ul>
+      <li>🔹 Evitar <strong>callback hell</strong> com composição de operadores.</li>
+      <li>🔹 Controlar assinaturas com <code>unsubscribe</code> e operadores como <code>takeUntil</code>.</li>
+      <li>🔹 Reagir de forma funcional e reusável a diferentes eventos assíncronos.</li>
+    </ul>
+
+    <h2>4. Exemplo Básico com Observable</h2>
+    <hr>
+    <p>Exemplo simples de criação de um Observable:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} Observable {{"}"}} from 'rxjs';
+
+const observable = new Observable(observer =&gt; {{"{"}}
+  observer.next('Olá');
+  observer.next('RxJS');
+  observer.complete();
+{{"}"}});
+
+observable.subscribe({{"{"}}
+  next: valor =&gt; console.log(valor),
+  complete: () =&gt; console.log('Finalizado')
+{{"}"}});
+// Saída:
+// Olá
+// RxJS
+// Finalizado
+    </code></pre>
+
+    <h2>5. Principais Operadores do RxJS</h2>
+    <hr>
+    <p>
+      Abaixo está uma tabela com os operadores mais usados e suas funções básicas. Eles serão abordados individualmente nas próximas seções.
+    </p>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Operador</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>of</code></td>
+            <td>Cria um Observable a partir de valores estáticos.</td>
+          </tr>
+          <tr>
+            <td><code>from</code></td>
+            <td>Converte arrays, Promises ou iteráveis em Observable.</td>
+          </tr>
+          <tr>
+            <td><code>pipe</code></td>
+            <td>Permite encadear múltiplos operadores.</td>
+          </tr>
+          <tr>
+            <td><code>map</code></td>
+            <td>Transforma cada valor emitido por um Observable.</td>
+          </tr>
+          <tr>
+            <td><code>filter</code></td>
+            <td>Filtra os valores emitidos com base em uma condição.</td>
+          </tr>
+          <tr>
+            <td><code>tap</code></td>
+            <td>Executa efeitos colaterais sem alterar os dados.</td>
+          </tr>
+          <tr>
+            <td><code>switchMap</code></td>
+            <td>Troca o Observable interno por outro, cancelando o anterior.</td>
+          </tr>
+          <tr>
+            <td><code>concatMap</code></td>
+            <td>Executa os Observables na ordem, um por vez.</td>
+          </tr>
+          <tr>
+            <td><code>mergeMap</code></td>
+            <td>Executa múltiplos Observables em paralelo.</td>
+          </tr>
+          <tr>
+            <td><code>catchError</code></td>
+            <td>Trata erros dentro do fluxo RxJS.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Esses operadores permitem uma manipulação poderosa dos dados emitidos pelos Observables. A escolha do operador ideal depende do tipo de fluxo e da lógica desejada.
+    </p>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ RxJS é central na arquitetura reativa do Angular.</li>
+      <li>✅ Observables emitem dados ao longo do tempo.</li>
+      <li>✅ Operadores permitem transformar, combinar ou filtrar esses dados.</li>
+      <li>✅ O uso correto reduz complexidade e melhora a legibilidade.</li>
+    </ul>
+
+  </div>
+</section>
