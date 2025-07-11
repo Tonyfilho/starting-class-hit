@@ -6,6 +6,7 @@ export const rxJsFundamentsRoutes: Routes = [
     {path: 'pipe', loadComponent:() => import('./01-operador-pipe/operator-pipe.component').then(c => c.OperatorPipeComponent)},
     {path: 'from', loadComponent:() => import('./02-operador-from/operator-from.component').then(c => c.OperatorFromComponent)},
     {path: 'of', loadComponent:() => import('./03-operador-of/operator-of.component').then(c => c.OperatorOfComponent)},
+    {path: 'map', loadComponent:() => import('./04-operador-map/operator-map.component').then(c => c.OperatorMapComponent)},
 
 
 ]

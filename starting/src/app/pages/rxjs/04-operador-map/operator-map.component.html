@@ -1,0 +1,96 @@
+<header class="header">
+  <h1>RxJS: Operador <code>Map().</code></h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>map().</code>?</h2>
+    <hr>
+    <p>
+      O operador <code>map()</code> transforma os valores emitidos por um Observable, aplicando uma função a cada valor antes de repassá-lo.
+    </p>
+
+    <ul>
+      <li>🔹 É semelhante ao <code>Array.prototype.map()</code>, mas aplicado a Observables.</li>
+      <li>🔹 Permite modificar, formatar ou adaptar os dados recebidos.</li>
+      <li>🔹 Muito usado em conjunto com <code>pipe()</code>.</li>
+    </ul>
+
+    <h2>2. Exemplo Básico</h2>
+    <hr>
+    <pre><code class="language-ts">
+import {{"{"}} of {{"}"}} from 'rxjs';
+import {{"{"}} map {{"}"}} from 'rxjs/operators';
+
+of(1, 2, 3).pipe(
+  map(x => x * 10)
+).subscribe(console.log);
+
+// Saída:
+// 10
+// 20
+// 30
+    </code></pre>
+
+    <h2>3. Exemplo com Objetos</h2>
+    <hr>
+    <p>Você pode extrair ou modificar campos específicos de objetos:</p>
+
+    <pre><code class="language-ts">
+of({{"{"}} nome: 'Ana', idade: 25 {{"}"}}).pipe(
+  map(pessoa => pessoa.nome.toUpperCase())
+).subscribe(console.log);
+
+// Saída:
+// ANA
+    </code></pre>
+
+    <h2>4. Uso Combinado com <code>from()</code></h2>
+    <hr>
+    <p>Transformando uma lista de números usando <code>from</code> + <code>map</code>:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+
+from([1, 2, 3]).pipe(
+  map(n => `Valor: ${{"{"}}n{{"}"}}`)
+).subscribe(console.log);
+
+// Saída:
+// Valor: 1
+// Valor: 2
+// Valor: 3
+    </code></pre>
+
+    <h2>5. Cuidado com Objetos Aninhados</h2>
+    <hr>
+    <p>
+      Quando usar <code>map</code> com objetos complexos, certifique-se de não sobrescrever propriedades importantes ao retornar um novo objeto.
+    </p>
+
+    <pre><code class="language-ts">
+of({{"{"}} nome: 'João', idade: 30 {{"}"}}).pipe(
+  map(user => ({{"{"}} ...user, idade: user.idade + 1 {{"}"}}))
+).subscribe(console.log);
+
+// Saída:
+// {{"{"}} nome: 'João', idade: 31 {{"}"}}
+    </code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>map()</code> transforma os dados emitidos por um Observable.</li>
+      <li>✅ Recebe uma função de transformação como parâmetro.</li>
+      <li>✅ Usado com <code>pipe()</code> para encadear operações.</li>
+      <li>✅ Essencial para manipulação de fluxos de dados.</li>
+    </ul>
+
+  </div>
+</section>
+
