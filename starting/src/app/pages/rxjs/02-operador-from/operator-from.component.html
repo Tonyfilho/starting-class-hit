@@ -1,0 +1,96 @@
+<header class="header">
+  <h1>RxJS: Operador <code>From.</code></h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o operador <code>From</code>?</h2>
+    <hr>
+    <p>
+      O operador <code>From</code> do RxJS converte diferentes tipos de estruturas iteráveis ou Promises em um <strong>Observable.</strong>.
+    </p>
+
+    <ul>
+      <li>🔹 Aceita arrays, strings, Promises, objetos iteráveis ou async iteráveis.</li>
+      <li>🔹 Emite cada item individualmente.</li>
+      <li>🔹 Muito usado com requisições assíncronas ou iteração de dados.</li>
+    </ul>
+
+    <h2>2. Exemplo com Array</h2>
+    <hr>
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+
+const obs$ = from([10, 20, 30]);
+
+obs$.subscribe({{"{"}}
+  next: valor =&gt; console.log('Valor:', valor),
+  complete: () =&gt; console.log('Finalizado')
+{{"}"}});
+
+// Saída:
+// Valor: 10
+// Valor: 20
+// Valor: 30
+// Finalizado
+    </code></pre>
+
+    <h2>3. Exemplo com Promise</h2>
+    <hr>
+    <p>
+      Se passar uma Promise, o <code>from</code> aguardará sua resolução e emitirá o valor resolvido.
+    </p>
+
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+
+const promessa = fetch('https://jsonplaceholder.typicode.com/posts/1')
+  .then(res =&gt; res.json());
+
+from(promessa).subscribe(data =&gt; {{"{"}}
+  console.log('Post:', data);
+{{"}"}});
+    </code></pre>
+
+    <h2>4. Comparação com <code>of</code></h2>
+    <hr>
+    <p>
+      A diferença entre <code>from</code> e <code>of</code> é o comportamento com coleções:
+    </p>
+
+    <pre><code class="language-ts">
+// 'from' itera o array
+from([1, 2, 3]).subscribe(console.log);
+// Saída: 1, 2, 3
+
+// 'of' emite o array inteiro como um valor
+of([1, 2, 3]).subscribe(console.log);
+// Saída: [1, 2, 3]
+    </code></pre>
+
+    <h2>5. Uso Com Strings</h2>
+    <hr>
+    <p>O <code>from</code> também pode iterar uma string caracter por caracter:</p>
+
+    <pre><code class="language-ts">
+from('ABC').subscribe(console.log);
+// Saída: 'A', 'B', 'C'
+    </code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>from</code> transforma Arrays, Promises ou strings em Observables.</li>
+      <li>✅ Emite um item por vez (iterável).</li>
+      <li>✅ Resolve Promises automaticamente antes de emitir.</li>
+      <li>✅ Ideal para dados assíncronos ou listas iteráveis.</li>
+    </ul>
+
+  </div>
+</section>
+

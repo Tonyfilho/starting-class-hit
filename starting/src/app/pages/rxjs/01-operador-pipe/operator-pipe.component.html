@@ -1,0 +1,81 @@
+<header class="header">
+  <h1>RxJS: Método <code>Pipe().</code></h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>pipe().</code>?</h2>
+    <hr>
+    <p>
+      O método <code>pipe()</code> é usado para <strong>encadear operadores</strong> de transformação ou manipulação em um <strong>Observable</strong>.
+      Ele permite aplicar operadores como <code>map</code>, <code>filter</code>, <code>tap</code>, <code>switchMap</code> e outros.
+    </p>
+
+    <ul>
+      <li>🔹 Usado para transformar, filtrar, reagir ou combinar dados do fluxo.</li>
+      <li>🔹 Pode conter quantos operadores forem necessários.</li>
+      <li>🔹 Garante legibilidade e composição funcional.</li>
+    </ul>
+
+    <h2>2. Exemplo Básico com <code>pipe()</code></h2>
+    <hr>
+    <p>Usando <code>pipe()</code> com <code>map()</code> e <code>filter()</code>:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+import {{"{"}} map, filter {{"}"}} from 'rxjs/operators';
+
+from([1, 2, 3, 4, 5])
+  .pipe(
+    filter(n => n % 2 === 0),     // Filtra apenas pares
+    map(n => n * 10)              // Multiplica por 10
+  )
+  .subscribe(console.log);
+
+// Saída: 20, 40
+    </code></pre>
+
+    <h2>3. Por que usar <code>pipe()</code>?</h2>
+    <hr>
+    <ul>
+      <li>✅ Encadeamento de lógica reativa de forma declarativa.</li>
+      <li>✅ Substitui os antigos métodos de <code>Observable.prototype</code> (obsoletos).</li>
+      <li>✅ Segue o padrão funcional e imutável de programação reativa.</li>
+    </ul>
+
+    <h2>4. Encadeamento com Vários Operadores</h2>
+    <hr>
+    <p>Você pode aplicar quantos operadores quiser dentro do <code>pipe()</code>:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} of {{"}"}} from 'rxjs';
+import {{"{"}} map, tap {{"}"}} from 'rxjs/operators';
+
+of(5)
+  .pipe(
+    tap(n => console.log('Antes:', n)),
+    map(n => n * 2),
+    tap(n => console.log('Depois:', n))
+  )
+  .subscribe();
+// Saída:
+// Antes: 5
+// Depois: 10
+    </code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>pipe()</code> é usado para aplicar operadores RxJS a um Observable.</li>
+      <li>✅ Recebe um ou mais operadores como argumentos.</li>
+      <li>✅ Cada operador transforma o valor ou fluxo que está sendo emitido.</li>
+      <li>✅ É uma prática central na programação reativa com RxJS.</li>
+    </ul>
+
+  </div>
+</section>

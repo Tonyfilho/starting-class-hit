@@ -1,0 +1,92 @@
+<header class="header">
+  <h1>RxJS: Operador <code>of()</code></h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>Of().</code>?</h2>
+    <hr>
+    <p>
+      O operador <code>of()</code> do RxJS cria um <strong>Observable síncrono</strong> que emite os valores passados como argumentos, um por um, e depois finaliza.
+    </p>
+
+    <ul>
+      <li>🔹 Ideal para testes ou simulações de fluxos.</li>
+      <li>🔹 Pode emitir qualquer tipo de dado: números, strings, objetos, arrays, etc.</li>
+      <li>🔹 Emite os valores na ordem em que são passados.</li>
+    </ul>
+
+    <h2>2. Exemplo Básico</h2>
+    <hr>
+    <pre><code class="language-ts">
+import {{"{"}} of {{"}"}} from 'rxjs';
+
+of(1, 2, 3).subscribe({{"{"}}
+  next: val => console.log(val),
+  complete: () => console.log('Finalizado')
+{{"}"}});
+
+// Saída:
+// 1
+// 2
+// 3
+// Finalizado
+    </code></pre>
+
+    <h2>3. Emitindo um Objeto</h2>
+    <hr>
+    <p>Você pode emitir objetos ou arrays como um único valor:</p>
+
+    <pre><code class="language-ts">
+of({{"{"}} nome: 'Ana', idade: 25 {{"}"}}).subscribe(console.log);
+
+// Saída:
+// {{"{"}} nome: 'Ana', idade: 25 {{"}"}}
+    </code></pre>
+
+    <h2>4. Emitindo um Array (como único valor)</h2>
+    <hr>
+    <p>Note que se passar um array para o <code>of()</code>, o array será emitido como um único item:</p>
+
+    <pre><code class="language-ts">
+of([1, 2, 3]).subscribe(console.log);
+
+// Saída:
+// [1, 2, 3]
+    </code></pre>
+
+    <h2>5. Comparação com <code>from()</code></h2>
+    <hr>
+    <p>
+      A diferença entre <code>of([1, 2, 3])</code> e <code>from([1, 2, 3])</code> é que o <code>of</code> emite o array inteiro como um único valor, enquanto <code>from</code> emite cada item do array separadamente.
+    </p>
+
+    <pre><code class="language-ts">
+// of()
+of([1, 2, 3]).subscribe(console.log);
+// [1, 2, 3]
+
+// from()
+from([1, 2, 3]).subscribe(console.log);
+// 1
+// 2
+// 3
+    </code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>of()</code> cria um Observable a partir de valores fixos.</li>
+      <li>✅ Pode ser usado para emitir objetos, arrays ou qualquer tipo de dado.</li>
+      <li>✅ Emite os valores em sequência e finaliza automaticamente.</li>
+      <li>✅ Muito útil para testes, mocks e combinações com <code>pipe()</code>.</li>
+    </ul>
+
+  </div>
+</section>
+
