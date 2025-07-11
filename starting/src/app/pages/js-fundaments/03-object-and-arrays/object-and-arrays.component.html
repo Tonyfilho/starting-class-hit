@@ -1,0 +1,128 @@
+<header class="header">
+  <h1>Objetos e Arrays: Estruturas, Métodos e Práticas.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que são Objetos e Arrays?</h2>
+    <hr>
+    <p>Objetos e arrays são estruturas de dados fundamentais no JavaScript e TypeScript:</p>
+
+    <pre><code>// Objeto
+const pessoa = {{"{"}}
+  nome: 'Ana',
+  idade: 30,
+  cidade: 'Lisboa'
+{{"}"}};
+
+// Acesso às propriedades
+console.log(pessoa.nome); // Ana
+console.log(pessoa['idade']); // 30
+
+// Array
+const frutas = ['maçã', 'banana', 'uva'];
+
+// Acesso aos elementos
+console.log(frutas[0]); // maçã
+</code></pre>
+
+    <h2>2. Métodos Comuns de Arrays</h2>
+    <hr>
+    <p>Os métodos abaixo são amplamente utilizados para manipular arrays. A tabela a seguir resume seus comportamentos:</p>
+
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th>Método</th>
+          <th>Modifica o Array Original?</th>
+          <th>Retorno</th>
+          <th>Descrição</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>push()</code></td>
+          <td>✅ Sim</td>
+          <td>Número (novo comprimento)</td>
+          <td>Adiciona um ou mais elementos ao final do array.</td>
+        </tr>
+        <tr>
+          <td><code>pop()</code></td>
+          <td>✅ Sim</td>
+          <td>Elemento removido</td>
+          <td>Remove o último elemento do array.</td>
+        </tr>
+        <tr>
+          <td><code>shift()</code></td>
+          <td>✅ Sim</td>
+          <td>Elemento removido</td>
+          <td>Remove o primeiro elemento do array.</td>
+        </tr>
+        <tr>
+          <td><code>unshift()</code></td>
+          <td>✅ Sim</td>
+          <td>Número (novo comprimento)</td>
+          <td>Adiciona um ou mais elementos no início do array.</td>
+        </tr>
+        <tr>
+          <td><code>filter()</code></td>
+          <td>❌ Não</td>
+          <td>Novo array</td>
+          <td>Retorna um novo array contendo apenas os elementos que passam em um teste.</td>
+        </tr>
+        <tr>
+          <td><code>map()</code></td>
+          <td>❌ Não</td>
+          <td>Novo array</td>
+          <td>Cria um novo array com os resultados da função aplicada a cada item.</td>
+        </tr>
+        <tr>
+          <td><code>find()</code></td>
+          <td>❌ Não</td>
+          <td>Elemento encontrado ou <code>undefined</code></td>
+          <td>Retorna o primeiro elemento que satisfaz a condição fornecida.</td>
+        </tr>
+        <tr>
+          <td><code>every()</code></td>
+          <td>❌ Não</td>
+          <td><code>true</code> ou <code>false</code></td>
+          <td>Verifica se todos os elementos do array satisfazem a condição.</td>
+        </tr>
+        <tr>
+          <td><code>some()</code></td>
+          <td>❌ Não</td>
+          <td><code>true</code> ou <code>false</code></td>
+          <td>Verifica se pelo menos um elemento satisfaz a condição.</td>
+        </tr>
+        <tr>
+          <td><code>reduce()</code></td>
+          <td>❌ Não</td>
+          <td>Qualquer valor</td>
+          <td>Aplica uma função a um acumulador e a cada elemento do array (da esquerda para a direita), reduzindo-o a um único valor.</td>
+        </tr>
+        <tr>
+          <td><code>includes()</code></td>
+          <td>❌ Não</td>
+          <td><code>true</code> ou <code>false</code></td>
+          <td>Verifica se um determinado valor está presente no array.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ Objetos armazenam dados em pares chave-valor.</li>
+      <li>✅ Arrays organizam coleções ordenadas de valores.</li>
+      <li>✅ <code>push</code>, <code>pop</code>, <code>shift</code> e <code>unshift</code> modificam o array original.</li>
+      <li>✅ Métodos como <code>map</code>, <code>filter</code>, <code>reduce</code> e <code>find</code> retornam novos arrays ou valores sem modificar o original.</li>
+      <li>✅ Conhecer os efeitos colaterais dos métodos ajuda a manter o código previsível.</li>
+    </ul>
+
+  </div>
+</section>
