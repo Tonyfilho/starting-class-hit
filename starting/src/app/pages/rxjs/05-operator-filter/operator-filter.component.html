@@ -1,0 +1,89 @@
+<header class="header">
+  <h1>Operador <code>filter</code> no RxJS</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>filter</code>?</h2>
+    <hr>
+    <p>
+      O operador <code>filter</code> do RxJS permite <strong>filtrar os valores emitidos</strong> por um Observable com base em uma condição. Apenas os valores que satisfazem a condição (retornam <code>true</code>) passam adiante.
+    </p>
+
+    <ul>
+      <li>🔹 Funciona de forma semelhante ao <code>Array.prototype.filter()</code>.</li>
+      <li>🔹 É muito útil para ignorar valores indesejados no fluxo.</li>
+      <li>🔹 Ajuda a manter a lógica reativa mais limpa e declarativa.</li>
+    </ul>
+
+    <h2>2. Exemplo Prático</h2>
+    <hr>
+    <p>Vamos criar um Observable com números e filtrar apenas os pares:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+import {{"{"}} filter {{"}"}} from 'rxjs/operators';
+
+const numeros$ = from([1, 2, 3, 4, 5, 6]);
+
+numeros$
+  .pipe(
+    filter(num => num % 2 === 0)
+  )
+  .subscribe(valor => console.log('Par:', valor));
+
+// Saída:
+// Par: 2
+// Par: 4
+// Par: 6
+</code></pre>
+
+    <h2>3. Quando Usar?</h2>
+    <hr>
+    <ul>
+      <li>✅ Quando deseja processar apenas determinados valores de um stream.</li>
+      <li>✅ Ao trabalhar com eventos e querer ignorar os que não interessam.</li>
+      <li>✅ Ao integrar com formulários ou dados assíncronos, como APIs.</li>
+    </ul>
+
+    <h2>4. Com Observables de Objetos</h2>
+    <hr>
+    <p>Também pode ser usado com objetos para filtrar com base em propriedades:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+import {{"{"}} filter {{"}"}} from 'rxjs/operators';
+
+const usuarios$ = from([
+  {{"{"}} nome: 'Ana', ativo: true {{"}"}},
+  {{"{"}} nome: 'João', ativo: false {{"}"}},
+  {{"{"}} nome: 'Maria', ativo: true {{"}"}},
+]);
+
+usuarios$
+  .pipe(
+    filter(usuario => usuario.ativo)
+  )
+  .subscribe(u => console.log('Ativo:', u.nome));
+
+// Saída:
+// Ativo: Ana
+// Ativo: Maria
+</code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>filter</code> permite passar apenas valores que atendem uma condição.</li>
+      <li>✅ Muito útil para fluxos limpos e declarativos.</li>
+      <li>✅ Funciona com qualquer tipo de dado emitido.</li>
+    </ul>
+
+  </div>
+</section>
+

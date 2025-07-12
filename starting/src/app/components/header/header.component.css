@@ -140,7 +140,7 @@
   opacity: 0;
   pointer-events: none;
   transform: translateY(-5px);
-  transition: max-height 0.4s ease, opacity 0.4s ease, transform 0.4s ease;
+  transition: max-height 2s ease, opacity 0.4s ease, transform 2s ease;
   padding-left: 1rem;
 }
 
