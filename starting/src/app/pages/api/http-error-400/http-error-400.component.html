@@ -1,9 +1,13 @@
 <div class="header-error">
-  <h1>Erro 400 – Requisição Inválida</h1>
+  <h1>Erro 400 – Requisição Inválida.</h1>
   <p class="subtitle">A requisição enviada pelo cliente possui erros de sintaxe ou parâmetros inválidos.</p>
 </div>
 
-<div class="container-guide">
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+<div class="container-guide" #pdfContent>
   <div class="content-wrap">
     <div class="note warning">
       <p>Verifique se os dados enviados estão corretos e se a autenticação está presente.</p>

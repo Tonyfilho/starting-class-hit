@@ -2,7 +2,11 @@
   <h1>What is Firebase?</h1>
   <p class="subtitle">Discover Google's platform for building modern web and mobile apps.</p>
 </header>
-<section class="container-guide">
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+<section class="container-guide" #pdfContent>
   <div class="content-wrap">
 
     <article>

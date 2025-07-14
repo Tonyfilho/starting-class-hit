@@ -6,7 +6,12 @@
   </p>
 </div>
 
-<section class="container-guide" [formGroup]="validatorForms">
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" [formGroup]="validatorForms" #pdfContent>
   <div class="content-wrap">
 
     <article>

@@ -4,11 +4,11 @@
     {{"asynchronous data." | upcaseFirstWord}}
   </p>
 </div>
-
 <div class="card right-align">
   <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
 </div>
-<div class="container-guide">
+<div class="container-guide" #pdfContent>
   <div class="content-wrap">
     <section class="topic">
       <h2>Asynchronous in Angular </h2>

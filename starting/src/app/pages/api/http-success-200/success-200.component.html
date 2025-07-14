@@ -3,7 +3,11 @@
   <p class="subtitle">A resposta foi retornada corretamente e sem erros.</p>
 </div>
 
-<div class="container-guide">
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+<div class="container-guide" #pdfContent>
   <div class="content-wrap">
     <div class="note success">
       <p>Parabéns! Tudo ocorreu como esperado. Continue monitorando sua aplicação.</p>
@@ -35,4 +39,3 @@
   </div>
 </div>
 
- 

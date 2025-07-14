@@ -1,9 +1,14 @@
 <div class="header-error">
-  <h1>Erro 500 – Erro Interno do Servidor</h1>
+  <h1>Erro 500 – Erro Interno do Servidor.</h1>
   <p class="subtitle">A requisição é válida, mas houve um problema no servidor ao processá-la.</p>
 </div>
 
-<div class="container-guide">
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<div class="container-guide" #pdfContent>
   <div class="content-wrap">
     <div class="note warning">
       <p>Verifique os logs do servidor para entender e resolver o problema.</p>
@@ -37,4 +42,3 @@
   </div>
 </div>
 
- 
