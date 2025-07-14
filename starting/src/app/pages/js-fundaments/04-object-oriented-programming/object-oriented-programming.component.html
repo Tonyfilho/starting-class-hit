@@ -4,9 +4,10 @@
 
 <div class="card right-align">
   <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
 </div>
 
-<section class="container-guide">
+<section class="container-guide" #pdfContent>
   <div class="content-wrap">
 
     <h2>1. O que é OOP?</h2>

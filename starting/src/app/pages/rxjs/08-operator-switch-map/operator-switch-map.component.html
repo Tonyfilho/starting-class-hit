@@ -1,0 +1,75 @@
+<header class="header">
+  <h1>Operador <code>SwitchMap</code> no RxJS</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>switchMap</code>?</h2>
+    <hr>
+    <p>
+      O <code>switchMap</code> é um operador que mapeia cada valor emitido por um Observable em outro Observable,
+      <strong>cancelando o anterior</strong> se um novo valor for emitido antes do anterior terminar.
+    </p>
+
+    <ul>
+      <li>🔹 Útil para <strong>requisições consecutivas</strong>, mantendo apenas a mais recente.</li>
+      <li>🔹 Evita problemas de <strong>concorrência</strong> (race conditions).</li>
+      <li>🔹 Muito usado com formulários, buscas e eventos de input.</li>
+    </ul>
+
+    <h2>2. Exemplo Prático</h2>
+    <hr>
+    <p>Imagine um usuário digitando em um campo de busca, e a cada tecla é feita uma requisição:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} of, fromEvent {{"}"}} from 'rxjs';
+import {{"{"}} debounceTime, map, switchMap {{"}"}} from 'rxjs/operators';
+import {{"{"}} ajax {{"}"}} from 'rxjs/ajax';
+
+const input = document.getElementById('search-box');
+
+fromEvent(input, 'input')
+  .pipe(
+    debounceTime(300),
+    map((event: any) => event.target.value),
+    switchMap(term => ajax.getJSON(`https://api.exemplo.com/busca?q=${{"{"}}term{{"}"}}`))
+  )
+  .subscribe(resultado => console.log('Resultado:', resultado));
+    </code></pre>
+
+    <p><strong>Explicação:</strong> Se o usuário digita rápido, as buscas anteriores são canceladas automaticamente.</p>
+
+    <h2>3. Comparação com <code>mergeMap</code></h2>
+    <hr>
+    <p>Enquanto <code>mergeMap</code> mantém todas as chamadas ativas, <code>switchMap</code> sempre cancela a anterior.</p>
+
+    <ul>
+      <li><code>mergeMap</code> 👉 múltiplas execuções simultâneas.</li>
+      <li><code>switchMap</code> 👉 só mantém a execução mais recente.</li>
+    </ul>
+
+    <h2>4. Quando Usar?</h2>
+    <hr>
+    <ul>
+      <li>✅ Campos de pesquisa/autocomplete.</li>
+      <li>✅ Requisições onde apenas o último resultado importa.</li>
+      <li>✅ Substituição de observáveis anteriores de forma limpa.</li>
+    </ul>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>switchMap</code> mapeia e troca para um novo Observable.</li>
+      <li>✅ Cancela o Observable anterior quando um novo valor é emitido.</li>
+      <li>✅ Ideal para cenários de entrada de usuário ou navegação rápida.</li>
+    </ul>
+
+  </div>
+</section>
+

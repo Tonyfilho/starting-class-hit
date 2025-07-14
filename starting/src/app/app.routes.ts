@@ -13,7 +13,7 @@ export const routes: Routes = [
   { path: 'angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },
   { path: 'angular/rxJs-foundation', loadChildren: () => import('./pages/rxjs/rxjs-fundaments.router').then(c => c.rxJsFundamentsRoutes) },
   { path: 'angular/js-foundation', loadChildren: () => import('./pages/js-fundaments/js-fundaments.router').then(c => c.jsFundamentsRoutes) },
-  { path: 'angular/hit', loadChildren: () => import('./pages/hit/hit.routes').then(c => c.hitRoutes) },
+  
   { path: 'angular/forms', loadChildren: () => import('./pages/forms/forms.router').then(c => c.formsRoutes) },
   { path: 'angular/levels', loadChildren: () => import('./pages/books/level.router').then(c => c.levelRoutes) },
   { path: 'angular/solid', loadChildren: () => import('./pages/solid/solid.router').then(c => c.solidRoutes) },

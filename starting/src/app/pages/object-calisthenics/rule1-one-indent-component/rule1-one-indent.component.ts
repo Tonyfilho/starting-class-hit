@@ -2,20 +2,19 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
 
-
 @Component({
-  selector: 'app-operator-tap',
+  selector: 'app-rule1-one-indent-component',
   imports: [RouterLink],
-  templateUrl: './operator-tap.component.html',
+  templateUrl: './rule1-one-indent.component.html',
   styleUrl: './../../angular/angular.component.css'
 })
-export class OperatorTapComponent {
+export class Rule1OneIndentComponentComponent {
 
-  @ViewChild('pdfContent') content!: ElementRef;
+    @ViewChild('pdfContent') content!: ElementRef;
 
   downloadPDF() {
     const options = {
-      filename: 'tap-guia.pdf',
+      filename: 'rule1-one-indent-guia.pdf',
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -23,6 +22,4 @@ export class OperatorTapComponent {
 
     html2pdf().set(options).from(this.content.nativeElement).save();
   }
-
-
 }

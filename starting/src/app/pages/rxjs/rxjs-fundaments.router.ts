@@ -10,6 +10,7 @@ export const rxJsFundamentsRoutes: Routes = [
     {path: 'filter', loadComponent:() => import('./05-operator-filter/operator-filter.component').then(c => c.OperatorFilterComponent)},
     {path: 'tap', loadComponent:() => import('./06-operator-tap/operator-tap.component').then(c => c.OperatorTapComponent)},
     {path: 'find', loadComponent:() => import('./07-operator-find/operator-find.component').then(c => c.OperatorFindComponent)},
+    {path: 'switchMap', loadComponent:() => import('./08-operator-switch-map/operator-switch-map.component').then(c => c.OperatorSwitchMapComponent)},
 
 
 ]
