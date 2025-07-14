@@ -1,0 +1,77 @@
+<header class="header">
+  <h1>Operador <code>Find</code> no RxJS</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>find</code>?</h2>
+    <hr>
+    <p>
+      O operador <code>find</code> procura o <strong>primeiro valor</strong> emitido por um Observable que satisfaça uma condição e <strong>finaliza</strong> após encontrá-lo.
+    </p>
+
+    <ul>
+      <li>🔹 Retorna apenas <strong>um valor</strong>, se encontrado.</li>
+      <li>🔹 Funciona de forma semelhante ao <code>Array.find()</code>.</li>
+      <li>🔹 Emite <code>undefined</code> se nenhum valor satisfizer a condição.</li>
+    </ul>
+
+    <h2>2. Exemplo Prático</h2>
+    <hr>
+    <p>Vamos procurar o primeiro número maior que 10 em uma sequência:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} from {{"}"}} from 'rxjs';
+import {{"{"}} find {{"}"}} from 'rxjs/operators';
+
+from([2, 4, 8, 12, 20])
+  .pipe(
+    find(n => n > 10)
+  )
+  .subscribe(resultado => console.log('Encontrado:', resultado));
+
+// Saída: Encontrado: 12
+</code></pre>
+
+    <h2>3. Quando Usar?</h2>
+    <hr>
+    <ul>
+      <li>✅ Quando você precisa apenas do <strong>primeiro item</strong> que satisfaça uma condição.</li>
+      <li>✅ Para <strong>buscar elementos</strong> em streams finitas.</li>
+      <li>✅ Em cenários como busca de usuário, produto, item com critério específico, etc.</li>
+    </ul>
+
+    <h2>4. Com Objetos</h2>
+    <hr>
+    <p>Também funciona com objetos:</p>
+
+    <pre><code class="language-ts">
+const users = [
+  {{'{'}} name: 'Ana', age: 20 {{'}'}},
+  {{'{'}} name: 'João', age: 25 {{'}'}},
+  {{'{'}} name: 'Carlos', age: 30 {{'}'}}
+];
+
+from(users)
+  .pipe(find(user => user.age > 21))
+  .subscribe(user => console.log('Usuário encontrado:', user));
+
+// Saída: {{"{"}} name: 'João', age: 25 {{"}"}}
+</code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>find</code> retorna o primeiro valor que satisfaz a condição.</li>
+      <li>✅ Encerra o Observable após a primeira ocorrência.</li>
+      <li>✅ Emite <code>undefined</code> se nada for encontrado.</li>
+    </ul>
+
+  </div>
+</section>
+

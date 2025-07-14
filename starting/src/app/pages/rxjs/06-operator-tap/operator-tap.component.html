@@ -1,0 +1,77 @@
+<header class="header">
+  <h1>Operador <code>Tap</code> no RxJS</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+</div>
+
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <h2>1. O que é o <code>tap</code>?</h2>
+    <hr>
+    <p>
+      O operador <code>tap</code> do RxJS permite <strong>executar efeitos colaterais</strong> para cada valor emitido pelo Observable, sem alterar o valor em si.
+      Ele é muito usado para <strong>debug, logging ou chamadas externas</strong> que não devem afetar o fluxo.
+    </p>
+
+    <ul>
+      <li>🔹 É semelhante ao <code>console.log</code> dentro de um <code>pipe()</code>.</li>
+      <li>🔹 Não modifica os dados emitidos.</li>
+      <li>🔹 Ideal para depuração ou ações pontuais.</li>
+    </ul>
+
+    <h2>2. Exemplo Prático</h2>
+    <hr>
+    <p>Vamos usar o <code>tap</code> para fazer um log antes de aplicar uma transformação com <code>map</code>:</p>
+
+    <pre><code class="language-ts">
+import {{"{"}} of {{"}"}} from 'rxjs';
+import {{"{"}} tap, map {{"}"}} from 'rxjs/operators';
+
+of(1, 2, 3)
+  .pipe(
+    tap(valor => console.log('Antes do map:', valor)),
+    map(valor => valor * 10),
+    tap(valor => console.log('Depois do map:', valor))
+  )
+  .subscribe(resultado => console.log('Resultado:', resultado));
+
+// Saída:
+// Antes do map: 1
+// Depois do map: 10
+// Resultado: 10
+// ...
+</code></pre>
+
+    <h2>3. Quando Usar?</h2>
+    <hr>
+    <ul>
+      <li>✅ Para fins de <strong>debug/logging</strong> durante o desenvolvimento.</li>
+      <li>✅ Para disparar ações auxiliares (ex: mostrar um loading, evento de analytics).</li>
+      <li>✅ Sempre que precisar “ver” o valor, sem transformá-lo.</li>
+    </ul>
+
+    <h2>4. Com Operações Assíncronas</h2>
+    <hr>
+    <p>
+      O <code>tap</code> é útil antes e depois de chamadas assíncronas para controle e rastreamento:
+    </p>
+
+    <pre><code class="language-ts">
+tap(() => this.loading = true),
+switchMap(() => this.apiService.getData()),
+tap(() => this.loading = false)
+</code></pre>
+
+    <h2>Resumo Técnico</h2>
+    <hr>
+    <ul>
+      <li>✅ <code>tap</code> executa efeitos colaterais sem alterar o valor emitido.</li>
+      <li>✅ Muito útil para debug, rastreamento e ações auxiliares.</li>
+      <li>✅ Não deve ser usado para alterar o fluxo de dados.</li>
+    </ul>
+
+  </div>
+</section>
