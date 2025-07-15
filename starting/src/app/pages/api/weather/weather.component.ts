@@ -5,6 +5,7 @@ import { IWeather } from '../../../_shared/interfaces/weather';
 import { WeatherService } from '../../../_services/weather.service';
 import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { UpcaseFirstWordPipe } from "../../../_shared/pipes/upcase-first-word.pipe";
+import { PopUpService } from '../../../_shared/pop-up/pop-up.service';
 
 @Component({
   selector: 'app-weather',
@@ -14,6 +15,7 @@ import { UpcaseFirstWordPipe } from "../../../_shared/pipes/upcase-first-word.pi
 })
 export class WeatherComponent implements OnInit {
   private weatherService = inject(WeatherService);
+  private popUpService = inject(PopUpService);
   protected weatherForms: UntypedFormGroup;
   protected localWeatherSig = signal<IWeather | undefined>(undefined);
   protected localCountry = "Lisbon";
@@ -21,13 +23,13 @@ export class WeatherComponent implements OnInit {
 
   constructor(private fb: UntypedFormBuilder) {
     this.weatherForms = this.fb.nonNullable.group({
-     city: ["", [Validators.required, Validators.pattern(this.justLetter)]]
+      city: ["", [Validators.required, Validators.pattern(this.justLetter)]]
     });
 
     /**exemplo de como acessar os controls do forms */
     // console.log("Form controls." , this.weatherForms.controls);
     // console.log("Form weatherForm." , this.weatherForms.get('city')?.getError('required'));
-   
+
   }
 
 
@@ -38,15 +40,17 @@ export class WeatherComponent implements OnInit {
       error: (e) => { console.error("Error in API Weather: ", e) },
       complete: () => { },
     });
-   // console.log("Variavel LocalWeatherSig Fora do Observable Undefined: ", this.localWeatherSig()?.current);
+    // console.log("Variavel LocalWeatherSig Fora do Observable Undefined: ", this.localWeatherSig()?.current);
   }
 
   submit() {
-   // console.log("nossa cidade ", this.weatherForms.get('city')?.value);
+    // console.log("nossa cidade ", this.weatherForms.get('city')?.value);
     this.localCountry = this.weatherForms.get('city')?.value;
-    this.weatherService.getWeather(this.localCountry).subscribe({
-      next:(res) => { this.localWeatherSig.set(res)},
-      error:(e) => { console.error("Error in API Weather: ", e)}
-    });
+    this.weatherService.getWeather(this.localCountry).subscribe(
+      {
+        next: (res) => { this.localWeatherSig.set(res), this.popUpService.show("everything ok!", "success") },
+        error: (e) => { console.error("Error in API Weather: ", e), this.popUpService.show("ops.. Error in API Weather: " + e, 'error') }
+      }
+    );
   }
 }
