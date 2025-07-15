@@ -1,44 +1,47 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { AuthGmailService } from '../../../_services/auth-gmail.service';
+import { UpcaseFirstWordPipe } from "../../../_shared/pipes/upcase-first-word.pipe";
 
 @Component({
   selector: 'app-signinforms',
-  imports: [FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, UpcaseFirstWordPipe],
   templateUrl: './signin-forms.component.html',
   styleUrl: './signin-forms.component.css'
 })
 export class SigninformsComponent {
   protected router = inject(Router);
   protected gmailService = inject(AuthGmailService);
-  email: string = '';
-  password: string = '';
+  protected signInForms: UntypedFormGroup;
   isValid!: boolean;
 
-
+  constructor(private fb: UntypedFormBuilder) {
+    this.signInForms = this.fb.nonNullable.group({
+      email: ['', [Validators.required]],
+      password: ['', [Validators.required]]
+    })
+  }
 
   goBack(): void {
     this.router.navigateByUrl("/");
   }
 
-  clearFields(): void {
-    this.email = '';
-    this.password = '';
-  }
-  onSubmit(form: any): void {
-    if (!form.valid) {
+
+  onSubmit(): void {
+    if (!this.signInForms.valid) {
       this.isValid = false
     }
-    console.log('Email:', this.email);
-    console.log('Password:', this.password);
+
   }
 
   gmailAuthentication() {
-      this.gmailService.signIn(this.email, this.password).subscribe({
-      next: (res) => {console.log("Data From Google: ", res.user), this.router.navigate(['/wellcome'])},
-      error: (e) => {console.error("Error in Gmail Authentication"), this.router.navigateByUrl('/')}
+    const email = this.signInForms.get("email")?.value;
+    const password = this.signInForms.get("password")?.value;
+    this.gmailService.signIn(email, password).subscribe({
+      next: (res) => { console.log("Data From Google: ", res.user), this.router.navigate(['/wellcome']) },
+      error: (e) => { console.error("Error in Gmail Authentication"), this.router.navigateByUrl('/') }
     });
   }
 }

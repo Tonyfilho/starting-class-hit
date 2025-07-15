@@ -1,0 +1,112 @@
+<div class="header">
+  <h1>Observable vs BehaviorSubject</h1>
+  <p class="subtitle">Entenda as diferenças, vantagens e quando usar cada tipo de stream reativa no RxJS.</p>
+</div>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" id="pdfContent">
+  <div class="content-wrap">
+    <article>
+      <h2>Resumo</h2>
+      <p>
+        Tanto <strong>Observable</strong> quanto <strong>BehaviorSubject</strong> fazem parte da biblioteca RxJS e permitem
+        o trabalho com programação reativa em Angular. No entanto, eles têm comportamentos distintos, especialmente no que
+        diz respeito à emissão e retenção de valores.
+      </p>
+
+      <h2>Diferenças Principais</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Conceito</th>
+            <th>Observable</th>
+            <th>BehaviorSubject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Valor inicial</td>
+            <td>Não tem</td>
+            <td>Requer valor inicial</td>
+          </tr>
+          <tr>
+            <td>Último valor armazenado</td>
+            <td>Não</td>
+            <td>Sim</td>
+          </tr>
+          <tr>
+            <td>Novos assinantes recebem valor atual?</td>
+            <td>Não</td>
+            <td>Sim</td>
+          </tr>
+          <tr>
+            <td>Multicast nativo</td>
+            <td>Não (precisa de operadores)</td>
+            <td>Sim</td>
+          </tr>
+          <tr>
+            <td>Pode emitir valores com <code>.next()</code></td>
+            <td>Não</td>
+            <td>Sim</td>
+          </tr>
+          <tr>
+            <td>Acesso ao valor atual via código</td>
+            <td>Não</td>
+            <td>Sim, com <code>.value</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Quando Usar Cada Um?</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Situação</th>
+            <th>Observable</th>
+            <th>BehaviorSubject</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Requisição HTTP única</td>
+            <td>✅ Sim</td>
+            <td>❌ Não necessário</td>
+          </tr>
+          <tr>
+            <td>Gerenciar estado compartilhado</td>
+            <td>❌ Complexo</td>
+            <td>✅ Ideal</td>
+          </tr>
+          <tr>
+            <td>Formulários reativos</td>
+            <td>❌</td>
+            <td>✅ Muito usado</td>
+          </tr>
+          <tr>
+            <td>Emitir valores manualmente</td>
+            <td>❌</td>
+            <td>✅ Com <code>.next()</code></td>
+          </tr>
+          <tr>
+            <td>Receber último valor emitido</td>
+            <td>❌</td>
+            <td>✅</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="note info">
+        ℹ️ <strong>Dica:</strong> Use <code>BehaviorSubject</code> quando precisar manter o valor atual visível, compartilhado e atualizável em diferentes partes da aplicação.
+      </div>
+
+      <div class="note success">
+        ✅ <strong>Observable</strong> é ótimo para fluxos frios, como eventos ou requisições, enquanto <strong>BehaviorSubject</strong> é perfeito para estados reativos compartilhados.
+      </div>
+    </article>
+  </div>
+</section>
+

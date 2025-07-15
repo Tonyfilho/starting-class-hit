@@ -9,5 +9,6 @@ export const jsFundamentsRoutes: Routes = [
     {path: 'object-oriented-programming', loadComponent:() => import('./04-object-oriented-programming/object-oriented-programming.component').then(c => c.ObjectOrientedProgrammingComponent)},
     {path: 'modules-and-imports', loadComponent:() => import('./05-modules-and-imports/modules-and-imports.component').then(c => c.ModulesAndImportsComponent)},
     {path: 'type-script-essentials', loadComponent:() => import('./06-type-script-essentials/type-script-essentials.component').then(c => c.TypeScriptEssentialsComponent)},
+    {path: 'js-asynchronous-programming', loadComponent:() => import('./07-js-asynchronous-programming/js-asynchronous-programming.component').then(c => c.JsAsynchronousProgrammingComponent)},
 
 ]

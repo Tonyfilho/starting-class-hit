@@ -25,7 +25,8 @@ body {
   /* Variáveis CSS para cores e tamanhos */
   --primary-color: rgba(93, 170, 241, 0.925);
   --text-color-light: aliceblue;
-
+  --color-button-google-hover: rgba(221, 221, 221, 0.74);
+  --color-button-google: rgb(221, 221, 221);
   --secondary-color: rgba(204, 33, 33, 0.959);
   --third-color: rgb(244, 67, 54);
   --text-color: rgba(0, 0, 0, 0.726);

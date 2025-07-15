@@ -2,31 +2,41 @@
   <h2>Sign In</h2>
   <p>Please sign in to continue</p>
 
-  <button (click)="clearFields()" class="clean-button">🧹 Clean Fields</button>
+  <button (click)="this.signInForms.reset()" class="clean-button">🧹 Clean Fields</button>
 
 
-  <form #signInForm="ngForm" (ngSubmit)="onSubmit(signInForm)">
+  <form [formGroup]="signInForms" (ngSubmit)="onSubmit()">
     <label for="email">E-mail</label>
-    <input type="email" id="email" name="email" [(ngModel)]="email" required #emailInput="ngModel"
-      placeholder="Digite seu e-mail" />
-    @if (emailInput.invalid && emailInput.touched) {
-    <div class="error">
-      ⚠️ E-mail é obrigatório.
+    <input type="email" id="email" name="email" formControlName="email"
+      placeholder="Hit your e-mail" />
+    @if (this.signInForms.invalid && this.signInForms.get("email")?.touched) {
+    <div class="error" [ngClass]="{'error-message': this.signInForms.controls['email'].invalid && this.signInForms.get('email')?.touched}">
+      @if (this.signInForms.hasError('required', 'email')) {
+      <small class="warning">
+         {{"⚠️ E-mail is required." | upcaseFirstWord }}
+      </small>
+      }
+      @if (this.signInForms.get('email')?.getError('email')) {
+      <small class="warning">
+        <p>{{ "just letter, not allowed special characters or numbers " | upcaseFirstWord}}</p>
+      </small>
+      }
+
     </div>
     }
 
     <label for="password">Password</label>
-    <input type="password" id="password" name="password" [(ngModel)]="password" required #passwordInput="ngModel"
-      placeholder="Digite sua senha" />
-    @if (passwordInput.invalid && passwordInput.touched) {
+    <input type="password" id="password" name="password" formControlName="password"
+      placeholder="Hit your password" />
+    @if (this.signInForms.invalid && this.signInForms.get("password")?.touched) {
     <div class="error">
-      ⚠️ Senha é obrigatória.
+     {{ "⚠️ Password is required." | upcaseFirstWord}}
     </div>
     }
 
     <div class="button-group">
       <button type="button" (click)="goBack()" class="go-back">⬅️ Go Back</button>
-      <button type="submit" [disabled]="signInForm.invalid" class="sign-in">🔐 Sign In</button>
+      <button type="submit" [disabled]="this.signInForms.invalid" class="sign-in">🔐 Sign In</button>
     </div>
 
     <button type="button" (click)="gmailAuthentication()" class="google-btn">
