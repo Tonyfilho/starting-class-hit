@@ -1,0 +1,61 @@
+<div class="header">
+  <h1>Operador <code>CatchError.</code></h1>
+  <p class="subtitle">Captura e trata erros em fluxos RxJS.</p>
+</div>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <article>
+      <h2>Definição</h2>
+      <p>
+        O operador <code>catchError</code> permite <strong>interceptar e tratar erros</strong> que ocorrem em um Observable.
+        Ele substitui o fluxo de erro por um novo Observable, permitindo seguir com o fluxo ou lançar uma nova exceção.
+      </p>
+
+      <h2>Quando Usar?</h2>
+      <ul>
+        <li><strong>Tratamento de falhas HTTP:</strong> Fornecer uma resposta alternativa em caso de erro.</li>
+        <li><strong>Logs personalizados:</strong> Registrar ou mostrar mensagens de erro ao usuário.</li>
+        <li><strong>Substituição de fluxo:</strong> Continuar com valores padrão quando algo falha.</li>
+      </ul>
+
+      <h2>Exemplo Prático</h2>
+      <pre><code class="language-ts">
+import {{ "of, throwError" }} from 'rxjs';
+import {{ "catchError" }} from 'rxjs/operators';
+
+throwError(() => new Error('Algo deu errado!'))
+  .pipe(
+    catchError(erro => {{"{"}}
+      console.error('Erro capturado:', erro.message);
+      return of('Valor padrão');
+   {{"}"}})
+  )
+  .subscribe(console.log);
+
+// Saída:
+// Erro capturado: Algo deu errado!
+// Valor padrão
+</code></pre>
+
+      <h2>Resumo Técnico</h2>
+      <ul>
+        <li>✅ Captura qualquer erro emitido no fluxo.</li>
+        <li>✅ Permite retornar um Observable de fallback.</li>
+        <li>⚠️ Deve ser colocado no final da cadeia do <code>pipe</code>.</li>
+      </ul>
+
+      <div class="note success">
+        ✅ <code>catchError</code> é essencial para manter aplicações resilientes e com bom tratamento de exceções.
+      </div>
+    </article>
+
+  </div>
+</section>
+

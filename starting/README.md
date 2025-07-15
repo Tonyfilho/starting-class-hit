@@ -120,7 +120,6 @@ Estrutura de controle
 
 1. inicio dos Forms para componente weather
 2. inicio dos Forms para componente signIn
-3. inicio dos Forms para componente signUp
 4. Validators em todos forms
 5. Api Crud (Principais Verbos Http)
 6. criação do server popup
@@ -139,13 +138,12 @@ image: { type: 'jpeg', quality: 0.98 },
 html2canvas: { scale: 2 },
 jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
 };
-
-    html2pdf().set(options).from(this.content.nativeElement).save();
-
+html2pdf().set(options).from(this.content.nativeElement).save();
 } 
 11. no template : a Referencia #pdfContent e <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
 
-# Aula 14
+# Aula 13 Autenticação com Gmail
+1. inicio dos Forms para componente signUp
 
 # Aula 15
 

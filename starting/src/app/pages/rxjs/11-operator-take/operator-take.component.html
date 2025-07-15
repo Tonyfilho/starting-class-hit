@@ -1,0 +1,56 @@
+<div class="header">
+  <h1>Operador <code>Take.</code></h1>
+  <p class="subtitle">Controla quantos valores um Observable deve emitir.</p>
+</div>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <article>
+      <h2>Definição</h2>
+      <p>
+        O operador <code>take(n)</code> limita a emissão de valores de um Observable aos <strong>primeiros <code>n</code> valores</strong> e depois completa automaticamente.
+      </p>
+
+      <h2>Quando Usar?</h2>
+      <ul>
+        <li><strong>Cancelamento automático:</strong> Escutar apenas os primeiros resultados de um fluxo.</li>
+        <li><strong>Operações únicas:</strong> Como login, carregamento de dados iniciais, etc.</li>
+        <li><strong>Evitar memory leaks:</strong> Finaliza o Observable automaticamente.</li>
+      </ul>
+
+      <h2>Exemplo Prático</h2>
+      <pre><code class="language-ts">
+import {{ "interval" }} from 'rxjs';
+import {{ "take "}} from 'rxjs/operators';
+
+interval(1000)
+  .pipe(take(3))
+  .subscribe(console.log);
+
+// Saída a cada segundo:
+// 0
+// 1
+// 2
+// (completa após o terceiro valor)
+</code></pre>
+
+      <h2>Resumo Técnico</h2>
+      <ul>
+        <li>✅ Emite apenas os primeiros <code>n</code> valores do Observable.</li>
+        <li>✅ Finaliza automaticamente após <code>n</code> emissões.</li>
+        <li>⚠️ Útil para observáveis infinitos como <code>interval</code>, <code>fromEvent</code>, etc.</li>
+      </ul>
+
+      <div class="note success">
+        ✅ <code>take</code> é excelente para simplificar fluxos e evitar que Observables fiquem ativos por tempo indeterminado.
+      </div>
+    </article>
+
+  </div>
+</section>

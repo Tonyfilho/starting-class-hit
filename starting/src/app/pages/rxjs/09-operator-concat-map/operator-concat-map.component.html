@@ -1,0 +1,67 @@
+<div class="header">
+  <h1>Operador <code>concatMap</code></h1>
+  <p class="subtitle">Executa observáveis sequencialmente, mantendo a ordem de emissão.</p>
+</div>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <article>
+      <h2>Definição</h2>
+      <p>
+        O operador <code>concatMap</code> é utilizado para mapear cada valor emitido por um Observable em um novo Observable,
+        garantindo que <strong>cada um seja executado em sequência</strong>, respeitando a ordem de chegada.
+      </p>
+      <p>Enquanto o <code>switchMap</code> cancela a execução anterior, o <code>concatMap</code> <strong>espera terminar</strong> a execução atual antes de continuar com a próxima.</p>
+
+      <h2>Quando Usar?</h2>
+      <ul>
+        <li><strong>Processos sequenciais:</strong> Enviar dados em ordem para o servidor.</li>
+        <li><strong>Evitar concorrência:</strong> Controlar chamadas para evitar sobrecarga.</li>
+        <li><strong>Fluxos dependentes:</strong> Quando um processo precisa que o anterior tenha terminado.</li>
+      </ul>
+
+      <h2>Exemplo Prático</h2>
+      <pre><code class="language-ts">
+import {{ "from" }} from 'rxjs';
+import {{ "concatMap, delay "}} from 'rxjs/operators';
+
+const valores = from([1, 2, 3]);
+
+valores
+  .pipe(
+    concatMap(valor => of(`Processando: ${{"{"}}valor{{"}"}}`).pipe(delay(1000)))
+  )
+  .subscribe(console.log);
+
+// Saída esperada:
+// Após 1s: Processando: 1
+// Após 2s: Processando: 2
+// Após 3s: Processando: 3
+</code></pre>
+
+      <h2>Diferença entre <code>concatMap</code> e <code>mergeMap</code></h2>
+      <ul>
+        <li><strong>concatMap:</strong> Processa um por vez, respeitando a ordem.</li>
+        <li><strong>mergeMap:</strong> Processa todos ao mesmo tempo, fora de ordem.</li>
+      </ul>
+
+      <h2>Resumo Técnico</h2>
+      <ul>
+        <li>✅ Garante execução ordenada.</li>
+        <li>✅ Aguarda cada observável terminar antes de iniciar o próximo.</li>
+        <li>✅ Ideal para tarefas encadeadas ou dependentes.</li>
+      </ul>
+
+      <div class="note success">
+        ✅ <code>concatMap</code> é essencial quando a ordem importa e cada operação precisa finalizar antes da próxima iniciar.
+      </div>
+    </article>
+
+  </div>
+</section>

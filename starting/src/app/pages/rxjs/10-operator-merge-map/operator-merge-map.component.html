@@ -1,0 +1,68 @@
+<div class="header">
+  <h1>Operador <code>mergeMap.</code></h1>
+  <p class="subtitle">Mapeia e executa múltiplos observáveis em paralelo.</p>
+</div>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <article>
+      <h2>Definição</h2>
+      <p>
+        O operador <code>mergeMap</code> mapeia cada valor emitido por um Observable para um novo Observable e
+        <strong>executa todos em paralelo</strong>, combinando seus resultados conforme são emitidos.
+      </p>
+      <p>É útil quando a ordem de execução ou de chegada dos resultados <strong>não importa</strong>.</p>
+
+      <h2>Quando Usar?</h2>
+      <ul>
+        <li><strong>Chamadas concorrentes:</strong> Realizar múltiplas requisições ao mesmo tempo.</li>
+        <li><strong>Performance:</strong> Quando não é necessário aguardar a finalização de um fluxo para iniciar outro.</li>
+        <li><strong>Eventos assíncronos:</strong> Processar múltiplas ações como cliques ou inputs rapidamente.</li>
+      </ul>
+
+      <h2>Exemplo Prático</h2>
+      <pre><code class="language-ts">
+import {{" from, of" }} from 'rxjs';
+import {{ "mergeMap, delay "}} from 'rxjs/operators';
+
+const valores = from([1, 2, 3]);
+
+valores
+  .pipe(
+    mergeMap(valor => of(`Processando: ${{"{"}}valor{{"}"}}`).pipe(delay(1000)))
+  )
+  .subscribe(console.log);
+
+// Saída esperada (em paralelo, ordem não garantida):
+// Após ~1s: Processando: 1
+// Após ~1s: Processando: 2
+// Após ~1s: Processando: 3
+</code></pre>
+
+      <h2>Comparação com <code>concatMap</code></h2>
+      <ul>
+        <li><strong>mergeMap:</strong> Executa todos simultaneamente, sem garantir ordem.</li>
+        <li><strong>concatMap:</strong> Executa um por vez, respeitando a ordem de emissão.</li>
+      </ul>
+
+      <h2>Resumo Técnico</h2>
+      <ul>
+        <li>✅ Executa múltiplos observáveis ao mesmo tempo.</li>
+        <li>✅ Mais rápido, mas sem garantia de ordem.</li>
+        <li>⚠️ Pode causar sobrecarga se usado sem controle de concorrência.</li>
+      </ul>
+
+      <div class="note success">
+        ✅ <code>mergeMap</code> é ideal para alta performance e eventos paralelos, onde a ordem de processamento não é relevante.
+      </div>
+    </article>
+
+  </div>
+</section>
+
