@@ -148,7 +148,9 @@ html2pdf().set(options).from(this.content.nativeElement).save();
 3. criação da interface AuthInterface.
 4. criação service gmailService.
 5. injetar o service no componente e testar a autenticação.
-6. por os dados no localStorage e falar sobre Application do navegador
+6. por os dados no localStorage e falar sobre Application do navegador.
+7. Criação do componente pop-up e seu service, Obs: Temos q por a TAG no mesmo lugar da tag da rota
+8. implementar o routerGuard, 
 
 10. inicio dos Forms para componente signUp
 

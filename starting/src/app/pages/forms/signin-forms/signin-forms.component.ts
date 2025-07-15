@@ -38,7 +38,7 @@ export class SigninformsComponent {
   gmailAuthentication() {
       this.gmailService.signIn(this.email, this.password).subscribe({
       next: (res) => {console.log("Data From Google: ", res.user), this.router.navigate(['/wellcome'])},
-      error: (e) => {console.error("Error in Gmail Authentication"), this.router.navigateByUrl('/noAuthorization')}
+      error: (e) => {console.error("Error in Gmail Authentication"), this.router.navigateByUrl('/')}
     });
   }
 }
