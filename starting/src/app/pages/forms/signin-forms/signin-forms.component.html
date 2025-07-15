@@ -29,7 +29,7 @@
       <button type="submit" [disabled]="signInForm.invalid" class="sign-in">🔐 Sign In</button>
     </div>
 
-    <button type="button" class="google-btn">
+    <button type="button" (click)="gmailAuthentication()" class="google-btn">
       <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
       Sign in with Google
     </button>

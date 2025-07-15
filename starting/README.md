@@ -143,7 +143,14 @@ html2pdf().set(options).from(this.content.nativeElement).save();
 11. no template : a Referencia #pdfContent e <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
 
 # Aula 13 Autenticação com Gmail
-1. inicio dos Forms para componente signUp
+1. Config. do autentication no painel do firebase, escolha do gmailAuth
+2. iniciar o App do firebase no App.config .
+3. criação da interface AuthInterface.
+4. criação service gmailService.
+5. injetar o service no componente e testar a autenticação.
+6. por os dados no localStorage e falar sobre Application do navegador
+
+10. inicio dos Forms para componente signUp
 
 # Aula 15
 

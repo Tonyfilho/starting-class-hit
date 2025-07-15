@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { environment } from '../environments/environment';
 import { initializeApp } from 'firebase/app';
 import { provideHttpClient } from '@angular/common/http';
+import { getAuth } from 'firebase/auth';
 
 
 
@@ -13,7 +14,11 @@ import { provideHttpClient } from '@angular/common/http';
 
 
 // Initialize Firebase
-const app = initializeApp(environment.firebaseConfig);
+const firebaseApp = initializeApp(environment.firebaseConfig);
+const auth  = getAuth(firebaseApp);
+export {firebaseApp, auth}
+
+
 
 export const appConfig: ApplicationConfig = {
   providers: [provideZoneChangeDetection({ eventCoalescing: true }), provideRouter(routes),
