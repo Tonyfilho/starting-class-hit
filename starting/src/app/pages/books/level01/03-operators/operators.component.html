@@ -1,0 +1,91 @@
+<header class="header">
+  <h1>JS/TS Operators: Comparisons, Logical, Nullish, and Ternary</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>📌 Operadores em JavaScript e TypeScript</h2>
+    <p>
+      Operadores são usados para comparar valores, aplicar lógica condicional ou controlar fluxo com base em condições.
+    </p>
+
+    <h3>🔍 Operadores de Comparação</h3>
+    <pre><code>===  // Igualdade estrita (valor e tipo)
+!==  // Diferença estrita
+&gt;   // Maior que
+&lt;   // Menor que
+&gt;=  // Maior ou igual
+&lt;=  // Menor ou igual
+
+// Exemplo
+const idade = 18;
+console.log(idade === 18); // true
+console.log(idade !== '18'); // true (string vs number)</code></pre>
+
+    <h3>🧠 Operadores Lógicos</h3>
+    <pre><code>&&  // E lógico (AND)
+||  // Ou lógico (OR)
+!   // Negação
+
+// Exemplo
+const isAdmin = true;
+const isLogged = false;
+
+console.log(isAdmin && isLogged); // false
+console.log(isAdmin || isLogged); // true
+console.log(!isAdmin); // false</code></pre>
+
+    <h3>❓ Operador Ternário</h3>
+    <pre><code>// Sintaxe:
+condicao ? valorSeVerdadeiro : valorSeFalso;
+
+// Exemplo
+const pontos = 75;
+const status = pontos &gt;= 60 ? 'Aprovado' : 'Reprovado';
+console.log(status); // Aprovado</code></pre>
+
+    <h3>🫥 Operador Nullish Coalescing <code>??</code></h3>
+    <p>Retorna o valor da direita apenas se o da esquerda for <code>null</code> ou <code>undefined</code>.</p>
+    <pre><code>const nome = null;
+const nomeFinal = nome ?? 'Anônimo';
+console.log(nomeFinal); // 'Anônimo'</code></pre>
+
+    <h3>🪄 Diferença entre <code>||</code> e <code>??</code></h3>
+    <pre><code>const zero = 0;
+
+console.log(zero || 100); // 100 (|| considera 0 como falsy)
+console.log(zero ?? 100); // 0   (?? só considera null e undefined)</code></pre>
+
+    <h3>🧪 Operadores Aritméticos</h3>
+    <pre><code>+  // Soma
+-  // Subtração
+*  // Multiplicação
+/  // Divisão
+%  // Resto da divisão
+** // Exponenciação
+
+// Exemplo
+const a = 5;
+const b = 2;
+
+console.log(a + b); // 7
+console.log(a % b); // 1</code></pre>
+
+    <h3>⚙️ Operadores de Atribuição</h3>
+    <pre><code>=   // Atribuição
++=  // Soma e atribuição
+-=  // Subtrai e atribui
+*=  // Multiplica e atribui
+/=  // Divide e atribui
+
+// Exemplo
+let total = 10;
+total += 5;
+console.log(total); // 15</code></pre>
+  </div>
+</section>

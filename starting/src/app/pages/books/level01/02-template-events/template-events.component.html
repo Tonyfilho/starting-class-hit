@@ -1,0 +1,45 @@
+<header class="header">
+  <h1>{{"Template Events: click, mouseover, keyup and another." | upcaseFirstWord}}</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>📌 O que são Eventos em Templates?</h2>
+    <p>
+      Eventos no template permitem interagir com ações do usuário, como cliques, teclas pressionadas ou movimento do mouse. São definidos usando parênteses: <code>(evento)="ação()"</code>.
+    </p>
+
+    <h3>🎯 Exemplo com <code>(click)</code></h3>
+    <p>Acionando uma função quando o botão for clicado:</p>
+    <pre><code>&lt;button (click)="onClick()"&gt;Clique aqui&lt;/button&gt;</code></pre>
+
+    <h3>🖱️ Exemplo com <code>(mouseover)</code> e <code>(mouseout)</code></h3>
+    <p>Detectando quando o mouse entra ou sai de um elemento:</p>
+    <pre><code>&lt;div (mouseover)="onMouseOver()" (mouseout)="onMouseOut()"&gt;
+  Passe o mouse aqui
+&lt;/div&gt;</code></pre>
+
+    <h3>⌨️ Exemplo com <code>(keyup)</code> e <code>(keydown)</code></h3>
+    <p>Capturando teclas pressionadas em um input:</p>
+    <pre><code>&lt;input (keyup)="onKeyUp($event)" placeholder="Digite algo..." /&gt;</code></pre>
+
+    <h3>🧪 Outros eventos úteis</h3>
+    <ul>
+      <li><code>(dblclick)</code> – Clique duplo</li>
+      <li><code>(focus)</code> – Quando o campo recebe foco</li>
+      <li><code>(blur)</code> – Quando o campo perde o foco</li>
+      <li><code>(change)</code> – Quando o valor muda (geralmente em <code>&lt;select&gt;</code>)</li>
+      <li><code>(submit)</code> – Submissão de formulário</li>
+    </ul>
+
+    <h3>💡 Dica</h3>
+    <p>Você pode passar o evento como parâmetro usando <code>$event</code>.</p>
+    <pre><code>&lt;input (input)="onInput($event)" /&gt;</code></pre>
+  </div>
+</section>
+

@@ -1,13 +1,29 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-operators',
   imports: [CommonModule],
   templateUrl: './operators.component.html',
-  styleUrl: './operators.component.css'
+  styleUrl: './../../../angular/angular.component.css'
 })
 export class OperatorsComponent implements OnInit {
+
+   @ViewChild('pdfContent') content!: ElementRef;
+
+   downloadPDF() {
+    const options = {
+      filename: 'js-fundamentals-guia.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(this.content.nativeElement).save();
+  }
+
+  
   /** Operador Logico (||) operador OR*/
   /**Descrição: Retorna o primeiro valor Verdadeiro encontrado ou  o útimo valor se todos forem Falso */
   a = 0;

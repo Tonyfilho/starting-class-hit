@@ -1,6 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 
-import { OperatorsComponent } from "./operators/operators.component";
+import { OperatorsComponent } from "./03-operators/operators.component";
 import { DependencyInjectionComponent } from "./dependency-injection/dependency-injection.component";
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
