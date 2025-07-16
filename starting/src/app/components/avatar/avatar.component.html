@@ -1,18 +1,4 @@
-<!-- @if (this.localuser |async; as user) {
-<div class="avatar-container">
-  <div class="avatar-image">
-    <img [src]="user.photoURL ?? './../../../assets/img/avatar/no_avatar.png' " alt="User Avatar" class="avatar-img">
-  </div>
-  <div class="avatar-info">
-    <span class="avatar-name">{{ user.displayName }}</span>
-    <span class="avatar-status"></span>
-    <a class="logout-link">
-      <span class="logout-text" (click)="logout()">Logout</span>
-      <span class="logout-icon">-></span>
-    </a>
-  </div>
-</div>
-} -->
+
 @if (this.localuser | async; as user) {
 <div class="avatar-container">
   <div class="avatar-image">

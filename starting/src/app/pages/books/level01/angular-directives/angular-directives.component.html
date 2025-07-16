@@ -1,0 +1,54 @@
+<header class="header">
+  <h1>Angular 19: Diretivas Essenciais</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>{{"@if"}}</h2>
+    <p>A diretiva <code>{{"@if"}}</code> permite renderizar blocos de HTML condicionalmente no Angular 17+.</p>
+    <pre><code>{{"@if"}} (isLoggedIn) {{"{"}}
+  &lt;p&gt;Bem-vindo, usuário!&lt;/p&gt;
+{{"}"}}</code></pre>
+
+    <h2>{{"@for"}}</h2>
+    <p>A diretiva <code>{{"@for"}}</code> é uma forma moderna e mais performática do <code>*ngFor</code>.</p>
+    <pre><code>{{"@for"}} (let user of users; track user.id) {{"{"}}
+  &lt;li&gt;{{ "users.name "}}&lt;/li&gt;
+{{"}"}}</code></pre>
+
+    <h2>*ngIf</h2>
+    <p>Renderiza um elemento baseado em uma condição booleana.</p>
+    <pre><code>&lt;p *ngIf="showMessage"&gt;Mensagem visível&lt;/p&gt;</code></pre>
+
+    <h2>*ngFor</h2>
+    <p>Cria uma repetição de elementos a partir de uma lista.</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li *ngFor="let item of items"&gt;{{ items }}&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+    <h2>ngStyle</h2>
+    <p>Aplica estilos dinamicamente a um elemento com base em um objeto ou expressão.</p>
+    <pre><code>&lt;p [ngStyle]="{{'{'}} color: isActive ? 'green' : 'gray' {{'}'}}"&gt;
+  Texto com estilo dinâmico
+&lt;/p&gt;</code></pre>
+
+    <h2>NgClass</h2>
+    <p>Adiciona ou remove classes CSS dinamicamente.</p>
+    <pre><code>&lt;div {{"[ngClass]='{' 'active': isActive, 'disabled': !isActive }'"}}&gt;
+  Conteúdo com classes dinâmicas
+&lt;/div&gt;</code></pre>
+
+    <h2>*ngSwitch</h2>
+    <p>Renderiza elementos com base em múltiplas condições possíveis.</p>
+    <pre><code>&lt;div {{'[ngSwitch]="userRole"'}}&gt;
+  &lt;p *ngSwitchCase="'admin'"&gt;Administrador&lt;/p&gt;
+  &lt;p *ngSwitchCase="'user'"&gt;Usuário&lt;/p&gt;
+  &lt;p *ngSwitchDefault&gt;Visitante&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+  </div>
+</section>
