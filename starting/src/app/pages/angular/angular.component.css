@@ -14,6 +14,14 @@ a {
   }
 }
 
+input {
+  padding: 1rem;
+  border: 1px solid var(--text-color-focus);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  width: 250px;
+}
+
 .header {
   background: var(--background-color-header);
   animation: var(--animation-move-gradient);
@@ -172,7 +180,6 @@ img:hover {
 .topic {
   width: 100%;
   margin-bottom: 2rem;
-
 }
 
 /* Tabelas */
@@ -246,11 +253,11 @@ table tr:hover td {
   font-weight: bold;
 }
 
-.home-button:hover, .home-button-pdf:hover {
+.home-button:hover,
+.home-button-pdf:hover {
   transform: translateY(-2px);
   box-shadow: var(--shadow-hover);
 }
-
 
 /* ========== RESPONSIVIDADE ========== */
 /* Telas médias (769px - 1024px) */
@@ -273,7 +280,8 @@ table tr:hover td {
     max-width: 95%;
   }
 
-  pre, table {
+  pre,
+  table {
     width: 100%;
     box-sizing: border-box;
   }
@@ -291,6 +299,9 @@ table tr:hover td {
     min-width: unset;
     width: 100vw;
     overflow-x: hidden;
+  }
+  input {
+    padding: 1rem 0 !important;
   }
 
   .header,
@@ -340,7 +351,8 @@ table tr:hover td {
     margin: 0.5rem 0;
   }
 
-  ul, ol {
+  ul,
+  ol {
     margin-left: 1.5rem;
     padding-left: 0;
   }
@@ -349,13 +361,15 @@ table tr:hover td {
     justify-content: center;
   }
 
-  .home-button, .home-button-pdf {
+  .home-button,
+  .home-button-pdf {
     width: 100%;
     padding: 0.3rem;
   }
 
   img {
-    border-radius: 0;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px var(--shadow);
   }
 
   img:hover {
@@ -386,8 +400,3 @@ table tr:hover td {
     color: var(--text-color-h3);
   }
 }
-
-
-
-
-

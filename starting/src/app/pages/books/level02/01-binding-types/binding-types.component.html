@@ -10,43 +10,52 @@
 <section class="container-guide" #pdfContent>
   <div class="content-wrap">
 
-    <h2>Conceitos abordados</h2>
-    <p>Este exemplo demonstra como usar Property Binding, Interpolação, Two-Way DataBinding e tipagem com Types ao invés de Interfaces.</p>
+    <h2>Topics Covered</h2>
+    <p>
+      This example demonstrates how to use Property Binding, Interpolation, and Two-Way Binding in Angular.
+      It also shows how to use <code>type</code> instead of <code>interface</code> for typing objects.
+    </p>
 
-    <div class="user-list">
-      <div class="user-card">
-        <!-- Property Binding: vem do TS para o Template -->
-        <img [src]="user.avatar" [alt]="user.name" />
+    <!-- User Card -->
+    <div class="card">
+      <img [src]="user.avatar" [alt]="user.name" />
 
-        <!-- Interpolação: mostra valores do TS no HTML -->
-        <div class="user-info">
-          <h4>{{ user.name }}</h4>
-          <p>Email: {{ user.email }}</p>
-          <p>ID: {{ user.isAdmin }}</p>
-        </div>
+      <div class="topic">
+        <h3>Property Binding & Interpolation</h3>
+        <p><strong>Name:</strong> {{ user.name }}</p>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p><strong>Is Admin:</strong> {{ user.isAdmin }}</p>
       </div>
-
-      <section class="topic">
-        <h4>Two-Way Data Binding</h4>
-        <p>
-          O exemplo abaixo utiliza <code>[(ngModel)]</code>, permitindo que o valor seja tanto enviado para o TypeScript quanto atualizado automaticamente no template.
-        </p>
-        <label for="nameInput">Digite seu nome:</label>
-        <input type="text" [(ngModel)]="user.name" id="nameInput" placeholder="Seu Nome" />
-      </section>
     </div>
 
-    <section class="topic">
-      <h4>Exemplo de Type (tipagem)</h4>
-      <p>Em vez de Interface, estamos usando um Type para definir o usuário:</p>
+    <!-- Two-Way Binding -->
+    <div class="topic">
+      <h3>Two-Way Data Binding</h3>
+      <p>
+        With <code>[(ngModel)]</code>, the value entered in the input below is bound to the <code>user.name</code> property.
+      </p>
+      <label for="nameInput">Edit your name:</label>
+      <input
+        type="text"
+        id="nameInput"
+        [(ngModel)]="user.name"
+        placeholder="Enter your name"
+      />
+    </div>
+
+    <!-- Types instead of Interface -->
+    <div class="topic">
+      <h3>Typing with Type</h3>
+      <p>This object uses a <code>type</code> instead of an <code>interface</code>:</p>
       <pre><code>type User = {{"{"}}
   name: string;
   email: string;
   avatar: string;
   isAdmin: boolean;
 {{"}"}};</code></pre>
-    </section>
+    </div>
 
   </div>
 </section>
+
 
