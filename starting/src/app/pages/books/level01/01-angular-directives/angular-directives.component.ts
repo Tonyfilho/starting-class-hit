@@ -13,6 +13,16 @@ import html2pdf from 'html2pdf.js';
 export class AngularDirectivesComponent {
   @ViewChild('pdfContent') content!: ElementRef;
 
+  downloadPDF() {
+    const options = {
+      filename: 'directives-guia.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(this.content.nativeElement).save();
+  }
   // Variável para @for, *ngFor
   items = ['Angular', 'React', 'Vue'];
 
@@ -28,16 +38,6 @@ export class AngularDirectivesComponent {
   ];
   userRole = 'admin';
 
-  downloadPDF() {
-    const options = {
-      filename: 'js-fundamentals-guia.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(options).from(this.content.nativeElement).save();
-  }
 }
 
 

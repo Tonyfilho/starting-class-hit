@@ -1,0 +1,52 @@
+<header class="header">
+  <h1>Binding & Types: Property Binding, Interpolation and Two-Way Binding</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <h2>Conceitos abordados</h2>
+    <p>Este exemplo demonstra como usar Property Binding, Interpolação, Two-Way DataBinding e tipagem com Types ao invés de Interfaces.</p>
+
+    <div class="user-list">
+      <div class="user-card">
+        <!-- Property Binding: vem do TS para o Template -->
+        <img [src]="user.avatar" [alt]="user.name" />
+
+        <!-- Interpolação: mostra valores do TS no HTML -->
+        <div class="user-info">
+          <h4>{{ user.name }}</h4>
+          <p>Email: {{ user.email }}</p>
+          <p>ID: {{ user.isAdmin }}</p>
+        </div>
+      </div>
+
+      <section class="topic">
+        <h4>Two-Way Data Binding</h4>
+        <p>
+          O exemplo abaixo utiliza <code>[(ngModel)]</code>, permitindo que o valor seja tanto enviado para o TypeScript quanto atualizado automaticamente no template.
+        </p>
+        <label for="nameInput">Digite seu nome:</label>
+        <input type="text" [(ngModel)]="user.name" id="nameInput" placeholder="Seu Nome" />
+      </section>
+    </div>
+
+    <section class="topic">
+      <h4>Exemplo de Type (tipagem)</h4>
+      <p>Em vez de Interface, estamos usando um Type para definir o usuário:</p>
+      <pre><code>type User = {{"{"}}
+  name: string;
+  email: string;
+  avatar: string;
+  isAdmin: boolean;
+{{"}"}};</code></pre>
+    </section>
+
+  </div>
+</section>
+
