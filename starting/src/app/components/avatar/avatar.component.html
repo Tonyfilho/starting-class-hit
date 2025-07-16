@@ -1,4 +1,4 @@
-@if (this.localuser |async; as user) {
+<!-- @if (this.localuser |async; as user) {
 <div class="avatar-container">
   <div class="avatar-image">
     <img [src]="user.photoURL ?? './../../../assets/img/avatar/no_avatar.png' " alt="User Avatar" class="avatar-img">
@@ -9,6 +9,27 @@
     <a class="logout-link">
       <span class="logout-text" (click)="logout()">Logout</span>
       <span class="logout-icon">-></span>
+    </a>
+  </div>
+</div>
+} -->
+@if (this.localuser | async; as user) {
+<div class="avatar-container">
+  <div class="avatar-image">
+    <img [src]="user.photoURL ?? './../../../assets/img/avatar/no_avatar.png'" alt="User Avatar" class="avatar-img">
+  </div>
+  <div class="avatar-info">
+    <span class="avatar-name">{{ user.displayName }}</span>
+    <span class="avatar-status"></span>
+  </div>
+  <div class="logout-dropdown">
+    <a class="logout-link" (click)="logout()">
+      <span class="logout-text">Logout</span>
+      <span class="logout-icon">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14M12 5l7 7-7 7"/>
+        </svg>
+      </span>
     </a>
   </div>
 </div>
