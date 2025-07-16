@@ -1,0 +1,178 @@
+<header class="header">
+  <h1>Angular 19 Routing: Navegação entre Componentes</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <h2>O que é Routing no Angular?</h2>
+    <p>
+      O Routing (roteamento) permite que a aplicação Angular navegue entre diferentes componentes ou páginas sem
+      recarregar a página inteira. Ele define caminhos (rotas) associados a componentes, permitindo uma experiência de
+      SPA (Single Page Application).
+    </p>
+
+    <h2>Configurando o módulo de rotas</h2>
+    <p>
+      Primeiro, você define suas rotas no arquivo de roteamento, geralmente <code>app-routing.module.ts</code>:
+    </p>
+
+    <pre><code>
+{{"import { NgModule } from '@angular/core';"}}
+{{"import { RouterModule, Routes } from '@angular/router';"}}
+{{"import { HomeComponent } from './home/home.component';"}}
+{{"import { SobreComponent } from './sobre/sobre.component';"}}
+
+const routes: Routes = {{"[ { path: '', component: HomeComponent }, { path: 'sobre', component: SobreComponent },];"}}
+
+{{"@NgModule({  imports: [RouterModule.forRoot(routes)],   exports: [RouterModule] })"}}
+export class AppRoutingModule{{ "{}"}}
+    </code></pre>
+
+    <h2>Usando os links no template</h2>
+    <p>
+      Para navegar entre rotas, usamos a diretiva <code>routerLink</code>:
+    </p>
+
+    <pre><code>
+&lt;nav&gt;
+  &lt;a routerLink="/"&gt;Home&lt;/a&gt;
+  &lt;a routerLink="/sobre"&gt;Sobre&lt;/a&gt;
+&lt;/nav&gt;
+    </code></pre>
+
+    <h2>Onde o conteúdo será exibido?</h2>
+    <p>
+      Você precisa incluir a diretiva <code>&lt;router-outlet&gt;</code> no template principal (geralmente
+      <code>app.component.html</code>) para que o conteúdo das rotas seja exibido:
+    </p>
+
+    <pre><code>
+&lt;router-outlet&gt;&lt;/router-outlet&gt;
+    </code></pre>
+
+    <h2>Rotas com parâmetros</h2>
+    <p>
+      Para criar rotas dinâmicas com parâmetros (por exemplo, um ID), use:
+    </p>
+
+    <pre><code>
+{{"{ path: 'produto/:id', component: ProdutoComponent }"}}
+    </code></pre>
+
+    <p>
+      E no componente:
+    </p>
+
+    <pre><code>
+{{"import { ActivatedRoute } from '@angular/router';"}}
+
+constructor(private route: ActivatedRoute) {{"{}"}}
+
+{{"ngOnInit() {    const id = this.route.snapshot.paramMap.get('id');   console.log('ID do produto:', id); }"}}
+    </code></pre>
+
+    <h2>Redirecionamento e rotas coringa</h2>
+    <p>
+      Você pode redirecionar e tratar rotas não encontradas:
+    </p>
+
+    <pre><code>
+const routes: Routes = [
+ {{" { path: '', redirectTo: 'home', pathMatch: 'full' },"}}
+ {{" { path: '**', component: PaginaNaoEncontradaComponent },"}}
+];
+    </code></pre>
+
+    <h2>Lazy Loading (Carregamento Sob Demanda)</h2>
+    <p>
+      O Lazy Loading permite que módulos sejam carregados somente quando suas rotas forem acessadas.
+      Isso melhora o desempenho da aplicação, especialmente em projetos grandes.
+    </p>
+    <pre><code>// app.routes.ts
+const routes: Routes = [
+{{"{ path: 'admin',loadChildren: () =&gt; import('./admin/admin.module').then(m =&gt; m.AdminModule)}"}}
+];</code></pre>
+
+    <p>O módulo carregado precisa ter seu próprio arquivo de rotas:</p>
+    <pre><code>// admin/admin.routes.ts
+const routes: Routes = [ {{"{ path: '',  component: AdminDashboardComponent }"}}
+];</code></pre>
+
+    <h2>Guarda de Rotas (Route Guards)</h2>
+    <p>
+      Guardas protegem rotas contra acessos indevidos. Elas podem verificar, por exemplo,
+      se o usuário está autenticado antes de liberar o acesso à rota.
+    </p>
+    <pre><code>// auth.guard.ts
+{{"@Injectable({ providedIn: 'root' })"}}
+export class AuthGuard implements CanActivate {{"{constructor(private authService: AuthService, private router: Router) {}"}}
+
+  canActivate(): boolean {{"{ if (this.authService.isLoggedIn()) {  return true; }"}}
+    this.router.navigate(['/login']); return false; {{"} }"}}</code></pre>
+
+    <p>Uso na configuração das rotas:</p>
+    <pre><code>const routes: Routes = [
+  {{"{"}} path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard]
+ {{"}"}}
+];</code></pre>
+
+    <h2>Resolvers (Resolução de Dados antes da Navegação)</h2>
+    <p>
+      Um resolver permite que dados sejam carregados antes que o componente de uma rota seja exibido.
+      Isso evita exibir a tela sem os dados necessários.
+    </p>
+    <pre><code>// user.resolver.ts
+{{"@Injectable({ providedIn: 'root' })"}}
+export class UserResolver implements Resolve&lt;User&gt; {{"{"}}
+  constructor(private userService: UserService) {{"{}"}}
+
+  resolve(route: ActivatedRouteSnapshot): Observable&lt;User&gt; {{"{"}}
+    const id = route.paramMap.get('id');
+    return this.userService.getUserById(id!);
+  {{"}}"}}</code></pre>
+
+    <p>Uso na rota:</p>
+    <pre><code>const routes: Routes = [
+  {{"{"}}
+    path: 'profile/:id',
+    component: ProfileComponent,
+    resolve: {{"{"}}
+      user: UserResolver
+    {{"}"}}
+  {{"}"}}
+];</code></pre>
+
+    <p>Recebendo os dados resolvidos no componente:</p>
+    <pre><code>// profile.component.ts
+{{"ngOnInit()"}} {{"{"}}
+  this.route.data.subscribe(data =&gt; {{"{"}}
+    this.user = data['user'];
+  {{"}"}});
+{{"}"}}</code></pre>
+
+
+
+
+
+
+
+
+    <h2>Resumo</h2>
+    <ul>
+      <li>Routing permite navegação entre componentes sem recarregar a página.</li>
+      <li>Defina as rotas no módulo de roteamento.</li>
+      <li>Use <code>routerLink</code> para criar navegação nos templates.</li>
+      <li>O conteúdo das rotas é exibido dentro de <code>&lt;router-outlet&gt;</code>.</li>
+      <li>Suporte para parâmetros dinâmicos, redirecionamento e rotas não encontradas.</li>
+    </ul>
+
+  </div>
+</section>
