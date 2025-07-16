@@ -1,10 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import html2pdf from 'html2pdf.js';
 import { UpcaseFirstWordPipe } from "../../../../_shared/pipes/upcase-first-word.pipe";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-template-events',
-  imports: [UpcaseFirstWordPipe],
+  imports: [UpcaseFirstWordPipe, RouterLink],
   templateUrl: './template-events.component.html',
   styleUrl: './../../../angular/angular.component.css'
 })

@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-operators',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './operators.component.html',
   styleUrl: './../../../angular/angular.component.css'
 })
@@ -23,7 +24,7 @@ export class OperatorsComponent implements OnInit {
     html2pdf().set(options).from(this.content.nativeElement).save();
   }
 
-  
+
   /** Operador Logico (||) operador OR*/
   /**Descrição: Retorna o primeiro valor Verdadeiro encontrado ou  o útimo valor se todos forem Falso */
   a = 0;

@@ -1,0 +1,88 @@
+<header class="header">
+  <h1>Dependency Injection in Angular 19: Managing Services and Providers.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <h2>Understanding Dependency Injection</h2>
+    <p>
+      In Angular 19, <strong>Dependency Injection (DI)</strong> is a design pattern used to manage how components and services depend on one another.
+    </p>
+
+    <h3>🚚 Analogy: A Transport Company</h3>
+    <p>
+      Imagine a customer in Portugal orders a product from China. The customer receives the package at their door without knowing the entire logistics chain — which courier picked it up, where it passed through, or how it got shipped. They just receive the package.
+    </p>
+    <p>
+      This is exactly how DI works in Angular: a component receives the necessary service without needing to know how it was created or where it came from. Angular handles the "logistics" of providing that service.
+    </p>
+
+    <h3>💡 Why is DI Useful?</h3>
+    <ul>
+      <li>Promotes loose coupling between classes</li>
+      <li>Improves testability and reusability</li>
+      <li>Makes your app more modular and easier to maintain</li>
+    </ul>
+
+    <h3>🛠️ How to Use DI in Angular</h3>
+    <p>
+      Let’s look at a simple example of injecting a service into a component using DI.
+    </p>
+
+    <pre><code class="language-ts">// product.service.ts
+{{"import { Injectable } from '@angular/core';"}}
+
+{{"@Injectable({ providedIn: 'root'})"}}
+export class ProductService {{"{"}}
+  getProduct() {{"{"}}
+    return '📦 Product shipped from China!';
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+    <pre><code class="language-ts">// delivery.component.ts
+import {{"{"}} Component {{"}"}} from {{'@angular/core'}};
+import {{"{"}} ProductService {{"}"}} from './product.service';
+
+{{"@Component"}}({{"{"}}
+  selector: 'app-delivery',
+  template: '{{ 'message' }}'
+{{"}"}}
+export class DeliveryComponent {{"{"}}
+  message: string;
+
+  constructor(private productService: ProductService) {{"{"}}
+    this.message = this.productService.getProduct();
+  {{"}"}}
+{{"}"}}
+</code></pre>
+
+    <p>
+      In the above code, <code>ProductService</code> is injected into the <code>DeliveryComponent</code> using the constructor. Angular automatically provides the instance of the service.
+    </p>
+
+    <h3>🔄 Providing Services at Different Levels</h3>
+    <p>
+      Services can be provided at:
+    </p>
+    <ul>
+      <li><strong>Root level</strong>: shared across the whole app (<code>providedIn: 'root'</code>)</li>
+      <li><strong>Component level</strong>: limited to that component and its children</li>
+    </ul>
+
+    <pre><code class="language-ts">{{"@Component({  selector: 'app-local-service',  providers: [LocalService]})"}}
+</code></pre>
+
+    <h3>✅ Summary</h3>
+    <p>
+      Dependency Injection in Angular 19 is like a hidden logistics system — it delivers services to components without exposing the creation logic. This improves your code's scalability, testability, and flexibility.
+    </p>
+  </div>
+</section>
+

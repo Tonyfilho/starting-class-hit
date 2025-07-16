@@ -1,13 +1,14 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-angular-directives',
   templateUrl: './angular-directives.component.html',
   styleUrl: './../../../angular/angular.component.css',
-  imports: [FormsModule, CommonModule]
+  imports: [FormsModule, CommonModule, RouterLink]
 })
 export class AngularDirectivesComponent {
   @ViewChild('pdfContent') content!: ElementRef;

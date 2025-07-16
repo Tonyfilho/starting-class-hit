@@ -1,0 +1,70 @@
+<header class="header">
+  <h1>Angular Pipes: Data Transformation in the Template.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>📌 O que são Pipes?</h2>
+    <p>
+      Pipes em Angular permitem transformar visualmente os dados no template sem modificar o valor original. São muito usados para formatação de textos, números, datas, moedas, etc.
+    </p>
+
+    <h3>📦 Sintaxe Básica</h3>
+    <pre><code>{{ "valor | nomeDoPipe "}}</code></pre>
+
+    <h3>📅 Exemplos com Pipes Comuns</h3>
+    <pre><code>// date
+{{ today | date:'fullDate' }} // Ex: terça-feira, 16 de julho de 2025
+
+// uppercase / lowercase
+{{ nome | uppercase }}   // 'JOÃO'
+{{ nome | lowercase }}   // 'joão'
+
+// titlecase
+{{ frase | titlecase }}  // 'Olá Mundo Do Angular'
+
+// number
+{{ numero | number:'1.2-2' }} // 1.000,00
+
+// currency
+{{ preco | currency:'EUR':'symbol' }} // €12,00
+
+// percent
+{{ percentual | percent }} // 0.75 → 75%</code></pre>
+
+    <h3>🧠 Composição de Pipes</h3>
+    <p>Você pode usar múltiplos pipes em sequência:</p>
+    <pre><code>{{ nome | lowercase | titlecase }}</code></pre>
+
+    <h3>🛠️ Criando um Pipe Personalizado</h3>
+    <p>Exemplo de um pipe que deixa a primeira letra de cada palavra em maiúscula:</p>
+    <pre><code>{{"import { Pipe, PipeTransform } from '@angular/core';"}}
+
+{{"@Pipe({ name: 'upcaseFirstWord' })"}}
+export class CapitalizePipe implements PipeTransform {{"{"}}
+  transform(value: string): string {{"{"}}
+    return value.replace(/\b\w/g, char =&gt; char.toUpperCase());
+  {{"}"}}
+{{"}"}}
+
+// Uso:
+{{ 'ola mundo angular' | upcaseFirstWord }} // 'Ola Mundo Angular'</code></pre>
+
+    <h3>📌 Pipes vs Métodos no Componente</h3>
+    <p>
+      Evite usar métodos diretamente no template se eles forem pesados ou causarem re-renderizações. Pipes são otimizados para isso.
+    </p>
+
+    <h3>🧩 Pipes Puros vs Impuros</h3>
+    <ul>
+      <li><strong>Puros:</strong> são executados somente se o valor de entrada mudar.</li>
+      <li><strong>Impuros:</strong> são executados a cada detecção de mudança. (Use com cautela)</li>
+    </ul>
+  </div>
+</section>
+

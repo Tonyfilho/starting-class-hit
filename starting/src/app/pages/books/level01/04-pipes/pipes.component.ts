@@ -1,0 +1,35 @@
+import { CommonModule } from '@angular/common';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import html2pdf from 'html2pdf.js';
+import { UpcaseFirstWordPipe } from "../../../../_shared/pipes/upcase-first-word.pipe";
+import { RouterLink } from '@angular/router';
+
+@Component({
+  selector: 'app-pipes',
+  imports: [CommonModule, UpcaseFirstWordPipe, RouterLink],
+  templateUrl: './pipes.component.html',
+  styleUrl: './../../../angular/angular.component.css'
+})
+export class PipesComponent {
+  @ViewChild('pdfContent') content!: ElementRef;
+
+  downloadPDF() {
+    const options = {
+      filename: 'js-fundamentals-guia.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(this.content.nativeElement).save();
+  }
+
+ protected today: Date = new Date();
+ protected nome: string = 'joão';
+ protected frase: string = 'olá mundo do angular';
+ protected numero: number = 1000;
+ protected preco: number = 12;
+ protected percentual: number = 0.75;
+
+
+}
