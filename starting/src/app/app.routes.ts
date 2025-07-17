@@ -11,17 +11,17 @@ export const routes: Routes = [
   { path: 'e-book/angular/git', loadComponent: () => import('./pages/angular/git/git.component').then(c => c.GitComponent) },
   { path: 'e-book/angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },
   { path: 'e-book/angular/signin', loadComponent: () => import('./components/authentication/authentication.component').then(c => c.AuthenticationComponent) },
-
-  { path: 'e-book/angular/wellcome', loadComponent: () => import('./components/wellcome/wellcome.component').then(c => c.WellcomeComponent), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/forms', loadChildren: () => import('./pages/forms/forms.router').then(c => c.formsRoutes), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/dry', loadComponent: () => import('./pages/dry/dry.component').then(c => c.DryComponent), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/object-calisthenics', loadChildren: () => import('./pages/object-calisthenics/object-calisthenic.router').then(c => c.ObjectCalisthenicRoutes), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/rxJs-foundation', loadChildren: () => import('./pages/rxjs/rxjs-fundaments.router').then(c => c.rxJsFundamentsRoutes), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/js-foundation', loadChildren: () => import('./pages/js-fundaments/js-fundaments.router').then(c => c.jsFundamentsRoutes), canActivate:[authenticationGuard] },
-
-  { path: 'e-book/angular/levels', loadChildren: () => import('./pages/books/level.router').then(c => c.levelRoutes), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/solid', loadChildren: () => import('./pages/solid/solid.router').then(c => c.solidRoutes), canActivate:[authenticationGuard] },
-  { path: 'e-book/angular/api', loadChildren: () => import('./pages/api/api.routes').then(c => c.apiRoutes), canActivate:[authenticationGuard] },
+  
+  /**rotas com Guards */
+  { path: 'e-book/angular/wellcome', loadComponent: () => import('./components/wellcome/wellcome.component').then(c => c.WellcomeComponent), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/forms', loadChildren: () => import('./pages/forms/forms.router').then(c => c.formsRoutes), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/dry', loadComponent: () => import('./pages/dry/dry.component').then(c => c.DryComponent), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/object-calisthenics', loadChildren: () => import('./pages/object-calisthenics/object-calisthenic.router').then(c => c.ObjectCalisthenicRoutes), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/rxJs-foundation', loadChildren: () => import('./pages/rxjs/rxjs-fundaments.router').then(c => c.rxJsFundamentsRoutes), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/js-foundation', loadChildren: () => import('./pages/js-fundaments/js-fundaments.router').then(c => c.jsFundamentsRoutes), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/levels', loadChildren: () => import('./pages/books/level.router').then(c => c.levelRoutes), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/solid', loadChildren: () => import('./pages/solid/solid.router').then(c => c.solidRoutes), canActivate: [authenticationGuard] },
+  { path: 'e-book/angular/api', loadChildren: () => import('./pages/api/api.routes').then(c => c.apiRoutes), canActivate: [authenticationGuard] },
 
   { path: '**', loadComponent: () => import('./components/not-found/not-found.component').then(c => c.NotFoundComponent) }
   // {path: '**', redirectTo: () => {return 'not-found'}},
