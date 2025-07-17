@@ -4,7 +4,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { authenticationGuard } from './_guards/authentication.guard';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'e-book/angular', pathMatch: 'full' }, //rora Padrão
+  { path: '', redirectTo: 'e-book/angular/home', pathMatch: 'full' }, //rora Padrão
   { path: 'e-book/angular/home', loadComponent: () => import('./components/home/home.component').then(c => c.HomeComponent), },
   { path: 'e-book/angular', loadComponent: () => import('./pages/angular/angular.component').then(c => c.AngularComponent), },
   { path: 'e-book/angular/get-starting', loadComponent: () => import('./pages/angular/get-srtaing-angular/get-starting-with-angular.component').then(c => c.GetStartingWithAngularComponent) },

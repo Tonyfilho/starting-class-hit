@@ -7,7 +7,7 @@ import { User } from 'firebase/auth';
 
 @Component({
   selector: 'app-wellcome',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule],
   templateUrl: './wellcome.component.html',
   styleUrl: './wellcome.component.css'
 })
