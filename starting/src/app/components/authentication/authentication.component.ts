@@ -1,17 +1,17 @@
-import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
-import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router, RouterLink } from '@angular/router';
-import { AuthGmailService } from '../../../_services/auth-gmail.service';
-import { UpcaseFirstWordPipe } from "../../../_shared/pipes/upcase-first-word.pipe";
+import { ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { UpcaseFirstWordPipe } from '../../_shared/pipes/upcase-first-word.pipe';
+import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { AuthGmailService } from '../../_services/auth-gmail.service';
 
 @Component({
-  selector: 'app-signinforms',
+  selector: 'app-authentication',
   imports: [ReactiveFormsModule, CommonModule, UpcaseFirstWordPipe],
-  templateUrl: './signin-forms.component.html',
-  styleUrl: './signin-forms.component.css'
+  templateUrl: './../../pages/forms/signin-forms/signin-forms.component.html',
+  styleUrl: './../../pages/forms/signin-forms/signin-forms.component.css'
 })
-export class SigninformsComponent {
+export class AuthenticationComponent {
   protected router = inject(Router);
   protected gmailService = inject(AuthGmailService);
   protected signInForms: UntypedFormGroup;
@@ -45,7 +45,3 @@ export class SigninformsComponent {
     });
   }
 }
-
-
-
-

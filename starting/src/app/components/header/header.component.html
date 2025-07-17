@@ -12,15 +12,9 @@
       }
     </div>
   </div>
-
+  @if (this.authGmailService.isAuthenticated()) {
   <nav class="nav-content">
-     <div class="nav-item has-expandable">
-      <a routerLink="/e-book/angular" class="logo-link">Angular</a>
-      <div class="submenu">
-        <a routerLink="/e-book/angular/get-starting" class="submenu-link">Get Starting With Angular</a>
-        <a routerLink="/e-book/angular/git" class="submenu-link">Git</a>
-      </div>
-    </div>
+
     <div class="nav-item has-expandable">
       <a class="logo-link">{{"dry? solid? calisthenics?" | upcaseFirstWord }}</a>
       <div class="submenu">
@@ -147,18 +141,6 @@
       </div>
     </div>
 
-
-
-
-    <div class="nav-item has-expandable">
-      <a routerLink="/e-book/angular/firebase" class="logo-link">Firebase</a>
-      <div class="submenu">
-        <a routerLink="/e-book/angular/firebase/init-with-hosting" class="submenu-link">Init with Hosting</a>
-        <a routerLink="/e-book/angular/firebase/authentication" class="submenu-link">Authentication</a>
-      </div>
-    </div>
-
-
     <div class="nav-item has-expandable">
       <a routerLink="e-book/angular/api" class="logo-link">APIs</a>
       <div class="submenu">
@@ -170,7 +152,7 @@
         <a routerLink="e-book/angular/api/reqres" class="submenu-link">Reqres</a>
       </div>
     </div>
-    /e-book
+    
     <div class="nav-item has-expandable">
       <a routerLink="e-book/angular/forms" class="logo-link">Forms</a>
       <div class="submenu">
@@ -180,4 +162,35 @@
       </div>
     </div>
   </nav>
+
+  }@else {
+    <nav class="nav-content">
+       <div class="nav-item has-expandable">
+        <a routerLink="/e-book/angular" class="logo-link">Angular</a>
+        <div class="submenu">
+          <a routerLink="/e-book/angular/get-starting" class="submenu-link">Get Starting With Angular</a>
+          <a routerLink="/e-book/angular/git" class="submenu-link">Git</a>
+        </div>
+      </div>
+
+      <div class="nav-item has-expandable">
+        <a routerLink="/e-book/angular/firebase" class="logo-link">Firebase</a>
+        <div class="submenu">
+          <a routerLink="/e-book/angular/firebase/init-with-hosting" class="submenu-link">Init with Hosting</a>
+          <a routerLink="/e-book/angular/firebase/authentication" class="submenu-link">Authentication</a>
+        </div>
+      </div>
+
+
+
+      <div class="nav-item has-expandable">
+        <a  class="logo-link">Authentication</a>
+        <div class="submenu">
+          <a routerLink="/e-book/angular/signin" class="submenu-link">SignIn</a>
+        </div>
+      </div>
+    </nav>
+
+
+  }
 </header>

@@ -1,0 +1,18 @@
+@if (this.localuser | async; as user) {
+  <header class="header">
+      <h1 class="welcome-title">Bem-vindo, {{ user.displayName ?? 'Utilizador' }}!</h1>
+      <p class="subtitle">Obrigado por fazer SignIn </p>
+    </header>
+    <div class="page-container">
+
+        <div class="card-container">
+            <div class="card">
+                <img [src]="user.photoURL ?? './../../../assets/img/avatar/image.png'" alt="Foto de Perfil" class="profile-img">
+                <h2 class="user-name">{{ user.displayName }}</h2>
+                <p class="user-email">Email: {{ user.email }}</p>
+            </div>
+        </div>
+    </div>
+}
+
+ 
