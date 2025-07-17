@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-not-found',
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NotFoundComponent {
   private router = inject(Router);
- 
+
 goBack() {
     this.router.navigateByUrl('/home');
 }
