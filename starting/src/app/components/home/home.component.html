@@ -1,90 +1,117 @@
-<div class="home-container">
-  <header class="home-header">
-    <h1 class="home-title">Home</h1>
-    <p class="home-subtitle">O que fizemos, com o que fizemos</p>
-  </header>
+<div class="header">
+  <h1>Starting your journey!</h1>
+  <p class="subtitle">Learn with instructor Tony Filho, through an interactive and practical E-Book, how to apply
+    Angular and RxJS based on UCs and UFCDs for today’s web development.</p>
 
-  <section class="home-section">
-    <div class="home-card">
-      <h2 class="home-card-title">Ferramentas Utilizadas</h2>
-      <h2 class="home-card-title">Angular</h2>
-      <p class="home-card-description">Framework de desenvolvimento web baseado em TypeScript, mantido pelo Google.
-        É usado para criar aplicações web de página única (SPAs) com uma arquitetura robusta e escalável.</p>
-      <h2 class="home-card-title">Git Extensions</h2>
-      <p class="home-card-description">Interface gráfica para o Git no Windows.
-        Facilita o gerenciamento de repositórios Git com recursos visuais para commits, branches, merges e muito mais, ideal para quem prefere evitar o terminal.</p>
-      <h2 class="home-card-title">Cmder</h2>
-      <p class="home-card-description">Emulador de terminal para Windows que oferece uma interface mais poderosa e amigável do que o Prompt padrão.
-        Baseado no ConEmu, integra comandos Unix via clink e Git para Windows.</p>
-    </div>
-
-    <div class="home-card">
-      <h2 class="home-card-title">Príncipios da Programação</h2>
-      <h2 class="home-card-title">DRY</h2>
-      <p class="home-card-description">Princípio que incentiva a evitar duplicação de código.
-        A ideia é que cada pedaço de conhecimento ou lógica deve existir em um único lugar do sistema, facilitando a manutenção e reduzindo erros.</p>
-      <h2 class="home-card-title">SOLID</h2>
-      <p class="home-card-description">Conjunto de cinco princípios para um design orientado a objetos mais compreensível, flexível e fácil de manter: <br>
-        S – Single Responsibility Principle:<br>
-        O – Open/Closed Principle:<br>
-        L – Liskov Substitution Principle:<br>
-        I – Interface Segregation Principle:<br>
-        D – Dependency Inversion Principle:</p>
-      <h2 class="home-card-title">Object Calisthenics</h2>
-      <p class="home-card-description">Conjunto de 9 regras que visam melhorar a qualidade do código orientado a objetos por meio de restrições que forçam boas práticas.</p>
-    </div>
-
-    <div class="home-card">
-      <h2 class="home-card-title">Nivelamentos</h2>
-      <h2 class="home-card-title">Angular</h2>
-      <p class="home-card-description">Consiste em componentes, módulos, diretivas, serviços, injeção de dependência, roteamento e consumo de APIs.</p>
-      <h2 class="home-card-title">JavaScript</h2>
-      <p class="home-card-description">Inclui variáveis, funções, objetos, arrays, escopo, promises, async/await e manipulação do DOM.
-        Essencial para programar com segurança em frameworks modernos como Angular.</p>
-      <h2 class="home-card-title">RxJS</h2>
-      <p class="home-card-description">Envolve a introdução aos conceitos de programação reativa com a biblioteca RxJS, usada
-        extensivamente no Angular. Inclui entender Observables, operadores (como map, filter, switchMap), Subjects e o padrão de fluxo assíncrono e reativo.</p>
-    </div>
-
-    <div class="home-card">
-      <h2 class="home-card-title">Angular Foundation</h2>
-      <p class="home-card-description">É a base de conhecimentos essenciais para começar a trabalhar com Angular de forma sólida.
-        Envolve os principais conceitos e estruturas do framework, como: Componentes e Templates, Módulos (NgModules), Data Binding,
-        Diretivas, Serviços e Injeção de Dependência, Roteamento (Router), HTTPClient</p>
-    </div>
-
-    <div class="home-card">
-      <h2 class="home-card-title">Firebase Init</h2>
-      <p class="home-card-description">Comando (firebase init) usado para iniciar e configurar um projeto Firebase no seu ambiente local.
-        Durante a execução, você escolhe quais serviços deseja ativar (como Hosting, Firestore, Functions etc.).
-        Ele cria os arquivos de configuração necessários, como firebase.json e .firebaserc.</p>
-      <h2 class="home-card-title">Firebase Hosting</h2>
-      <p class="home-card-description">Serviço do Firebase para hospedar sites estáticos ou SPAs (como projetos em Angular, React, Vue).
-        É rápido, seguro (HTTPS por padrão) e fácil de usar. Após o firebase init, você pode usar firebase deploy para publicar seu site online.</p>
-    </div>
-
-    <div class="home-card">
-      <h2 class="home-card-title">HTTP Errors e Successes</h2>
-      <h2 class="home-card-title">HTTP Error - 400</h2>
-      <p class="home-card-description">Bad Request: a requisição foi malformada ou contém dados inválidos (ex: parâmetros faltando).</p>
-      <h2 class="home-card-title">HTTP Error - 500</h2>
-      <p class="home-card-description">Internal Server Error: problema no servidor ao processar a requisição, geralmente causado por bugs ou falhas internas.</p>
-      <h2 class="home-card-title">HTTP Success - 200</h2>
-      <p class="home-card-description">OK: a requisição foi bem-sucedida e o servidor retornou a resposta esperada (ex: dados de uma API ou confirmação de operação).</p>
-    </div>
-
-    <div class="home-card">
-      <h2 class="home-card-title">APIs</h2>
-      <h2 class="home-card-title">CORS</h2>
-      <p class="home-card-description">Mecanismo de segurança que controla quais domínios podem acessar recursos de uma API hospedada em outro domínio.
-        sem CORS habilitado, requisições entre origens diferentes (ex: de localhost para api.exemplo.com) são bloqueadas pelo navegador por segurança.</p>
-      <h2 class="home-card-title">Weather API</h2>
-      <p class="home-card-description">API que fornece dados meteorológicos em tempo real, como temperatura, umidade e previsão do tempo.</p>
-      <h2 class="home-card-title">Reqres API</h2>
-      <p class="home-card-description">API gratuita usada para testes e simulações de requisições HTTP (GET, POST, PUT, DELETE).
-        Retorna dados fictícios como usuários, listas e autenticação. Muito útil em protótipos, testes e aprendizado de consumo de APIs.</p>
-    </div>
-  </section>
 </div>
 
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
 
+<section class="container-guide">
+  <div class="content-wrap">
+
+    <p class="subtitle">Comece agora sua jornada em Angular!
+    </p>
+    <p class="subtitle">
+      Se quer ser aluno de uma das instituições profissionalizantes parceiras deste E-Book em Portugal Continental,
+      Madeira ou Açores,
+      faça seu acesso gratuito e explore +80 páginas de conteúdo prático em Front-End com Angular.
+
+      Quer saber onde estudar de graça ou pagando pouco?
+      Essas instituições oferecem formação profissional qualificada e são parceiras deste material. Entre em contato por
+      e-mail, WhatsApp ou outros canais que envio a lista completa de escolas profissionalizantes em todas as regiões de
+      Portugal e Ilhas."</p>
+    <!-- <div class="card right-align"> -->
+      <button class="signin-button" routerLink="/e-book/angular/signin">Signin</button>
+
+    <!-- </div> -->
+
+  </div>
+</section>
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <article>
+      <h2>Ferramentas Utilizadas</h2>
+      <p><strong>Angular</strong>: Framework baseado em TypeScript para criação de SPAs robustas e escaláveis.</p>
+      <p><strong>Git Extensions</strong>: Interface visual para controle de versão com Git.</p>
+      <p><strong>Cmder</strong>: Terminal avançado no Windows com suporte a comandos Unix e Git embutido.</p>
+
+      <h2>Princípios da Programação</h2>
+      <p><strong>DRY</strong>: Reaproveitamento de lógica com componentes e serviços reutilizáveis.</p>
+      <p><strong>SOLID</strong>: Aplicado na estrutura modular da aplicação e serviços desacoplados.</p>
+      <p><strong>Object Calisthenics</strong>: Aplicado para garantir código limpo, modular e orientado a boas práticas.
+      </p>
+
+      <h2>Nivelamentos</h2>
+      <p><strong>Angular</strong>: Componentes, diretivas, serviços, módulos, roteamento e API.</p>
+      <p><strong>JavaScript</strong>: Variáveis, funções, escopo, operadores e manipulação DOM.</p>
+      <p><strong>RxJS</strong>: Observables, pipe, map, filter, switchMap e fluxo assíncrono reativo.</p>
+
+      <h2>Angular Foundation</h2>
+      <p>Envolve os conceitos essenciais do Angular: data binding, diretivas, serviços, DI, roteamento, e consumo de
+        APIs com HttpClient.</p>
+
+      <h2>Firebase</h2>
+      <p><strong>Firebase Init:</strong> Configuração inicial do projeto com serviços como Firestore, Hosting e
+        Functions.</p>
+      <p><strong>Firebase Hosting:</strong> Publicação da SPA com HTTPS, deploy automatizado e versionamento.</p>
+
+      <h2>HTTP Errors e Successes</h2>
+      <p><strong>400:</strong> Bad Request - requisição malformada.</p>
+      <p><strong>500:</strong> Internal Server Error - erro no servidor.</p>
+      <p><strong>200:</strong> OK - requisição bem-sucedida.</p>
+
+      <h2>APIs</h2>
+      <p><strong>CORS:</strong> Segurança entre domínios, aplicado em chamadas a APIs externas.</p>
+      <p><strong>Weather API:</strong> Exemplo real de consumo de dados meteorológicos via GET.</p>
+      <p><strong>Reqres API:</strong> API simulada usada para GET, POST, PUT e DELETE com formulários reativos.</p>
+
+      <h2>UFCDs e UCs Aplicadas</h2>
+      <p>As seguintes UFCDs e UCs foram integradas ao conteúdo e prática desta aplicação:</p>
+      <ul>
+        <li><strong>5425:</strong> Fundamentos em TIC, interfaces web, acessibilidade e navegação.</li>
+        <li><strong>0726, 0727, 0715:</strong> Estrutura do JavaScript, controle de fluxo e manipulação de dados no DOM.
+        </li>
+        <li><strong>0756–0759:</strong> Criação de aplicações web com Angular, APIs, formulários e roteamento.</li>
+        <li><strong>7846:</strong> JS Avançado e RxJS – programação assíncrona com observables.</li>
+        <li><strong>9950:</strong> Boas práticas com SOLID, Object Calisthenics e organização de módulos.</li>
+        <li><strong>0792, 0793, 0788, 0789, 0791, 0805, 0806, 0816:</strong> Frameworks como Angular e bibliotecas
+          auxiliares (RxJS, Firebase).</li>
+        <li><strong>10791:</strong> Consumo de APIs REST, uso de headers, tratamento de status HTTP, JSON.</li>
+        <li><strong>UC00619, UC00605, UC00607, UC00608:</strong> Projetos práticos, desenvolvimento modular e testes
+          manuais.</li>
+        <li><strong>UC00890:</strong> Integração com Firebase: Hosting, Firestore, Auth e Functions.</li>
+        <li><strong>UC00622:</strong> Debugging e testes manuais (console, rede e dev tools).</li>
+        <li><strong>10789, 10800, 10801, 10806:</strong> Uso do Git, produtividade em ambientes colaborativos, estrutura
+          e deploy.</li>
+        <li><strong>UC00604, UC00606:</strong> OOP com TypeScript, conceitos aplicados ao Angular.</li>
+        <li><strong>514689, 514703, 514707, 514685:</strong> Segurança, deploy com HTTPS, uso do Firebase Hosting.</li>
+        <li><strong>UC00621, UC00623, UC00617, UC00245:</strong> Organização do projeto, divisão modular, boas práticas
+          e documentação.</li>
+        <li><strong>0824:</strong> Práticas laboratoriais aplicadas ao longo de mais de 80 páginas interativas da
+          aplicação.</li>
+      </ul>
+
+      <h2>Metodologia de Ensino</h2>
+      <p>
+        Esta aplicação foi projetada com foco na prática progressiva. Os conteúdos são apresentados com explicações
+        teóricas e reforçados com
+        exemplos reais, laboratórios, tabelas comparativas e chamadas a APIs públicas.
+      </p>
+      <p>
+        Cada componente foi desenvolvido de forma independente e reutilizável, refletindo a arquitetura modular de
+        aplicações modernas em Angular.
+        A aplicação faz uso extensivo das boas práticas ensinadas nas UFCDs, unificando teoria e prática em um só
+        ambiente.
+      </p>
+
+      <div class="note success">
+        ✅ Esta SPA é resultado de um processo completo de aprendizagem com Angular, RxJS e boas práticas de
+        desenvolvimento moderno.
+      </div>
+    </article>
+  </div>
+</section>

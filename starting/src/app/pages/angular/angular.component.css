@@ -240,6 +240,21 @@ table tr:hover td {
   transition: var(--transition);
   font-weight: bold;
 }
+.signin-button {
+  background: var(--text-hover2);
+  color: var(--text-color-light);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: bold;
+  &.signin-button:hover {
+  
+    background: var(--third-color);
+
+  }
+}
 
 .home-button-pdf {
   background: var(--third-color);
