@@ -134,7 +134,6 @@ button {
   background-color: var(--background-color-error);
   padding: 0.3rem;
   border-radius: var(--border-radius);
-
   font-size: 0.9rem;
   border-left: 3px, solid var(--secondary-color);
 
@@ -152,25 +151,45 @@ button {
   font-size: 10px;
 }
 
-/* Responsividade */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
   .login-card {
-    margin: 1rem;
+    width: 95%;
     padding: 1.5rem;
   }
 
   .button-group {
     flex-direction: column;
   }
-}
 
-@media (max-width: 400px) {
-  .login-card {
-    padding: 1rem;
+  .clean-button,
+  .google-btn,
+  .sign-in,
+  .go-back {
+    width: 100%;
   }
 
-  input,
+  input {
+    font-size: 0.95rem;
+    padding: 0.6rem;
+  }
+
+  .login-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .login-card p {
+    font-size: 0.95rem;
+  }
+
   button {
-    padding: 0.7rem;
+    font-size: 0.95rem;
+  }
+
+  .error-message {
+    font-size: 0.85rem;
+  }
+
+  .warning p {
+    font-size: 0.8rem;
   }
 }
