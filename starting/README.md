@@ -153,8 +153,14 @@ html2pdf().set(options).from(this.content.nativeElement).save();
 8. implementar o routerGuard, 
 
 
-# Aula 15
-10. inicio dos Forms para componente signUp
+# Aula 14
+1. criando o autoLogout apos 1 hora ele pega user.stsTokenManager.expirationTime do USER para criar o logout
+2. instalar o npm install jwt-decode,Opção 1: Decodificar o JWT (accessToken) para pegar o exp (tempo de expiração)
+3. importa no service import jwtDecode from 'jwt-decode';
+4. criar a type  JwtPayload no authGmailService.
+5. criação do metodo automaticLogout(user: User), tem que receber o User Direto,  caso contrario da error e diz que getIdToken() não é uma function.
+
+5. inicio dos Forms para componente signUp
 
 # Aula 16
 
