@@ -72,7 +72,7 @@ export class AuthGmailService implements AuthInterface {
       map((token) => jwtDecode<JwtPayload>(token))
     ).subscribe((decoded) => {
       const timeNow = Date.now() / 1000; //transformando em milissegundos
-      const timeLeft = (decoded.exp - timeNow) * 1000;
+      const timeLeft = (decoded.exp - timeNow) * 1000; // transformando novamente em segundos
       if (timeLeft > 0) {
         console.log(`Token expira em ${Math.round(timeLeft / 1000)} segundos`);
         setTimeout(() => {this.logOut()}, timeLeft)
