@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: 'e-book/angular/get-starting', loadComponent: () => import('./pages/angular/get-srtaing-angular/get-starting-with-angular.component').then(c => c.GetStartingWithAngularComponent) },
   { path: 'e-book/angular/git', loadComponent: () => import('./pages/angular/git/git.component').then(c => c.GitComponent) },
   { path: 'e-book/angular/firebase', loadChildren: () => import('./pages/firebase/firebase.router').then(c => c.firebaseRoutes) },
-  { path: 'e-book/angular/login', loadComponent: () => import('./components/authentication/login.component').then(c => c.LoginComponent) },
+  { path: 'e-book/angular/login', loadComponent: () => import('./components/login/login.component').then(c => c.LoginComponent) },
 
   /**rotas com Guards */
   { path: 'e-book/angular/wellcome', loadComponent: () => import('./components/wellcome/wellcome.component').then(c => c.WellcomeComponent), canActivate: [authenticationGuard] },

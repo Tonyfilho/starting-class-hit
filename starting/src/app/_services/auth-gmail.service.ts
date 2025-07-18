@@ -13,6 +13,7 @@ export class AuthGmailService implements AuthInterface {
   private currentUser$ = new BehaviorSubject<User | null>(null);
   constructor() {
     this.getUserFromLocalStorage();
+    console.log("currentUser: ", this.currentUser$.value)
   }
 
 
@@ -51,5 +52,9 @@ export class AuthGmailService implements AuthInterface {
 
   getUser(): Observable<User | null> {
     return this.currentUser$.asObservable();
+  }
+
+  automaticLogout = () => {
+   const localTimeOutLogin = this.currentUser$.value
   }
 }

@@ -68,7 +68,7 @@
       Signout
     </button>
     }@else {
-    <button type="button" (click)="gmailAuthentication()" class="google-btn" [disabled]="this.signInForms.invalid">
+    <button type="button" (click)="gmailAuthentication()" class="google-btn" [disabled]="this.signInForms.invalid && this.signInForms.touched">
       <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
       Signin with Google
     </button>
