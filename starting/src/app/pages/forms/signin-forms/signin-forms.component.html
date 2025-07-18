@@ -58,7 +58,7 @@
 
     <div class="button-group">
       <button type="button" (click)="goBack()" class="go-back">⬅️ Go Back</button>
-      <button type="submit" [disabled]="this.signInForms.invalid && this.gmailService.isAuthenticated()"
+      <button type="submit" [disabled]="this.signInForms.invalid && this.signInForms.touched || this.gmailService.isAuthenticated()"
         class="sign-in">🔐 Sign In</button>
     </div>
 
@@ -68,7 +68,7 @@
       Signout
     </button>
     }@else {
-    <button type="button" (click)="gmailAuthentication()" class="google-btn">
+    <button type="button" (click)="gmailAuthentication()" class="google-btn" [disabled]="this.signInForms.invalid">
       <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
       Signin with Google
     </button>
