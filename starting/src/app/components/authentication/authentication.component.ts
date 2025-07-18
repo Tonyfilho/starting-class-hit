@@ -5,6 +5,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthGmailService } from '../../_services/auth-gmail.service';
 import { PopUpService } from '../../_shared/pop-up/pop-up.service';
+import { emailVerification, passwordVerification } from '../../_shared/validators';
 
 @Component({
   selector: 'app-authentication',
@@ -13,6 +14,7 @@ import { PopUpService } from '../../_shared/pop-up/pop-up.service';
   styleUrl: './../../pages/forms/signin-forms/signin-forms.component.css'
 })
 export class AuthenticationComponent {
+
   protected router = inject(Router);
   private popUpService = inject(PopUpService);
   protected gmailService = inject(AuthGmailService);
@@ -21,8 +23,8 @@ export class AuthenticationComponent {
 
   constructor(private fb: UntypedFormBuilder) {
     this.signInForms = this.fb.nonNullable.group({
-      email: ['', [Validators.required]],
-      password: ['', [Validators.required]]
+      email: ['', [Validators.required, emailVerification()]],
+      password: ['', [Validators.required, passwordVerification()]]
     })
   }
 
@@ -45,5 +47,9 @@ export class AuthenticationComponent {
       next: (res) => { console.log("Data From Google: ", res.user), this.router.navigate(['/e-book/angular/wellcome']) },
       error: (e) => { console.error("Error in Gmail Authentication"), this.popUpService.show(e.message, 'error', 7000), this.router.navigateByUrl('/') }
     });
+  }
+
+    gmailSigout() {
+    this.gmailService.logOut().subscribe();
   }
 }

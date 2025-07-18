@@ -7,18 +7,20 @@
 
   <form [formGroup]="signInForms" (ngSubmit)="onSubmit()">
     <label for="email">E-mail</label>
-    <input type="email" id="email" name="email" formControlName="email"
-      placeholder="Hit your e-mail" />
+    <input type="email" id="email" name="email" formControlName="email" placeholder="Hit your e-mail" />
     @if (this.signInForms.invalid && this.signInForms.get("email")?.touched) {
-    <div class="error" [ngClass]="{'error-message': this.signInForms.controls['email'].invalid && this.signInForms.get('email')?.touched}">
+    <div
+      [ngClass]="{'error-message': this.signInForms.controls['email'].invalid && this.signInForms.get('email')?.touched}">
       @if (this.signInForms.hasError('required', 'email')) {
       <small class="warning">
-         {{"⚠️ E-mail is required." | upcaseFirstWord }}
+        <p>
+          {{"⚠️ E-mail is required." | upcaseFirstWord }}
+        </p>
       </small>
       }
-      @if (this.signInForms.get('email')?.getError('email')) {
+      @if (this.signInForms.get('email')?.getError('invalidEmail')) {
       <small class="warning">
-        <p>{{ "just letter, not allowed special characters or numbers " | upcaseFirstWord}}</p>
+        <p>{{ "just allow email from partners institutions" | upcaseFirstWord}}</p>
       </small>
       }
 
@@ -26,22 +28,50 @@
     }
 
     <label for="password">Password</label>
-    <input type="password" id="password" name="password" formControlName="password"
-      placeholder="Hit your password" />
+    <input type="password" id="password" name="password" formControlName="password" placeholder="Hit your password" />
     @if (this.signInForms.invalid && this.signInForms.get("password")?.touched) {
-    <div class="error">
-     {{ "⚠️ Password is required." | upcaseFirstWord}}
+    <div
+      [ngClass]="{'error-message': this.signInForms.controls['password'].invalid && this.signInForms.get('password')?.touched}">
+      @if (this.signInForms.hasError('required', 'password')) {
+      <small class="warning">
+        <p>
+          {{ "⚠️ Password is required." | upcaseFirstWord}}
+        </p>
+      </small>
+      }
+      @if (this.signInForms.get('password')?.getError('invalidPassword')) {
+      <small class="warning">
+        <p>
+          {{ "Pattern Error: Password must be at least 8 characters long." | upcaseFirstWord}}
+        </p>
+        <p>
+          {{ "Including at least 2 uppercase letters,2 lowercase letters." | upcaseFirstWord}}
+        </p>
+        <p>
+          {{ "And 2 numbers, and 2 special characters." | upcaseFirstWord}}
+        </p>
+      </small>
+
+      }
     </div>
     }
 
     <div class="button-group">
       <button type="button" (click)="goBack()" class="go-back">⬅️ Go Back</button>
-      <button type="submit" [disabled]="this.signInForms.invalid" class="sign-in">🔐 Sign In</button>
+      <button type="submit" [disabled]="this.signInForms.invalid && this.gmailService.isAuthenticated()"
+        class="sign-in">🔐 Sign In</button>
     </div>
 
+    @if (this.gmailService.isAuthenticated()) {
+    <button type="button" (click)="gmailSigout()" class="google-btn">
+      <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
+      Signout
+    </button>
+    }@else {
     <button type="button" (click)="gmailAuthentication()" class="google-btn">
       <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google" />
-      Sign in with Google
+      Signin with Google
     </button>
+    }
   </form>
 </div>
