@@ -13,7 +13,7 @@ import { emailVerification, passwordVerification } from '../../_shared/validator
   templateUrl: './../../pages/forms/signin-forms/signin-forms.component.html',
   styleUrl: './../../pages/forms/signin-forms/signin-forms.component.css'
 })
-export class AuthenticationComponent {
+export class LoginComponent {
 
   protected router = inject(Router);
   private popUpService = inject(PopUpService);

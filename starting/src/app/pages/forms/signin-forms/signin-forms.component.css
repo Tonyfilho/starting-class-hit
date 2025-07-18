@@ -127,15 +127,6 @@ button {
   height: 20px;
 }
 
-/* Mensagens de erro */
-/* .error {
-  color: var(--secondary-color);
-  font-size: 0.9rem;
-  padding: 0.3rem;
-  background-color: var(--background-color-error);
-  border-radius: 4px;
-} */
-
 .error-message {
   margin-top: -0.5rem;
   width: 98%;
