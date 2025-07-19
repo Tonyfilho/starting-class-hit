@@ -1,75 +1,171 @@
-.page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
-    padding: 5rem 19rem;
-    background: var(--background-color-sections);
-    font-family: Arial, sans-serif;
+
+:host {
+  display: block;
+  padding: 1rem;
+  box-sizing: border-box;
+  font-family: var(--main-font-family);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  margin: 0 auto;
+  width: 100%;
+  min-width: 1200px;
+  /* max-width: 1400px; */
 }
 
+
+/* Cabeçalho com gradiente */
 .header {
   background: var(--background-color-header);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
   padding: 2rem;
   border-radius: var(--border-radius);
   color: var(--text-color-light);
   box-shadow: var(--shadow);
-  margin: 0.5rem;
-  animation: var(--animation-move-gradient);
-  background-size: var(--animation-background-size);
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .header h1 {
   font-size: var(--main-font-size);
   margin: 0;
-  text-align: center;
 }
 
-.header .subtitle {
-  font-size: 1.2rem;
+.subtitle {
+  font-size: 1.25rem;
+  margin-top: 1rem;
   color: var(--text-color-light);
 }
 
-.card-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Container principal */
+.container-guide {
+  padding: 2rem;
+  background: var(--background-color-sections);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  box-sizing: border-box;
 }
 
+/* Botão */
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.home-button {
+  background: var(--background-color-header);
+  color: var(--text-color-light);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transition);
+}
+
+.home-button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* Cartão do usuário */
 .card {
-    background: var(--primary-doc-color);
-    color: var(--text-color-light);
-    width: 320px;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: var(--box-shadow);
-    text-align: center;
+  background: var(--background-color-sections2);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  text-align: center;
+  box-shadow: var(--shadow);
 }
 
 .profile-img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    margin-bottom: 1rem;
-    border: var(--text-color-light);
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin: 0 auto 1.5rem auto;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.user-name {
+.profile-img:hover {
+  transform: scale(1.05);
+  box-shadow: var(--shadow-hover);
+}
+
+.card h2 {
+  font-size: var(--main-font-size2);
+  margin-bottom: 0.5rem;
+  color: var(--text-color-h3);
+}
+
+.card p {
+  margin: 0.5rem 0;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+
+
+
+/* Mobile */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .container-guide {
+    padding: 1.2rem;
+  }
+
+  .profile-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .card h2 {
     font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
+  }
 
-.user-email {
+  .card p {
     font-size: 0.95rem;
-    color: var(--text-color-light);
-    margin-bottom: 1.5rem;
+  }
+
+  .right-align {
+    justify-content: center;
+  }
+
+  .home-button {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+  }
 }
 
+/* Telas muito pequenas */
+@media (max-width: 480px) {
+  .container-guide {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 1rem;
+  }
+
+  .profile-img {
+    width: 100px;
+    height: 100px;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .home-button {
+    font-size: 0.95rem;
+  }
+}

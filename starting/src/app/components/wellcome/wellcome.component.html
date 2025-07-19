@@ -1,18 +1,33 @@
+
 @if (this.localuser | async; as user) {
   <header class="header">
-      <h1 class="welcome-title">Bem-vindo, {{ user.displayName ?? 'Utilizador' }}!</h1>
-      <p class="subtitle">Obrigado por fazer SignIn </p>
-    </header>
-    <div class="page-container">
+    <h1 class="welcome-title">Bem-vindo, {{ user.displayName ?? 'Utilizador'  |upcaseFirstWord }}!</h1>
+    <p class="subtitle">Estamos felizes em tê-lo(a) de volta 🎉</p>
+  </header>
 
-        <div class="card-container">
-            <div class="card">
-                <img [src]="user.photoURL ?? './../../../assets/img/avatar/image.png'" alt="Foto de Perfil" class="profile-img">
-                <h2 class="user-name">{{ user.displayName }}</h2>
-                <p class="user-email">Email: {{ user.email }}</p>
-            </div>
-        </div>
+  <section class="container-guide">
+    <div class="content-wrap">
+
+      <div class="card right-align">
+        <button class="home-button" (click)="this.router.navigateByUrl('/e-book/angular/levels')">{{"go to pages" | upcaseFirstWord}}</button>
+      </div>
+
+      <div class="card">
+        <img
+          [src]="user.photoURL ?? './../../../assets/img/avatar/image.png'"
+          alt="Foto de Perfil"
+          class="profile-img"
+        />
+        <h2>{{ user.displayName ?? 'Sem Nome' }}</h2>
+        <p><strong>Email:</strong> {{ user.email }}</p>
+        <p *ngIf="user.phoneNumber"><strong>Telefone:</strong> {{ user.phoneNumber }}</p>
+        <p *ngIf="user.metadata?.creationTime">
+          <strong>Membro desde:</strong> {{ user.metadata.creationTime | date: 'longDate' }}
+        </p>
+        <p *ngIf="user.emailVerified">✅ <strong>Email verificado</strong></p>
+        <p *ngIf="!user.emailVerified">⚠️ <strong>Email ainda não verificado</strong></p>
+      </div>
+
     </div>
+  </section>
 }
-
- 
