@@ -5,8 +5,11 @@
     <img [src]="user.photoURL ?? './../../../assets/img/avatar/no_avatar.png'" alt="User Avatar" class="avatar-img">
   </div>
   <div class="avatar-info">
-    <span class="avatar-name">{{ user.displayName }}</span>
+    @if (user.displayName) {
+      <span class="avatar-name">{{ user.displayName | upcaseFirstWord}}</span>
+    }
     <span class="avatar-status"></span>
+    <span class="avatar-name">Logout</span>
   </div>
   <div class="logout-dropdown">
     <a class="logout-link" (click)="logout()">
