@@ -1,26 +1,70 @@
-<div class="container">
-  <h2>Destructuring</h2>
-  <p>A desestruturação (destructuring) é uma sintaxe que permite extrair valores de objetos
-    ou arrays de forma mais concisa.</p>
-  <div class="user-list">
-    <div class="user-card">
-      <div class="user-info">
-        <section class="topic">
-          <p>Desestruturação com nome iquais</p>
-          <h4>{{ this.nome}}</h4>
-          <h4>{{ this.idade}}</h4>
-        </section>
-        <section class="topic">
-          <p>Desestruturação com valor padrão</p>
-          <h4>{{ this.apelido}}</h4>
-          <h4>{{ this.email}}</h4>
-        </section>
-        <section class="topic">
-          <p>Desestruturação Arrays</p>
-          <h4>{{ this.primeiro}}</h4>
-          <h4>{{ this.segundo}}</h4>
-        </section>
-      </div>
-    </div>
-  </div>
+<header class="header">
+  <h1>JavaScript: Destructuring</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
 </div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>O que é Destructuring?</h2>
+    <p>
+      Destructuring é uma técnica do ES6 que permite extrair dados de arrays ou objetos e atribuí-los a variáveis de forma concisa.
+    </p>
+
+    <h2>Destructuring com Objetos</h2>
+    <p>Permite extrair propriedades específicas de um objeto:</p>
+    <pre><code>const user = {{"{"}} name: 'Ana', age: 25 {{"}"}};
+const {{"{"}} name, age {{"}"}} = user;
+
+console.log(name); // Ana
+console.log(age);  // 25</code></pre>
+
+    <h2>Destructuring com Arrays</h2>
+    <p>Permite extrair valores posicionais de um array:</p>
+    <pre><code>const fruits = ['🍎', '🍌', '🍇'];
+const [first, second] = fruits;
+
+console.log(first);  // 🍎
+console.log(second); // 🍌</code></pre>
+
+    <h2>Renomeando variáveis</h2>
+    <p>Você pode renomear as variáveis ao desestruturar:</p>
+    <pre><code>const user = {{"{"}} id: 1, username: 'admin' {{"}"}};
+const {{"{"}} username: name {{"}"}} = user;
+
+console.log(name); // admin</code></pre>
+
+    <h2>Valores padrão</h2>
+    <p>É possível definir valores padrão durante a desestruturação:</p>
+    <pre><code>const settings = {{"{"}} theme: 'dark' {{"}"}};
+const {{"{"}} theme, language = 'pt-BR' {{"}"}} = settings;
+
+console.log(theme);    // dark
+console.log(language); // pt-BR</code></pre>
+
+    <h2>Destructuring em Funções</h2>
+    <p>Também pode ser usado diretamente nos parâmetros de funções:</p>
+    <pre><code>function showProfile({{"{"}} name, age {{"}"}}) {{"{"}}
+  console.log(`Nome: ${{"{"}}name{{"}"}}, Idade: ${{"{"}}age{{"}"}}`);
+{{"}"}}
+
+const user = {{"{"}} name: 'Lucas', age: 30 {{"}"}};
+showProfile(user);</code></pre>
+
+    <h2>Destructuring Aninhado</h2>
+    <p>Você pode extrair dados de estruturas mais complexas:</p>
+    <pre><code>const person = {{"{"}}
+  name: 'João',
+  contact: {{"{"}}
+    email: {{'joao@email.com'}},
+    phone: '123456789'
+  {{"}"}}
+{{"}"}};
+
+const {{"{"}} contact: {{"{"}} email {{"}"}} {{"}"}} = person;
+console.log(email); // {{"joao@email.com"}}</code></pre>
+  </div>
+</section>
