@@ -1,9 +1,9 @@
-import { inject, Injectable, signal, Signal, VERSION, WritableSignal } from '@angular/core';
-import { AuthInterface } from '../_shared/interfaces/auth-interface';
-import { UserCredential, User, getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { BehaviorSubject, from, map, Observable, of, switchMap, tap } from 'rxjs';
+import { inject, Injectable, VERSION } from '@angular/core';
 import { Router } from '@angular/router';
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, User, UserCredential } from 'firebase/auth';
 import { jwtDecode } from 'jwt-decode';
+import { BehaviorSubject, from, map, Observable, tap } from 'rxjs';
+import { AuthInterface } from '../_shared/interfaces/auth-interface';
 
 type JwtPayload = {
   exp: number; // timestamp (em segundos)

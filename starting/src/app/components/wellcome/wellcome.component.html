@@ -13,11 +13,13 @@
       </div>
 
       <div class="card">
-        <img
-          [src]="user.photoURL ?? './../../../assets/img/avatar/image.png'"
-          alt="Foto de Perfil"
-          class="profile-img"
-        />
+        <div class="card-img">
+          <img
+            [src]="user.photoURL ?? './../../../assets/img/avatar/image.png'"
+            alt="Foto de Perfil"
+            class="profile-img"
+          />
+        </div>
         <h2>{{ user.displayName ?? 'Sem Nome' |upcaseFirstWord}}</h2>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p *ngIf="user.phoneNumber"><strong>Telefone:</strong> {{ user.phoneNumber }}</p>
