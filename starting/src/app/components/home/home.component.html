@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>Starting your journey!</h1>
+  <h1>{{"Starting your journey!" |upcaseFirstWord}}</h1>
   <p class="subtitle">Learn with instructor Tony Filho, through an interactive and practical E-Book, how to apply
     Angular and RxJS based on UCs and UFCDs for today’s web development.</p>
 
@@ -13,7 +13,7 @@
 <section class="container-guide">
   <div class="content-wrap">
 
-    <p class="subtitle">Comece agora sua jornada em Angular!
+    <p class="subtitle">Comece agora sua jornada em Angular: {{ this.authGmailService.angularVersion()}}
     </p>
     <p class="subtitle">
       Se quer ser aluno de uma das instituições profissionalizantes parceiras deste E-Book em Portugal Continental,
@@ -35,7 +35,7 @@
   <div class="content-wrap">
     <article>
       <h2>Ferramentas Utilizadas</h2>
-      <p><strong>Angular</strong>: Framework baseado em TypeScript para criação de SPAs robustas e escaláveis.</p>
+      <p><strong>Angular {{ this.authGmailService.angularVersion()}}</strong>: Framework baseado em TypeScript para criação de SPAs robustas e escaláveis.</p>
       <p><strong>Git Extensions</strong>: Interface visual para controle de versão com Git.</p>
       <p><strong>Cmder</strong>: Terminal avançado no Windows com suporte a comandos Unix e Git embutido.</p>
 
@@ -46,11 +46,11 @@
       </p>
 
       <h2>Nivelamentos</h2>
-      <p><strong>Angular</strong>: Componentes, diretivas, serviços, módulos, roteamento e API.</p>
+      <p><strong>Angular {{ this.authGmailService.angularVersion()}}</strong>: Componentes, diretivas, serviços, módulos, roteamento e API.</p>
       <p><strong>JavaScript</strong>: Variáveis, funções, escopo, operadores e manipulação DOM.</p>
       <p><strong>RxJS</strong>: Observables, pipe, map, filter, switchMap e fluxo assíncrono reativo.</p>
 
-      <h2>Angular Foundation</h2>
+      <h2>Angular{{ this.authGmailService.angularVersion()}} Foundation</h2>
       <p>Envolve os conceitos essenciais do Angular: data binding, diretivas, serviços, DI, roteamento, e consumo de
         APIs com HttpClient.</p>
 

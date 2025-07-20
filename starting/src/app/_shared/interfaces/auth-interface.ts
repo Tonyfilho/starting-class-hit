@@ -1,3 +1,4 @@
+import { Signal, WritableSignal } from "@angular/core";
 import { User, UserCredential } from "firebase/auth";
 import { Observable } from "rxjs";
 
@@ -10,5 +11,7 @@ export interface AuthInterface {
   isAuthenticated(): boolean;
 
   getUser(): Observable<User | null>;
+
+  angularVersion():string | null;
 
 }

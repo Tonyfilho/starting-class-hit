@@ -1,7 +1,7 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal, Signal, VERSION, WritableSignal } from '@angular/core';
 import { AuthInterface } from '../_shared/interfaces/auth-interface';
 import { UserCredential, User, getAuth, GoogleAuthProvider, signInWithPopup, signOut } from 'firebase/auth';
-import { BehaviorSubject, from, map, Observable, switchMap, tap } from 'rxjs';
+import { BehaviorSubject, from, map, Observable, of, switchMap, tap } from 'rxjs';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
 
@@ -20,9 +20,17 @@ export class AuthGmailService implements AuthInterface {
   private auth = getAuth();
   private router = inject(Router);
   private currentUser$ = new BehaviorSubject<User | null>(null);
+ private angularV: string | null;
 
   constructor() {
     this.getUserFromLocalStorage();
+    this.angularV = ' Version.'+ VERSION.full;
+  }
+
+
+  angularVersion(): string | null {
+
+    return this.angularV;
   }
 
 
@@ -75,7 +83,7 @@ export class AuthGmailService implements AuthInterface {
       const timeLeft = (decoded.exp - timeNow) * 1000; // transformando novamente em segundos
       if (timeLeft > 0) {
         console.log(`Token expira em ${Math.round(timeLeft / 1000)} segundos`);
-        setTimeout(() => {this.logOut()}, timeLeft)
+        setTimeout(() => { this.logOut() }, timeLeft)
       }
     });
 

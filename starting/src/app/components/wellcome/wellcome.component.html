@@ -18,7 +18,7 @@
           alt="Foto de Perfil"
           class="profile-img"
         />
-        <h2>{{ user.displayName ?? 'Sem Nome' }}</h2>
+        <h2>{{ user.displayName ?? 'Sem Nome' |upcaseFirstWord}}</h2>
         <p><strong>Email:</strong> {{ user.email }}</p>
         <p *ngIf="user.phoneNumber"><strong>Telefone:</strong> {{ user.phoneNumber }}</p>
         <p *ngIf="user.metadata?.creationTime">

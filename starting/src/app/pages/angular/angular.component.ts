@@ -1,6 +1,7 @@
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
+import { AuthGmailService } from '../../_services/auth-gmail.service';
 
 @Component({
   selector: 'app-angular',
@@ -9,6 +10,7 @@ import html2pdf from 'html2pdf.js';
   styleUrl: './angular.component.css'
 })
 export class AngularComponent {
+  protected authGmailService = inject(AuthGmailService);
   @ViewChild('pdfContent') content!: ElementRef;
 
   downloadPDF() {

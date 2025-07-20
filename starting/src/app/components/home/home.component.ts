@@ -1,15 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
+import { UpcaseFirstWordPipe } from "../../_shared/pipes/upcase-first-word.pipe";
+import { AuthGmailService } from '../../_services/auth-gmail.service';
 
 @Component({
   selector: 'app-home',
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, UpcaseFirstWordPipe],
   templateUrl: './home.component.html',
   styleUrl: './../../pages/angular/angular.component.css'
 })
 export class HomeComponent {
+  protected authGmailService = inject(AuthGmailService);
  @ViewChild('pdfContent') content!: ElementRef;
 
   downloadPDF() {

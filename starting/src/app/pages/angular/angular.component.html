@@ -1,5 +1,5 @@
 <div class="header">
-  <h1>What is Angular?</h1>
+  <h1>What is Angular{{this.authGmailService.angularVersion()}}?</h1>
   <p class="subtitle">Understand the modern web framework powered by Google.</p>
 </div>
 <div class="card right-align">
@@ -12,7 +12,7 @@
     <article>
       <h2>Introduction</h2>
       <p>
-        <strong>Angular</strong> is a powerful, open-source web application framework developed and maintained by
+        <strong>Angular: {{ this.authGmailService.angularVersion()}}</strong> is a powerful, open-source web application framework developed and maintained by
         <strong>Google</strong>.
         Originally released in 2010 as <em>AngularJS</em>, the framework was completely rewritten and relaunched as
         <strong>Angular</strong> (version 2+) in 2016 to support the development of large-scale, modern, and performant
@@ -25,7 +25,7 @@
         much more.
       </p>
 
-      <h2>Why Choose Angular?</h2>
+      <h2>Why Choose Angular {{ this.authGmailService.angularVersion()}}?</h2>
       <p>
         Here are the main advantages that make Angular a top choice for building web applications:
       </p>
@@ -44,19 +44,19 @@
         <li><strong>Backed by Google:</strong> Enterprise-level support and a large community of developers.</li>
       </ul>
 
-      <h2>Angular vs Competitors</h2>
+      <h2>Angular: {{ this.authGmailService.angularVersion()}} vs Competitors</h2>
       <p>Here’s how Angular compares to other popular frameworks:</p>
       <ul>
         <li>
-          <strong>Angular vs React:</strong> Angular is a complete framework, while React is a UI library that relies on
+          <strong>Angular: {{ this.authGmailService.angularVersion()}} vs React:</strong> Angular is a complete framework, while React is a UI library that relies on
           third-party tools for routing and state management.
         </li>
         <li>
-          <strong>Angular vs Vue.js:</strong> Angular offers more built-in features, while Vue is lighter and simpler
+          <strong>Angular: {{ this.authGmailService.angularVersion()}} vs Vue.js:</strong> Angular offers more built-in features, while Vue is lighter and simpler
           but often requires additional plugins for advanced functionality.
         </li>
         <li>
-          <strong>Angular vs Svelte:</strong> Svelte compiles at build time and offers simplicity, but Angular provides
+          <strong>Angular: {{ this.authGmailService.angularVersion()}} vs Svelte:</strong> Svelte compiles at build time and offers simplicity, but Angular provides
           a more robust and scalable structure for large applications.
         </li>
       </ul>
