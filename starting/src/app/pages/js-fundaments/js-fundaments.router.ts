@@ -10,5 +10,6 @@ export const jsFundamentsRoutes: Routes = [
     {path: 'modules-and-imports', loadComponent:() => import('./05-modules-and-imports/modules-and-imports.component').then(c => c.ModulesAndImportsComponent)},
     {path: 'type-script-essentials', loadComponent:() => import('./06-type-script-essentials/type-script-essentials.component').then(c => c.TypeScriptEssentialsComponent)},
     {path: 'js-asynchronous-programming', loadComponent:() => import('./07-js-asynchronous-programming/js-asynchronous-programming.component').then(c => c.JsAsynchronousProgrammingComponent)},
+    {path: 'template-literal', loadComponent:() => import('./08-template-literal/template-literal.component').then(c => c.TemplateLiteralComponent)},
 
 ]

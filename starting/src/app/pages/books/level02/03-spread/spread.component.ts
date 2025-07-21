@@ -1,24 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { RouterLink } from '@angular/router';
+import html2pdf from 'html2pdf.js';
 
 @Component({
   selector: 'app-spread',
-  imports: [CommonModule],
+  imports: [CommonModule, RouterLink],
   templateUrl: './spread.component.html',
-  styleUrl: './../../level04/promises/promises.component.css'
+  styleUrl: './../../../angular/angular.component.css'
 })
-export class SpreadComponent implements OnInit{
-  protected numerosOriginal = [1,2,3];
-  protected numerosComSpread: any = [];
-  protected pessoaOriginal = {name: 'tony', age: 40};
-  protected pessoaComSpread: any  = {};
-  protected pessoaComSpreadClone: any  = {};
+export class SpreadComponent {
 
 
-  ngOnInit(): void {
-   this.numerosComSpread = [...this.numerosOriginal, 4, 5];
-   this.pessoaComSpread = {...this.pessoaOriginal};
-   this.pessoaComSpreadClone = {...this.pessoaComSpread, address: 'estrada regional 101'};
+ @ViewChild('pdfContent') content!: ElementRef;
+
+   downloadPDF() {
+    const options = {
+      filename: 'Spread-guia.pdf',
+      image: { type: 'jpeg', quality: 0.98 },
+      html2canvas: { scale: 2 },
+      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().set(options).from(this.content.nativeElement).save();
   }
-
 }

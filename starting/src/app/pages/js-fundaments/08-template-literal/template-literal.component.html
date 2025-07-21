@@ -1,0 +1,73 @@
+<header class="header">
+  <h1>JavaScript: Template Literals.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>O que são Template Literals?</h2>
+    <p>
+      Template Literals (ou literais de template) são strings delimitadas por crases (<code>`</code>) que permitem interpolação de variáveis, expressões e formatação multilinha.
+    </p>
+
+    <h2>Interpolação de Variáveis</h2>
+    <p>Permite inserir valores diretamente na string:</p>
+    <pre><code>const nome = 'Lucas';
+const idade = 30;
+
+const mensagem = `Olá, meu nome é ${{"{"}}nome{{"}"}} e tenho ${{"{"}}idade{{"}"}} anos.`;
+
+console.log(mensagem);
+// Olá, meu nome é Lucas e tenho 30 anos.</code></pre>
+
+    <h2>Multilinha sem caracteres especiais</h2>
+    <p>Com template literals, você pode quebrar linhas diretamente:</p>
+    <pre><code>const texto = `Esta é uma mensagem
+em várias linhas
+sem usar \\n.`;
+
+console.log(texto);</code></pre>
+
+    <h2>Interpolação de Expressões</h2>
+    <p>Você pode inserir expressões dentro da string:</p>
+    <pre><code>const a = 5;
+const b = 3;
+
+const resultado = `A soma de ${{"{"}}a{{"}"}} + ${{"{"}}b{{"}"}} é ${{"{"}}a + b{{"}"}}.`;
+
+console.log(resultado); // A soma de 5 + 3 é 8.</code></pre>
+
+    <h2>Usando com Funções</h2>
+    <p>Você pode interpolar valores retornados de funções:</p>
+    <pre><code>function saudacao(nome) {{"{"}}
+  return `Bem-vindo, ${{"{"}}nome.toUpperCase(){{"}"}}!`;
+{{"}"}}
+
+console.log(saudacao('ana')); // Bem-vindo, ANA!</code></pre>
+
+    <h2>Composição de HTML (Angular Friendly)</h2>
+    <p>Em Angular, template literals são úteis para gerar HTML dinâmico (ex: innerHTML ou templates customizados):</p>
+    <pre><code>const titulo = 'Alerta';
+const html = `
+  &lt;div class="alerta"&gt;
+    &lt;h3&gt;${{"{"}}titulo{{"}"}}&lt;/h3&gt;
+    &lt;p&gt;Este é um alerta gerado via template literal&lt;/p&gt;
+  &lt;/div&gt;
+`;
+
+console.log(html);</code></pre>
+
+    <h2>Comparação com String Tradicional</h2>
+    <p>Veja a diferença entre string comum e template literal:</p>
+    <pre><code>// Tradicional
+const msg = 'Olá, ' + nome + '! Você tem ' + idade + ' anos.';
+
+// Template Literal
+const msg2 = `Olá, ${{"{"}}nome{{"}"}}! Você tem ${{"{"}}idade{{"}"}} anos.`;</code></pre>
+  </div>
+</section>
+

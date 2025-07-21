@@ -1,0 +1,84 @@
+<header class="header">
+  <h1>Angular 19: Compartilhamento de Dados entre Componentes</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>Compartilhamento de Dados no Angular</h2>
+    <p>No Angular, componentes podem trocar dados entre si utilizando <code>{{"@Input()"}}</code>, <code>{{"@Output()"}}</code> e a partir do Angular 16+, também com <code>signal</code>.</p>
+
+    <h2>{{"@Input()"}} - Pai para Filho</h2>
+    <p>Permite que o componente pai envie dados para o componente filho:</p>
+    <pre><code>// pai.component.html
+&lt;app-filho [mensagem]="mensagemParaFilho"&gt;&lt;/app-filho&gt;
+
+// pai.component.ts
+mensagemParaFilho = 'Olá do componente Pai';
+
+// filho.component.ts
+{{"@Input()"}} mensagem!: string;</code></pre>
+
+    <h2>{{"@Output()"}} - Filho para Pai</h2>
+    <p>Permite que o componente filho envie eventos de volta para o pai:</p>
+    <pre><code>// filho.component.ts
+{{"@Output()"}} enviado = new EventEmitter&lt;string&gt;();
+
+enviarMensagem() {{"{"}}
+  this.enviado.emit('Mensagem do Filho');
+{{"}"}}
+
+// filho.component.html
+&lt;button (click)="enviarMensagem()"&gt;Enviar&lt;/button&gt;
+
+// pai.component.html
+&lt;app-filho (enviado)="receberMensagem($event)"&gt;&lt;/app-filho&gt;
+
+// pai.component.ts
+receberMensagem(mensagem: string) {{"{"}}
+  console.log(mensagem);
+{{"}"}}</code></pre>
+
+    <h2>Usando Signals (Angular 16+)</h2>
+    <p>Signals permitem criar variáveis reativas que funcionam como observables leves. Muito útil para comunicação e reatividade local entre componentes!</p>
+
+    <h3>📤 Enviando dados via Signal</h3>
+    <pre><code>// pai.component.ts
+import {{"{"}} signal {{"}"}} from {{'@angular/core'}};
+
+mensagemSignal = signal('Olá via signal');
+
+// pai.component.html
+&lt;app-filho [mensagem]="mensagemSignal()"&gt;&lt;/app-filho&gt;</code></pre>
+
+    <h3>📥 Atualizando Signal com evento do filho</h3>
+    <pre><code>// filho.component.ts
+{{"@Output()"}} mudouMensagem = new EventEmitter&lt;string&gt;();
+
+alterarMensagem() {{"{"}}
+  this.mudouMensagem.emit('Mensagem alterada pelo Filho');
+{{"}"}}
+
+// pai.component.ts
+mensagemSignal = signal('Olá inicial');
+
+atualizarMensagem(nova: string) {{"{"}}
+  this.mensagemSignal.set(nova);
+{{"}"}}
+
+// pai.component.html
+&lt;app-filho
+  [mensagem]="mensagemSignal()"
+  (mudouMensagem)="atualizarMensagem($event)"&gt;
+&lt;/app-filho&gt;</code></pre>
+
+    <h2>Resumo Visual</h2>
+    <p><strong>{{"@Input"}}:</strong> Pai → Filho</p>
+    <p><strong>{{"@Output"}}:</strong> Filho → Pai (via eventos)</p>
+    <p><strong>Signal:</strong> variável reativa (Pai ↔ Filho com mais controle)</p>
+  </div>
+</section>

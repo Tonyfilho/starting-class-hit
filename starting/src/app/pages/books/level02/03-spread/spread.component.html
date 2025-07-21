@@ -1,33 +1,74 @@
-<div class="container">
-  <h2>...Spread</h2>
-  <p>Sintaxe de Espalhamento (Spread syntax) permite que um objeto iterável, como uma expressão de array ou uma string
-    seja expandido para ser usado onde zero ou mais argumentos (para chamadas de funções) ou elementos (para arrays
-    literais) são esperados, ou que um objeto seja expandido onde zero ou mais pares propriedade:valor (para objetos
-    literais) são esperados.</p>
+<header class="header">
+  <h1>JavaScript: Operador Spread</h1>
+</header>
 
-
-  <div class="user-list">
-    <div class="user-card">
-      <div class="user-info">
-        <section class="topic">
-          <h4>Arrays</h4>
-          <p>Original: {{ this.numerosOriginal }}</p>
-          <p>Clonado Com Spread: {{ this.numerosComSpread }}</p>
-        </section>
-      </div>
-    </div>
-  </div>
-  <div class="user-list">
-    <div class="user-card">
-      <div class="user-info">
-        <section class="topic">
-          <h4>Objetos</h4>
-          <p>Original: {{ this.pessoaOriginal.name }} - {{this.pessoaOriginal.age}}</p>
-          <p>Clonado Com Spread: {{ this.pessoaComSpread.name}} - {{this.pessoaComSpread.age}}</p>
-          <p>Clonado Com Spread 2: {{ this.pessoaComSpreadClone.name}} - {{this.pessoaComSpreadClone.age}} - {{this.pessoaComSpreadClone.address}}</p>
-        </section>
-
-      </div>
-    </div>
-  </div>
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
 </div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>O que é o Operador Spread?</h2>
+    <p>
+      O operador <code>...</code> (spread) permite espalhar os elementos de um array ou as propriedades de um objeto em outro local.
+    </p>
+
+    <h2>Spread com Arrays</h2>
+    <p>Permite copiar ou combinar arrays:</p>
+    <pre><code>const nums = [1, 2, 3];
+const moreNums = [...nums, 4, 5];
+
+console.log(moreNums); // [1, 2, 3, 4, 5]</code></pre>
+
+    <h2>Spread para Clonar Arrays</h2>
+    <p>Cria uma cópia independente de um array:</p>
+    <pre><code>const original = ['a', 'b'];
+const clone = [...original];
+
+clone.push('c');
+
+console.log(original); // ['a', 'b']
+console.log(clone);    // ['a', 'b', 'c']</code></pre>
+
+    <h2>Spread com Objetos</h2>
+    <p>Permite copiar ou mesclar objetos:</p>
+    <pre><code>const user = {{"{"}} name: 'João', age: 28 {{"}"}};
+const clone = {{"{"}} ...user, active: true {{"}"}};
+
+console.log(clone);
+// {{"{"}} name: 'João', age: 28, active: true {{"}"}}</code></pre>
+
+    <h2>Mesclando Objetos</h2>
+    <p>Combina múltiplos objetos em um novo:</p>
+    <pre><code>const obj1 = {{"{"}} a: 1 {{"}"}};
+const obj2 = {{"{"}} b: 2 {{"}"}};
+const merged = {{"{"}} ...obj1, ...obj2 {{"}"}};
+
+console.log(merged); // {{"{"}} a: 1, b: 2 {{"}"}}</code></pre>
+
+    <h2>Combinando Arrays e Objetos</h2>
+    <p>O spread pode ser usado de forma híbrida:</p>
+    <pre><code>const users = [{{"{"}} name: 'Ana' {{"}"}}, {{"{"}} name: 'Carlos' {{"}"}}];
+const newUser = {{"{"}} name: 'Pedro' {{"}"}};
+const updatedUsers = [...users, newUser];
+
+console.log(updatedUsers);
+// [ {{"{"}} name: 'Ana' {{"}"}}, {{"{"}} name: 'Carlos' {{"}"}}, {{"{"}} name: 'Pedro' {{"}"}} ]</code></pre>
+
+    <h2>Diferença entre Spread e Destructuring</h2>
+    <p>
+      <strong>Destructuring:</strong> extrai valores de arrays ou objetos. <br>
+      <strong>Spread:</strong> copia ou espalha esses valores em outro array/objeto.
+    </p>
+    <pre><code>// Destructuring
+const [first, ...rest] = [1, 2, 3];
+console.log(first); // 1
+console.log(rest);  // [2, 3]
+
+// Spread
+const arr = [1, 2, 3];
+const copy = [...arr];
+console.log(copy);  // [1, 2, 3]</code></pre>
+  </div>
+</section>

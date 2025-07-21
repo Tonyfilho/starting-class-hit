@@ -1,21 +1,19 @@
-import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
 
 @Component({
-  selector: 'app-destructuring',
-  imports: [CommonModule, RouterLink],
-  templateUrl: './destructuring.component.html',
+  selector: 'app-data-sharing',
+  imports: [RouterLink, RouterLink],
+  templateUrl: './data-sharing.component.html',
   styleUrl: './../../../angular/angular.component.css'
 })
-export class DestructuringComponent {
-
+export class DataSharingComponent {
  @ViewChild('pdfContent') content!: ElementRef;
 
    downloadPDF() {
     const options = {
-      filename: 'Destructuring-guia.pdf',
+      filename: 'DataSharing-guia.pdf',
       image: { type: 'jpeg', quality: 0.98 },
       html2canvas: { scale: 2 },
       jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
@@ -23,7 +21,4 @@ export class DestructuringComponent {
 
     html2pdf().set(options).from(this.content.nativeElement).save();
   }
-
-
-
 }

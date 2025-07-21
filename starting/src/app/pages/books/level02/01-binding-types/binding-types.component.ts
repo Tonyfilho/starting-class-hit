@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
 /**Falando sobre Type, tipagem do TypeScript */
 type user = {
@@ -13,7 +14,7 @@ type user = {
 
 @Component({
   selector: 'app-binding-types',
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './binding-types.component.html',
   styleUrl: './../../../angular/angular.component.css'
 })
