@@ -20,6 +20,8 @@ body {
   --background-color-sections2: #d1caca;
   --background-color-code: #333;
   --background-color-error: rgba(204, 33, 33, 0.1);
+  --background-color-avatar: rgba(0,0,0,0.1);
+  --background-color-avatar-hover: rgba(0,0,0,0.3);
   --animation-move-gradient: moveGradient 3s linear infinite;
   --animation-background-size: 200% 100%;
   /* Variáveis CSS para cores e tamanhos */

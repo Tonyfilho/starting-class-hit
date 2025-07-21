@@ -43,7 +43,7 @@ export class SigninformsComponent {
     const email = this.signInForms.get("email")?.value;
     const password = this.signInForms.get("password")?.value;
     this.gmailService.signIn(email, password).subscribe({
-      next: (res) => { console.log("Data From Google: ", res.user), this.router.navigate(['/e-book/angular/wellcome']) },
+      next: (res) => { this.router.navigate(['/e-book/angular/wellcome']) },
       error: (e) => { console.error("Error in Gmail Authentication"), this.popUpService.show(e.message, 'error', 7000), this.router.navigateByUrl('/') }
     });
   }

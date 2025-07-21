@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, inject, ViewChild } from '@angular/core';
-import { SignalService } from '../../../../_services/signal.service';
 import { RouterLink } from '@angular/router';
 import html2pdf from 'html2pdf.js';
+import { AuthGmailService } from '../../../../_services/auth-gmail.service';
 
 
 @Component({
@@ -12,6 +12,7 @@ import html2pdf from 'html2pdf.js';
   styleUrl: './../../../angular/angular.component.css'
 })
 export class SignalComponent {
+  protected authGmailService = inject(AuthGmailService);
  @ViewChild('pdfContent') content!: ElementRef;
 
    downloadPDF() {

@@ -159,6 +159,7 @@ html2pdf().set(options).from(this.content.nativeElement).save();
 3. importa no service import jwtDecode from 'jwt-decode';
 4. criar a type  JwtPayload no authGmailService.
 5. criação do metodo automaticLogout(user: User), tem que receber o User Direto,  caso contrario da error e diz que getIdToken() não é uma function.
+6. por o setTimeout() no app-component e por a chamada do automaticLogout(), caso contrario não funciona
 
 5. inicio dos Forms para componente signUp
 

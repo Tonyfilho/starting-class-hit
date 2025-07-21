@@ -7,7 +7,7 @@
   background-color: var(--background-color);
   margin: 0 auto;
   width: 100%;
-  min-width: 520px; /* Alterado para mobile-first */
+  min-width: 720px; /* Alterado para mobile-first */
   max-width: 1400px; /* Adicionado max-width */
 }
 

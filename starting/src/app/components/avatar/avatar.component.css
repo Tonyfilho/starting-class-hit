@@ -5,7 +5,7 @@
   gap: 12px;
   padding: 8px 16px;
   border-radius: var(--border-radius);
-  background-color: var(--text-color-focus);
+  background-color: var(--background-color-avatar);
   transition: var(--transition);
   cursor: pointer;
   position: relative;
@@ -13,7 +13,7 @@
 }
 
 .avatar-container:hover {
-  background-color: var(--tr-nth-child);
+  background-color: var(--background-color-avatar-hover);
   box-shadow: var(--shadow-hover);
 }
 
@@ -22,7 +22,7 @@
   height: 80px; /* Tamanho aumentado */
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid var(--primary-color);
+  border: 2px solid var(--text-color);
   flex-shrink: 0;
 }
 
@@ -39,6 +39,7 @@
 }
 
 .avatar-name {
+
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text-color-light);
@@ -78,7 +79,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: var(--secondary-doc-color);
+  background: var(--background-color-avatar-hover);
   padding: 10px 16px;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
