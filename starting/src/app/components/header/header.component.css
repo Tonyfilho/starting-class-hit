@@ -122,15 +122,14 @@
   color: var(--text-hover2);
 }
 
-.submenu-sub {
+/* .submenu-sub {
   display: flex;
   flex-direction: column;
   gap: 6px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.3s ease;
-  padding-left: 1rem; /* recuo para indicar hierarquia */
-}
+  transition: max-height 2s ease;
+  padding-left: 1rem; } */
 /* === NOVO BLOCOS SUBMENU MULTINÍVEL COM TRANSIÇÃO FLUIDA === */
 
 /* container de bloco de submenu (pai + sub) */
@@ -159,7 +158,7 @@
   opacity: 0;
   pointer-events: none;
   transform: translateY(-5px);
-  transition: max-height 2s ease, opacity 0.4s ease, transform 2s ease;
+  transition: max-height 4s ease, opacity 0.4s ease, transform 4s ease;
   padding-left: 1rem;
 }
 

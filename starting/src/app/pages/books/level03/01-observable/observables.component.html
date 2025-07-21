@@ -1,0 +1,91 @@
+<header class="header">
+  <h1>Angular 19: Observables.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>O que são Observables?</h2>
+    <p>
+      Observables são uma forma de lidar com dados assíncronos no Angular. Eles permitem que você "observe" valores que chegam ao longo do tempo, como respostas HTTP, eventos do usuário ou WebSockets.
+    </p>
+
+    <h2>Como criar e subscrever</h2>
+    <pre><code>import {{"{"}} Observable {{"}"}} from 'rxjs';
+
+const obs = new Observable((subscriber) =&gt; {{"{"}}
+  subscriber.next('Valor 1');
+  subscriber.next('Valor 2');
+  subscriber.complete();
+{{"}"}});
+
+obs.subscribe({{"{"}}
+  next: (valor) =&gt; console.log('Recebido:', valor),
+  error: (err) =&gt; console.error('Erro:', err),
+  complete: () =&gt; console.log('Finalizado')
+{{"}"}});</code></pre>
+
+    <h2>Objeto de Subscrição</h2>
+    <p>Ao se inscrever em um Observable, você pode passar um objeto com até três callbacks:</p>
+    <ul>
+      <li><code>next</code>: executado sempre que um novo valor for emitido</li>
+      <li><code>error</code>: executado se ocorrer algum erro</li>
+      <li><code>complete</code>: chamado quando o Observable é finalizado</li>
+    </ul>
+
+    <h2>Cancelando a Subscrição (Unsubscribe)</h2>
+    <p>É importante cancelar a inscrição para evitar vazamento de memória (memory leak), especialmente em componentes que são destruídos:</p>
+    <pre><code>import {{"{"}} Subscription {{"}"}} from 'rxjs';
+
+export class MeuComponente {{"{"}}
+  minhaSub!: Subscription;
+
+  ngOnInit() {{"{"}}
+    this.minhaSub = observable.subscribe((data) =&gt; {{"{"}}
+      console.log(data);
+    {{"}"}});
+  {{"}"}}
+
+  ngOnDestroy() {{"{"}}
+    this.minhaSub.unsubscribe(); // evita memory leak
+  {{"}"}}
+{{"}"}}</code></pre>
+
+    <h2>Usando o Async Pipe</h2>
+    <p>O <code>async</code> pipe é a forma mais segura e recomendada de consumir Observables no template HTML:</p>
+    <pre><code>// componente.ts
+dados$ = this.http.get&lt;string[]&gt;('/api/usuarios');
+
+// componente.html
+&lt;ul&gt;
+  &lt;li *ngFor="let item of dados$ | async"&gt;{{"{"}}{{"{"}} item {{"}"}}{{"}"}}&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+
+    <h3>✅ Benefícios do Async Pipe</h3>
+    <ul>
+      <li>Faz automaticamente o <code>unsubscribe</code></li>
+      <li>Evita vazamento de memória</li>
+      <li>Deixa o código mais limpo e declarativo</li>
+    </ul>
+
+    <h2>Outras formas de Desinscrição</h2>
+    <p>Além do <code>Subscription.unsubscribe()</code>, você pode usar:</p>
+    <ul>
+      <li><strong>takeUntil()</strong> com um <code>Subject</code> de encerramento</li>
+      <li><strong>AsyncPipe</strong> (no HTML)</li>
+      <li><strong>signal & toSignal()</strong> no Angular 16+</li>
+    </ul>
+
+    <h2>Resumo</h2>
+    <ul>
+      <li><strong>Observable</strong>: stream de dados assíncronos</li>
+      <li><strong>subscribe()</strong>: para começar a escutar</li>
+      <li><strong>unsubscribe()</strong>: para evitar vazamento de memória</li>
+      <li><strong>async pipe</strong>: solução automática e recomendada</li>
+    </ul>
+  </div>
+</section>

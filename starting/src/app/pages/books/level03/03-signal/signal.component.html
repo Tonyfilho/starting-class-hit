@@ -1,0 +1,84 @@
+<header class="header">
+  <h1>Angular 20: Signals.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>O que são Signals?</h2>
+    <p>
+      Signals são uma forma reativa e reescrita de lidar com estado no Angular 16+. Eles substituem padrões com <code>RxJS</code> em muitos casos, com menos complexidade e melhor performance.
+    </p>
+
+    <h2>Criando Signals</h2>
+    <pre><code>import {{"{"}}signal {{"}"}} from {{'@angular/core'}};
+
+const contador = signal(0);</code></pre>
+
+    <h2>Lendo e Exibindo Signals</h2>
+    <p>No TS usamos <code>()</code> para obter o valor. No HTML o Angular faz isso automaticamente.</p>
+    <pre><code>console.log(contador()); // 0</code></pre>
+    <pre><code>&lt;p&gt;Valor: {{ "contador()" }}&lt;/p&gt;</code></pre>
+
+    <h2>Atualizando Signals</h2>
+    <ul>
+      <li><code>set(valor)</code> — substitui o valor</li>
+      <li><code>update(fn)</code> — recebe o valor atual e retorna um novo</li>
+      <li><code>mutate(fn)</code> — permite mutar objetos/arrays diretamente</li>
+    </ul>
+    <pre><code>contador.set(10);
+contador.update((valor) =&gt; valor + 1);</code></pre>
+
+    <h2>Signals com Objetos</h2>
+    <pre><code>const user = signal({{"{"}} nome: 'Lucas', idade: 30 {{"}"}});
+
+user.mutate(u =&gt; u.idade++);
+console.log(user()); // {{"{"}} nome: 'Lucas', idade: 31 {{"}"}}</code></pre>
+
+    <h2>computed() – Signals derivados</h2>
+    <p>Cria um signal que depende de outros signals:</p>
+    <pre><code>const preco = signal(100);
+const desconto = signal(10);
+
+const total = computed(() =&gt; preco() - desconto());</code></pre>
+
+    <h2>effect() – Reação automática</h2>
+    <p>Executa efeitos colaterais sempre que os signals usados dentro mudarem:</p>
+    <pre><code>effect(() =&gt; {{"{"}}
+  console.log('Total atualizado:', total());
+{{"}"}});</code></pre>
+
+    <h2>toSignal() – De Observable para Signal</h2>
+    <p>Permite usar um <code>Observable</code> como <code>Signal</code>:</p>
+    <pre><code>const dados$ = this.http.get('/api');
+const dadosSignal = toSignal(dados$, {{"{"}} initialValue: [] {{"}"}});</code></pre>
+
+    <h2>Signals vs RxJS</h2>
+    <pre><code>// BehaviorSubject (RxJS)
+const count$ = new BehaviorSubject(0);
+
+// Signal
+const count = signal(0);</code></pre>
+
+    <h2>Boas práticas no Angular 20</h2>
+    <ul>
+      <li>Use Signals para estado local, em vez de serviços ou Subjects</li>
+      <li>Use <code>effect</code> com moderação (efeitos colaterais apenas)</li>
+      <li>Evite usar <code>mutate</code> com valores imutáveis (use <code>update</code>)</li>
+      <li>Use <code>toSignal</code> para consumir dados de Observables em templates</li>
+    </ul>
+
+    <h2>Resumo</h2>
+    <ul>
+      <li><strong>signal()</strong>: cria uma variável reativa</li>
+      <li><strong>set / update / mutate</strong>: formas de alterar o valor</li>
+      <li><strong>computed()</strong>: valores derivados automaticamente</li>
+      <li><strong>effect()</strong>: executa ações sempre que os valores mudam</li>
+      <li><strong>toSignal()</strong>: integra signals com observables</li>
+    </ul>
+  </div>
+</section>

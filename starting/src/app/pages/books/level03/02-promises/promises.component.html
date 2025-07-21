@@ -1,0 +1,84 @@
+<header class="header">
+  <h1>JavaScript: Promise.</h1>
+</header>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
+<section class="container-guide" #pdfContent>
+  <div class="content-wrap">
+    <h2>O que é uma Promise?</h2>
+    <p>
+      Uma <strong>Promise</strong> é um objeto usado para processamento assíncrono. Ela representa uma operação que será concluída no futuro com sucesso (<code>resolve</code>) ou falha (<code>reject</code>).
+    </p>
+
+    <h2>Como criar uma Promise</h2>
+    <pre><code>const promessa = new Promise((resolve, reject) =&gt; {{"{"}}
+  const sucesso = true;
+
+  if (sucesso) {{"{"}}
+    resolve('Tudo certo!');
+  {{"}"}} else {{"{"}}
+    reject('Algo deu errado!');
+  {{"}"}}
+{{"}"}});</code></pre>
+
+    <h2>Consumindo com then / catch / finally</h2>
+    <pre><code>promessa
+  .then((resultado) =&gt; console.log('Sucesso:', resultado))
+  .catch((erro) =&gt; console.error('Erro:', erro))
+  .finally(() =&gt; console.log('Finalizado'));</code></pre>
+
+    <h2>Usando async / await</h2>
+    <p>Forma moderna e mais legível de consumir Promises:</p>
+    <pre><code>async function buscarDados() {{"{"}}
+  try {{"{"}}
+    const resultado = await promessa;
+    console.log('Resultado:', resultado);
+  {{"}"}} catch (erro) {{"{"}}
+    console.error('Erro:', erro);
+  {{"}"}} finally {{"{"}}
+    console.log('Finalizado');
+  {{"}"}}
+{{"}"}}</code></pre>
+
+    <h2>Promise no Angular</h2>
+    <p>O <code>HttpClient</code> do Angular trabalha com <code>Observable</code>, mas é possível convertê-lo em Promise:</p>
+    <pre><code>// Angular
+this.http.get('/api/dados').toPromise()
+  .then((res) =&gt; console.log(res))
+  .catch((err) =&gt; console.error(err));</code></pre>
+
+    <h2>Exemplo prático</h2>
+    <pre><code>function esperar(segundos: number): Promise&lt;string&gt; {{"{"}}
+  return new Promise((resolve) =&gt; {{"{"}}
+    setTimeout(() =&gt; {{"{"}}
+      resolve(`Esperou ${{"{"}}segundos{{"}"}} segundos`);
+    {{"}"}}, segundos * 1000);
+  {{"}"}});
+{{"}"}}
+
+esperar(2).then(console.log);</code></pre>
+
+    <h2>Promise vs Observable</h2>
+    <ul>
+      <li><strong>Promise:</strong> emite um único valor e encerra</li>
+      <li><strong>Observable:</strong> pode emitir múltiplos valores ao longo do tempo</li>
+    </ul>
+    <pre><code>// Promise
+fetch('url').then(res =&gt; res.json());
+
+// Observable (Angular)
+this.http.get('url').subscribe();</code></pre>
+
+    <h2>Resumo</h2>
+    <ul>
+      <li><strong>Promise</strong>: executa algo assíncrono e retorna sucesso ou erro</li>
+      <li><strong>then / catch / finally</strong>: formas tradicionais de consumir</li>
+      <li><strong>async / await</strong>: forma moderna, legível e limpa</li>
+      <li><strong>Angular usa Observables</strong>, mas é possível converter</li>
+    </ul>
+  </div>
+</section>

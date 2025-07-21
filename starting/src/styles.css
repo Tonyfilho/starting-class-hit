@@ -42,7 +42,7 @@ body {
   --tr-nth-child: rgba(200, 252, 252, 0.1);
   --tr-hover: rgba(93, 170, 241, 0.1);
   --border-radius: 10px;
-  --transition: all 0.3s ease;
+  --transition: all 0.8s ease;
   --main-font-family: Arial, sans-serif;
   --main-line-height: 1.6;
   --main-font-size: 3rem;
