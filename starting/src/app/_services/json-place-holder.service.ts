@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { IUserApi } from '../_share/interfaces/iuser';
+import { IUserApi } from '../_shared/interfaces/iuser';
+
 
 /**Exemplo didatico de um Type , nos proximo usaremos interfaces */
 

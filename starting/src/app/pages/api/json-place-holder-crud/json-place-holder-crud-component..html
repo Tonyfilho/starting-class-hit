@@ -1,0 +1,67 @@
+<div class="header">
+  <h1>JsonPlaceholder CRUD</h1>
+  <p class="subtitle">Gerencie os posts com API fake usando Reactive Forms.</p>
+</div>
+
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+<div class="container-guide" #pdfContent>
+  <div class="content-wrap">
+
+    <div [class.header-error]="isError" [class.header-success]="!isError && message">
+      @if (message) {
+      <p>{{ message }}</p>
+      }
+    </div>
+
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="card">
+      <label for="title">Título:</label><br />
+      <input id="title" type="text" formControlName="title" /><br /><br />
+
+      <label for="body">Conteúdo:</label><br />
+      <input id="body" type="text" formControlName="body" /><br /><br />
+
+      <label for="userId">ID do Usuário:</label><br />
+      <input id="userId" type="number" formControlName="userId" /><br /><br />
+
+      <div class="right-align">
+        <button class="home-button" type="submit">
+          {{ selectedUserId === null ? 'Criar' : 'Atualizar' }}
+        </button>
+        <button class="home-button-pdf" type="button" (click)="resetForm()">Limpar</button>
+      </div>
+    </form>
+
+   <h2>Lista de Usuários</h2>
+@if (users.length > 0) {
+  <div class="table-wrapper">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Título</th>
+          <th>Conteúdo</th>
+          <th>ID Usuário</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <td data-label="ID">{{ user.id }}</td>
+          <td data-label="Título">{{ user.title }}</td>
+          <td data-label="Conteúdo">{{ user.body }}</td>
+          <td data-label="ID Usuário">{{ user.userId }}</td>
+          <td data-label="Ações">
+            <button class="home-button" (click)="editUser(user)">Editar</button>
+            <button class="home-button-pdf" (click)="deleteUser(user.id!)">Excluir</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+}
+
+  </div>
+</div>
