@@ -159,9 +159,14 @@ html2pdf().set(options).from(this.content.nativeElement).save();
 3. importa no service import jwtDecode from 'jwt-decode';
 4. criar a type  JwtPayload no authGmailService.
 5. criação do metodo automaticLogout(user: User), tem que receber o User Direto,  caso contrario da error e diz que getIdToken() não é uma function.
-6. por o setTimeout() no app-component e por a chamada do automaticLogout(), caso contrario não funciona
+6. por o setTimeout() no app-component e por a chamada do automaticLogout(), caso contrario não funciona.
+7. Criação do Service. Subscrição da API Weather e criação do seu componente  https://www.weatherapi.com/my/.
+8. Criação do Service. Subscrição da API reqres e criação do seu componente   https://reqres.in/.
+9. Criação do Service. Subscrição da API JsonPlaceHolder e criação do seu componente https://jsonplaceholder.typicode.com/.
 
-5. inicio dos Forms para componente signUp
+# Aula 15
+1. Criação do services CRUD JsonPlaceHolder.service
+2. inicio dos Forms para componente signUp
 
 # Aula 16
 
