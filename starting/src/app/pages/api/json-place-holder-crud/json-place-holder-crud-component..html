@@ -10,11 +10,7 @@
 <div class="container-guide" #pdfContent>
   <div class="content-wrap">
 
-    <div [class.header-error]="isError" [class.header-success]="!isError && message">
-      @if (message) {
-      <p>{{ message }}</p>
-      }
-    </div>
+
 
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="card">
       <label for="title">Título:</label><br />
@@ -37,31 +33,33 @@
     <h2>Lista de Usuários</h2>
     @if (paginatedUsers.length > 0) {
     <div class="table-wrapper">
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Título</th>
-            <th>Conteúdo</th>
-            <th>ID Usuário</th>
-            <th>Ações</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
+        <table class="custom-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Título</th>
+              <th>Conteúdo</th>
+              <th>ID Usuário</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+          <tbody>
             @for (user of paginatedUsers; track $index) {
-            <td data-label="ID">{{ user.id }}</td>
-            <td data-label="Título">{{ user.title }}</td>
-            <td data-label="Conteúdo">{{ user.body }}</td>
-            <td data-label="ID Usuário">{{ user.userId }}</td>
-            <td data-label="Ações">
-              <button class="home-button" (click)="editUser(user)">Editar</button>
-              <button class="home-button-pdf" (click)="deleteUser(user.id!)">Excluir</button>
-            </td>
-            }
-          </tr>
-        </tbody>
-      </table>
+            <tr>
+              <td data-label="ID">{{ user.id }}</td>
+              <td data-label="Título">{{ user.title }}</td>
+              <td data-label="Conteúdo">{{ user.body }}</td>
+              <td data-label="ID Usuário">{{ user.userId }}</td>
+              <td data-label="Ações">
+                <button class="home-button" (click)="editUser(user)">Editar</button>
+                <button class="home-button-pdf" (click)="deleteUser(user.id!)">Excluir</button>
+              </td>
+            </tr>
+          }
+          </tbody>
+        </table>
+
+
     </div>
     }
     <!-- Paginação com números -->
