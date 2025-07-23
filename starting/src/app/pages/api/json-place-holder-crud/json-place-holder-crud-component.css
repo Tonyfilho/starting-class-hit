@@ -72,7 +72,7 @@ body {
 }
 
 .container-guide {
-  max-width: 960px;
+  max-width: 1000px;
   margin: 0 auto 3rem;
   padding: 0 1rem;
 }
@@ -174,7 +174,7 @@ tbody td {
   padding: 0.75rem 1rem;
   vertical-align: middle;
   border-bottom: 1px solid var(--tr-nth-child);
-  word-break: break-word;
+  /* word-break: break-word; */
 }
 
 /* Botões da tabela */
