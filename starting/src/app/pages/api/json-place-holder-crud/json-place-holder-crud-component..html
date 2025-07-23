@@ -34,34 +34,54 @@
       </div>
     </form>
 
-   <h2>Lista de Usuários</h2>
-@if (users.length > 0) {
-  <div class="table-wrapper">
-    <table>
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Título</th>
-          <th>Conteúdo</th>
-          <th>ID Usuário</th>
-          <th>Ações</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let user of users">
-          <td data-label="ID">{{ user.id }}</td>
-          <td data-label="Título">{{ user.title }}</td>
-          <td data-label="Conteúdo">{{ user.body }}</td>
-          <td data-label="ID Usuário">{{ user.userId }}</td>
-          <td data-label="Ações">
-            <button class="home-button" (click)="editUser(user)">Editar</button>
-            <button class="home-button-pdf" (click)="deleteUser(user.id!)">Excluir</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-}
+    <h2>Lista de Usuários</h2>
+    @if (paginatedUsers.length > 0) {
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Conteúdo</th>
+            <th>ID Usuário</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            @for (user of paginatedUsers; track $index) {
+            <td data-label="ID">{{ user.id }}</td>
+            <td data-label="Título">{{ user.title }}</td>
+            <td data-label="Conteúdo">{{ user.body }}</td>
+            <td data-label="ID Usuário">{{ user.userId }}</td>
+            <td data-label="Ações">
+              <button class="home-button" (click)="editUser(user)">Editar</button>
+              <button class="home-button-pdf" (click)="deleteUser(user.id!)">Excluir</button>
+            </td>
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    }
+    <!-- Paginação com números -->
+    <div class="pagination">
+      <button class="home-button" (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1">
+        Anterior
+      </button>
+
+      <ng-container>
+        @for (page of pages; track $index) {
+        <button class="home-button page-number" [class.active]="currentPage === page" (click)="changePage(page)">
+          {{ page }}
+        </button>
+        }
+      </ng-container>
+
+      <button class="home-button" (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages">
+        Próxima
+      </button>
+    </div>
 
   </div>
 </div>

@@ -15,12 +15,14 @@ import html2pdf from 'html2pdf.js';
 
 })
 export class JsonPlaceHolderCrudComponent implements OnInit {
-  users: IUserApi[] = [];
-  userForm!: FormGroup;
-  selectedUserId: number | null = null;
-  loading = false;
-  message = '';
-  isError = false;
+  protected users: IUserApi[] = [];
+  protected userForm!: FormGroup;
+  protected selectedUserId: number | null = null;
+  protected loading = false;
+  protected message = '';
+  protected isError = false;
+  protected currentPage = 1;
+  protected itemsPerPage = 10;
 
 
   @ViewChild('pdfContent') content!: ElementRef;
@@ -135,4 +137,27 @@ export class JsonPlaceHolderCrudComponent implements OnInit {
     this.userForm.reset();
     this.selectedUserId = null;
   }
+
+  /**paninação */
+
+  get paginatedUsers() {
+  const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+  return this.users.slice(startIndex, startIndex + this.itemsPerPage);
+}
+
+get totalPages() {
+  return Math.ceil(this.users.length / this.itemsPerPage);
+}
+
+changePage(page: number) {
+  if (page >= 1 && page <= this.totalPages) {
+    this.currentPage = page;
+  }
+}
+
+  get pages(): number[] {
+    return Array.from({ length: this.totalPages }, (_, i) => i + 1);
+  }
+
+
 }

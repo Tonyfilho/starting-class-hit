@@ -141,6 +141,11 @@ h2 {
   font-size: 1.5rem;
 }
 
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
 table {
   width: 100%;
   border-collapse: collapse;
@@ -174,7 +179,6 @@ tbody td {
   padding: 0.75rem 1rem;
   vertical-align: middle;
   border-bottom: 1px solid var(--tr-nth-child);
-  /* word-break: break-word; */
 }
 
 /* Botões da tabela */
@@ -187,7 +191,7 @@ td button {
   cursor: pointer;
   box-shadow: var(--shadow);
   transition: var(--transition);
-  margin-bottom: 0;
+  margin-bottom: 0.25rem;
 }
 
 td button.home-button {
@@ -218,6 +222,37 @@ tbody tr {
   vertical-align: middle;
 }
 
+/** Paginação **/
+.pagination {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 0.4rem 1rem;
+  border-radius: var(--border-radius);
+  border: none;
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.pagination button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.pagination .page-number.active {
+  background-color: var(--third-color);
+  font-weight: bold;
+  border: 2px solid var(--text-color-light);
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
   .container-guide {
@@ -241,5 +276,9 @@ tbody tr {
 
   tbody tr {
     margin-bottom: 1.5rem;
+  }
+
+  .pagination {
+    gap: 0.3rem;
   }
 }
