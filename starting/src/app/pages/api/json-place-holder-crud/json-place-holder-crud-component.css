@@ -61,21 +61,17 @@ button.home-button-pdf:hover {
   background-color: var(--third-color);
 }
 
-
 .right-align {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
   margin-top: 1rem;
 }
-/**table falta fazer*/
 
-/** Estilos para a tabela - Correção completa */
-
-/** Estilos para a tabela */
+/* Estilos para a tabela */
 .table-wrapper {
   width: 100%;
-  overflow: hidden;
+  overflow-x: auto;
   background-color: white;
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
@@ -86,6 +82,7 @@ button.home-button-pdf:hover {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
+  min-width: 600px; /* Largura mínima antes de ativar o scroll */
 }
 
 .custom-table thead {
@@ -113,7 +110,7 @@ button.home-button-pdf:hover {
   background-color: var(--tr-hover);
 }
 
-/* Definindo larguras das colunas para corresponder aos inputs */
+/* Definindo larguras das colunas */
 .custom-table th:nth-child(1),
 .custom-table td:nth-child(1) {
   width: 10%;
@@ -147,7 +144,6 @@ button.home-button-pdf:hover {
   font-size: 0.9rem;
 }
 
-
 /* Paginação */
 .pagination {
   display: flex;
@@ -176,4 +172,135 @@ button.home-button-pdf:hover {
   font-weight: bold;
 }
 
+@media (max-width: 768px) {
+  .container-guide {
+    padding: 1rem;
+  }
 
+  .content-wrap {
+    padding: 0.5rem;
+  }
+
+  form.card {
+    padding: 0.75rem;
+  }
+
+  input[type="text"],
+  input[type="number"] {
+    padding: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  button.home-button,
+  button.home-button-pdf {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .right-align {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+
+  /* Tabela responsiva - versão corrigida */
+  .table-wrapper {
+    width: 100%;
+    overflow-x: visible;
+    padding: 0 0.75rem;
+    margin: 0;
+    background: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+  }
+
+  .custom-table {
+    min-width: 100%;
+    display: block;
+    margin: 0 -0.75rem;
+    width: calc(100% + 1.5rem);
+    border-collapse: separate;
+    border-spacing: 0;
+  }
+
+  .custom-table thead {
+    display: none;
+  }
+
+  .custom-table tbody {
+    display: block;
+  }
+
+  .custom-table tr {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1rem;
+    position: relative;
+    padding: 0.5rem 0.75rem 0;
+    border-bottom: 2px solid var(--primary-color);
+  }
+
+  .custom-table td {
+    display: flex;
+    justify-content: space-between;
+    width: 100% !important;
+    padding: 0.75rem 0;
+    text-align: right;
+    position: relative;
+    border: none;
+    word-break: break-word;
+  }
+
+  .custom-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 0.75rem;
+    width: calc(35% - 0.75rem);
+    font-weight: bold;
+    text-align: left;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+  }
+
+  .custom-table td:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 0.75rem;
+    right: 0.75rem;
+    bottom: 0;
+    height: 1px;
+    background-color: var(--placeholder);
+  }
+
+  .custom-table td:nth-child(5) {
+    padding: 0.75rem 0;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  .custom-table td:nth-child(5)::before {
+    display: none;
+  }
+
+  .custom-table td[data-label="Título"],
+  .custom-table td[data-label="Conteúdo"] {
+    padding-right: 0.75rem;
+    white-space: normal;
+  }
+
+  .custom-table td > *:not(button) {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Paginação */
+  .pagination {
+    gap: 0.3rem;
+  }
+
+  .pagination button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+  }
+  }
