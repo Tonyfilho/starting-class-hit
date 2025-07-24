@@ -1,10 +1,11 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { IUserApi } from '../../../_shared/interfaces/iuser';
 import { JsonPlaceholderService } from '../../../_services/json-place-holder.service';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import html2pdf from 'html2pdf.js';
+import { PopUpService } from '../../../_shared/pop-up/pop-up.service';
 
 
 @Component({
@@ -15,12 +16,10 @@ import html2pdf from 'html2pdf.js';
 
 })
 export class JsonPlaceHolderCrudComponent implements OnInit {
+  private popupService = inject(PopUpService);
   protected users: IUserApi[] = [];
   protected userForm!: FormGroup;
   protected selectedUserId: number | null = null;
-  protected loading = false;
-  protected message = '';
-  protected isError = false;
   protected currentPage = 1;
   protected itemsPerPage = 10;
 
@@ -56,89 +55,80 @@ export class JsonPlaceHolderCrudComponent implements OnInit {
     });
   }
 
-  fetchUsers(): void {
-    this.loading = true;
+  protected fetchUsers(): void {
     this.jsonPlaceholderService.getUsers().subscribe({
       next: (users) => {
         this.users = users;
-        this.loading = false;
+       this.popupService.show("Get User Success ", 'success');
       },
-      error: () => {
-        this.message = 'Erro ao carregar os dados.';
-        this.isError = true;
-        this.loading = false;
+      error: (e) => {
+        this.popupService.show("Opss Someting Wrong, Try Again: " + e.message);
       },
     });
   }
 
-  onSubmit(): void {
+  protected onSubmit(): void {
     if (this.userForm.invalid) return;
 
     const user = this.userForm.value;
-
     if (this.selectedUserId === null) {
       this.createUser(user);
+      console.log("User Id Created ", this.selectedUserId);
     } else {
       this.updateUser(user);
     }
   }
 
-  createUser(user: IUserApi): void {
+  protected createUser(user: IUserApi): void {
     this.jsonPlaceholderService.createUser(user).subscribe({
       next: (newUser) => {
         this.users.unshift(newUser);
-        this.message = 'Usuário criado com sucesso!';
-        this.isError = false;
+        this.popupService.show("Create a User Success ", 'success');
         this.userForm.reset();
       },
-      error: () => {
-        this.message = 'Erro ao criar usuário.';
-        this.isError = true;
+      error: (e) => {
+        this.popupService.show("Opss Someting Wrong, Try Again: " + e.message);
       },
     });
   }
 
-  editUser(user: IUserApi): void {
+  protected editUser(user: IUserApi): void {
     this.selectedUserId = user.id!;
     this.userForm.patchValue(user);
   }
 
-  updateUser(user: IUserApi): void {
+  protected updateUser(user: IUserApi): void {
     this.jsonPlaceholderService.updateUser(this.selectedUserId!, user).subscribe({
       next: (updated) => {
+        this.popupService.show("Update a User Success ", 'success');
         const index = this.users.findIndex(u => u.id === this.selectedUserId);
         if (index > -1) this.users[index] = updated;
-        this.message = 'Usuário atualizado com sucesso!';
-        this.isError = false;
         this.resetForm();
       },
-      error: () => {
-        this.message = 'Erro ao atualizar usuário.';
-        this.isError = true;
+      error: (e) => {
+        this.popupService.show("Opss Someting Wrong, Try Again: " + e.message);
       },
     });
   }
 
-  deleteUser(id: number): void {
+  protected deleteUser(id: number): void {
     this.jsonPlaceholderService.deleteUser(id).subscribe({
       next: () => {
         this.users = this.users.filter(u => u.id !== id);
-        this.message = 'Usuário excluído.';
-        this.isError = false;
+        this.popupService.show("Get User Success ", 'success');
       },
-      error: () => {
-        this.message = 'Erro ao excluir usuário.';
-        this.isError = true;
+      error: (e) => {
+        this.popupService.show("Opss Someting Wrong, Try Again: " + e.message);
       },
     });
   }
 
-  resetForm(): void {
+  protected resetForm(): void {
     this.userForm.reset();
     this.selectedUserId = null;
   }
 
-  /**paninação e explicação */
+  /***************************paninação e explicação */
   /**
 * O que faz paginatedUsers():
 * Calcula os usuários que devem ser exibidos na página atual
