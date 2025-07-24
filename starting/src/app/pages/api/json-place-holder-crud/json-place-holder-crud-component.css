@@ -1,3 +1,22 @@
+.header-success {
+  background: var(--text-color-h3);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  color: var(--text-color-light);
+  box-shadow: var(--shadow);
+  margin: 0.5rem auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1400px;
+  box-sizing: border-box;
+}
+
+
+
 .container-guide {
   background-color: var(--background-color-sections);
   padding: 2rem;
@@ -7,9 +26,9 @@
 }
 
 .content-wrap {
-  max-width: 900px;
-  margin: auto;
-  padding: 1rem;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
 }
 
 form.card {
