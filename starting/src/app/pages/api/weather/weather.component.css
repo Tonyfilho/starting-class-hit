@@ -1,10 +1,10 @@
 .header {
-  background: var(--background-color-header);
+  background: var(--primary-doc-color);
   padding: 2rem;
   border-radius: var(--border-radius);
   color: var(--text-color-light);
   box-shadow: var(--shadow);
-  margin: 0.5rem;
+
   animation: var(--animation-move-gradient);
   background-size: var(--animation-background-size);
   width: 100%;
@@ -12,6 +12,8 @@
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
+  margin: 0.5rem auto;
+  max-width: 1400px;
 }
 
 .header h2 {
@@ -28,13 +30,15 @@
   background-color: var(--background-color-sections);
   padding: 2rem;
   border-radius: var(--border-radius);
-  max-width: 1200px;
-  margin: 0 auto;
+  width: 100%;
+  /* max-width: 1200px; */
+  max-width: 1100px;
+  /* margin: 0 auto; */
+  margin-top: 2rem;
   box-shadow: var(--shadow);
   text-align: center;
+  box-sizing: border-box;
 }
-
-
 
 .city-form {
   display: flex;
@@ -70,9 +74,7 @@ button:hover {
   background-color: var(--third-color);
   &:hover {
     background-color: var(--secondary-color);
-
   }
-
 }
 
 /* Estilos de error do form**/
@@ -81,19 +83,17 @@ button:hover {
   align-items: center;
   align-content: center;
   justify-content: space-evenly;
-
 }
 .error-message {
   width: 22rem;
- color: var(--secondary-color);
- background-color: var(--background-color-error);
- padding: 0.8rem;
- border-radius: var(--border-radius);
- margin: 0.5rem;
- font-size: 0.9rem;
- border-left: 3px, solid var(--secondary-color);
- max-width: 25rem;
-
+  color: var(--secondary-color);
+  background-color: var(--background-color-error);
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  margin: 0.5rem;
+  font-size: 0.9rem;
+  border-left: 3px, solid var(--secondary-color);
+  max-width: 25rem;
 }
 
 .error-message::before {
@@ -105,12 +105,14 @@ button:hover {
 .warning {
   color: var(--text-color);
   padding: 0.1%;
-  font-size: 10px
-
+  font-size: 10px;
 }
 
 .weather-card {
+  /* background: var(--primary-doc-color); */
   background: var(--primary-doc-color);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
   color: var(--text-color-light);
   padding: 2rem;
   border-radius: var(--border-radius);
@@ -190,12 +192,12 @@ strong {
   color: var(--text-color-light);
 }
 
-
 @media (max-width: 768px) {
   input {
     padding: 1rem 0 !important;
   }
-  .weather-wrapper, .header {
+  .weather-wrapper,
+  .header {
     /* padding: 1rem; */
     width: 100vw;
     box-sizing: border-box;
@@ -255,4 +257,3 @@ strong {
     grid-template-columns: 1fr;
   }
 }
-
