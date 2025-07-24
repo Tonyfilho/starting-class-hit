@@ -14,7 +14,7 @@
 
 form.card {
   padding: 1rem;
-  background-color: white;
+  background-color: var(--text-color-light);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
@@ -72,7 +72,7 @@ button.home-button-pdf:hover {
 .table-wrapper {
   width: 100%;
   overflow-x: auto;
-  background-color: white;
+  background-color: var(--text-color-light);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
   margin-bottom: 2rem;
@@ -172,135 +172,96 @@ button.home-button-pdf:hover {
   font-weight: bold;
 }
 
-@media (max-width: 768px) {
-  .container-guide {
-    padding: 1rem;
-  }
+/* RESPONSIVIDADE */
 
+/* Tablets: até 1024px */
+@media (max-width: 1024px) {
   .content-wrap {
     padding: 0.5rem;
   }
 
-  form.card {
-    padding: 0.75rem;
-  }
-
-  input[type="text"],
-  input[type="number"] {
-    padding: 0.4rem;
-    font-size: 0.9rem;
-  }
-
-  button.home-button,
-  button.home-button-pdf {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-
   .right-align {
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-  }
-
-  /* Tabela responsiva - versão corrigida */
-  .table-wrapper {
-    width: 100%;
-    overflow-x: visible;
-    padding: 0 0.75rem;
-    margin: 0;
-    background: white;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-  }
-
-  .custom-table {
-    min-width: 100%;
-    display: block;
-    margin: 0 -0.75rem;
-    width: calc(100% + 1.5rem);
-    border-collapse: separate;
-    border-spacing: 0;
-  }
-
-  .custom-table thead {
-    display: none;
-  }
-
-  .custom-table tbody {
-    display: block;
-  }
-
-  .custom-table tr {
-    display: flex;
     flex-direction: column;
-    margin-bottom: 1rem;
-    position: relative;
-    padding: 0.5rem 0.75rem 0;
-    border-bottom: 2px solid var(--primary-color);
+    align-items: stretch;
   }
 
+  .home-button,
+  .home-button-pdf {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  .custom-table th,
   .custom-table td {
-    display: flex;
-    justify-content: space-between;
-    width: 100% !important;
-    padding: 0.75rem 0;
-    text-align: right;
-    position: relative;
-    border: none;
-    word-break: break-word;
+    font-size: 0.9rem;
   }
 
-  .custom-table td::before {
-    content: attr(data-label);
-    position: absolute;
-    left: 0.75rem;
-    width: calc(35% - 0.75rem);
-    font-weight: bold;
-    text-align: left;
-    color: var(--primary-color);
-    font-size: 0.85rem;
-  }
-
-  .custom-table td:not(:last-child)::after {
-    content: '';
-    position: absolute;
-    left: 0.75rem;
-    right: 0.75rem;
-    bottom: 0;
-    height: 1px;
-    background-color: var(--placeholder);
-  }
-
-  .custom-table td:nth-child(5) {
-    padding: 0.75rem 0;
-    justify-content: flex-end;
-    gap: 0.5rem;
-  }
-
-  .custom-table td:nth-child(5)::before {
-    display: none;
-  }
-
-  .custom-table td[data-label="Título"],
-  .custom-table td[data-label="Conteúdo"] {
-    padding-right: 0.75rem;
-    white-space: normal;
-  }
-
-  .custom-table td > *:not(button) {
-    max-width: 100%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* Paginação */
-  .pagination {
-    gap: 0.3rem;
-  }
-
-  .pagination button {
+  .custom-table td:nth-child(5) button {
     padding: 0.4rem 0.6rem;
     font-size: 0.8rem;
   }
+}
+
+/* Mobile: até 768px */
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+    text-align: center;
   }
+
+  .header .subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .card.right-align {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+  }
+   .home-button,
+  .home-button-pdf {
+    width: 98%;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  form.card label,
+  form.card input {
+    font-size: 1rem;
+  }
+
+  .custom-table {
+    min-width: 100%; /* permite scroll horizontal */
+    font-size: 0.85rem;
+  }
+
+  .custom-table td,
+  .custom-table th {
+    padding: 0.5rem;
+  }
+
+  .pagination button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+  }
+  /* Ajustes finais para os botões da tabela */
+  .custom-table td:nth-child(5) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.3rem;
+  }
+
+  .custom-table td:nth-child(5) button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+    min-width: 80px;
+    text-align: center;
+    flex: 1 1 auto;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+}
+
