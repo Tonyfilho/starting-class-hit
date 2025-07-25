@@ -15,6 +15,43 @@
   box-sizing: border-box;
 }
 
+.right-align {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+button.home-button,
+button.home-button-pdf {
+  padding: 0.5rem 1rem;
+  margin-left: 0.5rem;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+button.home-button {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+button.home-button:hover {
+  background-color: var(--text-hover);
+}
+
+button.home-button-pdf {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+}
+
+button.home-button-pdf:hover {
+  background-color: var(--third-color);
+}
+
 .container {
   background-color: var(--background-color-sections);
   padding: 2rem;
@@ -102,7 +139,17 @@ p {
   .user-list {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
+ .right-align {
+    flex-direction: column;
+    align-items: stretch;
+  }
 
+  .home-button,
+  .home-button-pdf {
+    width: 96%;
+    margin-left: 0;
+    margin-bottom: 0.5rem;
+  }
   .user-card img {
     width: 80px;
     height: 80px;

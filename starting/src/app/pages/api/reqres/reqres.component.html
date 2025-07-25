@@ -2,9 +2,14 @@
     <h2>Lista de Utilizadores</h2>
 </div>
 
+<div class="card right-align">
+  <button class="home-button" routerLink="/">Go Back to Home</button>
+  <button class="home-button-pdf" (click)="downloadPDF()">📄 Download PDF</button>
+</div>
+
 @if((this.localReqRes$| async); as response) {
 
-    <div class="container" *ngIf="(localReqRes$ | async) as response">
+    <div class="container" #pdfContent>
     <p>Total de utilizadores: {{ response.total }}</p>
     <p>Página atual: {{ response.page }} de {{ response.total_pages }}</p>
 
