@@ -1,115 +1,142 @@
-container {
-  padding: 4rem;
-  background: var(--background-color-sections);
-  color: var(--text-color);
-  font-family: var(--main-font-family);
-  line-height: var(--main-line-height);
-  width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
-  box-sizing: border-box;
-}
-
-.container h2 {
-  font-size: 2.5rem;
-  color: var(--text-color-h3);
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.container p {
-  font-size: 1.2rem;
-  margin: 0.30rem 0;
-}
-
 .header {
-  background: var(--background-color-header);
+  background: var(--text-color-h3);
+  animation: var(--animation-move-gradient);
+  background-size: var(--animation-background-size);
   padding: 2rem;
   border-radius: var(--border-radius);
   color: var(--text-color-light);
   box-shadow: var(--shadow);
-  margin: 0.5rem;
-  animation: var(--animation-move-gradient);
-  background-size: var(--animation-background-size);
-  width: 100%;
+  margin: 0.5rem auto;
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 1100px;
   box-sizing: border-box;
 }
 
-.header h1 {
-  font-size: var(--main-font-size);
-  margin: 0;
-  text-align: center;
+.container {
+  background-color: var(--background-color-sections);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  margin: 2rem auto;
+  width: 100%;
+  max-width: 1100px;
+  box-sizing: border-box;
 }
 
-.header .subtitle {
-  font-size: 1.2rem;
-  color: var(--text-color-light);
+p {
+  color: var(--text-color);
+  font-size: 1rem;
+  margin: 0.5rem 0;
 }
 
 .user-list {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.9rem;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
 .user-card {
-  background: var(--background-color-header);
-  color: var(--text-color-light);
+  background-color: var(--text-color-light);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
-  padding: 2rem;
+  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
-  animation: var(--animation-move-gradient);
-  background-size: var(--animation-background-size);
-  transition: transform 0.2s ease;
+  transition: var(--transition);
 }
 
 .user-card:hover {
-  transform: scale(1.02);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-4px);
 }
 
 .user-card img {
-  width: 100%;
-  max-width: 180px;
-  height: 180px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  box-shadow: var(--shadow);
+  object-fit: cover;
   margin-bottom: 1rem;
+  border: 2px solid var(--primary-color);
+}
+
+.user-info {
+  text-align: center;
 }
 
 .user-info h4 {
-  font-size: 1.6rem;
-  margin: 0.6rem 0;
+  margin: 0.5rem 0;
+  color: var(--text-color-h4);
 }
 
 .user-info p {
-  font-size: 1.05rem;
-  color: var(--text-color-light);
   margin: 0.2rem 0;
+  font-size: 0.95rem;
 }
 
 .support {
-  margin-top: 9rem;
-  padding: 2rem;
-  background: var(--background-color-sections2);
-  border-left: 4px solid var(--third-color);
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: var(--background-color-sections2);
   border-radius: var(--border-radius);
   box-shadow: var(--shadow);
 }
 
 .support h3 {
-  color: var(--text-color-h3);
   margin-bottom: 1rem;
+  color: var(--text-color-h3);
 }
 
 .support a {
   color: var(--primary-color);
   text-decoration: underline;
-  word-break: break-word;
+  word-break: break-all;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .user-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+
+  .user-card img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .user-info p {
+    font-size: 0.9rem;
+  }
+
+  .support {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h2 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .user-list {
+    grid-template-columns: 1fr;
+  }
+
+  .user-card img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .user-info h4 {
+    font-size: 1rem;
+  }
+
+  .user-info p {
+    font-size: 0.85rem;
+  }
 }
