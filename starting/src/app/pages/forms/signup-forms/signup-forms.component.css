@@ -1,0 +1,113 @@
+.login-card {
+  width: 750px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: var(--background-color-sections);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  color: var(--text-color);
+}
+
+.login-card:hover {
+  box-shadow: var(--shadow-hover);
+}
+
+.login-card h2 {
+  margin-top: 0;
+  color: var(--text-color-h3);
+  font-size: var(--main-font-size2);
+  text-align: center;
+}
+
+.login-card p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+}
+
+
+
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 0.3rem;
+}
+
+.form-group input {
+  padding: 0.5rem;
+  border: 1px solid var(--background-color-sections);
+  border-radius: var(--border-radius);
+  font-size: 0.9rem;
+  box-sizing: border-box;
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.image-preview {
+  margin-top: 0.5rem;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  border: 2px solid var(--primary-color);
+}
+
+/* Botões */
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.button-group button {
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  border: none;
+  transition: var(--transition);
+}
+
+.go-back {
+  background-color: var(--secondary-color);
+  color: var(--text-color-light);
+}
+
+.clean-button {
+  background-color: var(--third-color);
+  color: var(--text-color-light);
+}
+
+.sign-in {
+  background-color: var(--primary-color);
+  color: var(--text-color-light);
+}
+
+.button-group button:hover {
+  opacity: 0.9;
+}
+
+@media (max-width: 480px) {
+  .form-row {
+    flex-direction: column;
+  }
+
+  .button-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

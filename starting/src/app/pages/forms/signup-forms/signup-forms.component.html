@@ -1,1 +1,75 @@
-<p>signup-forms works!</p>
+<div class="login-card">
+  <h2>Sign Up</h2>
+  <p>Please sign up to continue</p>
+
+  <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+    <!-- Nome -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" />
+    </div>
+
+    <!-- Upload de Foto -->
+    <div class="form-group">
+      <label for="photoURL">Profile Picture</label>
+      <input type="file" id="photoURL" (change)="onImageSelected($event)" />
+      @if (imagePreview) {
+        <img  [src]="imagePreview" alt="Preview" class="image-preview" />
+
+      }
+    </div>
+
+    <!-- Endereço -->
+    <div class="form-group">
+      <label for="street">Street</label>
+      <input type="text" id="street" formControlName="street" />
+    </div>
+
+    <div class="form-group">
+      <label for="number">Number</label>
+      <input type="text" id="number" formControlName="number" />
+    </div>
+
+    <!-- DDI e Telefone Lado a Lado -->
+    <div class="form-row">
+      <div class="form-group">
+        <label for="ddi">DDI</label>
+        <input type="text" id="ddi" formControlName="ddi" />
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" id="phone" formControlName="phone" />
+      </div>
+    </div>
+
+    <!-- Emails -->
+    <div formArrayName="emails">
+      <div class="form-group">
+        @for (email of email.controls; track $index) {
+          <label>Email {{ $index + 1 }}</label>
+          <input [formControlName]="$index" type="email" />
+
+        }
+      </div>
+    </div>
+
+    <!-- Senhas -->
+    <div formArrayName="passwords">
+      <div class="form-group" >
+        @for (pass of passwords.controls; track $index) {
+          <label>Password {{ $index + 1 }}</label>
+          <input [formControlName]="$index" type="password" />
+
+        }
+      </div>
+    </div>
+
+    <!-- Botões -->
+    <div class="button-group">
+      <button type="button" (click)="this.router.navigateByUrl('/wellcome')" class="go-back">⬅️ Go Back</button>
+      <button type="button" (click)="signupForm.reset()" class="clean-button">🧹 Clean Fields</button>
+      <button type="submit" [disabled]="signupForm.invalid" class="sign-in">🔐 Sign Up</button>
+    </div>
+  </form>
+</div>

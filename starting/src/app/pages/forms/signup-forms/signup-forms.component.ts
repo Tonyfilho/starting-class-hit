@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormArray, FormControl, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 
 
@@ -8,23 +8,28 @@ import { FormArray, FormControl, ReactiveFormsModule, UntypedFormBuilder, Untype
 import { DdiDataArray } from '../../../_services/mock/ddi-mock-data-array';
 import { UpcaseFirstWordPipe } from '../../../_shared/pipes/upcase-first-word.pipe';
 import { IDdiEn } from '../../../_shared/interfaces/iddi-en';
-import { correctName, isMatch, justNumbers, justNumbersLettersDot } from '../../../_shared/validators';
+import { correctName, isMatch, justNumbers, justNumbersLettersDot, passwordVerification } from '../../../_shared/validators';
+import { Router } from '@angular/router';
 
 
 @Component({
   selector: 'app-sign-up',
-  imports: [CommonModule, ReactiveFormsModule, UpcaseFirstWordPipe ],
+  imports: [CommonModule, ReactiveFormsModule],
   templateUrl: './signup-forms.component.html',
   styleUrl: './signup-forms.component.css'
 })
 export class SignUpFormsComponent implements OnInit {
+
+  protected router = inject(Router);
   protected signupForm: UntypedFormGroup;
   protected wordCountryDdi!: IDdiEn[];
   protected localCountryDdi: IDdiEn = { name: 'Portugal', phone: '0351' };
+  protected imagePreview: string | null = null;
 
   constructor(private fb: UntypedFormBuilder) {
     this.signupForm = fb.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30), correctName()]),
+      photoURL: new FormControl(''),
       street: new FormControl('', Validators.required),
       number: new FormControl('', [Validators.required, justNumbersLettersDot()]),
       ddi: new FormControl(''),
@@ -36,7 +41,7 @@ export class SignUpFormsComponent implements OnInit {
       passwords: new FormArray([
         new FormControl('', [Validators.required]),
         new FormControl('', [Validators.required])
-      ], [isMatch(), passwordVerificationF()])
+      ], [isMatch(), passwordVerification()])
     });
   }
   ngOnInit(): void {
@@ -67,6 +72,14 @@ export class SignUpFormsComponent implements OnInit {
     return passwordArray.at(0).hasError('required') || passwordArray.at(1).hasError('required');
   }
 
+
+  get passwords() {
+    return this.signupForm.get('passwords') as FormArray;
+  }
+
+  get email() {
+    return this.signupForm.get('emails') as FormArray;
+  }
   onSubmit() {
     if (!this.signupForm.valid) {
       return this.signupForm.markAllAsTouched();
@@ -78,8 +91,17 @@ export class SignUpFormsComponent implements OnInit {
     this.signupForm.get('ddi')?.setValue(this.localCountryDdi);
   }
 
+
+  onImageSelected(event: Event): void {
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = () => this.imagePreview = reader.result as string;
+      reader.readAsDataURL(file);
+    }
+  }
+
+
 }
-function passwordVerificationF(): import("@angular/forms").ValidatorFn {
-  throw new Error('Function not implemented.');
-}
+
 
