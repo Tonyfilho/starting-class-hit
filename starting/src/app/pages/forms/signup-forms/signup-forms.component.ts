@@ -5,11 +5,10 @@ import { FormArray, FormControl, ReactiveFormsModule, UntypedFormBuilder, Untype
 
 
 
+import { Router } from '@angular/router';
 import { DdiDataArray } from '../../../_services/mock/ddi-mock-data-array';
-import { UpcaseFirstWordPipe } from '../../../_shared/pipes/upcase-first-word.pipe';
 import { IDdiEn } from '../../../_shared/interfaces/iddi-en';
 import { correctName, isMatch, justNumbers, justNumbersLettersDot, passwordVerification } from '../../../_shared/validators';
-import { Router } from '@angular/router';
 
 
 @Component({
