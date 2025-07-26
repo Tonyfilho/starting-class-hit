@@ -1,5 +1,5 @@
 .login-card {
-  width: 750px;
+  width:600px;
   margin: 2rem auto;
   padding: 2rem;
   background: var(--background-color-sections);
@@ -52,7 +52,16 @@
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  width: 100%;
 }
+.ddi {
+  width: 25%
+}
+.phone {
+  width: 72%
+}
+
+
 
 .image-preview {
   margin-top: 0.5rem;
