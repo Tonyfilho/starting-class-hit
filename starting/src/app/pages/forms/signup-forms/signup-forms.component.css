@@ -1,5 +1,5 @@
 .login-card {
-  width:600px;
+  width: 600px;
   margin: 2rem auto;
   padding: 2rem;
   background: var(--background-color-sections);
@@ -26,9 +26,6 @@
   color: var(--text-color);
 }
 
-
-
-
 .form-group {
   margin-bottom: 1rem;
   display: flex;
@@ -54,21 +51,51 @@
   flex-wrap: wrap;
   width: 100%;
 }
+
 .ddi {
-  width: 25%
+  width: 25%;
 }
+
 .phone {
-  width: 72%
+  width: 72%;
 }
 
+.image-upload-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
 
+.upload-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.upload-button {
+  padding: 0.5rem 1rem;
+  background: var(--primary-color);
+  color: var(--text-color-light);
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.upload-button:hover {
+  background: var(--text-hover);
+}
 
 .image-preview {
-  margin-top: 0.5rem;
   width: 100px;
   height: 100px;
-  object-fit: cover;
   border-radius: 50%;
+  object-fit: cover;
   box-shadow: var(--shadow);
   border: 2px solid var(--primary-color);
 }
@@ -89,6 +116,8 @@
   cursor: pointer;
   border: none;
   transition: var(--transition);
+  flex: 1;
+  min-width: 100px;
 }
 
 .go-back {
@@ -110,13 +139,68 @@
   opacity: 0.9;
 }
 
-@media (max-width: 480px) {
+/* =============================== */
+/* RESPONSIVIDADE                  */
+/* =============================== */
+
+/* Telas até 768px */
+@media (max-width: 768px) {
+  .login-card {
+    width: 80vw;
+    padding: 1.5rem;
+  }
+
   .form-row {
     flex-direction: column;
+  }
+
+  .ddi,
+  .phone {
+    width: 100%;
+  }
+
+  .image-upload-row {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .image-preview {
+    width: 80px;
+    height: 80px;
+  }
+
+  .upload-button {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
   }
 
   .button-group {
     flex-direction: column;
     align-items: stretch;
+  }
+
+  .button-group button {
+    width: 100%;
+    font-size: 1rem;
+  }
+}
+
+/* Telas até 480px (smartphones menores) */
+@media (max-width: 480px) {
+  .login-card h2 {
+    font-size: 1.5rem;
+  }
+
+  .upload-button {
+    font-size: 0.8rem;
+  }
+
+  .image-preview {
+    width: 70px;
+    height: 70px;
+  }
+
+  .button-group button {
+    font-size: 0.95rem;
   }
 }

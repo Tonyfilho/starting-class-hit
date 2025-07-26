@@ -10,14 +10,17 @@
     </div>
 
     <!-- Upload de Foto -->
-    <div class="form-group">
-      <label for="photoURL">Profile Picture</label>
-      <input type="file" id="photoURL" (change)="onImageSelected($event)" />
-      @if (imagePreview) {
-        <img  [src]="imagePreview" alt="Preview" class="image-preview" />
+<div class="form-field image-upload-row">
+  <!-- Botão customizado para upload -->
+  <div class="upload-controls">
+    <label for="photoUpload" class="upload-button">📷 Choose Image</label>
+    <input type="file" id="photoUpload" (change)="onImageSelected($event)" accept="image/*" hidden />
+  </div>
 
-      }
-    </div>
+  <!-- Preview da imagem alinhado à direita -->
+  <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="image-preview" />
+</div>
+
 
     <!-- Endereço -->
     <div class="form-group">
@@ -37,7 +40,7 @@
         <input type="select" id="ddi" formControlName="ddi" />
       </div>
 
-      <div class="form-group phone" >
+      <div class="form-group phone">
         <label for="phone">Phone</label>
         <input type="text" id="phone" formControlName="phone" />
       </div>
@@ -47,8 +50,8 @@
     <div formArrayName="emails">
       <div class="form-group">
         @for (email of email.controls; track $index) {
-          <label>Email {{ $index + 1 }}</label>
-          <input [formControlName]="$index" type="email" />
+        <label>Email {{ $index + 1 }}</label>
+        <input [formControlName]="$index" type="email" />
 
         }
       </div>
@@ -56,10 +59,10 @@
 
     <!-- Senhas -->
     <div formArrayName="passwords">
-      <div class="form-group" >
+      <div class="form-group">
         @for (pass of passwords.controls; track $index) {
-          <label>Password {{ $index + 1 }}</label>
-          <input [formControlName]="$index" type="password" />
+        <label>Password {{ $index + 1 }}</label>
+        <input [formControlName]="$index" type="password" />
 
         }
       </div>
