@@ -18,7 +18,9 @@
   </div>
 
   <!-- Preview da imagem alinhado à direita -->
-  <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" class="image-preview" />
+   @if (this.imagePreview) {
+     <img  [src]="imagePreview" alt="Image Preview" class="image-preview" />
+   }
 </div>
 
 
@@ -37,7 +39,12 @@
     <div class="form-row">
       <div class="form-group ddi">
         <label for="ddi">DDI</label>
-        <select type="select" id="ddi" formControlName="ddi" ></select>
+        <select type="text" id="ddi" formControlName="ddi" >
+          <option selected [ngValue]="this.localCountryDdi">{{ this.localCountryDdi.name}}</option>
+          @for (item of this.wordCountryDdi; track $index) {
+            <option [ngValue]="item">{{item.name }}</option>
+          }
+        </select>
       </div>
 
       <div class="form-group phone">
@@ -71,8 +78,8 @@
     <!-- Botões -->
     <div class="button-group">
       <button type="button" (click)="this.router.navigateByUrl('/wellcome')" class="go-back">⬅️ Go Back</button>
-      <button type="button" (click)="signupForm.reset()" class="clean-button">🧹 Clean Fields</button>
-      <button type="submit" [disabled]="signupForm.invalid" class="sign-in">🔐 Sign Up</button>
+      <button type="button" (click)="cleanForms()" class="clean-button">🧹 Clean Fields</button>
+      <button type="submit" [disabled]="!signupForm.invalid" class="sign-in">🔐 Sign Up</button>
     </div>
   </form>
 </div>

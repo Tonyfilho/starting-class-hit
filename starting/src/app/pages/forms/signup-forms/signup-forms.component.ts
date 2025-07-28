@@ -47,60 +47,64 @@ export class SignUpFormsComponent implements OnInit {
     this.wordCountryDdi = DdiDataArray();
     /**tem q passar o objeto completo, para ter acesso ao dados completo no DDI */
     this.signupForm.get('ddi')?.setValue(this.localCountryDdi);
-    this.signupForm.get('phone')?.setValue(this.localCountryDdi.phone + '-');
+    this.signupForm.get('phone')?.setValue(this.localCountryDdi?.phone + '-');
     this.signupForm.get('ddi')?.valueChanges.subscribe(ddi =>
-      this.signupForm.get('phone')?.setValue(ddi.phone + '-'));
+      this.signupForm.get('phone')?.setValue(ddi?.phone + '-'));
 
-    // this.signupForm.get('emails')?.events.subscribe(e => console.log("required", e.source.getError('required'), 'emails ' + e.source.getError('email')));
-  }
-
-  get emailRequiredError() {
-    const emailsArray = this.signupForm.get('emails') as FormArray;
-    // Verifica se o primeiro ou o segundo email têm erro 'required'
-    return emailsArray.at(0).hasError('required') || emailsArray.at(1).hasError('required');
-  }
-
-  get emailTypedError() {
-    const emailsArray = this.signupForm.get('emails') as FormArray;
-    return emailsArray.at(0).hasError('email') || emailsArray.at(1).hasError('emails');
-  }
-
-
-  get passwordRequiredError() {
-    const passwordArray = this.signupForm.get('passwords') as FormArray;
-    return passwordArray.at(0).hasError('required') || passwordArray.at(1).hasError('required');
-  }
-
-
-  get passwords() {
-    return this.signupForm.get('passwords') as FormArray;
-  }
-
-  get email() {
-    return this.signupForm.get('emails') as FormArray;
-  }
-  onSubmit() {
-    if (!this.signupForm.valid) {
-      return this.signupForm.markAllAsTouched();
+      // this.signupForm.get('emails')?.events.subscribe(e => console.log("required", e.source.getError('required'), 'emails ' + e.source.getError('email')));
     }
-    /**Envia o Form para um serviço  */
-    console.log(this.signupForm.value);
-    setTimeout(() => { this.signupForm.reset(); }, 2000);
-    /**voltando a setar o camplo ddi */
-    this.signupForm.get('ddi')?.setValue(this.localCountryDdi);
-  }
+
+    get emailRequiredError() {
+      const emailsArray = this.signupForm.get('emails') as FormArray;
+      // Verifica se o primeiro ou o segundo email têm erro 'required'
+      return emailsArray.at(0).hasError('required') || emailsArray.at(1).hasError('required');
+    }
+
+    get emailTypedError() {
+      const emailsArray = this.signupForm.get('emails') as FormArray;
+      return emailsArray.at(0).hasError('email') || emailsArray.at(1).hasError('emails');
+    }
 
 
-  onImageSelected(event: Event): void {
-    const file = (event.target as HTMLInputElement)?.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onload = () => this.imagePreview = reader.result as string;
-      reader.readAsDataURL(file);
+    get passwordRequiredError() {
+      const passwordArray = this.signupForm.get('passwords') as FormArray;
+      return passwordArray.at(0).hasError('required') || passwordArray.at(1).hasError('required');
+    }
+
+
+    get passwords() {
+      return this.signupForm.get('passwords') as FormArray;
+    }
+
+    get email() {
+      return this.signupForm.get('emails') as FormArray;
+    }
+    onSubmit() {
+      console.log(this.signupForm.value);
+      if (!this.signupForm.valid) {
+        return this.signupForm.markAllAsTouched();
+      }
+      /**Envia o Form para um serviço  */
+      console.log(this.signupForm.value);
+    }
+
+
+    onImageSelected(event: Event): void {
+      const file = (event.target as HTMLInputElement)?.files?.[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = () => this.imagePreview = reader.result as string;
+        reader.readAsDataURL(file);
+      }
+    }
+
+
+    cleanForms() {
+      /**voltando a setar o camplo ddi */
+      setTimeout(() => { this.signupForm.get('ddi')?.setValue(this.localCountryDdi); }, 2000);
+      this.signupForm.reset();
+
     }
   }
-
-
-}
 
 
