@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { DdiDataArray } from '../../../_services/mock/ddi-mock-data-array';
 import { IDdiEn } from '../../../_shared/interfaces/iddi-en';
 import { correctName, isMatch, justNumbers, justNumbersLettersDot, passwordVerification } from '../../../_shared/validators';
+import { ImageCompressService } from '../../../_shared/image-compress/image-compress.service';
 
 
 @Component({
@@ -51,60 +52,65 @@ export class SignUpFormsComponent implements OnInit {
     this.signupForm.get('ddi')?.valueChanges.subscribe(ddi =>
       this.signupForm.get('phone')?.setValue(ddi?.phone + '-'));
 
-      // this.signupForm.get('emails')?.events.subscribe(e => console.log("required", e.source.getError('required'), 'emails ' + e.source.getError('email')));
+    // this.signupForm.get('emails')?.events.subscribe(e => console.log("required", e.source.getError('required'), 'emails ' + e.source.getError('email')));
+  }
+
+  get emailRequiredError() {
+    const emailsArray = this.signupForm.get('emails') as FormArray;
+    // Verifica se o primeiro ou o segundo email têm erro 'required'
+    return emailsArray.at(0).hasError('required') || emailsArray.at(1).hasError('required');
+  }
+
+  get emailTypedError() {
+    const emailsArray = this.signupForm.get('emails') as FormArray;
+    return emailsArray.at(0).hasError('email') || emailsArray.at(1).hasError('emails');
+  }
+
+
+  get passwordRequiredError() {
+    const passwordArray = this.signupForm.get('passwords') as FormArray;
+    return passwordArray.at(0).hasError('required') || passwordArray.at(1).hasError('required');
+  }
+
+
+  get passwords() {
+    return this.signupForm.get('passwords') as FormArray;
+  }
+
+  get email() {
+    return this.signupForm.get('emails') as FormArray;
+  }
+  onSubmit() {
+    console.log(this.signupForm.value);
+    if (!this.signupForm.valid) {
+      return this.signupForm.markAllAsTouched();
     }
-
-    get emailRequiredError() {
-      const emailsArray = this.signupForm.get('emails') as FormArray;
-      // Verifica se o primeiro ou o segundo email têm erro 'required'
-      return emailsArray.at(0).hasError('required') || emailsArray.at(1).hasError('required');
-    }
-
-    get emailTypedError() {
-      const emailsArray = this.signupForm.get('emails') as FormArray;
-      return emailsArray.at(0).hasError('email') || emailsArray.at(1).hasError('emails');
-    }
+    /**Envia o Form para um serviço  */
+    console.log(this.signupForm.value);
+  }
 
 
-    get passwordRequiredError() {
-      const passwordArray = this.signupForm.get('passwords') as FormArray;
-      return passwordArray.at(0).hasError('required') || passwordArray.at(1).hasError('required');
-    }
+  onImageSelected(event: Event): void {
 
-
-    get passwords() {
-      return this.signupForm.get('passwords') as FormArray;
-    }
-
-    get email() {
-      return this.signupForm.get('emails') as FormArray;
-    }
-    onSubmit() {
-      console.log(this.signupForm.value);
-      if (!this.signupForm.valid) {
-        return this.signupForm.markAllAsTouched();
-      }
-      /**Envia o Form para um serviço  */
-      console.log(this.signupForm.value);
-    }
-
-
-    onImageSelected(event: Event): void {
-      const file = (event.target as HTMLInputElement)?.files?.[0];
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    /* //aqui aplenas pega o arquivo
       if (file) {
         const reader = new FileReader();
         reader.onload = () => this.imagePreview = reader.result as string;
         reader.readAsDataURL(file);
-      }
-    }
 
-
-    cleanForms() {
-      /**voltando a setar o camplo ddi */
-      setTimeout(() => { this.signupForm.get('ddi')?.setValue(this.localCountryDdi); }, 2000);
-      this.signupForm.reset();
-
-    }
+      }*/
+     const imageCompress = inject(ImageCompressService);
+     imageCompress.compressImage(file).subscribe(); // continuar aqui
   }
+
+
+  cleanForms() {
+    /**voltando a setar o camplo ddi */
+    setTimeout(() => { this.signupForm.get('ddi')?.setValue(this.localCountryDdi); }, 2000);
+    this.signupForm.reset();
+
+  }
+}
 
 

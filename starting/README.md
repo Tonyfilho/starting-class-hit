@@ -166,7 +166,8 @@ html2pdf().set(options).from(this.content.nativeElement).save();
 
 # Aula 15
 1. Criação do services CRUD JsonPlaceHolder.service
-2. inicio dos Forms para componente signUp
+2. inicio dos Forms para componente signUp.
+3. criação do service-compress image
 
 # Aula 16
 
