@@ -26,7 +26,7 @@ export class SignUpFormsComponent implements OnInit {
   protected localCountryDdi: IDdiEn = { name: 'Portugal', phone: '0351' };
   protected imagePreview: string | null = null;
 
-  constructor(private fb: UntypedFormBuilder) {
+  constructor(private fb: UntypedFormBuilder, private imageCompress: ImageCompressService) {
     this.signupForm = fb.group({
       name: new FormControl('', [Validators.required, Validators.minLength(2), Validators.maxLength(30), correctName()]),
       photoURL: new FormControl(''),
@@ -91,17 +91,16 @@ export class SignUpFormsComponent implements OnInit {
 
 
   onImageSelected(event: Event): void {
-
     const file = (event.target as HTMLInputElement)?.files?.[0];
-    /* //aqui aplenas pega o arquivo
-      if (file) {
+    /* aqui aplenas pega o arquivo sem compressão */
+     /*  if (file) {
         const reader = new FileReader();
         reader.onload = () => this.imagePreview = reader.result as string;
         reader.readAsDataURL(file);
 
       }*/
-     const imageCompress = inject(ImageCompressService);
-     imageCompress.compressImage(file).subscribe(); // continuar aqui
+
+     this.imageCompress.compressImage(file).subscribe(image => {this.signupForm.get('photoURL')?.setValue(image)});
   }
 
 
