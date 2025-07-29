@@ -24,7 +24,7 @@ export class SignUpFormsComponent implements OnInit {
   protected signupForm: UntypedFormGroup;
   protected wordCountryDdi!: IDdiEn[];
   protected localCountryDdi: IDdiEn = { name: 'Portugal', phone: '0351' };
-  protected imagePreview: string | null = null;
+  protected imagePreview: string = "./../../../../assets/img/avatar/no_avatar.png";
 
   constructor(private fb: UntypedFormBuilder, private imageCompress: ImageCompressService) {
     this.signupForm = fb.group({
@@ -51,6 +51,7 @@ export class SignUpFormsComponent implements OnInit {
     this.signupForm.get('phone')?.setValue(this.localCountryDdi?.phone + '-');
     this.signupForm.get('ddi')?.valueChanges.subscribe(ddi =>
       this.signupForm.get('phone')?.setValue(ddi?.phone + '-'));
+
 
     // this.signupForm.get('emails')?.events.subscribe(e => console.log("required", e.source.getError('required'), 'emails ' + e.source.getError('email')));
   }
@@ -81,11 +82,13 @@ export class SignUpFormsComponent implements OnInit {
     return this.signupForm.get('emails') as FormArray;
   }
   onSubmit() {
-    console.log(this.signupForm.value);
-    if (!this.signupForm.valid) {
-      return this.signupForm.markAllAsTouched();
-    }
+
+    // if (!this.signupForm.valid) {
+    //   console.log("Dentro invalid", this.signupForm.value);
+    //   return this.signupForm.markAllAsTouched();
+    // }
     /**Envia o Form para um serviço  */
+   // this.onImageSelected();
     console.log(this.signupForm.value);
   }
 
@@ -93,20 +96,21 @@ export class SignUpFormsComponent implements OnInit {
   onImageSelected(event: Event): void {
     const file = (event.target as HTMLInputElement)?.files?.[0];
     /* aqui aplenas pega o arquivo sem compressão */
-     /*  if (file) {
-        const reader = new FileReader();
-        reader.onload = () => this.imagePreview = reader.result as string;
-        reader.readAsDataURL(file);
+    /*  if (file) {
+       const reader = new FileReader();
+       reader.onload = () => this.imagePreview = reader.result as string;
+       reader.readAsDataURL(file);
 
-      }*/
+     }*/
 
-     this.imageCompress.compressImage(file).subscribe(image => {this.signupForm.get('photoURL')?.setValue(image)});
+    this.imageCompress.compressImage(file).subscribe(image => {
+       this.signupForm.get('photoURL')?.patchValue(image), this.imagePreview = image });
   }
 
 
   cleanForms() {
     /**voltando a setar o camplo ddi */
-    setTimeout(() => { this.signupForm.get('ddi')?.setValue(this.localCountryDdi); }, 2000);
+    setTimeout(() => { this.signupForm.get('ddi')?.setValue(this.localCountryDdi); this.imagePreview = "./../../../../assets/img/avatar/no_avatar.png" }, 2000);
     this.signupForm.reset();
 
   }
