@@ -7,42 +7,95 @@
     <div class="form-group">
       <label for="name">Name</label>
       <input type="text" id="name" formControlName="name" />
+      @if (this.signupForm.controls['name'].invalid && this.signupForm.controls['name'].touched) {
+      <section [ngClass]="{'error-message': !this.signupForm.controls['name'].valid &&
+          this.signupForm.controls['name'].touched  }">
+        @if (signupForm.controls['name'].errors?.['required'])
+        {
+        <small class="warning" style="padding: 0.5%; font-size: 10px">
+          <p>{{"fields emails is mandatory" | upcaseFirstWord}}</p>
+        </small>
+        }
+        @if (this.signupForm.controls['name'].getError('minLength') ||
+        signupForm.controls['name'].getError('maxLenght')) {
+        <small class="warning" style="padding: 0.5%; font-size: 10px">
+          <p>{{"Min lenght is 2 letters or Max letters is 30 letters" |upcaseFirstWord }}</p>
+        </small>
+        }
+        <!-- Podemos pegar o error por getError() ou por hasError()   -->
+        <!--   {{'GetErrors '+ this.signupForm.controls['name'].getError('invalidName') }}
+             {{'HasError '+ signupForm.hasError("invalidName", "name") }} -->
+
+        @if (this.signupForm.controls['name'].getError('invalidName') ) {
+        <small class="warning" style="padding: 0.5%; font-size: 10px">
+          <p>{{"Please enter letters only (A-Z, a-z), no phones, special characters allowed!" |upcaseFirstWord }}</p>
+        </small>
+        }
+
+      </section>
+      }
     </div>
 
     <!-- Upload de Foto -->
-<div class="form-field image-upload-row">
-  <!-- Botão customizado para upload -->
-  <div class="upload-controls">
-    <label for="photoUpload" class="upload-button">📷 Choose Image</label>
-    <input type="file" id="photoUpload" (change)="onImageSelected($event)" accept="image/*" hidden />
-  </div>
+    <div class="form-field image-upload-row">
+      <!-- Botão customizado para upload -->
+      <div class="upload-controls">
+        <label for="photoUpload" class="upload-button">📷 Choose Image</label>
+        <input type="file" id="photoUpload" (change)="onImageSelected($event)" accept="image/*" hidden />
+      </div>
 
-  <!-- Preview da imagem alinhado à direita -->
-   @if (this.imagePreview) {
-     <img  [src]="imagePreview" alt="Image Preview" class="image-preview" />
-   }
-</div>
+      <!-- Preview da imagem alinhado à direita -->
+      @if (this.imagePreview) {
+      <img [src]="imagePreview" alt="Image Preview" class="image-preview" />
+      }
+    </div>
 
 
     <!-- Endereço -->
     <div class="form-group">
       <label for="street">Street</label>
       <input type="text" id="street" formControlName="street" />
+      @if (this.signupForm.controls['street'].invalid && this.signupForm.controls['street'].touched) {
+      <section [ngClass]="{'error-message': !this.signupForm.controls['street'].valid &&
+          this.signupForm.controls['street'].touched  }">
+        @if (signupForm.controls['street'].errors?.['required'])
+        {
+        <small class="warning" style="padding: 0.5%; font-size: 10px">
+          <p>{{"fields emails is mandatory" | upcaseFirstWord}}</p>
+        </small>
+        }
+
+      </section>
+      }
     </div>
 
     <div class="form-group">
       <label for="number">Number</label>
       <input type="text" id="number" formControlName="number" />
+      @if (this.signupForm.controls['number'].invalid && this.signupForm.controls['number'].touched) {
+      <section class="error-message">
+        @if (signupForm.controls['number'].errors?.['required']) {
+        <small class="warning">
+          <p>{{"fields emails is mandatory" | upcaseFirstWord}}</p>
+        </small>
+        }
+        @if (signupForm.controls['number'].errors?.['invalidNumberOrLetter']) {
+        <small class="warning">
+          <p>{{ " non-standard data, just allowed number with letter and space. " | upcaseFirstWord}}</p>
+        </small>
+        }
+      </section>
+      }
     </div>
 
     <!-- DDI e Telefone Lado a Lado -->
     <div class="form-row">
       <div class="form-group ddi">
         <label for="ddi">DDI</label>
-        <select type="text" id="ddi" formControlName="ddi" >
+        <select type="text" id="ddi" formControlName="ddi">
           <option selected [ngValue]="this.localCountryDdi">{{ this.localCountryDdi.name}}</option>
           @for (item of this.wordCountryDdi; track $index) {
-            <option [ngValue]="item">{{item.name }}</option>
+          <option [ngValue]="item">{{item.name }}</option>
           }
         </select>
       </div>
@@ -51,19 +104,33 @@
         <label for="phone">Phone</label>
         <input type="text" id="phone" formControlName="phone" />
       </div>
+      @if (this.signupForm.controls['phone'].invalid && this.signupForm.controls['phone'].touched) {
+      <section class="error-message" style="width: 100%;">
+        @if (signupForm.controls['phone'].errors?.['required']) {
+        <small class="warning">
+          <p>{{"fields emails is mandatory" | upcaseFirstWord}}</p>
+        </small>
+        }
+        @if (signupForm.controls['phone'].errors?.['invalidNumbers']) {
+        <small class="warning">
+          <p>{{ " non-standard data, just allowed numbers. " | upcaseFirstWord}}</p>
+        </small>
+        }
+      </section>
+      }
     </div>
 
     <!-- Emails -->
     <div formArrayName="emails">
       <div class="form-group">
         @for (email of email.controls; track $index) {
-          @if ($index == 0) {
-          <label>Email</label>
-          <input [formControlName]="$index" type="email" />
+        @if ($index == 0) {
+        <label>Email</label>
+        <input [formControlName]="$index" type="email" />
         }
         @if ($index > 0) {
-          <label>Confirm Email</label>
-          <input [formControlName]="$index" type="email" />
+        <label>Confirm Email</label>
+        <input [formControlName]="$index" type="email" />
         }
         }
       </div>
@@ -74,12 +141,12 @@
       <div class="form-group">
         @for (pass of passwords.controls; track $index) {
         @if ($index == 0) {
-          <label>Password</label>
-          <input [formControlName]="$index" type="password" />
+        <label>Password</label>
+        <input [formControlName]="$index" type="password" />
         }
         @if ($index > 0) {
-          <label>Confirm Password</label>
-          <input [formControlName]="$index" type="password" />
+        <label>Confirm Password</label>
+        <input [formControlName]="$index" type="password" />
         }
         }
       </div>

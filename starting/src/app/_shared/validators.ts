@@ -69,7 +69,7 @@ export const correctName = (): ValidatorFn => {
 
 
 export const justNumbersLettersDot = (): ValidatorFn => {
-  const justNumbesLetters: RegExp = /^[A-Za-z0-9.\u00BA ]+$/;
+  const justNumbesLetters: RegExp = /^(?!^[\p{L}\p{M}.ºª ]+$)([\p{L}\p{M}0-9.ºª ]+)$/u;
   return (control: AbstractControl): ValidationErrors | null => {
     const localNumbersLettersValue = control.value;
     if (!localNumbersLettersValue) {
@@ -84,7 +84,7 @@ export const justNumbersLettersDot = (): ValidatorFn => {
 }
 export const justNumbers = (): ValidatorFn => {
   /**checa numeros, permite espaço " ", e o traço "-" */
-  const justNumbers: RegExp = /^[0-9 \.-]*\.?[0-9 \.-]+$/;
+  const justNumbers: RegExp = /^(?=(?:[0-9-]*[0-9]){10,15}$)[0-9-]+$/;
   return (control: AbstractControl): ValidationErrors | null => {
     const localNumbersValue = control.value;
     if (!localNumbersValue) {

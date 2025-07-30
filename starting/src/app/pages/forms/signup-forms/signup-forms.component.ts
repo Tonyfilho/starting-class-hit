@@ -10,11 +10,12 @@ import { DdiDataArray } from '../../../_services/mock/ddi-mock-data-array';
 import { IDdiEn } from '../../../_shared/interfaces/iddi-en';
 import { correctName, isMatch, justNumbers, justNumbersLettersDot, passwordVerification } from '../../../_shared/validators';
 import { ImageCompressService } from '../../../_shared/image-compress/image-compress.service';
+import { UpcaseFirstWordPipe } from "../../../_shared/pipes/upcase-first-word.pipe";
 
 
 @Component({
   selector: 'app-sign-up',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, UpcaseFirstWordPipe],
   templateUrl: './signup-forms.component.html',
   styleUrl: './signup-forms.component.css'
 })
@@ -65,7 +66,7 @@ export class SignUpFormsComponent implements OnInit {
   get email() {
     return this.signupForm.get('emails') as FormArray;
   }
-  
+
 
   /**Pegando os errors */
 
@@ -93,7 +94,12 @@ export class SignUpFormsComponent implements OnInit {
     //   return this.signupForm.markAllAsTouched();
     // }
     /**Envia o Form para um serviço  */
-   // this.onImageSelected();
+    // this.onImageSelected();
+
+    /**Removendo o Hifen do numero */
+    const localPhoneNumer: string = this.signupForm.get("phone")?.value.replace(/-/g, '');
+    this.signupForm.get("phone")?.setValue(localPhoneNumer);
+
     console.log(this.signupForm.value);
   }
 
@@ -109,7 +115,8 @@ export class SignUpFormsComponent implements OnInit {
      }*/
 
     this.imageCompress.compressImage(file).subscribe(image => {
-       this.signupForm.get('photoURL')?.patchValue(image), this.imagePreview = image });
+      this.signupForm.get('photoURL')?.patchValue(image), this.imagePreview = image
+    });
   }
 
 

@@ -45,6 +45,28 @@
   box-sizing: border-box;
 }
 
+/* ---------- ESTILOS DE ERRO ---------- */
+.error-message {
+  color: var(--secondary-color);
+  background-color: rgba(204, 33, 33, 0.1);
+  padding: 0.8rem;
+  border-radius: var(--border-radius);
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  border-left: 3px solid var(--secondary-color);
+}
+
+.error-message::before {
+  content: "⚠ ";
+  color: var(--secondary-color);
+  font-weight: bold;
+}
+
+.warning {
+  color: var(--text-color);
+}
+
+
 .form-row {
   display: flex;
   gap: 1rem;
