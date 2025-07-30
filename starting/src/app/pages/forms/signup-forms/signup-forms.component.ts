@@ -56,6 +56,19 @@ export class SignUpFormsComponent implements OnInit {
     // this.signupForm.get('emails')?.events.subscribe(e => console.log("required", e.source.getError('required'), 'emails ' + e.source.getError('email')));
   }
 
+  /**Criando os arrays */
+
+  get passwords() {
+    return this.signupForm.get('passwords') as FormArray;
+  }
+
+  get email() {
+    return this.signupForm.get('emails') as FormArray;
+  }
+  
+
+  /**Pegando os errors */
+
   get emailRequiredError() {
     const emailsArray = this.signupForm.get('emails') as FormArray;
     // Verifica se o primeiro ou o segundo email têm erro 'required'
@@ -73,14 +86,6 @@ export class SignUpFormsComponent implements OnInit {
     return passwordArray.at(0).hasError('required') || passwordArray.at(1).hasError('required');
   }
 
-
-  get passwords() {
-    return this.signupForm.get('passwords') as FormArray;
-  }
-
-  get email() {
-    return this.signupForm.get('emails') as FormArray;
-  }
   onSubmit() {
 
     // if (!this.signupForm.valid) {

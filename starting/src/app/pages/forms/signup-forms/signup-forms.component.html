@@ -57,9 +57,14 @@
     <div formArrayName="emails">
       <div class="form-group">
         @for (email of email.controls; track $index) {
-        <label>Email {{ $index + 1 }}</label>
-        <input [formControlName]="$index" type="email" />
-
+          @if ($index == 0) {
+          <label>Email</label>
+          <input [formControlName]="$index" type="email" />
+        }
+        @if ($index > 0) {
+          <label>Confirm Email</label>
+          <input [formControlName]="$index" type="email" />
+        }
         }
       </div>
     </div>
@@ -68,9 +73,14 @@
     <div formArrayName="passwords">
       <div class="form-group">
         @for (pass of passwords.controls; track $index) {
-        <label>Password {{ $index + 1 }}</label>
-        <input [formControlName]="$index" type="password" />
-
+        @if ($index == 0) {
+          <label>Password</label>
+          <input [formControlName]="$index" type="password" />
+        }
+        @if ($index > 0) {
+          <label>Confirm Password</label>
+          <input [formControlName]="$index" type="password" />
+        }
         }
       </div>
     </div>
